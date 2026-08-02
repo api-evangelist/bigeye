@@ -1,0 +1,123 @@
+generated: '2026-08-02'
+method: searched
+source: openapi/bigeye-metadata-openapi.json, openapi/bigeye-observability-openapi.json,
+  openapi/bigeye-sensitivity-openapi.json
+docs: https://docs.bigeye.com/docs/using-api-keys
+additional_docs:
+- https://docs.bigeye.com/docs/api-user-guide
+- https://docs.bigeye.com/docs/service-accounts
+- https://docs.bigeye.com/docs/permissions
+- https://docs.bigeye.com/docs/single-sign-on-sso
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+  oauth2_flows: []
+  oauth2: false
+  note: >-
+    Bigeye has no OAuth surface for its API. The three published OpenAPI
+    definitions declare exactly three security schemes, applied identically
+    across all 263 operations, with a top-level requirement of
+    [basicAuth] OR [Personal_API_Key].
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic with a Bigeye username and password.
+  sources:
+  - openapi/bigeye-metadata-openapi.json
+  - openapi/bigeye-observability-openapi.json
+  - openapi/bigeye-sensitivity-openapi.json
+- name: Personal_API_Key
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Add 'apikey ' to the beginning of your api key
+  sources:
+  - openapi/bigeye-metadata-openapi.json
+  - openapi/bigeye-observability-openapi.json
+  - openapi/bigeye-sensitivity-openapi.json
+- name: Agent_API_Key
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Add 'apikey ' to the beginning of your api key
+  sources:
+  - openapi/bigeye-metadata-openapi.json
+  - openapi/bigeye-observability-openapi.json
+  - openapi/bigeye-sensitivity-openapi.json
+credential_types:
+- name: Personal API Key
+  bound_to: an individual user account
+  managed_at: https://app.bigeye.com/settings/api-keys
+  create: Advanced Settings > API Keys > "Create personal key"
+  verify_endpoint: GET https://<company-prefix>.bigeye.com/api/v1/personal-api-keys/verify
+  verify_success: 204
+  verify_failure: 401
+  example_prefix: bigeye_pak_
+  shown_once: true
+  operations: [ApiKeyService_GetAllPersonalApiKeys, ApiKeyService_DeletePersonalApiKey,
+    ApiKeyService_VerifyPersonalApiKey]
+- name: Agent API Key
+  bound_to: the company, used by the Bigeye data source agent
+  managed_at: https://app.bigeye.com/settings/api-keys
+  create: Advanced Settings > API Keys > "Create Agent key"
+  admin_only: true
+  verify_endpoint: GET https://app.bigeye.com/api/v1/agent-api-keys/verify
+  verify_success: 204
+  verify_failure: 401
+  shown_once: true
+  operations: [ApiKeyService_GetAllAgentApiKeys, ApiKeyService_CreateAgentApiKey, ApiKeyService_DeleteAgentApiKey,
+    ApiKeyService_VerifyAgentApiKey]
+  note: Replaces the older mTLS agent authentication — see https://docs.bigeye.com/docs/upgrading-agent-from-mtls-to-api-keys
+- name: Service Account API Key
+  bound_to: a non-human identity used to automate workflows
+  docs: https://docs.bigeye.com/docs/service-accounts
+  operations: [ServiceAccountApiKeyService_CreateServiceAccountApiKey, ServiceAccountApiKeyService_DeleteServiceAccountApiKey,
+    ServiceAccountApiKeyService_ListAllServiceAccountKeys, ServiceAccountApiKeyService_ListKeysForServiceAccount]
+header_format:
+  header: Authorization
+  value: apikey <API_KEY>
+  warning: >-
+    The prefix is the literal lowercase string "apikey " — NOT "Bearer" and NOT
+    "ApiKey". This is the most common integration mistake against the Bigeye
+    API and is the same header the MCP gateway expects.
+  example: 'curl -i -H "Authorization: apikey $BIGEYE_PERSONAL_API_KEY" "https://app.bigeye.com/api/v1/personal-api-keys/verify"'
+authorization:
+  model: role-based, evaluated per workspace
+  roles: [view only, edit, manage, admin]
+  docs: https://docs.bigeye.com/docs/permissions
+  note: >-
+    "The access level for authentication is based upon the access granted in
+    Bigeye. Users with the view only, edit, and manage roles will be restricted
+    from doing certain API calls based upon their access." The API therefore
+    returns different results for the same operation depending on the caller's
+    role, and the OpenAPI cannot express which operations a role can reach.
+  scopes: false
+  scopes_note: >-
+    There are no OAuth scopes. Authorization is entirely role-based, which is
+    why no scopes/ artifact is emitted for this provider.
+tenancy_header:
+  header: X-Bigeye-Workspace-Id
+  required_for: workspace-scoped list, count and create operations
+  alternatives: [workspaceId query parameter, workspaceId body parameter]
+  failure: 400 '{"code":400,"message":"A workspace ID must be supplied"}'
+other_surfaces:
+- surface: MCP Gateway
+  url: https://mcpgateway.bigeye.com/mcp
+  auth: 'Authorization: apikey <key> + x-bigeye-workspace-id: <id> (+ optional x-bigeye-url)'
+  oauth: false
+  artifact: mcp/bigeye-mcp.yml
+- surface: Bigeye CLI
+  auth: basic (username/password) or browser session reuse, via `bigeye configure`
+  credential_file: ~/.bigeye/credentials
+  artifact: cli/bigeye-cli.yml
+- surface: Application sign-in (not the API)
+  auth: 'SSO via Auth0: Okta, Ping Identity and Azure AD supported for Enterprise'
+  docs: https://docs.bigeye.com/docs/single-sign-on-sso
+- surface: Data source connections (Bigeye to the customer's warehouse)
+  auth: read-only JDBC service accounts, Kerberos supported on agent connections,
+    OAuth client-credentials for Salesforce sources
+  docs: https://docs.bigeye.com/docs/source-support

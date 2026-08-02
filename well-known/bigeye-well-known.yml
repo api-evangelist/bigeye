@@ -1,0 +1,78 @@
+generated: '2026-08-02'
+method: searched
+source: live probes of every Bigeye host on 2026-08-02
+hosts_probed:
+- https://app.bigeye.com
+- https://www.bigeye.com
+- https://docs.bigeye.com
+- https://mcpgateway.bigeye.com
+documents:
+- host: https://docs.bigeye.com
+  path: /.well-known/api-catalog
+  status: 200
+  content_type: application/linkset+json
+  standard: RFC 9727 (API Catalog) / RFC 9264 linkset
+  file: bigeye-api-catalog.json
+  note: >-
+    Lists all three published OpenAPI definitions as service-desc links —
+    metadata.json, observability.json and sensitivity.json — each pointing at
+    https://docs.bigeye.com/openapi/<name>.json with media type
+    application/vnd.oai.openapi+json. This is the authoritative discovery
+    document for the Bigeye API contract.
+- host: https://docs.bigeye.com
+  path: /.well-known/security.txt
+  status: 404
+- host: https://docs.bigeye.com
+  path: /.well-known/openid-configuration
+  status: 404
+- host: https://docs.bigeye.com
+  path: /.well-known/oauth-authorization-server
+  status: 404
+- host: https://docs.bigeye.com
+  path: /.well-known/oauth-protected-resource
+  status: 404
+- host: https://docs.bigeye.com
+  path: /.well-known/ai-plugin.json
+  status: 404
+- host: https://docs.bigeye.com
+  path: /.well-known/agent-card.json
+  status: 404
+- host: https://docs.bigeye.com
+  path: /.well-known/agent.json
+  status: 404
+- host: https://www.bigeye.com
+  path: /.well-known/security.txt
+  status: 404
+  note: 'Host answers all /.well-known/* with "Invalid .well-known request" (404).'
+- host: https://mcpgateway.bigeye.com
+  path: /.well-known/agent-card.json
+  status: 404
+- host: https://mcpgateway.bigeye.com
+  path: /.well-known/agent.json
+  status: 404
+- host: https://mcpgateway.bigeye.com
+  path: /.well-known/oauth-authorization-server
+  status: 404
+- host: https://mcpgateway.bigeye.com
+  path: /.well-known/oauth-protected-resource
+  status: 404
+  note: >-
+    The MCP gateway does not use OAuth; it authenticates with a Bigeye API key
+    passed as an "apikey"-prefixed Authorization header.
+- host: https://app.bigeye.com
+  path: /.well-known/*
+  status: 200
+  rejected: true
+  note: >-
+    app.bigeye.com is a single-page application whose catch-all route answers
+    HTTP 200 with the same 12,997-byte HTML shell for EVERY /.well-known/ path
+    (security.txt, openid-configuration, oauth-authorization-server,
+    api-catalog, ai-plugin.json, agent-card.json, agent.json). None of these
+    are real documents and none were recorded as hits.
+summary:
+  api_catalog: true
+  security_txt: false
+  openid_configuration: false
+  oauth_authorization_server: false
+  ai_plugin: false
+  agent_card: false

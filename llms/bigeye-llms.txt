@@ -1,0 +1,505 @@
+# Bigeye Documentation
+
+> Bigeye provides data observability capabilities including pipeline monitoring, data quality monitoring, schema change detection, and data lineage.
+
+## Guides
+- [What is Bigeye?](https://docs.bigeye.com/docs/what-is-bigeye.md): The enterprise-grade data observability platform.
+- [Getting Started](https://docs.bigeye.com/docs/getting-started.md): Start creating complete observability across your enterprise data landscape.
+- [Data Source Connection](https://docs.bigeye.com/docs/source-support.md): Connect your data sources to Bigeye for monitoring and lineage.
+- [Agent-based Connections](https://docs.bigeye.com/docs/agent-connection.md)
+- [Connection status](https://docs.bigeye.com/docs/agent-data-source-connection-status.md)
+- [Kerberos Authentication](https://docs.bigeye.com/docs/kerberos-authentication-agent-only.md)
+- [Migrating from mTLS to API Keys](https://docs.bigeye.com/docs/upgrading-agent-from-mtls-to-api-keys.md)
+- [Data Source Agent Changelog](https://docs.bigeye.com/docs/data-source-agent-changelog.md)
+- [Cross Source Agent Changelog](https://docs.bigeye.com/docs/cross-source-agent-changelog.md)
+- [Sample Source Configurations](https://docs.bigeye.com/docs/sample-source-configurations.md)
+- [Agentless Connections](https://docs.bigeye.com/docs/data-source-1.md)
+- [Connect AWS Athena](https://docs.bigeye.com/docs/connect-athena.md)
+- [Connect AWS Redshift](https://docs.bigeye.com/docs/redshift.md)
+- [Connect Azure Synapse](https://docs.bigeye.com/docs/connect-azure-synapse.md)
+- [Connect Databricks](https://docs.bigeye.com/docs/connecting-to-databricks-deltalake.md)
+- [Connect DB2 UDB](https://docs.bigeye.com/docs/connect-db2-udb.md)
+- [Connect GCP BigQuery](https://docs.bigeye.com/docs/connect-gcp-bigquery.md)
+- [Connect Microsoft SQL Server](https://docs.bigeye.com/docs/connect-microsoft-sql-server.md)
+- [Connect MySQL](https://docs.bigeye.com/docs/connect-mysql.md)
+- [Connect Oracle](https://docs.bigeye.com/docs/connect-oracle.md)
+- [Connect Postgres](https://docs.bigeye.com/docs/connect-postgresql.md)
+- [Connect SAP HANA](https://docs.bigeye.com/docs/connect-sap-hana.md)
+- [Connect Snowflake](https://docs.bigeye.com/docs/snowflake.md)
+- [Connect Teradata](https://docs.bigeye.com/docs/connect-teradata.md)
+- [Connect Trino](https://docs.bigeye.com/docs/connect-trino.md)
+- [Connect Salesforce](https://docs.bigeye.com/docs/connect-salesforce.md): Set up a Salesforce data source in Bigeye using an External App with OAuth Client Credentials flow
+- [Establish Lineage with Lineage Plus](https://docs.bigeye.com/docs/lineage.md): Fully automated column level lineage for modern and legacy data sources.
+- [Deploying Monitoring with Lineage](https://docs.bigeye.com/docs/deploying-monitoring-with-lineage.md): Instantly monitor all upstream dependencies from any target asset.
+- [Team Management](https://docs.bigeye.com/docs/manage-your-team-in-bigeye.md): Workspace, groups, users, and roles help you manage Bigeye users at any scale.
+- [Manage Workspaces](https://docs.bigeye.com/docs/manage-workspaces.md): Create separated areas for data domains, departments, or other groups of users.
+- [Manage Groups](https://docs.bigeye.com/docs/manage-groups.md)
+- [Manage Users](https://docs.bigeye.com/docs/manage-users.md)
+- [Manage Roles](https://docs.bigeye.com/docs/manage-roles.md)
+- [Permissions](https://docs.bigeye.com/docs/permissions.md)
+- [Service Accounts](https://docs.bigeye.com/docs/service-accounts.md): Service accounts are non human identities used to securely access Bigeye APIs and automate workflows without relying on individual user credentials.
+- [Tags](https://docs.bigeye.com/docs/tags.md): A flexible way to organize, filter, and manage your data assets, metrics, rules, and more.
+- [Agent CLI](https://docs.bigeye.com/docs/agent-cli.md): Install, configure, and manage Bigeye agents with the Agent CLI
+- [Installation](https://docs.bigeye.com/docs/installation.md): Download and install the Bigeye Agent CLI
+- [Connectors](https://docs.bigeye.com/docs/connectors.md): Add and manage data source connectors
+- [Secrets Manager Integration](https://docs.bigeye.com/docs/secrets-manager-integration-1.md): Securely store credentials using external secrets managers
+- [Agent Types](https://docs.bigeye.com/docs/agent-types.md): Overview of all Bigeye agent types managed by the Agent CLI
+- [Data Source Agent](https://docs.bigeye.com/docs/data-source-agent.md): Connect your data warehouses to Bigeye for monitoring
+- [Lineage Plus Agent](https://docs.bigeye.com/docs/lineage-plus-agent-1.md): Collect lineage metadata from databases, BI tools, and ETL platforms
+- [Data Health Agent](https://docs.bigeye.com/docs/data-health-agent.md): Monitor data quality through external data catalog integrations
+- [Sensitive Data Scanning Agent](https://docs.bigeye.com/docs/sensitive-data-scanning-agent.md): Scan data sources for sensitive data like PII
+- [Cross-Source Agent](https://docs.bigeye.com/docs/cross-source-agent.md): Compare data across multiple sources for consistency validation
+- [External Monitors Agent](https://docs.bigeye.com/docs/external-monitors-agent.md): Integrate with external monitoring tools like dbt tests
+- [Supported Deployment Methods](https://docs.bigeye.com/docs/supported-deployment-methods.md): Deploy Bigeye agents
+- [Docker Deployment](https://docs.bigeye.com/docs/docker-deployment.md): Deploy Bigeye agents using Docker containers
+- [Kubernetes Deployment](https://docs.bigeye.com/docs/kubernetes-deployment.md): Deploy Bigeye agents on Kubernetes clusters
+- [Agent Orchestrator](https://docs.bigeye.com/docs/agent-orchestrator.md): Manage self-hosted agents and run their jobs from the Bigeye UI
+- [Registering a Host](https://docs.bigeye.com/docs/agent-orchestrator-registration.md): Register a host so Bigeye can orchestrate its batch agent jobs
+- [Creating & Managing Agent Jobs](https://docs.bigeye.com/docs/creating-managing-agent-jobs.md): Create, trigger, monitor, and delete batch agent jobs from Bigeye
+- [Migrating to the Agent Orchestrator](https://docs.bigeye.com/docs/migrating-to-the-agent-orchestrator.md): Register an existing host so Bigeye can orchestrate its batch agent jobs
+- [Troubleshooting](https://docs.bigeye.com/docs/troubleshooting.md): Common issues and how to resolve them
+- [Command Reference](https://docs.bigeye.com/docs/command-reference.md): Quick reference for all Agent CLI commands
+- [Getting Started](https://docs.bigeye.com/docs/getting-started-agent-trust.md): Start creating monitoring AI agents and data quality across your enterprise data landscape.
+- [AI Platform Connection](https://docs.bigeye.com/docs/ai-platform-connection.md): Connect AI platforms to Bigeye to receive insights about table access, cost, and more
+- [Connect Databricks to Agent Trust Hub](https://docs.bigeye.com/docs/connect-databricks-to-agent-trust-hub.md)
+- [Agent Trust Pages](https://docs.bigeye.com/docs/agent-trust-pages.md): View different pages within the agent trust hub and trial
+- [Setup page](https://docs.bigeye.com/docs/setup-page.md): Track your progress as you set up Bigeye
+- [Home page](https://docs.bigeye.com/docs/home-page.md): See important data and insights from your workspace
+- [Insights](https://docs.bigeye.com/docs/insights.md)
+- [AI Conversation Page](https://docs.bigeye.com/docs/ai-conversation-page.md): Learn about the AI conversation page in Bigeye
+- [Agent Registry](https://docs.bigeye.com/docs/agent-registry.md)
+- [Trial Limitations](https://docs.bigeye.com/docs/trial-limitations.md)
+- [Database Connectors](https://docs.bigeye.com/docs/database-connectors.md)
+- [SQL Server Lineage Connector](https://docs.bigeye.com/docs/sql-server-lineage-connector.md)
+- [Snowflake Lineage Connector](https://docs.bigeye.com/docs/snowflake-lineage-connector.md)
+- [Databricks Lineage Connector](https://docs.bigeye.com/docs/databricks-lineage-connector.md)
+- [Oracle Lineage Connector](https://docs.bigeye.com/docs/oracle-lineage-connector.md)
+- [IBM DB2 z/OS](https://docs.bigeye.com/docs/db2-zos-lineage-connector.md): Connect IBM DB2 z/OS to Bigeye for lineage collection.
+- [IBM Netezza](https://docs.bigeye.com/docs/netezza-lineage-connector.md): Connect IBM Netezza to Bigeye for lineage collection.
+- [ETL Connectors](https://docs.bigeye.com/docs/etl-connectors.md)
+- [Azure Data Factory](https://docs.bigeye.com/docs/azure-data-factory-adf-lineage-connector.md): The Azure Data Factory (ADF) Lineage Connector enables Bigeye to visualize and understand data movement and transformations within your ADF pipelines, including column-level lineage.
+- [dbt Cloud and Core](https://docs.bigeye.com/docs/dbt-connector.md): The dbt connector collects run artifacts from your dbt projects and parses those run artifacts for lineage, metadata, and dbt tests to integrate into Bigeye. We support both dbt Core and dbt Cloud through a configurable properties file.
+- [IBM DataStage](https://docs.bigeye.com/docs/ibm-datastage-connector.md): The IBM DataStage connector captures job metadata and lineage from InfoSphere DataStage. It ingests job definitions, parameters, and dependencies to build end-to-end lineage.
+- [Informatica PowerCenter](https://docs.bigeye.com/docs/informatica-powercenter-connector.md): The Informatica PowerCenter Connector ingests workflow and mapping metadata to build end-to-end lineage across your ETL ecosystem.
+- [Matillion ETL](https://docs.bigeye.com/docs/matillion-etl-lineage-connector.md): The Matillion ETL connector extracts lineage from Matillion Orchestration and Transformation jobs. It supports both live API integration and file-based operation, building lineage across Matillion pipelines at the table and column level.
+- [SnapLogic](https://docs.bigeye.com/docs/snaplogic-lineage-connector.md): The SnapLogic connector extracts metadata from the SnapLogic REST API to build lineage for data movement and transformations within SnapLogic pipelines.
+- [Microsoft SSIS](https://docs.bigeye.com/docs/ssis-lineage-connector.md): Connect Microsoft SQL Server Integration Services (SSIS) to Bigeye for lineage collection.
+- [BI Connectors](https://docs.bigeye.com/docs/bi-connectors.md): Browse Lineage Plus connector setup guides for supported business intelligence platforms.
+- [Looker](https://docs.bigeye.com/docs/looker-lineage-connector.md): Configure Bigeye to connect to Looker and retrieve data lineage using a dedicated user, role, and API key.
+- [PowerBI](https://docs.bigeye.com/docs/powerbi-lineage.md)
+- [Qlik Sense](https://docs.bigeye.com/docs/qlik-sense-lineage-connector.md): To enable Bigeye to connect to Qlik Sense and retrieve data lineage, you will need to create a user and prep your configuration parameters.
+- [Tableau](https://docs.bigeye.com/docs/tableau-lineage-connector.md): Surface Tableau objects into your catalog and lineage.
+- [IBM Cognos Analytics](https://docs.bigeye.com/docs/ibm-cognos-analytics-lineage-connector.md): Connect IBM Cognos Analytics to Bigeye for lineage collection.
+- [Strategy (formerly MicroStrategy)](https://docs.bigeye.com/docs/strategy-lineage-connector.md): Connect Strategy to Bigeye for lineage collection.
+- [SAP Business Objects](https://docs.bigeye.com/docs/sap-business-objects-lineage-connector.md): Connect SAP Business Objects to Bigeye for lineage collection.
+- [AtScale](https://docs.bigeye.com/docs/atscale-lineage-connector.md): Connect AtScale to Bigeye for lineage collection.
+- [Sigma](https://docs.bigeye.com/docs/sigma-lineage-connector.md): Connect Sigma to Bigeye for lineage collection.
+- [Microsoft SQL Server Analytics Services (SSAS)](https://docs.bigeye.com/docs/ssas-lineage-connector.md): Connect Microsoft SQL Server Analytics Services to Bigeye for lineage collection.
+- [Microsoft SQL Server Reporting Services (SSRS)](https://docs.bigeye.com/docs/ssrs-lineage-connector.md): Connect Microsoft SQL Server Reporting Services to Bigeye for lineage collection.
+- [Preparing the Catalog](https://docs.bigeye.com/docs/catalog.md): See all data sources you have connected to Bigeye.
+- [Collections](https://docs.bigeye.com/docs/collections-1.md): Group metrics into Collections and receive notifications when metrics alert.
+- [Popularity](https://docs.bigeye.com/docs/popularity.md)
+- [Schema Change Detection](https://docs.bigeye.com/docs/schema-change-detection.md)
+- [Favorites](https://docs.bigeye.com/docs/favorites.md)
+- [Table Preview](https://docs.bigeye.com/docs/preview.md)
+- [Asset Linking](https://docs.bigeye.com/docs/asset-linking.md): Asset linking is an optional feature that you can request to have enabled in your Bigeye
+- [Deploying Monitoring](https://docs.bigeye.com/docs/monitoring.md)
+- [Metrics](https://docs.bigeye.com/docs/metrics.md): Monitor your data for anomalies and deviations without the manual effort of fixed rules.
+- [Deploy Metrics](https://docs.bigeye.com/docs/deploy-metrics.md)
+- [Grouped Metrics](https://docs.bigeye.com/docs/grouped-metric.md)
+- [Row Creation Time](https://docs.bigeye.com/docs/row-creation-time.md)
+- [Debug Query](https://docs.bigeye.com/docs/debug-query.md)
+- [Freshness and Volume (Pipeline Reliability)](https://docs.bigeye.com/docs/freshness-and-volume-pipeline-reliability-copy.md)
+- [Thresholds](https://docs.bigeye.com/docs/autothresholds.md): Get alerted when metrics move outside of their expected bounds.
+- [Custom Thresholds](https://docs.bigeye.com/docs/manual-thresholds.md)
+- [Data Profiling](https://docs.bigeye.com/docs/data-profiling.md): Quickly understand the contents of your data and identify the right monitoring to apply.
+- [Deltas](https://docs.bigeye.com/docs/deltas.md): Compare similar datasets and validate successful data replication, migration, or model code changes.
+- [Create and Delete Deltas](https://docs.bigeye.com/docs/creating-a-new-delta-1.md)
+- [Run and Schedule Deltas](https://docs.bigeye.com/docs/running-deltas.md)
+- [View Delta Results](https://docs.bigeye.com/docs/viewing-delta-results-1.md)
+- [Rules](https://docs.bigeye.com/docs/custom-rules.md): Augment your metrics with custom rules that can cover complex and unique business logic.
+- [Custom SQL Rules](https://docs.bigeye.com/docs/copy-of-rules.md): Custom SQL Rules allow you create complex rules to accompany your metrics setup.
+- [Join Rules](https://docs.bigeye.com/docs/join-based-rules.md): Validate data consistency across multiple tables and even across different data sources
+- [Customization](https://docs.bigeye.com/docs/customize-monitoring.md): Customize your data observability setup to match your organization's unique needs.
+- [Data Dimensions](https://docs.bigeye.com/docs/manage-dimensions.md): Align data health reporting to match the dimensions your organization uses.
+- [Templates](https://docs.bigeye.com/docs/templates.md)
+- [Virtual Tables](https://docs.bigeye.com/docs/virtual-tables.md)
+- [Creating a Virtual Table](https://docs.bigeye.com/docs/creating-a-virtual-table.md)
+- [Editing a Virtual Table](https://docs.bigeye.com/docs/editing-a-virtual-table.md)
+- [Deleting a Virtual Table](https://docs.bigeye.com/docs/deleting-a-virtual-table.md)
+- [Adding Metrics to a Virtual Table](https://docs.bigeye.com/docs/adding-metrics-to-a-virtual-table.md)
+- [Failed Connection](https://docs.bigeye.com/docs/advanced.md)
+- [Use Cases for Virtual Tables](https://docs.bigeye.com/docs/use-cases-for-virtual-tables.md)
+- [Unified Issue Inbox](https://docs.bigeye.com/docs/unified-issue-inbox.md)
+- [Notifications](https://docs.bigeye.com/docs/collaboration-tools.md): Get alerted as soon as issues are detected with your data pipeline so you can resolve them quickly.
+- [Slack](https://docs.bigeye.com/docs/slack.md)
+- [Email](https://docs.bigeye.com/docs/email.md)
+- [Webhooks](https://docs.bigeye.com/docs/webhooks.md)
+- [Microsoft Teams](https://docs.bigeye.com/docs/microsoft-teams.md)
+- [Jira](https://docs.bigeye.com/docs/jira.md)
+- [ServiceNow](https://docs.bigeye.com/docs/servicenow.md)
+- [Failed Monitor Notifications](https://docs.bigeye.com/docs/failed-monitor-notifications.md): Get notified when a monitor fails to run or encounters an error
+- [Triaging an Issue](https://docs.bigeye.com/docs/issues.md): Incident management is key to fixing data and pipeline problems quickly to minimize business impact.
+- [View Issues](https://docs.bigeye.com/docs/view-issues.md)
+- [View Issue Details](https://docs.bigeye.com/docs/view-issue-details.md)
+- [Change the Issue Status](https://docs.bigeye.com/docs/change-the-issue-status.md)
+- [Mute Issues](https://docs.bigeye.com/docs/mute-issues.md)
+- [Impact Analysis](https://docs.bigeye.com/docs/impact-analysis.md): Instantly understand the impact of problems and begin resolving them.
+- [Declaring an Incident](https://docs.bigeye.com/docs/incidents.md): Incidents combine multiple issues together into a single object with a common root cause.
+- [Overview](https://docs.bigeye.com/docs/bigai.md): Intelligence embedded throughout Bigeye to help you deliver trusted data to your organization.
+- [bigAI Chat](https://docs.bigeye.com/docs/bigai-chat.md)
+- [MCP Server](https://docs.bigeye.com/docs/bigeye-mcp-server.md): A hosted MCP (Model Context Protocol) server that provides tools for interacting with Bigeye
+- [Issue and Incident Descriptions](https://docs.bigeye.com/docs/descriptions.md): bigAI generates helps you quickly understand objects like Issues and Incidents.
+- [Suggested Resolutions](https://docs.bigeye.com/docs/suggested-resolutions.md): bigAI can help you resolve issues and incidents faster to minimize business impact.
+- [Suggested Preventions](https://docs.bigeye.com/docs/suggested-preventions.md): bigAI can analyze your ETL jobs and suggest improvements to make them more reliable and performant.
+- [Cron Suggestions](https://docs.bigeye.com/docs/cron-suggestions.md): bigAI can recommend Cron strings for you to simplify custom schedules.
+- [Security and Privacy](https://docs.bigeye.com/docs/security-and-privacy.md): bigAI is designed with enterprise grade privacy and security considerations.
+- [Reviewing Data Health](https://docs.bigeye.com/docs/reviewing-data-health.md)
+- [Scorecard](https://docs.bigeye.com/docs/scorecard.md): See a summary of health for any schema, table, or column connected to Bigeye.
+- [Dashboard](https://docs.bigeye.com/docs/dashboard.md)
+- [Snowflake Share Data Model](https://docs.bigeye.com/docs/snowflake-share-data-model.md)
+- [Data Catalogs](https://docs.bigeye.com/docs/catalogs.md)
+- [Integration Implementation](https://docs.bigeye.com/docs/catalog-integration-implementation.md)
+- [Alation](https://docs.bigeye.com/docs/alation-data-health.md)
+- [Atlan](https://docs.bigeye.com/docs/atlan-native.md)
+- [ETL and Orchestration Tools](https://docs.bigeye.com/docs/etl-and-orchestration-tools.md)
+- [Airflow](https://docs.bigeye.com/docs/airflow-guide.md)
+- [dbt](https://docs.bigeye.com/docs/dbt.md)
+- [Browser Extension](https://docs.bigeye.com/docs/browser-extension.md)
+- [Monitor Dashboard Health](https://docs.bigeye.com/docs/monitoring-dashboard-health-with-an-sla.md)
+- [Monitor Data Replication Accuracy with Bigeye Deltas](https://docs.bigeye.com/docs/monitor-source-and-destination-tables-with-bigeye-deltas.md)
+- [Interact with Bigeye via Slack](https://docs.bigeye.com/docs/slack-interactions.md)
+- [Monitor dbt performance with Bigeye](https://docs.bigeye.com/docs/how-to-implement-dbt-observability-with-bigeye.md)
+- [Referential Integrity](https://docs.bigeye.com/docs/referential-integrity.md)
+- [Validate dbt Model Changes Using Bigeye Deltas](https://docs.bigeye.com/docs/validate-dbt-model-changes-using-bigeye-deltas.md)
+- [bigConfig](https://docs.bigeye.com/docs/bigconfig.md): Configuration-as-code for Data Observability
+- [Bigeye-CLI](https://docs.bigeye.com/docs/cli.md): Power tools for your command line
+- [Python SDK](https://docs.bigeye.com/docs/sdk.md)
+- [API User Guide](https://docs.bigeye.com/docs/api-user-guide.md)
+- [Lineage API](https://docs.bigeye.com/docs/lineage-api.md)
+- [Using API Keys](https://docs.bigeye.com/docs/using-api-keys.md): Create, delete, and verify API Keys
+- [Available Metrics](https://docs.bigeye.com/docs/available-metrics.md)
+- [Metric Window Types](https://docs.bigeye.com/docs/metric-window-types.md)
+- [Schedules](https://docs.bigeye.com/docs/schedules.md): Make metrics, Deltas, and other things in Bigeye run on a custom schedule.
+- [Cron Formatting](https://docs.bigeye.com/docs/cron-formatting-1.md)
+- [Single Sign-on (SSO)](https://docs.bigeye.com/docs/single-sign-on-sso.md)
+- [Ping](https://docs.bigeye.com/docs/ping-openid.md)
+- [Cisco Duo](https://docs.bigeye.com/docs/duo.md)
+- [Microsoft Entra](https://docs.bigeye.com/docs/entra.md)
+- [Okta](https://docs.bigeye.com/docs/okta.md)
+- [OpenID Connect](https://docs.bigeye.com/docs/open-id-connect.md)
+- [Mapping IDP SSO Groups to Bigeye Groups](https://docs.bigeye.com/docs/mapping-idp-sso-groups-to-bigeye-groups.md)
+- [Migrate Metrics Across Data Sources](https://docs.bigeye.com/docs/migrate-metrics-across-sources.md)
+- [Browser Support](https://docs.bigeye.com/docs/browser-support.md)
+- [Release Notes](https://docs.bigeye.com/docs/release-notes.md)
+- [Aug 19, 2025](https://docs.bigeye.com/docs/aug-19-2025.md)
+- [Sep 16, 2025](https://docs.bigeye.com/docs/sept-16-2025.md)
+- [Oct 15, 2025](https://docs.bigeye.com/docs/oct-15-2025.md)
+- [Nov 19, 2025](https://docs.bigeye.com/docs/nov-19-2025.md)
+- [Dec 17, 2025](https://docs.bigeye.com/docs/dec-17-2025.md)
+- [Jan 14, 2026](https://docs.bigeye.com/docs/jan-14-2026.md)
+- [Feb 18, 2026](https://docs.bigeye.com/docs/feb-18-2026.md)
+- [Mar 17, 2026](https://docs.bigeye.com/docs/mar-17-2026.md)
+- [April 15, 2026](https://docs.bigeye.com/docs/april-15-2026.md)
+- [May 20, 2026](https://docs.bigeye.com/docs/may-20-2026.md)
+- [Jun 17, 2026](https://docs.bigeye.com/docs/jun-17-2026.md)
+- [July 16, 2026](https://docs.bigeye.com/docs/july-16-2026.md)
+- [Security and Compliance](https://docs.bigeye.com/docs/security-and-compliance.md)
+- [Accessibility](https://docs.bigeye.com/docs/accessibility.md): Bigeye believes that our software should work for you, no matter how you use our software, and regardless of your abilities
+- [Frequently Asked Questions](https://docs.bigeye.com/docs/security-frequently-asked-questions.md): This document consolidates the most common questions about what data is sent to Bigeye, how it’s handled, and how different connection and data modes work. It’s designed for security, compliance, and architecture reviewers who need a clear, single reference.
+- [Data Sensitivity Module — Overview](https://docs.bigeye.com/docs/data-sensitivity-module.md): This doc provides a high-level overview of the major features conatined in the Data Sensitivity module.
+- [Getting Started](https://docs.bigeye.com/docs/getting-started-scanning.md)
+- [Agent Specs & Setup](https://docs.bigeye.com/docs/data-sensitivity-agent-spec-and-setup.md): Infrastructure, container, and networking specifications for deploying the Bigeye Data Sensitivity Module.
+- [Creating Your Sensitive Data Scanning Strategy](https://docs.bigeye.com/docs/getting-started-with-sensitive-data-scanning.md): A guide to help kickstart your scanning initiatives
+- [Your First Sensitive Data Scan](https://docs.bigeye.com/docs/your-first-sensitive-data-scan.md)
+- [Scans and Scan Configuration](https://docs.bigeye.com/docs/scans-and-scan-configuration.md): This guide explains how Bigeye scans work and how to configure scan jobs effectively. It is intended as a deeper reference for users who already understand the basic setup flow from the “Creating Your First Scan” guide.
+- [Scan Outputs](https://docs.bigeye.com/docs/scan-outputs.md): Sensitive Data Scanning produces structured results every time a scan runs. This page explains how those results are organized, where to find them, how to export them, and — critically — what each output type actually tells you (and what it doesn't).
+- [Classifiers](https://docs.bigeye.com/docs/classifiers.md)
+- [Best Practices and Compliance Procedures](https://docs.bigeye.com/docs/security-considerations-data-sensitivity-module.md)
+
+## API Reference
+- [Get the public key the user's company Agent should use when sending messages to Bigeye](https://docs.bigeye.com/reference/agentservice_getbigeyepublickey-1.md)
+- [Get the public key Bigeye currently has for the user's company Agent](https://docs.bigeye.com/reference/agentservice_getcompanypublickey-1.md)
+- [Set the public key Bigeye will use to encrypt messages to the user's company Agent](https://docs.bigeye.com/reference/agentservice_setcompanypublickey-1.md)
+- [Synchronously ping all agent sources for their health status](https://docs.bigeye.com/reference/agentservice_pingagents-1.md)
+- [Retrieve the latest health status of all agent sources](https://docs.bigeye.com/reference/agentservice_retrieveagenthealth-1.md)
+- [Validate that the agent is working for a given source](https://docs.bigeye.com/reference/agentservice_validateagentforsource-1.md)
+- [Delete an Agent API Key](https://docs.bigeye.com/reference/apikeyservice_deleteagentapikey-1.md)
+- [Delete a Personal API Key](https://docs.bigeye.com/reference/apikeyservice_deletepersonalapikey-1.md)
+- [Get all Agent API Keys](https://docs.bigeye.com/reference/apikeyservice_getallagentapikeys-1.md)
+- [Create an Agent API Key](https://docs.bigeye.com/reference/apikeyservice_createagentapikey-1.md)
+- [Get all Personal API Keys](https://docs.bigeye.com/reference/apikeyservice_getallpersonalapikeys-1.md)
+- [Verify an Agent API Key](https://docs.bigeye.com/reference/apikeyservice_verifyagentapikey-1.md)
+- [Verify a Personal API Key](https://docs.bigeye.com/reference/apikeyservice_verifypersonalapikey-1.md)
+- [Create a Service Account API Key](https://docs.bigeye.com/reference/serviceaccountapikeyservice_createserviceaccountapikey.md)
+- [Delete a Service Account API Key](https://docs.bigeye.com/reference/serviceaccountapikeyservice_deleteserviceaccountapikey.md)
+- [Get all Service Account API Keys](https://docs.bigeye.com/reference/serviceaccountapikeyservice_listallserviceaccountkeys.md)
+- [Get API Keys for a Service Account](https://docs.bigeye.com/reference/serviceaccountapikeyservice_listkeysforserviceaccount.md)
+- [Queue a catalog rebuild for a schema](https://docs.bigeye.com/reference/catalogrebuildsservice_updateschema-1.md)
+- [Queue a catalog rebuild for a source](https://docs.bigeye.com/reference/catalogrebuildsservice_updatesource-1.md)
+- [Queue a catalog rebuild for a table](https://docs.bigeye.com/reference/catalogrebuildsservice_updatetable-1.md)
+- [Get applicable metric types for column](https://docs.bigeye.com/reference/columnservice_getcolumnapplicablemetrictypes-1.md)
+- [Get columns](https://docs.bigeye.com/reference/columnservice_getcolumns-1.md)
+- [Get specified columns](https://docs.bigeye.com/reference/columnservice_getspecifiedcolumns-1.md)
+- [Update a company](https://docs.bigeye.com/reference/companyservice_updatecompany-1.md)
+- [Get configs](https://docs.bigeye.com/reference/configservice_getconfigs-1.md)
+- [Update configs](https://docs.bigeye.com/reference/configservice_updateconfigs-1.md)
+- [Gets last updated date for dashboard data series](https://docs.bigeye.com/reference/dashboardservice_getdashboarddatarefreshinfo-1.md)
+- [Get dashboard data series for requested types](https://docs.bigeye.com/reference/dashboardservice_getdashboarddataseries-1.md)
+- [Mark multiple entities as favorites](https://docs.bigeye.com/reference/favoriteservice_bulkfavorite-1.md)
+- [Remove multiple entities from favorites](https://docs.bigeye.com/reference/favoriteservice_bulkunfavorite-1.md)
+- [Get favorites for the current user](https://docs.bigeye.com/reference/favoriteservice_getfavorites-1.md)
+- [Mark an entity as a favorite](https://docs.bigeye.com/reference/favoriteservice_favorite-1.md)
+- [Remove an entity from favorites](https://docs.bigeye.com/reference/favoriteservice_unfavorite-1.md)
+- [Change a group's access to workspaces](https://docs.bigeye.com/reference/groupservice_bulkchangegroupgrants-1.md)
+- [Add or remove users to a group](https://docs.bigeye.com/reference/groupservice_bulkchangegroupusers-1.md)
+- [Get all groups](https://docs.bigeye.com/reference/groupservice_getallgroups-1.md)
+- [Create a group](https://docs.bigeye.com/reference/groupservice_creategroup-1.md)
+- [Delete a group](https://docs.bigeye.com/reference/groupservice_deletegroup-1.md)
+- [Get a group](https://docs.bigeye.com/reference/groupservice_getgroup-1.md)
+- [Update a group](https://docs.bigeye.com/reference/groupservice_updategroup-1.md)
+- [Get single dbt job](https://docs.bigeye.com/reference/integrationservice_getdbtjob-1.md)
+- [Get single dbt job run](https://docs.bigeye.com/reference/integrationservice_getdbtjobrunresponse-1.md)
+- [Get dbt jobs for project](https://docs.bigeye.com/reference/integrationservice_getdbtjobsforproject-1.md)
+- [Get single dbt project](https://docs.bigeye.com/reference/integrationservice_getdbtproject-1.md)
+- [Get entities for integration](https://docs.bigeye.com/reference/integrationservice_getentitiesforintegration-1.md)
+- [Delete integration](https://docs.bigeye.com/reference/integrationservice_deleteintegration-1.md)
+- [Get single integration](https://docs.bigeye.com/reference/integrationservice_getintegration-1.md)
+- [Update integration](https://docs.bigeye.com/reference/integrationservice_updateintegration-1.md)
+- [Get integrations](https://docs.bigeye.com/reference/integrationservice_getintegrations-1.md)
+- [Create integration](https://docs.bigeye.com/reference/integrationservice_createintegration-1.md)
+- [Create a custom node](https://docs.bigeye.com/reference/lineageservice_createdatanode-1.md)
+- [Create a custom edge between two nodes](https://docs.bigeye.com/reference/lineageservice_createlineagerelationship-1.md)
+- [Delete a node by ID](https://docs.bigeye.com/reference/lineageservice_deletedatanode-1.md)
+- [Get a node by ID](https://docs.bigeye.com/reference/lineageservice_getdatanode-1.md)
+- [Get downstream nodes for a given node](https://docs.bigeye.com/reference/lineageservice_getdownstreamdatanodes-1.md)
+- [Delete an edge by ID](https://docs.bigeye.com/reference/lineageservice_deletelineagerelationship-1.md)
+- [Get an edge by ID](https://docs.bigeye.com/reference/lineageservice_getlineagerelationship-1.md)
+- [Delete all edges for a node](https://docs.bigeye.com/reference/lineageservice_deletelineagerelationshipsfornode-1.md)
+- [Get all edges for a node](https://docs.bigeye.com/reference/lineageservice_getlineagerelationshipsfornode-1.md)
+- [Queue a lineage collection workflow for an integration](https://docs.bigeye.com/reference/lineageservice_queuelineageforintegration-1.md)
+- [Queue a lineage collection workflow for a source](https://docs.bigeye.com/reference/lineageservice_queuelineageforsource-1.md)
+- [Bulk create custom lineage nodes](https://docs.bigeye.com/reference/lineagev2service_bulkcreatecustomlineagenodes-1.md)
+- [Bulk create custom lineage edges](https://docs.bigeye.com/reference/lineagev2service_bulkcreatelineageedge-1.md)
+- [Create custom lineage node](https://docs.bigeye.com/reference/lineagev2service_createcustomlineagenode-1.md)
+- [Create custom lineage edge between two nodes](https://docs.bigeye.com/reference/lineagev2service_createlineageedge-1.md)
+- [Delete custom lineage edge](https://docs.bigeye.com/reference/lineagev2service_deletelineageedge-1.md)
+- [Get edge](https://docs.bigeye.com/reference/lineagev2service_getlineageedge-1.md)
+- [Get lineage graph from a data node](https://docs.bigeye.com/reference/lineagev2service_getlineagegraphfornode-1.md)
+- [Delete custom lineage node](https://docs.bigeye.com/reference/lineagev2service_deletelineagenode-1.md)
+- [Get lineage node by id](https://docs.bigeye.com/reference/lineagev2service_getlineagenode-1.md)
+- [Deleted a named schedule](https://docs.bigeye.com/reference/namedscheduleservice_deletenamedschedule-1.md)
+- [Get named schedules](https://docs.bigeye.com/reference/namedscheduleservice_getnamedschedule-1.md)
+- [Create a named schedule](https://docs.bigeye.com/reference/namedscheduleservice_createnamedschedule-1.md)
+- [Get all entities using a given named schedule](https://docs.bigeye.com/reference/namedscheduleservice_getnamedscheduleentities-1.md)
+- [Delete object owner](https://docs.bigeye.com/reference/objectownerservice_deleteobjectowner-1.md)
+- [Get object owner](https://docs.bigeye.com/reference/objectownerservice_getobjectowner-1.md)
+- [Set object owner](https://docs.bigeye.com/reference/objectownerservice_setobjectowner-1.md)
+- [Compute the requested counts](https://docs.bigeye.com/reference/queryservice_getcountsbatchpost-1.md)
+- [Get all roles](https://docs.bigeye.com/reference/roleservice_getallroles-1.md)
+- [Create a role](https://docs.bigeye.com/reference/roleservice_createrole-1.md)
+- [Delete a role](https://docs.bigeye.com/reference/roleservice_deleterole-1.md)
+- [Get a role](https://docs.bigeye.com/reference/roleservice_getrole-1.md)
+- [List the groups and users who have been granted a role](https://docs.bigeye.com/reference/roleservice_getroleaccessors-1.md)
+- [Update a role](https://docs.bigeye.com/reference/roleservice_updaterole-1.md)
+- [Fetch schema changes with filters and pagination](https://docs.bigeye.com/reference/schemachangeservice_getschemachanges-1.md)
+- [Remove the manual override of a region for a BigQuery schema (called dataset in BigQuery)](https://docs.bigeye.com/reference/schemaservice_deletebigqueryregionoverride-1.md)
+- [Get the region for a BigQuery schema (called dataset in BigQuery)](https://docs.bigeye.com/reference/schemaservice_getbigqueryregion-1.md)
+- [Set the region for a BigQuery schema (called dataset in BigQuery)](https://docs.bigeye.com/reference/schemaservice_setbigqueryregion-1.md)
+- [Get dbt jobs for schema](https://docs.bigeye.com/reference/schemaservice_getdbtjobsforschema-1.md)
+- [Get workflow for schema](https://docs.bigeye.com/reference/schemaservice_getschemaworkflow-1.md)
+- [Get the current status for a workflow for a schema](https://docs.bigeye.com/reference/schemaservice_getschemaworkflowstatus-1.md)
+- [Get schemas](https://docs.bigeye.com/reference/schemaservice_getschemas-1.md)
+- [Search schemas](https://docs.bigeye.com/reference/schemaservice_searchschemas-1.md)
+- [Search for entities](https://docs.bigeye.com/reference/searchservice_search-1.md)
+- [Create or update source](https://docs.bigeye.com/reference/sourceservice_createorupdatesource-1.md)
+- [Delete source](https://docs.bigeye.com/reference/sourceservice_deletesource-1.md)
+- [Get single source](https://docs.bigeye.com/reference/sourceservice_getsource-1.md)
+- [Get workflow for source](https://docs.bigeye.com/reference/sourceservice_getsourceworkflow-1.md)
+- [Get the current status for a workflow for a source](https://docs.bigeye.com/reference/sourceservice_getsourceworkflowstatus-1.md)
+- [Get sources](https://docs.bigeye.com/reference/sourceservice_getsources-1.md)
+- [Set the schemas that automatically get metadata metrics](https://docs.bigeye.com/reference/sourceservice_setmetadataschemas-1.md)
+- [Validate source](https://docs.bigeye.com/reference/sourceservice_validatesource-1.md)
+- [Get dbt jobs for table](https://docs.bigeye.com/reference/tableservice_getdbtjobsfortable-1.md)
+- [Get list of metrics applicable for deltas](https://docs.bigeye.com/reference/tableservice_getdeltaapplicablemetrictypes.md)
+- [Profile a column](https://docs.bigeye.com/reference/tableservice_getprofileforcolumn-1.md)
+- [Profile a table](https://docs.bigeye.com/reference/tableservice_getprofilefortable-1.md)
+- [Get the date column information for a table](https://docs.bigeye.com/reference/tableservice_gettableinfowithcolumns-1.md)
+- [Get workflow for table](https://docs.bigeye.com/reference/tableservice_gettableworkflow-1.md)
+- [Get the current status for a workflow for a table](https://docs.bigeye.com/reference/tableservice_gettableworkflowstatus-1.md)
+- [Get tables](https://docs.bigeye.com/reference/tableservice_gettables-1.md)
+- [Search tables](https://docs.bigeye.com/reference/tableservice_searchtables-1.md)
+- [Set the date columns for a list of tables](https://docs.bigeye.com/reference/tableservice_setdatecolumns-1.md)
+- [Snooze table](https://docs.bigeye.com/reference/tableservice_snoozetable-1.md)
+- [Get list of metrics applicable to an entire table,
+filtered for only the ones that are valid for that table's warehouse](https://docs.bigeye.com/reference/tableservice_tablelevelapplicablemetrictypes-1.md)
+- [Remove the configured required partition column for a table](https://docs.bigeye.com/reference/tableservice_unsetrequiredpartitioncolumn-1.md)
+- [Set the required partition column for a table](https://docs.bigeye.com/reference/tableservice_setrequiredpartitioncolumn-1.md)
+- [Unsnooze table](https://docs.bigeye.com/reference/tableservice_unsnoozetable-1.md)
+- [Add tags to multiple entities](https://docs.bigeye.com/reference/tagservice_bulktag-1.md)
+- [Remove tags from multiple entities](https://docs.bigeye.com/reference/tagservice_bulkuntag-1.md)
+- [Get tags for an entity](https://docs.bigeye.com/reference/tagservice_gettags-1.md)
+- [Add a tag to an entity](https://docs.bigeye.com/reference/tagservice_tag-1.md)
+- [Remove a tag from an entity](https://docs.bigeye.com/reference/tagservice_untag-1.md)
+- [Delete users](https://docs.bigeye.com/reference/userservice_bulkdeleteusers-1.md)
+- [Create a Service Account](https://docs.bigeye.com/reference/userservice_createserviceaccount.md)
+- [Get all users](https://docs.bigeye.com/reference/userservice_getallusers-1.md)
+- [Invite a new user](https://docs.bigeye.com/reference/userservice_invitenewuser-1.md)
+- [Get a user](https://docs.bigeye.com/reference/userservice_getuser-1.md)
+- [Update user name and/or groups](https://docs.bigeye.com/reference/userservice_updateuser-1.md)
+- [Get all Virtual Tables](https://docs.bigeye.com/reference/virtualtableservice_getallvirtualtables-1.md)
+- [Create a Virtual Table](https://docs.bigeye.com/reference/virtualtableservice_createvirtualtable-1.md)
+- [Delete Virtual Table](https://docs.bigeye.com/reference/virtualtableservice_deletevirtualtable-1.md)
+- [Get a Virtual Table](https://docs.bigeye.com/reference/virtualtableservice_getvirtualtable-1.md)
+- [Update a Virtual Table](https://docs.bigeye.com/reference/virtualtableservice_updatevirtualtable-1.md)
+- [Get status of Virtual Table Creation workflow](https://docs.bigeye.com/reference/virtualtableservice_getvirtualtablecreatestatus-1.md)
+- [Get Virtual Tables](https://docs.bigeye.com/reference/virtualtableservice_getvirtualtables-1.md)
+- [Queue creation of a Virtual Table](https://docs.bigeye.com/reference/virtualtableservice_queuecreatevirtualtable-1.md)
+- [Get the current status for a workflow](https://docs.bigeye.com/reference/workflowservice_getworkflowstatus-1.md)
+- [Get status for V2 workflow and run](https://docs.bigeye.com/reference/workflowv2service_getworkflowv2status-1.md)
+- [Get status for V2 workflow without run](https://docs.bigeye.com/reference/workflowv2service_getworkflowv2statuswithoutrun-1.md)
+- [Get all workspaces](https://docs.bigeye.com/reference/workspaceservice_getallworkspaces-1.md)
+- [Create a workspace](https://docs.bigeye.com/reference/workspaceservice_createworkspace-1.md)
+- [Delete a workspace](https://docs.bigeye.com/reference/workspaceservice_deleteworkspace-1.md)
+- [Get a workspace](https://docs.bigeye.com/reference/workspaceservice_getworkspace-1.md)
+- [Update a workspace](https://docs.bigeye.com/reference/workspaceservice_updateworkspace-1.md)
+- [List the groups and users who can access a workspace](https://docs.bigeye.com/reference/workspaceservice_getworkspaceaccessors-1.md)
+- [Set the default workspace](https://docs.bigeye.com/reference/workspaceservice_setdefaultworkspace-1.md)
+- [Delete collection](https://docs.bigeye.com/reference/collectionservice_deletecollection-1.md)
+- [Get specific collection](https://docs.bigeye.com/reference/collectionservice_getcollection-1.md)
+- [Edit collection](https://docs.bigeye.com/reference/collectionservice_editcollection-1.md)
+- [Get collection information](https://docs.bigeye.com/reference/collectionservice_getcollectioninfo-1.md)
+- [Get all collection information](https://docs.bigeye.com/reference/collectionservice_getcollectioninfos-1.md)
+- [Get all collections](https://docs.bigeye.com/reference/collectionservice_getcollections-1.md)
+- [Create collection](https://docs.bigeye.com/reference/collectionservice_createcollection-1.md)
+- [Fetch paginated collection information](https://docs.bigeye.com/reference/collectionv2service_fetchcollectioninfosv2-1.md)
+- [Get collection information](https://docs.bigeye.com/reference/collectionv2service_getcollectioninfov2-1.md)
+- [Get all collection information](https://docs.bigeye.com/reference/collectionv2service_getcollectioninfosv2-1.md)
+- [Create a comparison table](https://docs.bigeye.com/reference/comparisontableservice_createcomparisontable.md)
+- [Delete a comparison table](https://docs.bigeye.com/reference/comparisontableservice_deletecomparisontable.md)
+- [Retrieve a comparison table configuration](https://docs.bigeye.com/reference/comparisontableservice_getcomparisontable.md)
+- [Get information about comparison tables](https://docs.bigeye.com/reference/comparisontableservice_getcomparisontableinfos.md)
+- [Get list of metrics applicable for comparison tables and deltas](https://docs.bigeye.com/reference/comparisontableservice_getdeltaapplicablemetrictypes.md)
+- [Get info about the groups of a particular metric in a comparison table](https://docs.bigeye.com/reference/comparisontableservice_gettablecomparisonmetricgroupinfo.md)
+- [Run a comparison table](https://docs.bigeye.com/reference/comparisontableservice_runcomparisontable.md)
+- [Create a custom rule](https://docs.bigeye.com/reference/customruleservice_createcustomrule-1.md)
+- [Delete a custom rule](https://docs.bigeye.com/reference/customruleservice_deletecustomrule-1.md)
+- [Get a custom rule](https://docs.bigeye.com/reference/customruleservice_getcustomrule-1.md)
+- [Get custom rule revisions](https://docs.bigeye.com/reference/customruleservice_getcustomrulerevisions-1.md)
+- [Get custom rules](https://docs.bigeye.com/reference/customruleservice_getcustomrules-1.md)
+- [Get all custom rules for a collection](https://docs.bigeye.com/reference/customruleservice_getcustomrulesforcollection-1.md)
+- [Get all custom rules for a warehouse](https://docs.bigeye.com/reference/customruleservice_getcustomrulesforwarehouse-1.md)
+- [Run a custom rule](https://docs.bigeye.com/reference/customruleservice_runcustomrule-1.md)
+- [Update a custom rule](https://docs.bigeye.com/reference/customruleservice_updatecustomrule-1.md)
+- [Perform bulk operations on deltas](https://docs.bigeye.com/reference/deltaservice_bulkoperationdeltas-1.md)
+- [Create a delta](https://docs.bigeye.com/reference/deltaservice_createdelta-1.md)
+- [Update a delta](https://docs.bigeye.com/reference/deltaservice_editdelta-1.md)
+- [Fetch deltas with filters and pagination](https://docs.bigeye.com/reference/deltaservice_fetchdeltas-1.md)
+- [Delete a delta by ID](https://docs.bigeye.com/reference/deltaservice_deletedelta-1.md)
+- [Get a delta by ID](https://docs.bigeye.com/reference/deltaservice_getdelta-1.md)
+- [Run a delta by ID](https://docs.bigeye.com/reference/deltaservice_rundelta-1.md)
+- [Bulk update dimensions](https://docs.bigeye.com/reference/dimensionservice_bulkupdatedimensions-1.md)
+- [Delete dimension](https://docs.bigeye.com/reference/dimensionservice_deletedimension-1.md)
+- [Update dimension](https://docs.bigeye.com/reference/dimensionservice_updatedimension-1.md)
+- [Get dimension](https://docs.bigeye.com/reference/dimensionservice_getdimension-1.md)
+- [Get all dimensions](https://docs.bigeye.com/reference/dimensionservice_getdimensions-1.md)
+- [Create dimension](https://docs.bigeye.com/reference/dimensionservice_createdimension-1.md)
+- [Assign statistic (e.g., "AVERAGE") to dimension](https://docs.bigeye.com/reference/dimensionservice_setstatdimension-1.md)
+- [Batch update issues](https://docs.bigeye.com/reference/issueservice_batchupdateissues-1.md)
+- [Performs bulk issues updates](https://docs.bigeye.com/reference/issueservice_bulkupdateissues-1.md)
+- [Get issue](https://docs.bigeye.com/reference/issueservice_getissue-1.md)
+- [Update issue](https://docs.bigeye.com/reference/issueservice_updateissue-1.md)
+- [Get issues](https://docs.bigeye.com/reference/issueservice_getissues-1.md)
+- [Get issues summary by table](https://docs.bigeye.com/reference/issueservice_gettableissues-1.md)
+- [Create join](https://docs.bigeye.com/reference/joinservice_createjoin-1.md)
+- [Delete join](https://docs.bigeye.com/reference/joinservice_deletejoin-1.md)
+- [Get join](https://docs.bigeye.com/reference/joinservice_getjoin-1.md)
+- [Update join](https://docs.bigeye.com/reference/joinservice_updatejoin-1.md)
+- [Get joins](https://docs.bigeye.com/reference/joinservice_getjoins-1.md)
+- [Backfill metric observed columns for a specific metric
+This endpoint automatically sets default observed columns for a metric based on its configuration](https://docs.bigeye.com/reference/metricobservedcolumnservice_backfillmetricobservedcolumns-1.md)
+- [Create a metric observed column relationship
+This endpoint creates a relationship between a metric and a column that the metric observes](https://docs.bigeye.com/reference/metricobservedcolumnservice_createmetricobservedcolumn-1.md)
+- [Delete a metric observed column relationship
+This endpoint removes the relationship between a metric and a column](https://docs.bigeye.com/reference/metricobservedcolumnservice_deletemetricobservedcolumn-1.md)
+- [Get metric observed columns in bulk
+This endpoint allows fetching multiple metric observed column relationships based on various filters
+such as metric IDs, column IDs, table IDs, schema IDs, source IDs, and tag IDs](https://docs.bigeye.com/reference/metricobservedcolumnservice_getmetricobservedcolumnsbulk-1.md)
+- [Get metric observed columns for a specific column
+Returns all metrics that observe the specified column](https://docs.bigeye.com/reference/metricobservedcolumnservice_getmetricobservedcolumnsforcolumn-1.md)
+- [Get metric observed columns for a specific metric
+Returns all columns that are observed by the specified metric, along with suggested columns](https://docs.bigeye.com/reference/metricobservedcolumnservice_getmetricobservedcolumnsformetric-1.md)
+- [Get suggested columns for a metric
+Returns columns that are suggested to be observed by the specified metric based on its configuration](https://docs.bigeye.com/reference/metricobservedcolumnservice_getsuggestedcolumnsformetric-1.md)
+- [Batch edit metrics](https://docs.bigeye.com/reference/metricservice_batcheditmetrics-1.md)
+- [Performs bulk metric updates](https://docs.bigeye.com/reference/metricservice_bulkupdatemetrics-1.md)
+- [Performs bulk Delta updates](https://docs.bigeye.com/reference/metricservice_bulkupdatesdeltas-1.md)
+- [Get sample debug rows for debug page](https://docs.bigeye.com/reference/metricservice_getdebugpreview-1.md)
+- [Get queries for debug page](https://docs.bigeye.com/reference/metricservice_getdebugqueries-1.md)
+- [Gets the list of all metadata metric names](https://docs.bigeye.com/reference/metricservice_getmetadatametricnames-1.md)
+- [Delete metric](https://docs.bigeye.com/reference/metricservice_deletemetric-1.md)
+- [Get metric configuration](https://docs.bigeye.com/reference/metricservice_getmetricconfiguration-1.md)
+- [Get single metric information](https://docs.bigeye.com/reference/metricservice_getmetricinfo-1.md)
+- [Get metric information](https://docs.bigeye.com/reference/metricservice_getmetricinfobatch-1.md)
+- [Get batch metric information](https://docs.bigeye.com/reference/metricservice_getmetricinfobatchpost-1.md)
+- [Get metric runs](https://docs.bigeye.com/reference/metricservice_getmetricruns-1.md)
+- [Get count of metrics](https://docs.bigeye.com/reference/metricservice_getmetricscount-1.md)
+- [Get metric revisions / history / timeline](https://docs.bigeye.com/reference/metricservice_getrevisions-1.md)
+- [Get metric scorecard](https://docs.bigeye.com/reference/metricservice_getscorecard-1.md)
+- [Gets the list of all table-level metric names](https://docs.bigeye.com/reference/metricservice_gettablelevelmetricnames-1.md)
+- [Run metric](https://docs.bigeye.com/reference/metricservice_runmetric-1.md)
+- [Batch run metrics](https://docs.bigeye.com/reference/metricservice_runmetricbatch-1.md)
+- [Queue batch run metrics. This is useful for batches that take a long time to run.
+Returns a WorkflowResponse, which contains a workflow_id.
+The status of the batch can be checked by using the /api/v1/workflows/{workflow_id}/status endpoint.](https://docs.bigeye.com/reference/metricservice_runmetricbatchqueue-1.md)
+- [Get backfill status](https://docs.bigeye.com/reference/metricservice_searchmetricbackfill-1.md)
+- [Backfill metric](https://docs.bigeye.com/reference/metricservice_backfillmetric-1.md)
+- [Search metric configuration](https://docs.bigeye.com/reference/metricservice_searchmetricconfiguration-1.md)
+- [Create or update metric](https://docs.bigeye.com/reference/metricservice_createmetric-1.md)
+- [Validate a metric configuration](https://docs.bigeye.com/reference/metricservice_validatemetric-1.md)
+- [Create or update a metric template](https://docs.bigeye.com/reference/metrictemplateservice_createmetrictemplate-1.md)
+- [Delete a metric template](https://docs.bigeye.com/reference/metrictemplateservice_deletemetrictemplate-1.md)
+- [Get single metric template](https://docs.bigeye.com/reference/metrictemplateservice_getmetrictemplate-1.md)
+- [Get all metric templates](https://docs.bigeye.com/reference/metrictemplateservice_getmetrictemplates-1.md)
+- [Create a classifier](https://docs.bigeye.com/reference/classifierservice_createclassifier.md)
+- [Fetch classifiers with filters and pagination](https://docs.bigeye.com/reference/classifierservice_fetchclassifiers.md)
+- [Delete a classifier](https://docs.bigeye.com/reference/classifierservice_deleteclassifier.md)
+- [Get a classifier by ID](https://docs.bigeye.com/reference/classifierservice_getclassifier.md)
+- [Update a classifier](https://docs.bigeye.com/reference/classifierservice_updateclassifier.md)
+- [Get available machine learning detectors](https://docs.bigeye.com/reference/classifierservice_getmachinelearningdetectors.md)
+- [Reset a Bigeye-provided classifier to its default state](https://docs.bigeye.com/reference/classifierservice_resetclassifier.md)
+- [Test a detector against a sample value](https://docs.bigeye.com/reference/classifierservice_testdetector.md)
+- [Fetch data class categories for a workspace](https://docs.bigeye.com/reference/dataclasscategoryservice_fetchdataclasscategories.md)
+- [Create a data class](https://docs.bigeye.com/reference/dataclassservice_createdataclass.md)
+- [Fetch data classes with filters and pagination](https://docs.bigeye.com/reference/dataclassservice_fetchdataclasses.md)
+- [Delete a data class](https://docs.bigeye.com/reference/dataclassservice_deletedataclass.md)
+- [Get a data class by ID](https://docs.bigeye.com/reference/dataclassservice_getdataclass.md)
+- [Update a data class](https://docs.bigeye.com/reference/dataclassservice_updatedataclass.md)
+- [Reset a Bigeye-provided data class to its default state](https://docs.bigeye.com/reference/dataclassservice_resetdataclass.md)
+- [Cancel a running scan job](https://docs.bigeye.com/reference/scanjobservice_cancelscanjob.md)
+- [Create a scan job](https://docs.bigeye.com/reference/scanjobservice_createscanjob.md)
+- [Fetch scan jobs with filters and pagination](https://docs.bigeye.com/reference/scanjobservice_fetchscanjobs.md)
+- [Get aggregate findings for a scan job](https://docs.bigeye.com/reference/scanjobservice_getaggregatefindings.md)
+- [Delete a scan job](https://docs.bigeye.com/reference/scanjobservice_deletescanjob.md)
+- [Get a scan job by ID](https://docs.bigeye.com/reference/scanjobservice_getscanjob.md)
+- [Update a scan job](https://docs.bigeye.com/reference/scanjobservice_updatescanjob.md)
+- [Get the status of a scan job](https://docs.bigeye.com/reference/scanjobservice_getscanjobstatus.md)
+- [Get snapshot findings for a scan job](https://docs.bigeye.com/reference/scanjobservice_getsnapshotfindings.md)
+- [Reset scan data for specific tables in a scan job](https://docs.bigeye.com/reference/scanjobservice_resetscan.md)
+- [Retry a failed scan job](https://docs.bigeye.com/reference/scanjobservice_retryscanjob.md)
+- [Run a scan job](https://docs.bigeye.com/reference/scanjobservice_runscanjob.md)
+- [Set partition columns for a scan job](https://docs.bigeye.com/reference/scanjobservice_setpartitioncolumns.md)
+- [Terminate a running scan job](https://docs.bigeye.com/reference/scanjobservice_terminatescanjob.md)
+- [Fetch scan runs with filters and pagination](https://docs.bigeye.com/reference/scanrunservice_fetchscanruns.md)
+- [Get a scan run by ID](https://docs.bigeye.com/reference/scanrunservice_getscanrun.md)
+
+## Recipes
+- [Create and Run Deltas via Airflow](https://docs.bigeye.com/recipes/create-and-run-deltas-via-airflow.md)
+- [Create & Deploy Template Metrics](https://docs.bigeye.com/recipes/create-deploy-template-metrics.md)
+- [Create & Run Metrics via Airflow](https://docs.bigeye.com/recipes/create-run-metrics-via-airflow.md)
+- [Get All Metrics from Workspace](https://docs.bigeye.com/recipes/get-all-metrics-from-workspace.md)
+- [Hubspot CRM - Prebuilt Data Obvservability as Code Config](https://docs.bigeye.com/recipes/hubspot-crm-prebuilt-data-obvservability-as-code-config.md)
+- [Monitor Data Migration and Replication](https://docs.bigeye.com/recipes/monitor-data-migration-and-replication.md)
+- [Optimize Metric Naming Conventions](https://docs.bigeye.com/recipes/optimize-metric-naming-conventions.md)
+- [Pipeline Reliability As Code](https://docs.bigeye.com/recipes/pipeline-reliability-as-code.md)
+- [Stripe - Prebuilt Data Observability as Code Config](https://docs.bigeye.com/recipes/stripe-prebuilt-data-observability-as-code-config.md)

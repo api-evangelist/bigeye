@@ -1,0 +1,567 @@
+generated: '2026-08-02'
+method: searched
+status: published
+source: https://docs.bigeye.com/docs/bigeye-mcp-server
+server:
+  name: bigeye
+  transport: http
+  url: https://mcpgateway.bigeye.com/mcp
+  hosted: true
+  maturity: public beta (released July 2026)
+  protocol: Model Context Protocol
+  open_source: true
+  repository: https://github.com/bigeyedata/bigeye-mcp-server
+  self_hostable: true
+  self_host_options:
+  - docker
+  - python
+authentication:
+  style: api-key request headers (no OAuth)
+  headers:
+  - header: Authorization
+    value: apikey <YOUR_API_KEY>
+    required: true
+    note: Literal "apikey" prefix — not "Bearer". Same Personal or Service Account API key used by the
+      REST API.
+  - header: x-bigeye-workspace-id
+    value: <YOUR_WORKSPACE_ID>
+    required: true
+    note: Integer workspace ID from Settings > Workspaces.
+  - header: x-bigeye-url
+    value: https://app.bigeye.com
+    required: false
+    note: Only needed for customers on a non-default Bigeye stack.
+  docs: https://docs.bigeye.com/docs/using-api-keys
+introspection:
+  method: tools/list
+  anonymous: true
+  http_status: 200
+  transport: SSE (text/event-stream) JSON-RPC response
+  tools_returned: 56
+  file: bigeye-mcp-tools-list.json
+  note: tools/list answered without credentials and returned every tool with a real inputSchema and outputSchema;
+    the schemas below are harvested verbatim, not inferred.
+clients_documented:
+- Claude Code
+- Snowflake Cortex Code (CoCo)
+- GitHub Copilot CLI
+tool_count: 56
+tools:
+- name: list_resources
+  category: catalog
+  description: List all available MCP resources for quick data access.
+  input_arguments: []
+  required: []
+- name: get_health_status
+  category: platform
+  description: Check the health and connectivity of the Bigeye API. Returns API status and version.
+  input_arguments: []
+  required: []
+- name: get_current_user
+  category: platform
+  description: Get the currently authenticated Bigeye user (the API key owner). Returns their integer
+    'id', email, name, and accessible workspaces. Use this to answer 'who am I' and to resolve the current
+    user's ID for assignee filtering — e.g. to find issues assigned to the current user, call this, then
+    list_issues(assignee_ids=[id]).
+  input_arguments: []
+  required: []
+- name: list_issues
+  category: issues
+  description: List data quality issues across the workspace. Supports filtering by status (ISSUE_STATUS_NEW,
+    ISSUE_STATUS_ACKNOWLEDGED, ISSUE_STATUS_CLOSED, ISSUE_STATUS_MONITORING, ISSUE_STATUS_MERGED), schema,
+    assignee, and collection. Returns compact summaries by default. Best for broad views like 'show all
+    open issues'. To find issues assigned to the current user, first call get_current_user to get their
+    integer 'id', then pass it as assignee_ids=[id]. To filter by collection, call list_collections first
+    to resolve a collection name to its ID. For issues on a specific table, use list_table_issues instead.
+  input_arguments:
+  - assignee_ids
+  - collection_ids
+  - compact
+  - max_issues
+  - page_cursor
+  - page_size
+  - schema_names
+  - statuses
+  required: []
+- name: get_issue
+  category: issues
+  description: Get full details for a single issue by its internal ID (not display name). Returns event
+    history, metric details, and metadata. To find an issue's internal ID from its display name, use search_issues
+    first.
+  input_arguments:
+  - issue_id
+  required:
+  - issue_id
+- name: search_issues
+  category: issues
+  description: Find issues or incidents by their display name — the number shown in the Bigeye UI (e.g.
+    '10921'). ALWAYS use this when a user references an issue by number. Returns matching issues with
+    their internal IDs for use with get_issue, update_issue, and other tools.
+  input_arguments:
+  - exact_match
+  - name_query
+  - statuses
+  required:
+  - name_query
+- name: search_schemas
+  category: catalog
+  description: Search the Bigeye data catalog for schemas by name. Returns matching schemas with their
+    internal IDs and warehouse context.
+  input_arguments:
+  - limit
+  - query
+  required:
+  - query
+- name: search_tables
+  category: catalog
+  description: Search the Bigeye data catalog for tables by name. Returns matching tables with their internal
+    IDs, schema, and warehouse context.
+  input_arguments:
+  - limit
+  - query
+  required:
+  - query
+- name: search_columns
+  category: catalog
+  description: Search the Bigeye data catalog for columns by name. Returns matching columns with their
+    internal IDs, data type, and the table/schema/warehouse they belong to.
+  input_arguments:
+  - limit
+  - query
+  required:
+  - query
+- name: list_related_issues
+  category: issues
+  description: List issues related to a given issue via upstream/downstream lineage. Returns related issues
+    with root cause flags (isRootCause=true). Requires internal issue ID.
+  input_arguments:
+  - starting_issue_id
+  required:
+  - starting_issue_id
+- name: list_table_issues
+  category: issues
+  description: List data quality issues for a specific table by name. Best for investigating a known table.
+    For workspace-wide issues use list_issues. Requires table_name.
+  input_arguments:
+  - schema_name
+  - statuses
+  - table_name
+  - warehouse_name
+  required:
+  - table_name
+- name: create_incident
+  category: issues
+  description: Create an incident by merging related issues, or add issues to an existing incident. Requires
+    at least 2 issue IDs for new incidents, or 1 issue ID plus an existing_incident_id.
+  input_arguments:
+  - existing_incident_id
+  - incident_name
+  - issue_ids
+  required:
+  - issue_ids
+- name: get_resolution_steps
+  category: issues
+  description: Get recommended resolution steps for an issue. Returns step-by-step guidance for remediation.
+    Requires internal issue ID.
+  input_arguments:
+  - issue_id
+  required:
+  - issue_id
+- name: update_issue
+  category: issues
+  description: 'Update an issue''s status, priority, or add a timeline message. Valid statuses: ISSUE_STATUS_NEW,
+    ISSUE_STATUS_ACKNOWLEDGED, ISSUE_STATUS_CLOSED, ISSUE_STATUS_MONITORING, ISSUE_STATUS_MERGED. When
+    closing, requires a closing_label (METRIC_RUN_LABEL_TRUE_NEGATIVE, METRIC_RUN_LABEL_FALSE_POSITIVE,
+    etc.).'
+  input_arguments:
+  - closing_label
+  - issue_id
+  - message
+  - new_status
+  - priority
+  required:
+  - issue_id
+- name: delete_incident_members
+  category: issues
+  description: Remove issues from an incident. Specify individual issue_ids to unmerge, or parent_issue_ids
+    to unmerge all children from an incident.
+  input_arguments:
+  - assignee_id
+  - issue_ids
+  - new_status
+  - parent_issue_ids
+  required: []
+- name: list_table_metrics
+  category: monitoring
+  description: List all metrics (monitors) configured on a table from the live Bigeye API. Returns full
+    metric configurations including schedules, thresholds, lookback windows, and which data dimension
+    each metric belongs to. For a quick coverage gap analysis, use get_table_dimension_coverage instead.
+  input_arguments:
+  - schema_name
+  - table_name
+  required:
+  - table_name
+- name: list_data_sources
+  category: catalog
+  description: List all data sources (warehouses) connected to Bigeye. Returns source names, types (SNOWFLAKE,
+    DATABRICKS, etc.), and connection details. Prefer list_sources (knowledgebase) for faster cached results.
+  input_arguments: []
+  required: []
+- name: list_collections
+  category: catalog
+  description: List all collections in the workspace. Collections are curated groups of metrics (data
+    products, domains, etc.). Returns each collection's id, name, description, and metricIds. Use this
+    to resolve a collection name to its ID, then pass it to list_issues(collection_ids=[...]) to see that
+    collection's issues.
+  input_arguments: []
+  required: []
+- name: get_dataset_health_summary
+  category: platform
+  description: 'Get a health overview of datasets (tables): monitoring status and open issues per dataset,
+    rolled up per schema. This is the recommended single-call tool for questions like "show me the health
+    of my datasets" or "which tables are alerting?".'
+  input_arguments:
+  - max_tables
+  - schema_name
+  - warehouse_name
+  required: []
+- name: get_lineage_graph
+  category: lineage
+  description: Get the full lineage graph (upstream/downstream/both) from a starting node. Returns nodes
+    and edges showing data flow. Requires node_id from search_lineage_nodes.
+  input_arguments:
+  - direction
+  - include_issues
+  - max_depth
+  - node_id
+  required:
+  - node_id
+- name: get_lineage_node
+  category: lineage
+  description: Get details for a specific lineage node (type, name, properties). Requires node_id.
+  input_arguments:
+  - node_id
+  required:
+  - node_id
+- name: list_lineage_node_issues
+  category: lineage
+  description: List issues for a lineage node by its node_id. Best for when you already have a node_id
+    from search_lineage_nodes. If you only have a table name, use list_table_issues instead.
+  input_arguments:
+  - node_id
+  required:
+  - node_id
+- name: get_upstream_root_causes
+  category: platform
+  description: Analyze upstream lineage to identify root causes of data quality issues. Traverses upstream
+    from a node to find the origin of problems. Requires node_id.
+  input_arguments:
+  - max_depth
+  - node_id
+  required:
+  - node_id
+- name: get_downstream_impact
+  category: platform
+  description: Analyze downstream impact of issues at a lineage node, categorized by type (analytics,
+    data products, critical). Returns severity assessment and stakeholder notifications. Requires node_id.
+  input_arguments:
+  - impact_focus
+  - include_integration_entities
+  - max_depth
+  - node_id
+  required:
+  - node_id
+- name: get_issue_lineage_trace
+  category: lineage
+  description: 'Trace a data quality issue end-to-end through lineage: upstream root causes to downstream
+    impact. Requires internal issue_id (from search_issues, not the display name).'
+  input_arguments:
+  - include_impact_analysis
+  - include_root_cause_analysis
+  - issue_id
+  - max_depth
+  required:
+  - issue_id
+- name: lineage_track_data_access
+  category: lineage
+  description: Track data assets accessed by an AI agent.
+  input_arguments:
+  - agent_name
+  - qualified_names
+  required:
+  - qualified_names
+- name: lineage_get_tracking_status
+  category: lineage
+  description: Get the current status of lineage tracking.
+  input_arguments: []
+  required: []
+- name: lineage_commit_agent
+  category: lineage
+  description: Commit tracked data access to Bigeye's lineage graph.
+  input_arguments:
+  - clear_after_commit
+  - rebuild_graph
+  required: []
+- name: lineage_clear_tracked_assets
+  category: lineage
+  description: Clear all tracked data assets without committing.
+  input_arguments: []
+  required: []
+- name: lineage_cleanup_agent_edges
+  category: lineage
+  description: Clean up old lineage edges for the AI agent.
+  input_arguments:
+  - retention_days
+  required: []
+- name: search_lineage_nodes
+  category: lineage
+  description: 'Find lineage node IDs by path pattern (e.g. ''WAREHOUSE/SCHEMA/TABLE''). Supports wildcards
+    (''*/*/ORDERS''). Best for: getting a node_id required by get_lineage_graph, get_downstream_impact,
+    and other lineage tools.'
+  input_arguments:
+  - limit
+  - node_type
+  - search_string
+  - workspace_id
+  required: []
+- name: lineage_explore_catalog
+  category: lineage
+  description: Explore tables in Bigeye's catalog. For browsing the data catalog, prefer list_tables +
+    list_schemas (knowledgebase).
+  input_arguments:
+  - page_size
+  - schema_name
+  - search_term
+  - warehouse_name
+  required: []
+- name: lineage_delete_node
+  category: lineage
+  description: Delete a custom lineage node from Bigeye's lineage graph.
+  input_arguments:
+  - force
+  - node_id
+  required:
+  - node_id
+- name: list_report_upstream_issues
+  category: issues
+  description: List upstream data quality issues affecting a BI report or dashboard. Requires the report's
+    lineage node_id. To discover reports/dashboards first, use list_catalog_entities (knowledgebase).
+  input_arguments:
+  - report_id
+  required:
+  - report_id
+- name: get_table_profile
+  category: profiling
+  description: Get the data profile report for a table including column statistics, data distribution,
+    and profile history. Requires table_id.
+  input_arguments:
+  - table_id
+  required:
+  - table_id
+- name: create_profile_job
+  category: profiling
+  description: Queue a new data profiling job for a table. Returns a workflow ID to track progress with
+    get_profile_job_status. Requires table_id.
+  input_arguments:
+  - table_id
+  required:
+  - table_id
+- name: get_profile_job_status
+  category: profiling
+  description: Check the status of a profiling job (queued, running, completed). Requires table_id.
+  input_arguments:
+  - table_id
+  required:
+  - table_id
+- name: list_dimensions
+  category: monitoring
+  description: List all data-quality dimensions with their metric type mappings. Returns each dimension's
+    name, top-level category (PIPELINE_RELIABILITY or DATA_QUALITY), and the metric types that belong
+    to it. For a table-specific coverage analysis that maps dimensions to existing monitors, use get_table_dimension_coverage.
+  input_arguments: []
+  required: []
+- name: get_dimension
+  category: monitoring
+  description: Get full details for a single Data Dimension by its ID. Returns the dimension's name, description,
+    and entity metadata.
+  input_arguments:
+  - dimension_id
+  required:
+  - dimension_id
+- name: create_dimension
+  category: monitoring
+  description: Create a new Data Dimension in the Bigeye workspace.
+  input_arguments:
+  - description
+  - name
+  required:
+  - name
+- name: update_dimension
+  category: monitoring
+  description: Update an existing Data Dimension's name or description.
+  input_arguments:
+  - description
+  - dimension_id
+  - name
+  required:
+  - dimension_id
+- name: delete_dimension
+  category: monitoring
+  description: Delete a Data Dimension by its ID. This action is permanent.
+  input_arguments:
+  - dimension_id
+  required:
+  - dimension_id
+- name: list_table_level_metrics
+  category: monitoring
+  description: List metric types that are table-level (not column-level). Returns metric names like FRESHNESS,
+    VOLUME, COUNT_ROWS, etc. Use this to distinguish table-level from column-level metrics when analyzing
+    coverage.
+  input_arguments: []
+  required: []
+- name: create_metric
+  category: monitoring
+  description: Create a new metric (monitor) on a table. Supports predefined metric types like COUNT_ROWS,
+    PERCENT_NULL, FRESHNESS, etc.
+  input_arguments:
+  - column_name
+  - description
+  - filters
+  - group_bys
+  - lookback_interval_type
+  - lookback_interval_value
+  - lookback_type
+  - metric_type
+  - name
+  - schema_name
+  - table_id
+  - table_name
+  required:
+  - metric_type
+  - table_name
+- name: get_table_dimension_coverage
+  category: monitoring
+  description: 'Analyze which data quality dimensions are covered by monitors on a table and which have
+    gaps. Automatically joins the workspace''s dimension taxonomy, the table''s column metadata, and existing
+    metrics to produce: per-column coverage, table-level coverage, an aggregate score, and a prioritized
+    gap list with suggested metric types. This is the recommended single-call tool for answering ''what
+    monitoring is missing on this table?'''
+  input_arguments:
+  - schema_name
+  - table_id
+  - table_name
+  required: []
+- name: get_column_dimension_coverage
+  category: monitoring
+  description: Analyze dimension coverage for specific columns in a table. Same analysis as get_table_dimension_coverage
+    but filtered to the requested columns. Use this when you already know which columns to investigate
+    — for example, after identifying columns with issues or when a user asks about specific fields. Always
+    includes table-level dimension coverage for context.
+  input_arguments:
+  - column_names
+  - schema_name
+  - table_id
+  - table_name
+  required: []
+- name: list_tags
+  category: tags
+  description: List or search workspace tags. Returns tag IDs, names, and colors. Use search to filter
+    by name.
+  input_arguments:
+  - page_cursor
+  - page_size
+  - search
+  required: []
+- name: create_tag
+  category: tags
+  description: Create a new workspace tag. Tags can be applied to metrics, tables, columns, and other
+    entities.
+  input_arguments:
+  - color_hex
+  - name
+  required:
+  - name
+- name: update_tag
+  category: tags
+  description: Update an existing workspace tag's name or color.
+  input_arguments:
+  - color_hex
+  - name
+  - tag_id
+  required:
+  - tag_id
+- name: delete_tag
+  category: tags
+  description: Delete a workspace tag. This removes the tag from all entities it was applied to.
+  input_arguments:
+  - tag_id
+  required:
+  - tag_id
+- name: tag_entity
+  category: tags
+  description: Apply a workspace tag to an entity. The tag must already exist (use create_tag first).
+  input_arguments:
+  - entity_id
+  - entity_type
+  - tag_id
+  required:
+  - entity_id
+  - entity_type
+  - tag_id
+- name: untag_entity
+  category: tags
+  description: Remove a workspace tag from an entity.
+  input_arguments:
+  - entity_id
+  - entity_type
+  - tag_id
+  required:
+  - entity_id
+  - entity_type
+  - tag_id
+- name: list_entity_tags
+  category: tags
+  description: List all tags applied to a specific entity.
+  input_arguments:
+  - entity_id
+  - entity_type
+  required:
+  - entity_id
+  - entity_type
+- name: list_data_classes
+  category: sensitivity
+  description: List data classification categories configured in Bigeye.
+  input_arguments:
+  - page_cursor
+  - page_size
+  - search
+  - sensitivities
+  required: []
+- name: get_table_sensitivity_findings
+  category: sensitivity
+  description: Get sensitive data scan findings for a specific table by name.
+  input_arguments:
+  - finding_type
+  - page_cursor
+  - page_size
+  - positive_only
+  - schema_name
+  - sensitivities
+  - table_name
+  required:
+  - table_name
+- name: get_scan_findings
+  category: sensitivity
+  description: Get data classification scan findings from Bigeye using raw IDs.
+  input_arguments:
+  - column_ids
+  - data_class_ids
+  - finding_type
+  - page_cursor
+  - page_size
+  - positive_only
+  - search
+  - sensitivities
+  - table_ids
+  required: []
+crosswalk: mcp/bigeye-tool-crosswalk.yml

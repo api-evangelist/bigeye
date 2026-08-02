@@ -1,0 +1,58 @@
+generated: '2026-08-02'
+method: searched
+probe: true
+source: https://www.bigeye.com/platform/security
+url: https://www.bigeye.com/platform/security
+alternate_urls:
+- url: https://trust.bigeye.com/
+  status: 200
+  note: >-
+    A trust.bigeye.com host resolves and returns 200, but the page is a
+    client-rendered shell that exposes no certification names, no document
+    request flow and no disclosure policy to an anonymous fetch. The
+    substantive, machine-readable compliance content lives on the two URLs
+    recorded above.
+- url: https://docs.bigeye.com/docs/security-and-compliance
+  status: 200
+  role: primary detail page
+certifications:
+- id: soc2-type-2
+  name: SOC 2 Type 2
+  evidence: '"SOC 2 Type 2 Report" listed under Security Certification; "Bigeye is
+    a fully managed SOC 2 and ISO 27001 compliant SaaS application."'
+- id: iso-27001
+  name: ISO 27001
+  evidence: '"ISO 27001 Certification" listed under Security Certification.'
+reports_available_on_request:
+- SOC 2 Type 2 report
+- Penetration test report
+- Data Processing Addendum (DPA)
+controls:
+  hosting: AWS
+  encryption_at_rest: AES-256 (AWS-managed RDS)
+  encryption_in_transit: TLS v1.2 or higher
+  sso_provider: Auth0
+  enterprise_sso: [Okta, Ping Identity, Azure AD]
+  private_networking: AWS PrivateLink (Bigeye Enterprise)
+  waf: AWS WAF Security Automation
+  background_checks: Checkr
+  penetration_testing: annual, third party, application layer
+  data_minimization: >-
+    Bigeye extracts only aggregate statistics, query logs and metadata; raw data
+    never leaves the customer's production environment. Warehouse connections
+    use read-only service accounts over JDBC.
+  credential_handling: >-
+    Direct-connection credentials are encrypted at rest on Bigeye's AWS
+    infrastructure and are not accessible to Bigeye engineers. Agent-connection
+    credentials never leave the customer's infrastructure.
+security_contact: security@bigeye.com
+evidence:
+- source: https://www.bigeye.com/platform/security
+  fetched: '2026-08-02'
+  http_status: 200
+  keywords: [soc 2, soc2, iso 27001, penetration, encryption, security@]
+- source: https://docs.bigeye.com/docs/security-and-compliance
+  fetched: '2026-08-02'
+  http_status: 200
+  keywords: [soc 2 type 2 report, iso 27001 certification, aws, checkr, auth0, aes-256,
+    aws waf]

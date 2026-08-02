@@ -1,23 +1,230 @@
 aid: bigeye
 name: Bigeye
-description: 'Bigeye is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Bigeye is an enterprise data observability and AI trust platform that
+  monitors data quality, detects schema changes and anomalies, classifies sensitive
+  data, and maps column-level lineage across warehouses, lakes, BI tools and ETL
+  pipelines. The platform combines automated data quality monitoring, ML-powered
+  anomaly detection and lineage-based root-cause and downstream-impact analysis so
+  teams can find and resolve data issues before they reach dashboards, reports or
+  AI systems. Bigeye is API-first: its REST API is published as three OpenAPI 3.0
+  definitions (Metadata, Observability and Sensitivity) covering 263
+  operations, and it ships a first-party Python SDK, a Python CLI, Airflow
+  operators, YAML-based observability-as-code configuration, and a hosted Model
+  Context Protocol gateway that exposes 56 agent tools over the same platform.'
 url: https://raw.githubusercontent.com/api-evangelist/bigeye/refs/heads/main/apis.yml
+image: https://cdn.prod.website-files.com/64b205c9041f2a26ac7cb23f/69135c34ecede8d3fb8c6be8_bigeye-logo-1200x1200.jpg
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-02'
 modified: '2026-08-02'
 tags:
 - Company
-apis: []
+- Data Observability
+- Data Quality
+- Data Lineage
+- Data Governance
+- Metadata Management
+- Data Catalog
+- Sensitive Data Discovery
+- Monitoring
+- Analytics
+- AI Trust
+- Snowflake
+- Databricks
+apis:
+- aid: bigeye:bigeye-metadata-api
+  name: Bigeye Metadata API
+  description: >-
+    The Bigeye Metadata API covers the data catalog and workspace administration
+    surface: sources, schemas, tables, columns and virtual tables; catalog rebuilds
+    and schema-change tracking; lineage (v1 and v2) nodes and edges; users, groups,
+    roles, workspaces and object ownership; agent registration, API keys and service
+    accounts; integrations, named schedules, tags, favorites, search, dashboards and
+    workflow status.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - Catalog
+  - Metadata
+  - Lineage
+  - Schemas
+  - Tables
+  - Columns
+  - Sources
+  - Workspaces
+  - Users
+  - API Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-metadata-openapi.json
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Overlay
+    url: overlays/bigeye-metadata-overlay.yaml
+- aid: bigeye:bigeye-observability-api
+  name: Bigeye Observability API
+  description: >-
+    The Bigeye Observability API covers monitoring and data quality: metrics
+    (monitors) and metric templates, custom SQL rules, autometrics, backfills and
+    batch metric runs, collections of monitors, deltas and comparison tables for
+    cross-source validation, joins, observed columns, data quality dimensions, and
+    the issue lifecycle including merging issues into incidents.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - Monitoring
+  - Metrics
+  - Data Quality
+  - Issues
+  - Incidents
+  - Collections
+  - Deltas
+  - Custom Rules
+  - Dimensions
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-observability-openapi.json
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Overlay
+    url: overlays/bigeye-observability-overlay.yaml
+- aid: bigeye:bigeye-sensitivity-api
+  name: Bigeye Sensitivity API
+  description: >-
+    The Bigeye Sensitivity API covers sensitive data discovery and classification:
+    classifiers, data classes and data class categories, scan jobs and scan job
+    configuration, scan runs, and the aggregate and snapshot findings that report
+    where PII and other sensitive data was detected across connected sources.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - Sensitive Data
+  - Classification
+  - PII
+  - Scanning
+  - Data Governance
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-sensitivity-openapi.json
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Overlay
+    url: overlays/bigeye-sensitivity-overlay.yaml
+- aid: bigeye:bigeye-mcp-gateway
+  name: Bigeye MCP Gateway
+  description: >-
+    The Bigeye MCP Gateway is a hosted Model Context Protocol server at
+    https://mcpgateway.bigeye.com/mcp that exposes 56 tools over the Bigeye
+    platform for AI assistants and agents — listing and triaging data quality
+    issues, searching the catalog, tracing lineage, profiling tables, managing
+    metrics, dimensions and tags, and reading sensitive-data scan findings.
+    Authentication uses the same Bigeye API key passed as an "apikey" prefixed
+    Authorization header plus an x-bigeye-workspace-id header. Public beta since
+    July 2026; the server is also open source and self-hostable.
+  humanURL: https://docs.bigeye.com/docs/bigeye-mcp-server
+  baseURL: https://mcpgateway.bigeye.com/mcp
+  tags:
+  - MCP
+  - Agents
+  - AI
+  properties:
+  - type: MCPServer
+    url: mcp/bigeye-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/bigeye-tool-crosswalk.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/bigeye-mcp-server
+  - type: SourceCode
+    url: https://github.com/bigeyedata/bigeye-mcp-server
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/bigeye-agentic-access.yml
+- type: TrustCenter
+  url: security/bigeye-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/bigeye-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/bigeye-domain-security.yml
+- type: Authentication
+  url: authentication/bigeye-authentication.yml
 - type: Website
-  url: https://forgeglobal.com/bigeye_stock/
+  url: https://www.bigeye.com/
+- type: DeveloperPortal
+  url: https://docs.bigeye.com/
+- type: Documentation
+  url: https://docs.bigeye.com/docs/api-user-guide
+- type: APIReference
+  url: https://docs.bigeye.com/reference
+- type: GettingStarted
+  url: https://docs.bigeye.com/docs/getting-started
+- type: Support
+  url: https://www.bigeye.com/contact-us
+- type: Blog
+  url: https://www.bigeye.com/blog
+- type: GitHubOrganization
+  url: https://github.com/bigeyedata
+- type: SignUp
+  url: https://app.bigeye.com/login
+- type: TermsOfService
+  url: https://www.bigeye.com/terms/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.bigeye.com/privacy
+- type: StatusPage
+  url: https://status.bigeye.com/
+- type: Compliance
+  url: https://docs.bigeye.com/docs/security-and-compliance
+- type: ChangeLog
+  url: https://docs.bigeye.com/docs/release-notes
+- type: MCPServer
+  url: mcp/bigeye-mcp.yml
+- type: WellKnown
+  url: well-known/bigeye-well-known.yml
+- type: APICatalog
+  url: well-known/bigeye-api-catalog.json
+- type: LLMsTxt
+  url: llms/bigeye-llms.txt
+- type: Packages
+  url: packages/bigeye-packages.yml
+- type: SDKs
+  url: packages/bigeye-packages.yml
+- type: CLI
+  url: cli/bigeye-cli.yml
+- type: ToolCrosswalk
+  url: mcp/bigeye-tool-crosswalk.yml
+- type: Conventions
+  url: conventions/bigeye-conventions.yml
+- type: ErrorCatalog
+  url: errors/bigeye-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/bigeye-lifecycle.yml
+- type: Conformance
+  url: conformance/bigeye-conformance.yml
+- type: DataModel
+  url: data-model/bigeye-data-model.yml
+- type: Webhooks
+  url: asyncapi/bigeye-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Security
+  url: https://www.bigeye.com/platform/security
+- type: Overlay
+  url: overlays/bigeye-metadata-overlay.yaml
+- type: ChangeLog
+  url: changelog/bigeye-changelog.yml
+x-enrichment:
+  date: '2026-08-02'
+  status: enriched
+  artifacts_added: 33
+  pass: local-v1

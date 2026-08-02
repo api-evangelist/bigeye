@@ -1,0 +1,86 @@
+generated: '2026-08-02'
+method: searched
+source: https://pypi.org/user/bigeye/ + https://docs.bigeye.com/docs/cli + https://hub.docker.com/u/bigeyedata
+notes: >-
+  Bigeye ships first-party Python client tooling only. Searches of npm
+  (bigeye, @bigeye/sdk, bigeye-sdk), Maven Central, NuGet, pkg.go.dev,
+  RubyGems, Packagist and crates.io returned no first-party Bigeye client
+  library, so Python is the whole SDK surface. Container images for the
+  self-hosted agents are published on Docker Hub under the bigeyedata
+  organization.
+packages:
+- language: python
+  registry: pypi
+  name: bigeye-sdk
+  version: 0.11.4
+  url: https://pypi.org/project/bigeye-sdk/
+  install: pip install bigeye-sdk
+  official: true
+  author: Bigeye
+  license: Proprietary
+  description: Bigeye SDK offers developer tools and clients to interact with Bigeye
+    programmatically.
+  docs: https://docs.bigeye.com/docs
+- language: python
+  registry: pypi
+  name: bigeye-cli
+  version: 0.8.5
+  url: https://pypi.org/project/bigeye-cli/
+  install: pip install bigeye-cli
+  official: true
+  author: Bigeye
+  license: Proprietary
+  description: Bigeye CLI offers developer tools for maintaining your developer workspace.
+  docs: https://docs.bigeye.com/docs/cli
+  kind: cli
+- language: python
+  registry: pypi
+  name: bigeye-airflow
+  version: 0.2.0
+  url: https://pypi.org/project/bigeye-airflow/
+  install: pip install bigeye-airflow
+  official: true
+  author: Bigeye
+  license: Proprietary
+  description: Bigeye Airflow Library supports Airflow versions >=2.6.3 and offers
+    custom operators for orchestrating Bigeye from Airflow DAGs.
+  docs: https://docs.bigeye.com/recipes/create-run-metrics-via-airflow
+containers:
+- registry: dockerhub
+  namespace: bigeyedata
+  url: https://hub.docker.com/u/bigeyedata
+  official: true
+  images:
+  - name: bigeyedata/agent
+    description: Bigeye Data Source Agent
+  - name: bigeyedata/cross-source
+    description: Bigeye Cross Source Agent
+  - name: bigeyedata/lineage-plus-connector
+    description: Agent for Bigeye's Lineage Plus feature
+  - name: bigeyedata/agent-orchestrator
+    description: Bigeye Agent Orchestrator
+  - name: bigeyedata/sds-agent
+    description: Sensitive Data Scanning agent
+source_repositories:
+- name: bigeyedata/bigeye-mcp-server
+  url: https://github.com/bigeyedata/bigeye-mcp-server
+  official: true
+  description: MCP (Model Context Protocol) server for Bigeye data quality monitoring
+- name: bigeyedata/bigeye-airflow
+  url: https://github.com/bigeyedata/bigeye-airflow
+  official: true
+  description: Airflow operators for Bigeye
+- name: bigeyedata/bigeye-demo-workspace
+  url: https://github.com/bigeyedata/bigeye-demo-workspace
+  official: true
+  description: Example repository for managing Bigeye programmatically (observability
+    as code)
+registries_checked:
+- {registry: pypi, result: 3 first-party packages}
+- {registry: npm, result: none}
+- {registry: maven-central, result: none}
+- {registry: nuget, result: none}
+- {registry: pkg.go.dev, result: none}
+- {registry: rubygems, result: none}
+- {registry: packagist, result: none}
+- {registry: crates.io, result: none}

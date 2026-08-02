@@ -1,0 +1,27 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Bigeye Metadata API
+  version: 1.0.0
+extends: openapi/bigeye-metadata-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: bigeye
+    x-apievangelist-api: bigeye:bigeye-metadata-api
+    x-apievangelist-source: https://docs.bigeye.com/openapi/metadata.json
+    x-apievangelist-discovery: https://docs.bigeye.com/.well-known/api-catalog
+    x-apievangelist-harvested: '2026-08-02'
+    x-artifact-authentication: authentication/bigeye-authentication.yml
+    x-artifact-conventions: conventions/bigeye-conventions.yml
+    x-artifact-errors: errors/bigeye-problem-types.yml
+    x-artifact-lifecycle: lifecycle/bigeye-lifecycle.yml
+    x-artifact-data-model: data-model/bigeye-data-model.yml
+    x-artifact-mcp: mcp/bigeye-mcp.yml
+- target: $.servers
+  update:
+  - url: https://app.bigeye.com
+    description: Default Bigeye stack. Customers on a dedicated stack use https://<company-prefix>.bigeye.com.
+- target: $.paths.*.*
+  update:
+    x-workspace-scoping: Workspace-scoped operations accept workspaceId as a query or body parameter,
+      or the X-Bigeye-Workspace-Id request header.

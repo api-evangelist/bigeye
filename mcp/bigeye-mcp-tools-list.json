@@ -1,0 +1,2676 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "tools": [
+      {
+        "name": "list_resources",
+        "description": "List all available MCP resources for quick data access.\n    \n    Resources provide read-only, cacheable access to frequently needed data.\n    Use resources instead of tools when you need quick reference information\n    that doesn't require complex filtering or actions.\n    \n    Returns:\n        Dictionary containing available resources with their URIs and descriptions\n    ",
+        "inputSchema": {
+          "properties": {},
+          "title": "list_resourcesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_resourcesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_health_status",
+        "description": "Check the health and connectivity of the Bigeye API. Returns API status and version.",
+        "inputSchema": {
+          "properties": {},
+          "title": "get_health_statusArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_health_statusOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_current_user",
+        "description": "Get the currently authenticated Bigeye user (the API key owner). Returns their integer 'id', email, name, and accessible workspaces. Use this to answer 'who am I' and to resolve the current user's ID for assignee filtering \u2014 e.g. to find issues assigned to the current user, call this, then list_issues(assignee_ids=[id]).",
+        "inputSchema": {
+          "properties": {},
+          "title": "get_current_userArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_current_userOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_issues",
+        "description": "List data quality issues across the workspace. Supports filtering by status (ISSUE_STATUS_NEW, ISSUE_STATUS_ACKNOWLEDGED, ISSUE_STATUS_CLOSED, ISSUE_STATUS_MONITORING, ISSUE_STATUS_MERGED), schema, assignee, and collection. Returns compact summaries by default. Best for broad views like 'show all open issues'. To find issues assigned to the current user, first call get_current_user to get their integer 'id', then pass it as assignee_ids=[id]. To filter by collection, call list_collections first to resolve a collection name to its ID. For issues on a specific table, use list_table_issues instead.\n\n    Args:\n        statuses: Optional list of issue statuses to filter by. Possible values:\n            - ISSUE_STATUS_NEW\n            - ISSUE_STATUS_ACKNOWLEDGED\n            - ISSUE_STATUS_CLOSED\n            - ISSUE_STATUS_MONITORING\n            - ISSUE_STATUS_MERGED\n        schema_names: Optional list of schema names to filter issues by\n        assignee_ids: Optional list of integer user IDs to filter issues by assignee.\n            To filter by the current user (\"assigned to me\"), call get_current_user\n            first and use the returned 'id'.\n        collection_ids: Optional list of collection IDs to filter issues by.\n            Collections group related metrics (data products, domains, etc.).\n            Call list_collections() to resolve a collection name to its ID first.\n        page_size: Optional number of issues to request from API per page (default: 20)\n        page_cursor: Cursor for pagination\n        compact: If True (default), returns only minimal fields (id, name, status, table, schema).\n                When an issue has an assignee, the output also includes `assignee`\n                (name/email) and `assigneeId` (integer ID) \u2014 useful for verifying\n                assignee filtering.\n                If False, returns standard fields including description and metric info.\n                Use compact=True to list issues, then get_issue() for specifics.\n        max_issues: Maximum number of issues to return (default: 15). Prevents context overload.\n                   Set to None to return all issues (use with caution).\n    ",
+        "inputSchema": {
+          "properties": {
+            "statuses": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Statuses"
+            },
+            "schema_names": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Schema Names"
+            },
+            "assignee_ids": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Assignee Ids"
+            },
+            "collection_ids": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Collection Ids"
+            },
+            "page_size": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Page Size"
+            },
+            "page_cursor": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Page Cursor"
+            },
+            "compact": {
+              "default": true,
+              "title": "Compact",
+              "type": "boolean"
+            },
+            "max_issues": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": 15,
+              "title": "Max Issues"
+            }
+          },
+          "title": "list_issuesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_issuesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_issue",
+        "description": "Get full details for a single issue by its internal ID (not display name). Returns event history, metric details, and metadata. To find an issue's internal ID from its display name, use search_issues first.\n\n    Args:\n        issue_id: The internal database ID of the issue (from the 'id' field in issue lists)\n    ",
+        "inputSchema": {
+          "properties": {
+            "issue_id": {
+              "title": "Issue Id",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "issue_id"
+          ],
+          "title": "get_issueArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_issueOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "search_issues",
+        "description": "Find issues or incidents by their display name \u2014 the number shown in the Bigeye UI (e.g. '10921'). ALWAYS use this when a user references an issue by number. Returns matching issues with their internal IDs for use with get_issue, update_issue, and other tools.\n\n    Args:\n        name_query: The issue name or partial name to search for (e.g., \"10921\", \"data-quality\")\n        statuses: Optional list of issue statuses to filter by. Possible values:\n            - ISSUE_STATUS_NEW\n            - ISSUE_STATUS_ACKNOWLEDGED\n            - ISSUE_STATUS_CLOSED\n            - ISSUE_STATUS_MONITORING\n            - ISSUE_STATUS_MERGED\n        exact_match: If True, only return exact name matches. If False (default),\n                    returns partial matches (case-insensitive)\n    ",
+        "inputSchema": {
+          "properties": {
+            "name_query": {
+              "title": "Name Query",
+              "type": "string"
+            },
+            "statuses": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Statuses"
+            },
+            "exact_match": {
+              "default": false,
+              "title": "Exact Match",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "name_query"
+          ],
+          "title": "search_issuesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "search_issuesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "search_schemas",
+        "description": "Search the Bigeye data catalog for schemas by name. Returns matching schemas with their internal IDs and warehouse context.\n\n    Schema names are in `database.schema` format when the warehouse has a\n    database layer (e.g. Snowflake: \"ANALYTICS.PUBLIC\"); for warehouses without a\n    database, the name is just the schema (e.g. \"public\"). Returned `name` values\n    follow the same convention.\n\n    Args:\n        query: The schema name or partial name to search for. Include the database\n            prefix when applicable (e.g. \"ANALYTICS.PUBLIC\"), or search by just the\n            schema part (e.g. \"public\") for a broader match.\n        limit: Maximum number of results to return (default: 50)\n    ",
+        "inputSchema": {
+          "properties": {
+            "query": {
+              "title": "Query",
+              "type": "string"
+            },
+            "limit": {
+              "default": 50,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "title": "search_schemasArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "search_schemasOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "search_tables",
+        "description": "Search the Bigeye data catalog for tables by name. Returns matching tables with their internal IDs, schema, and warehouse context.\n\n    The returned `schemaName` is in `database.schema` format when the warehouse\n    has a database layer (e.g. Snowflake: \"ANALYTICS.PUBLIC\"); for warehouses\n    without a database, it is just the schema (e.g. \"public\").\n\n    Args:\n        query: The table name or partial name to search for (e.g. \"orders\", \"customer\")\n        limit: Maximum number of results to return (default: 50)\n    ",
+        "inputSchema": {
+          "properties": {
+            "query": {
+              "title": "Query",
+              "type": "string"
+            },
+            "limit": {
+              "default": 50,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "title": "search_tablesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "search_tablesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "search_columns",
+        "description": "Search the Bigeye data catalog for columns by name. Returns matching columns with their internal IDs, data type, and the table/schema/warehouse they belong to.\n\n    The returned `table.schemaName` is in `database.schema` format when the\n    warehouse has a database layer (e.g. Snowflake: \"ANALYTICS.PUBLIC\"); for\n    warehouses without a database, it is just the schema (e.g. \"public\").\n\n    Args:\n        query: The column name or partial name to search for (e.g. \"email\", \"user_id\")\n        limit: Maximum number of results to return (default: 50)\n    ",
+        "inputSchema": {
+          "properties": {
+            "query": {
+              "title": "Query",
+              "type": "string"
+            },
+            "limit": {
+              "default": 50,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "title": "search_columnsArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "search_columnsOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_related_issues",
+        "description": "List issues related to a given issue via upstream/downstream lineage. Returns related issues with root cause flags (isRootCause=true). Requires internal issue ID.\n\n    Args:\n        starting_issue_id: The internal ID of the issue to find related issues for\n    ",
+        "inputSchema": {
+          "properties": {
+            "starting_issue_id": {
+              "title": "Starting Issue Id",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "starting_issue_id"
+          ],
+          "title": "list_related_issuesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_related_issuesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_table_issues",
+        "description": "List data quality issues for a specific table by name. Best for investigating a known table. For workspace-wide issues use list_issues. Requires table_name.\n\n    Args:\n        table_name: Name of the table (e.g., \"ORDERS\")\n        warehouse_name: Optional warehouse name (e.g., \"ORACLE\", \"SNOWFLAKE\")\n        schema_name: Optional schema name (e.g., \"PROD_REPL\")\n        statuses: Optional list of issue statuses to filter by:\n            - ISSUE_STATUS_NEW\n            - ISSUE_STATUS_ACKNOWLEDGED\n            - ISSUE_STATUS_CLOSED\n            - ISSUE_STATUS_MONITORING\n            - ISSUE_STATUS_MERGED\n    ",
+        "inputSchema": {
+          "properties": {
+            "table_name": {
+              "title": "Table Name",
+              "type": "string"
+            },
+            "warehouse_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Warehouse Name"
+            },
+            "schema_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Schema Name"
+            },
+            "statuses": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Statuses"
+            }
+          },
+          "required": [
+            "table_name"
+          ],
+          "title": "list_table_issuesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_table_issuesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "create_incident",
+        "description": "Create an incident by merging related issues, or add issues to an existing incident. Requires at least 2 issue IDs for new incidents, or 1 issue ID plus an existing_incident_id.\n\n    Args:\n        issue_ids: List of issue IDs to merge (at least 2 for new incident, at least 1 for existing)\n        existing_incident_id: Optional ID of an existing incident to merge issues into.\n                             If not provided, a new incident will be created.\n        incident_name: Optional name for the incident\n    ",
+        "inputSchema": {
+          "properties": {
+            "issue_ids": {
+              "items": {
+                "type": "integer"
+              },
+              "title": "Issue Ids",
+              "type": "array"
+            },
+            "existing_incident_id": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Existing Incident Id"
+            },
+            "incident_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Incident Name"
+            }
+          },
+          "required": [
+            "issue_ids"
+          ],
+          "title": "create_incidentArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "create_incidentOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_resolution_steps",
+        "description": "Get recommended resolution steps for an issue. Returns step-by-step guidance for remediation. Requires internal issue ID.\n\n    Args:\n        issue_id: The internal ID of the issue to get resolution steps for\n    ",
+        "inputSchema": {
+          "properties": {
+            "issue_id": {
+              "title": "Issue Id",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "issue_id"
+          ],
+          "title": "get_resolution_stepsArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_resolution_stepsOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "update_issue",
+        "description": "Update an issue's status, priority, or add a timeline message. Valid statuses: ISSUE_STATUS_NEW, ISSUE_STATUS_ACKNOWLEDGED, ISSUE_STATUS_CLOSED, ISSUE_STATUS_MONITORING, ISSUE_STATUS_MERGED. When closing, requires a closing_label (METRIC_RUN_LABEL_TRUE_NEGATIVE, METRIC_RUN_LABEL_FALSE_POSITIVE, etc.).\n\n    Args:\n        issue_id: The ID of the issue to update\n        new_status: New status for the issue\n        closing_label: Required when new_status is ISSUE_STATUS_CLOSED\n        priority: New priority (ISSUE_PRIORITY_LOW, ISSUE_PRIORITY_MED, ISSUE_PRIORITY_HIGH)\n        message: Timeline message to add to the issue\n    ",
+        "inputSchema": {
+          "properties": {
+            "issue_id": {
+              "title": "Issue Id",
+              "type": "integer"
+            },
+            "new_status": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "New Status"
+            },
+            "closing_label": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Closing Label"
+            },
+            "priority": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Priority"
+            },
+            "message": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Message"
+            }
+          },
+          "required": [
+            "issue_id"
+          ],
+          "title": "update_issueArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "update_issueOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "delete_incident_members",
+        "description": "Remove issues from an incident. Specify individual issue_ids to unmerge, or parent_issue_ids to unmerge all children from an incident.\n\n    Args:\n        issue_ids: Optional list of specific issue IDs to unmerge from their incidents\n        parent_issue_ids: Optional list of incident IDs to unmerge all child issues from\n        assignee_id: Optional user ID to assign the unmerged issues to\n        new_status: Optional new status for the unmerged issues\n    ",
+        "inputSchema": {
+          "properties": {
+            "issue_ids": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Issue Ids"
+            },
+            "parent_issue_ids": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Parent Issue Ids"
+            },
+            "assignee_id": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Assignee Id"
+            },
+            "new_status": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "New Status"
+            }
+          },
+          "title": "delete_incident_membersArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "delete_incident_membersOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_table_metrics",
+        "description": "List all metrics (monitors) configured on a table from the live Bigeye API. Returns full metric configurations including schedules, thresholds, lookback windows, and which data dimension each metric belongs to. For a quick coverage gap analysis, use get_table_dimension_coverage instead.\n\n    Args:\n        table_name: Table name to get metrics for\n        schema_name: Optional schema name to narrow the search\n    ",
+        "inputSchema": {
+          "properties": {
+            "table_name": {
+              "title": "Table Name",
+              "type": "string"
+            },
+            "schema_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Schema Name"
+            }
+          },
+          "required": [
+            "table_name"
+          ],
+          "title": "list_table_metricsArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_table_metricsOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_data_sources",
+        "description": "List all data sources (warehouses) connected to Bigeye. Returns source names, types (SNOWFLAKE, DATABRICKS, etc.), and connection details. Prefer list_sources (knowledgebase) for faster cached results.",
+        "inputSchema": {
+          "properties": {},
+          "title": "list_data_sourcesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_data_sourcesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_collections",
+        "description": "List all collections in the workspace. Collections are curated groups of metrics (data products, domains, etc.). Returns each collection's id, name, description, and metricIds. Use this to resolve a collection name to its ID, then pass it to list_issues(collection_ids=[...]) to see that collection's issues.",
+        "inputSchema": {
+          "properties": {},
+          "title": "list_collectionsArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_collectionsOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_dataset_health_summary",
+        "description": "Get a health overview of datasets (tables): monitoring status and open issues per dataset, rolled up per schema. This is the recommended single-call tool for questions like \"show me the health of my datasets\" or \"which tables are alerting?\".\n\n    Combines the table catalog, latest metric run statuses, and open issues into\n    a compact report:\n    - summary: workspace/scope totals (tables monitored/alerting/healthy/unknown/\n      unmonitored \u2014 \"unknown\" means monitored but every metric's latest run\n      status is indeterminate, e.g. never run)\n    - schemas: per-schema rollup with table and issue counts\n    - attention: per-table detail for datasets that are alerting or have open\n      issues (capped by max_tables), including a brief issue list\n    - healthy_monitored_tables: monitored datasets with no alerts or open issues\n\n    A dataset counts as \"monitored\" when at least one metric is configured on it.\n    \"Alerting\" means a metric's latest run breached thresholds or the dataset has\n    an open (new/acknowledged/monitoring) issue.\n\n    Args:\n        warehouse_name: Optional warehouse (data source) name to scope the report,\n            e.g. \"MinnCo-Bronze-Snowflake\". Case-insensitive exact match.\n        schema_name: Optional schema name to scope the report. Use the same format\n            shown elsewhere: \"database.schema\" when the warehouse has a database\n            layer (e.g. \"MINNCO_BRONZE.dbo\"), plain schema otherwise (e.g. \"dbo\").\n            Case-insensitive exact match.\n        max_tables: Maximum number of tables to detail in the attention list\n            (default: 25). Counts in summary/schemas are never truncated.\n    ",
+        "inputSchema": {
+          "properties": {
+            "warehouse_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Warehouse Name"
+            },
+            "schema_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Schema Name"
+            },
+            "max_tables": {
+              "default": 25,
+              "title": "Max Tables",
+              "type": "integer"
+            }
+          },
+          "title": "get_dataset_health_summaryArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_dataset_health_summaryOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_lineage_graph",
+        "description": "Get the full lineage graph (upstream/downstream/both) from a starting node. Returns nodes and edges showing data flow. Requires node_id from search_lineage_nodes.\n\n    Args:\n        node_id: The ID of the lineage node to get the graph for\n        direction: Direction to traverse: \"bidirectional\" (default), \"upstream\", or \"downstream\"\n        max_depth: Maximum depth to traverse (optional)\n        include_issues: Whether to include issue counts for each node (default: True)\n    ",
+        "inputSchema": {
+          "properties": {
+            "node_id": {
+              "title": "Node Id",
+              "type": "integer"
+            },
+            "direction": {
+              "default": "bidirectional",
+              "title": "Direction",
+              "type": "string"
+            },
+            "max_depth": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Max Depth"
+            },
+            "include_issues": {
+              "default": true,
+              "title": "Include Issues",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "node_id"
+          ],
+          "title": "get_lineage_graphArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_lineage_graphOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_lineage_node",
+        "description": "Get details for a specific lineage node (type, name, properties). Requires node_id.\n\n    Args:\n        node_id: The ID of the lineage node to get details for\n    ",
+        "inputSchema": {
+          "properties": {
+            "node_id": {
+              "title": "Node Id",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "node_id"
+          ],
+          "title": "get_lineage_nodeArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_lineage_nodeOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_lineage_node_issues",
+        "description": "List issues for a lineage node by its node_id. Best for when you already have a node_id from search_lineage_nodes. If you only have a table name, use list_table_issues instead.\n\n    Args:\n        node_id: The ID of the lineage node to get issues for\n    ",
+        "inputSchema": {
+          "properties": {
+            "node_id": {
+              "title": "Node Id",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "node_id"
+          ],
+          "title": "list_lineage_node_issuesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_lineage_node_issuesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_upstream_root_causes",
+        "description": "Analyze upstream lineage to identify root causes of data quality issues. Traverses upstream from a node to find the origin of problems. Requires node_id.\n\n    Args:\n        node_id: The ID of the lineage node where issues are occurring\n        max_depth: Maximum depth to search upstream (default: 5)\n    ",
+        "inputSchema": {
+          "properties": {
+            "node_id": {
+              "title": "Node Id",
+              "type": "integer"
+            },
+            "max_depth": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": 5,
+              "title": "Max Depth"
+            }
+          },
+          "required": [
+            "node_id"
+          ],
+          "title": "get_upstream_root_causesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_upstream_root_causesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_downstream_impact",
+        "description": "Analyze downstream impact of issues at a lineage node, categorized by type (analytics, data products, critical). Returns severity assessment and stakeholder notifications. Requires node_id.\n\n    Args:\n        node_id: The ID of the lineage node with potential data quality issues\n        max_depth: Maximum depth to search downstream (default: 5)\n        include_integration_entities: Include BI tools, dashboards, etc. (default: True)\n        impact_focus: Type of impact to focus on: \"all\" (default), \"analytics\", \"data_products\", or \"critical\"\n    ",
+        "inputSchema": {
+          "properties": {
+            "node_id": {
+              "title": "Node Id",
+              "type": "integer"
+            },
+            "max_depth": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": 5,
+              "title": "Max Depth"
+            },
+            "include_integration_entities": {
+              "default": true,
+              "title": "Include Integration Entities",
+              "type": "boolean"
+            },
+            "impact_focus": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": "all",
+              "title": "Impact Focus"
+            }
+          },
+          "required": [
+            "node_id"
+          ],
+          "title": "get_downstream_impactArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_downstream_impactOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_issue_lineage_trace",
+        "description": "Trace a data quality issue end-to-end through lineage: upstream root causes to downstream impact. Requires internal issue_id (from search_issues, not the display name).\n\n    Args:\n        issue_id: The internal ID of the issue to trace through lineage\n        include_root_cause_analysis: Whether to perform upstream root cause analysis (default: True)\n        include_impact_analysis: Whether to perform downstream impact analysis (default: True)\n        max_depth: Maximum depth for lineage traversal (default: 5)\n    ",
+        "inputSchema": {
+          "properties": {
+            "issue_id": {
+              "title": "Issue Id",
+              "type": "integer"
+            },
+            "include_root_cause_analysis": {
+              "default": true,
+              "title": "Include Root Cause Analysis",
+              "type": "boolean"
+            },
+            "include_impact_analysis": {
+              "default": true,
+              "title": "Include Impact Analysis",
+              "type": "boolean"
+            },
+            "max_depth": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": 5,
+              "title": "Max Depth"
+            }
+          },
+          "required": [
+            "issue_id"
+          ],
+          "title": "get_issue_lineage_traceArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_issue_lineage_traceOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "lineage_track_data_access",
+        "description": "Track data assets accessed by an AI agent.\n    \n    This tool allows AI agents to track which tables and columns they've accessed\n    during their analysis. The tracked assets can later be committed to Bigeye's\n    lineage graph to show data dependencies.\n    \n    Args:\n        qualified_names: List of fully qualified names of accessed assets.\n                        Supports formats:\n                        - database.schema.table\n                        - database.schema.table.column\n                        - warehouse.database.schema.table\n                        - warehouse.database.schema.table.column\n        agent_name: Optional custom name for the agent (defaults to system-based name)\n        \n    Returns:\n        Dictionary containing tracking status and summary\n        \n    Example:\n        # Track table access\n        await track_data_access([\n            \"SNOWFLAKE.SALES.PUBLIC.ORDERS\",\n            \"SNOWFLAKE.SALES.PUBLIC.CUSTOMERS\"\n        ])\n        \n        # Track column-level access\n        await track_data_access([\n            \"SALES.PUBLIC.ORDERS.order_id\",\n            \"SALES.PUBLIC.ORDERS.customer_id\",\n            \"SALES.PUBLIC.CUSTOMERS.customer_name\"\n        ])\n    ",
+        "inputSchema": {
+          "properties": {
+            "qualified_names": {
+              "items": {
+                "type": "string"
+              },
+              "title": "Qualified Names",
+              "type": "array"
+            },
+            "agent_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Agent Name"
+            }
+          },
+          "required": [
+            "qualified_names"
+          ],
+          "title": "lineage_track_data_accessArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "lineage_track_data_accessOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "lineage_get_tracking_status",
+        "description": "Get the current status of lineage tracking.\n    \n    Returns information about all data assets currently being tracked\n    by the agent, before they are committed to Bigeye's lineage graph.\n    \n    Returns:\n        Dictionary containing tracking status and tracked assets\n    ",
+        "inputSchema": {
+          "properties": {},
+          "title": "lineage_get_tracking_statusArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "lineage_get_tracking_statusOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "lineage_commit_agent",
+        "description": "Commit tracked data access to Bigeye's lineage graph.\n    \n    This creates lineage edges between the AI agent and all tracked data assets,\n    showing which tables and columns the agent has accessed during its analysis.\n    \n    Args:\n        rebuild_graph: Whether to rebuild the lineage graph after creating edges (default: True)\n        clear_after_commit: Whether to clear tracked assets after successful commit (default: True)\n        \n    Returns:\n        Dictionary containing commit results and any errors\n        \n    Example:\n        # First track some data access\n        await track_data_access([\n            \"SALES.PUBLIC.ORDERS\",\n            \"SALES.PUBLIC.CUSTOMERS\"\n        ])\n        \n        # Then commit to Bigeye\n        result = await commit_agent_lineage()\n        print(f\"Created {result['edges_created']} lineage edges\")\n    ",
+        "inputSchema": {
+          "properties": {
+            "rebuild_graph": {
+              "default": true,
+              "title": "Rebuild Graph",
+              "type": "boolean"
+            },
+            "clear_after_commit": {
+              "default": true,
+              "title": "Clear After Commit",
+              "type": "boolean"
+            }
+          },
+          "title": "lineage_commit_agentArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "lineage_commit_agentOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "lineage_clear_tracked_assets",
+        "description": "Clear all tracked data assets without committing.\n    \n    Use this to reset the tracking state without creating lineage edges.\n    \n    Returns:\n        Dictionary confirming the clear operation\n    ",
+        "inputSchema": {
+          "properties": {},
+          "title": "lineage_clear_tracked_assetsArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "lineage_clear_tracked_assetsOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "lineage_cleanup_agent_edges",
+        "description": "Clean up old lineage edges for the AI agent.\n    \n    This removes lineage edges older than the specified retention period,\n    but ONLY for edges where the AI agent is involved. This ensures we\n    don't accidentally delete existing lineage between tables.\n    \n    Args:\n        retention_days: Number of days to retain lineage edges (default: 30)\n        \n    Returns:\n        Dictionary containing cleanup results\n        \n    Example:\n        # Clean up edges older than 7 days\n        result = await cleanup_agent_lineage_edges(retention_days=7)\n        print(f\"Deleted {result['edges_deleted']} old edges\")\n    ",
+        "inputSchema": {
+          "properties": {
+            "retention_days": {
+              "default": 30,
+              "title": "Retention Days",
+              "type": "integer"
+            }
+          },
+          "title": "lineage_cleanup_agent_edgesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "lineage_cleanup_agent_edgesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "search_lineage_nodes",
+        "description": "Find lineage node IDs by path pattern (e.g. 'WAREHOUSE/SCHEMA/TABLE'). Supports wildcards ('*/*/ORDERS'). Best for: getting a node_id required by get_lineage_graph, get_downstream_impact, and other lineage tools.\n\n    Args:\n        workspace_id: Optional Bigeye workspace ID. If not provided, uses the configured workspace.\n        search_string: Search string using path format (e.g. 'WAREHOUSE/SCHEMA/TABLE') or wildcards\n        node_type: Optional node type filter: \"DATA_NODE_TYPE_TABLE\", \"DATA_NODE_TYPE_COLUMN\", \"DATA_NODE_TYPE_CUSTOM\"\n        limit: Maximum number of results to return (default: 20)\n    ",
+        "inputSchema": {
+          "properties": {
+            "workspace_id": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Workspace Id"
+            },
+            "search_string": {
+              "default": "*",
+              "title": "Search String",
+              "type": "string"
+            },
+            "node_type": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Node Type"
+            },
+            "limit": {
+              "default": 20,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          "title": "search_lineage_nodesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "search_lineage_nodesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "lineage_explore_catalog",
+        "description": "Explore tables in Bigeye's catalog. For browsing the data catalog, prefer list_tables + list_schemas (knowledgebase).\n\n    This diagnostic tool helps discover how tables are named and structured in Bigeye's catalog.\n    \n    Args:\n        schema_name: Optional schema name to filter by (e.g., \"PROD_REPL\")\n        warehouse_name: Optional warehouse name to filter by (e.g., \"SNOWFLAKE\")\n        search_term: Optional search term to filter table names\n        page_size: Number of results to return (default: 50)\n        \n    Returns:\n        Dictionary containing catalog tables with their full names\n        \n    Example:\n        # Find all tables in PROD_REPL schema\n        await explore_catalog_tables(schema_name=\"PROD_REPL\")\n        \n        # Find tables with \"ORDER\" in the name\n        await explore_catalog_tables(search_term=\"ORDER\")\n    ",
+        "inputSchema": {
+          "properties": {
+            "schema_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Schema Name"
+            },
+            "warehouse_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Warehouse Name"
+            },
+            "search_term": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Search Term"
+            },
+            "page_size": {
+              "default": 50,
+              "title": "Page Size",
+              "type": "integer"
+            }
+          },
+          "title": "lineage_explore_catalogArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "lineage_explore_catalogOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "lineage_delete_node",
+        "description": "Delete a custom lineage node from Bigeye's lineage graph.\n    \n    This tool removes a custom lineage node (such as an AI agent node) from \n    the lineage graph. It will also attempt to remove all associated edges.\n    \n    WARNING: This operation cannot be undone. Use with caution.\n    \n    Args:\n        node_id: The ID of the custom lineage node to delete\n        force: Force deletion even if node has active edges (default: False)\n        \n    Returns:\n        Dictionary containing deletion results\n        \n    Example:\n        # Delete an agent node\n        result = await lineage_delete_node(node_id=12345)\n        print(f\"Deleted node {result['node_id']}\")\n        \n        # Force delete even with edges\n        result = await lineage_delete_node(node_id=12345, force=True)\n    ",
+        "inputSchema": {
+          "properties": {
+            "node_id": {
+              "title": "Node Id",
+              "type": "integer"
+            },
+            "force": {
+              "default": false,
+              "title": "Force",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "node_id"
+          ],
+          "title": "lineage_delete_nodeArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "lineage_delete_nodeOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_report_upstream_issues",
+        "description": "List upstream data quality issues affecting a BI report or dashboard. Requires the report's lineage node_id. To discover reports/dashboards first, use list_catalog_entities (knowledgebase).\n\n    Args:\n        report_id: The lineage node ID of the BI report/dashboard\n    ",
+        "inputSchema": {
+          "properties": {
+            "report_id": {
+              "title": "Report Id",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "report_id"
+          ],
+          "title": "list_report_upstream_issuesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_report_upstream_issuesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_table_profile",
+        "description": "Get the data profile report for a table including column statistics, data distribution, and profile history. Requires table_id.\n\n    Args:\n        table_id: The ID of the table to get the profile for\n    ",
+        "inputSchema": {
+          "properties": {
+            "table_id": {
+              "title": "Table Id",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "table_id"
+          ],
+          "title": "get_table_profileArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_table_profileOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "create_profile_job",
+        "description": "Queue a new data profiling job for a table. Returns a workflow ID to track progress with get_profile_job_status. Requires table_id.\n\n    Args:\n        table_id: The ID of the table to queue profiling for\n    ",
+        "inputSchema": {
+          "properties": {
+            "table_id": {
+              "title": "Table Id",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "table_id"
+          ],
+          "title": "create_profile_jobArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "create_profile_jobOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_profile_job_status",
+        "description": "Check the status of a profiling job (queued, running, completed). Requires table_id.\n\n    Args:\n        table_id: The ID of the table to check profiling workflow status for\n    ",
+        "inputSchema": {
+          "properties": {
+            "table_id": {
+              "title": "Table Id",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "table_id"
+          ],
+          "title": "get_profile_job_statusArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_profile_job_statusOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_dimensions",
+        "description": "List all data-quality dimensions with their metric type mappings. Returns each dimension's name, top-level category (PIPELINE_RELIABILITY or DATA_QUALITY), and the metric types that belong to it. For a table-specific coverage analysis that maps dimensions to existing monitors, use get_table_dimension_coverage.",
+        "inputSchema": {
+          "properties": {},
+          "title": "list_dimensionsArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_dimensionsOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_dimension",
+        "description": "Get full details for a single Data Dimension by its ID. Returns the dimension's name, description, and entity metadata.\n\n    Args:\n        dimension_id: The ID of the dimension to retrieve\n    ",
+        "inputSchema": {
+          "properties": {
+            "dimension_id": {
+              "title": "Dimension Id",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "dimension_id"
+          ],
+          "title": "get_dimensionArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_dimensionOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "create_dimension",
+        "description": "Create a new Data Dimension in the Bigeye workspace.\n\n    Args:\n        name: The name for the new dimension\n        description: Optional description for the dimension\n    ",
+        "inputSchema": {
+          "properties": {
+            "name": {
+              "title": "Name",
+              "type": "string"
+            },
+            "description": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Description"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "title": "create_dimensionArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "create_dimensionOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "update_dimension",
+        "description": "Update an existing Data Dimension's name or description.\n\n    Args:\n        dimension_id: The ID of the dimension to update\n        name: New name for the dimension (optional)\n        description: New description for the dimension (optional)\n    ",
+        "inputSchema": {
+          "properties": {
+            "dimension_id": {
+              "title": "Dimension Id",
+              "type": "integer"
+            },
+            "name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Name"
+            },
+            "description": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Description"
+            }
+          },
+          "required": [
+            "dimension_id"
+          ],
+          "title": "update_dimensionArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "update_dimensionOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "delete_dimension",
+        "description": "Delete a Data Dimension by its ID. This action is permanent.\n\n    Args:\n        dimension_id: The ID of the dimension to delete\n    ",
+        "inputSchema": {
+          "properties": {
+            "dimension_id": {
+              "title": "Dimension Id",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "dimension_id"
+          ],
+          "title": "delete_dimensionArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "delete_dimensionOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_table_level_metrics",
+        "description": "List metric types that are table-level (not column-level). Returns metric names like FRESHNESS, VOLUME, COUNT_ROWS, etc. Use this to distinguish table-level from column-level metrics when analyzing coverage.",
+        "inputSchema": {
+          "properties": {},
+          "title": "list_table_level_metricsArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_table_level_metricsOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "create_metric",
+        "description": "Create a new metric (monitor) on a table. Supports predefined metric types like COUNT_ROWS, PERCENT_NULL, FRESHNESS, etc.\n\n    Column-level metrics (e.g. PERCENT_NULL, COUNT_DISTINCT) require column_name.\n    Table-level metrics (e.g. COUNT_ROWS, FRESHNESS) must NOT have column_name.\n\n    Prefer passing table_id for reliable lookups. Falls back to name-based search if table_id is not provided.\n\n    Args:\n        table_name: Name of the table to create the metric on\n        metric_type: Predefined metric type (e.g. COUNT_ROWS, PERCENT_NULL, FRESHNESS)\n        column_name: Column to monitor (required for column-level metrics, omit for table-level)\n        schema_name: Optional schema name to disambiguate table search\n        table_id: Table ID \u2014 preferred, avoids ambiguous name lookups\n        name: Optional display name for the metric\n        description: Optional description for the metric\n        lookback_type: Optional lookback type \u2014 DATA_TIME, CLOCK_TIME, or METRIC_TIME\n        lookback_interval_type: Optional interval type \u2014 only DAYS is supported for metric lookback\n        lookback_interval_value: Optional interval value (e.g. 7)\n        filters: Optional list of SQL filter expressions\n        group_bys: Optional list of column names to group by\n    ",
+        "inputSchema": {
+          "properties": {
+            "table_name": {
+              "title": "Table Name",
+              "type": "string"
+            },
+            "metric_type": {
+              "title": "Metric Type",
+              "type": "string"
+            },
+            "column_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Column Name"
+            },
+            "schema_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Schema Name"
+            },
+            "table_id": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Table Id"
+            },
+            "name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Name"
+            },
+            "description": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Description"
+            },
+            "lookback_type": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Lookback Type"
+            },
+            "lookback_interval_type": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Lookback Interval Type"
+            },
+            "lookback_interval_value": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Lookback Interval Value"
+            },
+            "filters": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Filters"
+            },
+            "group_bys": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Group Bys"
+            }
+          },
+          "required": [
+            "table_name",
+            "metric_type"
+          ],
+          "title": "create_metricArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "create_metricOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_table_dimension_coverage",
+        "description": "Analyze which data quality dimensions are covered by monitors on a table and which have gaps. Automatically joins the workspace's dimension taxonomy, the table's column metadata, and existing metrics to produce: per-column coverage, table-level coverage, an aggregate score, and a prioritized gap list with suggested metric types. This is the recommended single-call tool for answering 'what monitoring is missing on this table?'\n\n    Prefer passing table_id for reliable lookups. Falls back to name-based search if table_id is not provided.\n\n    Args:\n        table_name: Table name to analyze (used as fallback if table_id not provided)\n        schema_name: Optional schema name to narrow name-based search\n        table_id: Table ID \u2014 preferred, avoids ambiguous name lookups\n    ",
+        "inputSchema": {
+          "properties": {
+            "table_name": {
+              "default": "",
+              "title": "Table Name",
+              "type": "string"
+            },
+            "schema_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Schema Name"
+            },
+            "table_id": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Table Id"
+            }
+          },
+          "title": "get_table_dimension_coverageArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_table_dimension_coverageOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_column_dimension_coverage",
+        "description": "Analyze dimension coverage for specific columns in a table. Same analysis as get_table_dimension_coverage but filtered to the requested columns. Use this when you already know which columns to investigate \u2014 for example, after identifying columns with issues or when a user asks about specific fields. Always includes table-level dimension coverage for context.\n\n    Prefer passing table_id for reliable lookups. Falls back to name-based search if table_id is not provided.\n\n    Args:\n        table_name: Table name to analyze (used as fallback if table_id not provided)\n        column_names: List of column names to analyze coverage for\n        schema_name: Optional schema name to narrow name-based search\n        table_id: Table ID \u2014 preferred, avoids ambiguous name lookups\n    ",
+        "inputSchema": {
+          "properties": {
+            "table_name": {
+              "default": "",
+              "title": "Table Name",
+              "type": "string"
+            },
+            "column_names": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "title": "Column Names",
+              "type": "array"
+            },
+            "schema_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Schema Name"
+            },
+            "table_id": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Table Id"
+            }
+          },
+          "title": "get_column_dimension_coverageArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_column_dimension_coverageOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_tags",
+        "description": "List or search workspace tags. Returns tag IDs, names, and colors. Use search to filter by name.\n\n    Args:\n        search: Optional search string to filter tags by name\n        page_size: Number of tags per page (default 50)\n        page_cursor: Pagination cursor from a previous response\n    ",
+        "inputSchema": {
+          "properties": {
+            "search": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Search"
+            },
+            "page_size": {
+              "default": 50,
+              "title": "Page Size",
+              "type": "integer"
+            },
+            "page_cursor": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Page Cursor"
+            }
+          },
+          "title": "list_tagsArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_tagsOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "create_tag",
+        "description": "Create a new workspace tag. Tags can be applied to metrics, tables, columns, and other entities.\n\n    Args:\n        name: Tag display name (max 60 characters)\n        color_hex: Optional hex color with # prefix (e.g. \"#FF5733\"). Must be 3 or 6 hex digits.\n    ",
+        "inputSchema": {
+          "properties": {
+            "name": {
+              "title": "Name",
+              "type": "string"
+            },
+            "color_hex": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Color Hex"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "title": "create_tagArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "create_tagOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "update_tag",
+        "description": "Update an existing workspace tag's name or color.\n\n    Args:\n        tag_id: ID of the tag to update\n        name: New tag name (optional, max 60 characters)\n        color_hex: New hex color with # prefix (optional, e.g. \"#FF5733\")\n    ",
+        "inputSchema": {
+          "properties": {
+            "tag_id": {
+              "title": "Tag Id",
+              "type": "integer"
+            },
+            "name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Name"
+            },
+            "color_hex": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Color Hex"
+            }
+          },
+          "required": [
+            "tag_id"
+          ],
+          "title": "update_tagArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "update_tagOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "delete_tag",
+        "description": "Delete a workspace tag. This removes the tag from all entities it was applied to.\n\n    Args:\n        tag_id: ID of the tag to delete\n    ",
+        "inputSchema": {
+          "properties": {
+            "tag_id": {
+              "title": "Tag Id",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "tag_id"
+          ],
+          "title": "delete_tagArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "delete_tagOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "tag_entity",
+        "description": "Apply a workspace tag to an entity. The tag must already exist (use create_tag first).\n\n    Args:\n        tag_id: ID of the workspace tag to apply\n        entity_id: ID of the entity to tag (e.g. metric ID, table ID)\n        entity_type: Entity type \u2014 SOURCE, SCHEMA, TABLE, METRIC, COLUMN, DELTA, SLA, or CUSTOM_RULE\n    ",
+        "inputSchema": {
+          "properties": {
+            "tag_id": {
+              "title": "Tag Id",
+              "type": "integer"
+            },
+            "entity_id": {
+              "title": "Entity Id",
+              "type": "integer"
+            },
+            "entity_type": {
+              "title": "Entity Type",
+              "type": "string"
+            }
+          },
+          "required": [
+            "tag_id",
+            "entity_id",
+            "entity_type"
+          ],
+          "title": "tag_entityArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "tag_entityOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "untag_entity",
+        "description": "Remove a workspace tag from an entity.\n\n    Args:\n        tag_id: ID of the workspace tag to remove\n        entity_id: ID of the entity to untag\n        entity_type: Entity type \u2014 SOURCE, SCHEMA, TABLE, METRIC, COLUMN, DELTA, SLA, or CUSTOM_RULE\n    ",
+        "inputSchema": {
+          "properties": {
+            "tag_id": {
+              "title": "Tag Id",
+              "type": "integer"
+            },
+            "entity_id": {
+              "title": "Entity Id",
+              "type": "integer"
+            },
+            "entity_type": {
+              "title": "Entity Type",
+              "type": "string"
+            }
+          },
+          "required": [
+            "tag_id",
+            "entity_id",
+            "entity_type"
+          ],
+          "title": "untag_entityArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "untag_entityOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_entity_tags",
+        "description": "List all tags applied to a specific entity.\n\n    Args:\n        entity_id: ID of the entity\n        entity_type: Entity type \u2014 SOURCE, SCHEMA, TABLE, METRIC, COLUMN, DELTA, SLA, or CUSTOM_RULE\n    ",
+        "inputSchema": {
+          "properties": {
+            "entity_id": {
+              "title": "Entity Id",
+              "type": "integer"
+            },
+            "entity_type": {
+              "title": "Entity Type",
+              "type": "string"
+            }
+          },
+          "required": [
+            "entity_id",
+            "entity_type"
+          ],
+          "title": "list_entity_tagsArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_entity_tagsOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "list_data_classes",
+        "description": "List data classification categories configured in Bigeye.\n\n    Returns data classes (e.g., \"Email Address\", \"Credit Card\", \"US SSN\") with their\n    sensitivity levels (PUBLIC, INTERNAL, CONFIDENTIAL, RESTRICTED).\n\n    Args:\n        search: Optional search string to filter data classes by name\n        sensitivities: Optional list of sensitivity levels to filter by. Possible values:\n            - DATA_SENSITIVITY_PUBLIC\n            - DATA_SENSITIVITY_INTERNAL\n            - DATA_SENSITIVITY_CONFIDENTIAL\n            - DATA_SENSITIVITY_RESTRICTED\n        page_size: Optional number of results per page\n        page_cursor: Cursor for pagination\n\n    Returns:\n        Dictionary containing data classes with their names, sensitivity levels, and descriptions\n    ",
+        "inputSchema": {
+          "properties": {
+            "search": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Search"
+            },
+            "sensitivities": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Sensitivities"
+            },
+            "page_size": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Page Size"
+            },
+            "page_cursor": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Page Cursor"
+            }
+          },
+          "title": "list_data_classesArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "list_data_classesOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_table_sensitivity_findings",
+        "description": "Get sensitive data scan findings for a specific table by name.\n\n    Resolves the table name, then fetches sensitivity findings from Bigeye's\n    Sensitive Data Scanning (SDS) feature showing which columns contain PII\n    or sensitive data and what data classes were detected.\n\n    Args:\n        table_name: Name of the table to get sensitivity findings for\n        schema_name: Optional schema name to narrow the table search\n        finding_type: Either \"aggregate\" (all-time summary, default) or \"snapshot\"\n            (findings from a specific scan run)\n        sensitivities: Optional list of sensitivity levels to filter by.\n            Valid values: PUBLIC, INTERNAL, CONFIDENTIAL, RESTRICTED\n        positive_only: If True, return only positive (matched) findings.\n            If False, return only negative findings. Default returns both.\n        page_size: Number of findings to return per page\n        page_cursor: Pagination cursor from a previous response\n    ",
+        "inputSchema": {
+          "properties": {
+            "table_name": {
+              "title": "Table Name",
+              "type": "string"
+            },
+            "schema_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Schema Name"
+            },
+            "finding_type": {
+              "default": "aggregate",
+              "title": "Finding Type",
+              "type": "string"
+            },
+            "sensitivities": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Sensitivities"
+            },
+            "positive_only": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Positive Only"
+            },
+            "page_size": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Page Size"
+            },
+            "page_cursor": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Page Cursor"
+            }
+          },
+          "required": [
+            "table_name"
+          ],
+          "title": "get_table_sensitivity_findingsArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_table_sensitivity_findingsOutput",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_scan_findings",
+        "description": "Get data classification scan findings from Bigeye using raw IDs.\n\n    Lower-level tool for querying findings across multiple tables/columns by ID.\n    For a single table by name, prefer get_table_sensitivity_findings instead.\n\n    Args:\n        table_ids: Optional list of Bigeye table IDs to filter findings\n        column_ids: Optional list of Bigeye column IDs to filter findings\n        data_class_ids: Optional list of data class IDs to filter by classification type\n        sensitivities: Optional list of sensitivity levels to filter by. Possible values:\n            - DATA_SENSITIVITY_PUBLIC\n            - DATA_SENSITIVITY_INTERNAL\n            - DATA_SENSITIVITY_CONFIDENTIAL\n            - DATA_SENSITIVITY_RESTRICTED\n        positive_only: If true, only return findings where sensitive data was detected.\n            If false (default), return both positive and negative findings.\n        finding_type: Either \"aggregate\" (all-time summary, default) or \"snapshot\"\n            (findings from a specific scan run)\n        search: Optional search string to filter results\n        page_size: Optional number of results per page\n        page_cursor: Cursor for pagination\n    ",
+        "inputSchema": {
+          "properties": {
+            "table_ids": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Table Ids"
+            },
+            "column_ids": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Column Ids"
+            },
+            "data_class_ids": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Data Class Ids"
+            },
+            "sensitivities": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Sensitivities"
+            },
+            "positive_only": {
+              "default": false,
+              "title": "Positive Only",
+              "type": "boolean"
+            },
+            "finding_type": {
+              "default": "aggregate",
+              "title": "Finding Type",
+              "type": "string"
+            },
+            "search": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Search"
+            },
+            "page_size": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Page Size"
+            },
+            "page_cursor": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Page Cursor"
+            }
+          },
+          "title": "get_scan_findingsArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "get_scan_findingsOutput",
+          "type": "object"
+        }
+      }
+    ]
+  }
+}

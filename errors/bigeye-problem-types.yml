@@ -1,0 +1,59 @@
+generated: '2026-08-02'
+method: derived
+source: openapi/bigeye-metadata-openapi.json, openapi/bigeye-observability-openapi.json, openapi/bigeye-sensitivity-openapi.json
+  + https://docs.bigeye.com/docs/api-user-guide
+format: grpc-gateway runtimeError (NOT RFC 9457 application/problem+json)
+envelope:
+  media_type: application/json
+  schema: runtimeError
+  fields:
+  - name: code
+    type: integer (int32)
+    description: gRPC/HTTP status code carried in the body.
+  - name: message
+    type: string
+    description: Human-readable error message.
+  - name: error
+    type: string
+    description: Error identifier string.
+  - name: details
+    type: array of protobufAny
+    description: Typed error detail payloads (google.protobuf.Any).
+  note: 'Every one of the 263 published operations declares exactly two responses: 200 and a catch-all
+    "default" bound to the runtimeError schema. There are no per-status 4xx/5xx declarations in the specs,
+    so status-specific problem types below come from the documentation, not the contract.'
+problems:
+- status: 400
+  title: A workspace ID must be supplied
+  detail: Endpoints that list, count or create workspace-scoped resources require a workspace ID.
+  remediation: Pass workspaceId as a query parameter (GET) or body parameter (POST/PUT), or send the X-Bigeye-Workspace-Id
+    request header.
+  example: '{"code":400,"message":"A workspace ID must be supplied"}'
+  source: https://docs.bigeye.com/docs/api-user-guide
+  method: searched
+- status: 401
+  title: Authentication failed
+  detail: The supplied API key or basic credentials were rejected.
+  remediation: Verify the key with GET /api/v1/personal-api-keys/verify or /api/v1/agent-api-keys/verify.
+    Remember the Authorization header value must be prefixed with the literal string "apikey ".
+  source: https://docs.bigeye.com/docs/using-api-keys
+  method: searched
+- status: 403
+  title: Insufficient Bigeye access level
+  detail: API calls are restricted by the caller’s Bigeye role. View-only, edit and manage roles are each
+    restricted from different operations.
+  remediation: Grant the calling user or service account a role with the required permission, see https://docs.bigeye.com/docs/permissions.
+  source: https://docs.bigeye.com/docs/api-user-guide
+  method: searched
+- status: default
+  title: Unexpected error response
+  detail: The catch-all response declared by every operation in all three OpenAPI definitions; body is
+    a runtimeError object.
+  remediation: Read code and message from the body; inspect details[] for typed protobuf error details.
+  source: openapi/*.json (default response, runtimeError schema)
+  method: derived
+gaps:
+- 'The published specs declare no explicit 4xx or 5xx responses, so an agent cannot enumerate failure
+  modes from the contract alone. Worth raising with Bigeye: adding 400/401/403/404/429 responses would
+  materially improve contract quality and agent error semantics.'
+- No rate-limit error (429) is documented anywhere in the docs or the specs.

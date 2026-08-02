@@ -1,0 +1,39 @@
+generated: '2026-08-02'
+method: searched
+source: https://docs.bigeye.com/docs/release-notes
+scheme: dated release notes, monthly cadence
+current_version: null
+current_version_note: >-
+  Bigeye is a continuously deployed SaaS platform. It publishes no semantic
+  product version, and the three OpenAPI definitions carry info.version
+  "version not set", so there is no version string to record.
+cadence: monthly
+url: https://docs.bigeye.com/docs/release-notes
+quote: Release notes are published on a monthly cadence.
+entries: []
+entries_note: >-
+  The Release Notes page in the documentation is a single stub that states the
+  cadence and links out; it does not itself carry a dated list of entries, and
+  no dated entries were harvested. Recording an empty entries[] rather than
+  inventing a history.
+component_changelogs:
+- name: Data Source Agent Changelog
+  url: https://docs.bigeye.com/docs/data-source-agent-changelog
+  scope: Versioned changelog for the self-hosted data source agent container.
+- name: Cross Source Agent Changelog
+  url: https://docs.bigeye.com/docs/cross-source-agent-changelog
+  scope: Versioned changelog for the cross-source comparison agent container.
+package_version_history:
+- {name: bigeye-sdk, registry: pypi, current: 0.11.4, url: 'https://pypi.org/project/bigeye-sdk/#history'}
+- {name: bigeye-cli, registry: pypi, current: 0.8.5, url: 'https://pypi.org/project/bigeye-cli/#history'}
+- {name: bigeye-airflow, registry: pypi, current: 0.2.0, url: 'https://pypi.org/project/bigeye-airflow/#history'}
+notable_recent_changes:
+- date: '2026-07'
+  change: Bigeye MCP Server released as a public beta, with a hosted gateway at
+    https://mcpgateway.bigeye.com/mcp.
+  source: https://docs.bigeye.com/docs/bigeye-mcp-server
+- date: '2026-07-31'
+  change: All three OpenAPI definitions (metadata.json, observability.json,
+    sensitivity.json) last re-synced to the documentation site from their source
+    repository.
+  source: https://docs.bigeye.com/reference

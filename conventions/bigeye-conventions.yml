@@ -1,0 +1,122 @@
+generated: '2026-08-02'
+method: searched
+source: https://docs.bigeye.com/docs/api-user-guide + https://docs.bigeye.com/docs/using-api-keys
+derived_from:
+- openapi/bigeye-metadata-openapi.json
+- openapi/bigeye-observability-openapi.json
+- openapi/bigeye-sensitivity-openapi.json
+base_url:
+  default: https://app.bigeye.com
+  pattern: https://<company-prefix>.bigeye.com
+  note: >-
+    "app" is the company prefix for the default stack. Customers on a dedicated
+    stack substitute their own prefix; the same prefix is passed to the MCP
+    gateway as the x-bigeye-url header.
+authentication:
+  styles:
+  - 'API key in the Authorization header, prefixed with the literal string "apikey "
+    (e.g. Authorization: apikey bigeye_pak_secretvalue) — NOT Bearer.'
+  - HTTP Basic (username/password), declared as the first top-level security
+    requirement in all three OpenAPI definitions.
+  key_types:
+  - {name: Personal API Key, scope: tied to a user account, verify: GET /api/v1/personal-api-keys/verify}
+  - {name: Agent API Key, scope: tied to the company, used by the data source agent,
+     verify: GET /api/v1/agent-api-keys/verify, admin_only: true}
+  - {name: Service Account API Key, scope: non-human identity for automation,
+     docs: https://docs.bigeye.com/docs/service-accounts}
+  verification_response: 204 on success, 401 on failure
+  authorization_model: >-
+    API calls are restricted by the caller's Bigeye role. View-only, edit and
+    manage roles are each blocked from different operations, so identical
+    credentials can succeed or fail depending on the workspace role.
+  artifact: authentication/bigeye-authentication.yml
+  docs: https://docs.bigeye.com/docs/using-api-keys
+tenancy:
+  unit: workspace
+  required_for: >-
+    Any operation that lists or counts resources in a workspace, or creates a
+    new resource. Without it the API returns 400 with
+    {"code":400,"message":"A workspace ID must be supplied"}.
+  mechanisms:
+  - {kind: request header, name: X-Bigeye-Workspace-Id, note: 'Recommended — set it on every call.'}
+  - {kind: query parameter, name: workspaceId, applies_to: GET}
+  - {kind: body parameter, name: workspaceId, applies_to: POST/PUT/DELETE}
+  found_via: Settings > Workspaces, ID column; also visible in the app URL as /w/<workspace_id>/
+  docs: https://docs.bigeye.com/docs/api-user-guide
+idempotency:
+  supported: false
+  evidence: >-
+    No Idempotency-Key (or equivalent) parameter, header or request-body field
+    appears in any of the 263 operations across the three published OpenAPI
+    definitions, and the documentation does not describe any retry-safety or
+    request-deduplication contract. Recorded as a genuine gap — no Idempotency
+    pointer is emitted in apis.yml.
+pagination:
+  style: cursor
+  parameters:
+  - {name: pageSize, in: query, description: Maximum records to return in a page.}
+  - {name: pageCursor, in: query, description: Opaque cursor returned by the previous
+      page.}
+  coverage: >-
+    Cursor pagination is only exposed on a subset of the fetch endpoints
+    (e.g. schema changes, deltas, classifiers, data classes, scan jobs and scan
+    runs). Most list/fetch operations take filter arrays and return the whole
+    result set unpaged.
+  response_fields: [pageCursor]
+filtering_and_search:
+  patterns:
+  - '`*/fetch` POST endpoints take a filter object in the request body (the dominant
+    read pattern — e.g. /api/v1/issues/fetch, /api/v1/tables/fetch, /api/v1/sources/fetch).'
+  - Plural id query parameters for scoping (warehouseIds, tableIds, columnIds, schemaId).
+  - '`search`, `sortField` and `sortDirection` query parameters on paged fetch endpoints.'
+  - 'POST /api/v1/search (SearchService_Search) is the published catalog search operation.'
+versioning:
+  scheme: uri-path
+  versions_in_use: [v1, v2]
+  note: >-
+    Both /api/v1/ and /api/v2/ paths are live. The published OpenAPI definitions
+    cover v1 plus the v2 lineage surface; a number of v2 endpoints the
+    first-party MCP server calls (v2 tags, v2 search, v2 table profiling, v2
+    lineage search) are not present in any published definition. See
+    mcp/bigeye-tool-crosswalk.yml.
+  no_version_header: true
+error_envelope:
+  media_type: application/json
+  shape: '{code:int32, message:string, error:string, details:[protobufAny]}'
+  schema_name: runtimeError
+  rfc9457: false
+  note: >-
+    grpc-gateway style. Every operation declares only a 200 and a catch-all
+    "default" response, so failure modes are not enumerable from the contract.
+  artifact: errors/bigeye-problem-types.yml
+rate_limiting:
+  documented: false
+  headers: []
+  note: >-
+    Neither the documentation nor the specs describe request quotas, throttling
+    or rate-limit response headers. Recorded as absent, not assumed.
+request_tracing:
+  request_id_header: null
+  documented: false
+contract_origin:
+  generator: grpc-gateway
+  evidence: >-
+    All three specs carry protobufAny and runtimeError components and prefix
+    every schema name with "generated", which is grpc-gateway/protoc-gen-openapi
+    output. The underlying services are gRPC (AgentService, MetricService,
+    IssueService, ...), but no .proto files are published publicly.
+  service_tags: >-
+    Operations are tagged by gRPC service name and operationIds follow
+    <Service>_<Method> (e.g. IssueService_GetIssues, MetricService_CreateMetric).
+observability_as_code:
+  supported: true
+  format: YAML configuration deployed with the Bigeye CLI
+  docs: https://docs.bigeye.com/recipes/pipeline-reliability-as-code
+  example_repo: https://github.com/bigeyedata/bigeye-demo-workspace
+cross_references:
+  authentication: authentication/bigeye-authentication.yml
+  errors: errors/bigeye-problem-types.yml
+  lifecycle: lifecycle/bigeye-lifecycle.yml
+  data_model: data-model/bigeye-data-model.yml
+  mcp: mcp/bigeye-mcp.yml
+  webhooks: asyncapi/bigeye-webhooks.yml

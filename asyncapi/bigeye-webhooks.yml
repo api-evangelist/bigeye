@@ -1,0 +1,69 @@
+generated: '2026-08-02'
+method: searched
+source: https://docs.bigeye.com/docs/webhooks + https://docs.bigeye.com/docs/collaboration-tools
+spec_type: Webhooks
+asyncapi_published: false
+asyncapi_note: >-
+  Bigeye publishes no AsyncAPI document. Probes of docs.bigeye.com and
+  app.bigeye.com for /asyncapi.yaml and /asyncapi.json missed, the
+  /.well-known/api-catalog linkset lists only the three OpenAPI definitions,
+  and the bigeyedata GitHub organization carries no event spec. The event
+  surface below is captured from the documented webhook feature — nothing is
+  fabricated into an AsyncAPI shell.
+event_surface:
+  kind: outbound webhook
+  trigger: A metric run ends in alerting status.
+  transport: HTTP POST to an arbitrary URL reachable from Bigeye
+  content_type: application/json
+  custom_headers: true
+  custom_headers_note: A single HTTP header (name and value) can be configured per
+    webhook.
+  test_support: A "Test" button in the UI sends a test payload to the endpoint.
+  signing: null
+  signing_note: No payload signing, shared secret or replay protection is documented.
+  retries: null
+  retries_note: No retry or delivery-guarantee policy is documented.
+subscription_scopes:
+- scope: metric
+  description: Attach a webhook to an individual metric via Edit > Notifications.
+  docs: https://docs.bigeye.com/docs/webhooks
+- scope: collection
+  description: Attach a webhook to a Collection via Settings > Notifications, so every
+    alerting metric in the collection fires it.
+  docs: https://docs.bigeye.com/docs/collections-1
+events:
+- name: metric.alerting
+  documented_name: null
+  description: >-
+    Fired when a metric run ends in alerting status. Bigeye does not publish an
+    event-type name or an envelope with a type discriminator; the payload below
+    is the complete documented shape.
+  payload_schema:
+    type: object
+    properties:
+      totalFailures: {type: string, description: Number of failing records or checks,
+        example: '30'}
+      runTimestamp: {type: string, format: date-time, description: When the metric
+          run completed, example: '2021-12-17T19:31:30.081Z'}
+      metricUrl: {type: string, format: uri, description: Deep link to the metric in
+          the Bigeye UI, example: 'https://app.bigeye.com/metrics/metric/0'}
+      message: {type: string, description: Human-readable alert message, example: Avg
+          within 2 stddevs on `demo_subscriptions.payments.charge_amount` is alerting}
+  example: |
+    {
+      "totalFailures":"30",
+      "runTimestamp":"2021-12-17T19:31:30.081Z",
+      "metricUrl":"https://app.bigeye.com/metrics/metric/0",
+      "message":"Avg within 2 stddevs on `demo_subscriptions.payments.charge_amount` is alerting"
+    }
+other_notification_channels:
+  docs: https://docs.bigeye.com/docs/collaboration-tools
+  note: >-
+    Webhooks are one of several alert destinations Bigeye documents alongside
+    its collaboration-tool integrations; only the webhook surface is a
+    machine-consumable event contract, so only it is captured here.
+gaps:
+- No AsyncAPI document.
+- Only one event type is documented, with no event-name or version field in the payload.
+- No signature header, so a receiver cannot verify the sender.
+- No documented retry, ordering or at-least-once delivery semantics.

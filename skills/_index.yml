@@ -1,0 +1,96 @@
+generated: '2026-08-02'
+method: generated
+source: openapi/*.json + mcp/bigeye-mcp-tools-list.json + https://docs.bigeye.com/
+note: Every operationId referenced in these skills was verified to exist verbatim in the published OpenAPI
+  definitions (or, for the MCP skill, in the live tools/list response). Bigeye publishes no AGENTS.md
+  or first-party agent skills for API consumers; the .claude/skills/ directory in bigeyedata/bigeye-mcp-server
+  contains maintainer operations for the server itself (logs, rebuild, restart, status), not API usage
+  instructions.
+skills:
+- file: bigeye-connect-agent-to-mcp.md
+  name: Connect an agent to the Bigeye MCP Gateway
+  description: Point an MCP client at Bigeye's hosted gateway and use its 56 tools for issues, catalog
+    search, lineage, profiling, dimensions, tags and sensitivity findings.
+  api: mcp/bigeye-mcp.yml
+  operations:
+  - list_data_sources
+  - list_issues
+  - get_issue
+  - update_issue
+  - search_tables
+  - get_lineage_graph
+  - get_upstream_root_causes
+  - get_downstream_impact
+  - get_dataset_health_summary
+  - get_table_sensitivity_findings
+- file: bigeye-deploy-a-monitor.md
+  name: Deploy a Bigeye monitor on a table
+  description: Find a table in the Bigeye catalog, discover which metric types apply to it, create a monitor,
+    then run and backfill it.
+  api: openapi/bigeye-observability-openapi.json
+  operations:
+  - TableService_SearchTables
+  - TableService_GetTables
+  - TableService_TableLevelApplicableMetricTypes
+  - MetricService_GetTableLevelMetricNames
+  - MetricService_ValidateMetric
+  - MetricService_CreateMetric
+  - MetricService_RunMetric
+  - MetricService_BackfillMetric
+  - MetricService_GetMetricInfo
+- file: bigeye-onboard-a-data-source.md
+  name: Onboard a data source into Bigeye
+  description: Validate and create a Bigeye data source, set which schemas get metadata metrics, rebuild
+    the catalog and wait for the workflow to finish.
+  api: openapi/bigeye-metadata-openapi.json
+  operations:
+  - SourceService_ValidateSource
+  - SourceService_CreateOrUpdateSource
+  - SourceService_GetSource
+  - SourceService_SetMetadataSchemas
+  - SchemaService_SearchSchemas
+  - CatalogRebuildsService_UpdateSource
+  - CatalogRebuildsService_UpdateSchema
+  - SourceService_GetSourceWorkflowStatus
+  - WorkflowService_GetWorkflowStatus
+- file: bigeye-scan-for-sensitive-data.md
+  name: Scan Bigeye sources for sensitive data
+  description: Configure data classes, create and run a Bigeye sensitive data scan job, then read the
+    aggregate and snapshot findings.
+  api: openapi/bigeye-sensitivity-openapi.json
+  operations:
+  - DataClassService_FetchDataClasses
+  - DataClassService_CreateDataClass
+  - ScanJobService_CreateScanJob
+  - ScanJobService_SetPartitionColumns
+  - ScanJobService_RunScanJob
+  - ScanJobService_GetScanJobStatus
+  - ScanJobService_GetAggregateFindings
+  - ScanJobService_GetSnapshotFindings
+  - ScanJobService_RetryScanJob
+  - ScanJobService_CancelScanJob
+  - ScanRunService_FetchScanRuns
+- file: bigeye-trace-lineage-impact.md
+  name: Trace Bigeye lineage for root cause and impact
+  description: Walk the Bigeye column-level lineage graph from a node to find what upstream broke and
+    what downstream is affected.
+  api: openapi/bigeye-metadata-openapi.json
+  operations:
+  - LineageV2Service_GetLineageNode
+  - LineageV2Service_GetLineageGraphForNode
+  - LineageV2Service_CreateCustomLineageNode
+  - LineageV2Service_CreateLineageEdge
+  - LineageV2Service_BulkCreateCustomLineageNodes
+  - LineageV2Service_BulkCreateLineageEdge
+  - LineageV2Service_DeleteLineageNode
+- file: bigeye-triage-data-quality-issues.md
+  name: Triage Bigeye data quality issues
+  description: Find open data quality issues in a Bigeye workspace, read one in full, and update its status,
+    priority or timeline as you work it.
+  api: openapi/bigeye-observability-openapi.json
+  operations:
+  - IssueService_GetIssues
+  - IssueService_GetIssue
+  - IssueService_UpdateIssue
+  - IssueService_BatchUpdateIssues
+  - IssueService_GetTableIssues

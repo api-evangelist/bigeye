@@ -1,0 +1,57 @@
+generated: '2026-08-02'
+method: searched
+source: https://docs.bigeye.com/docs/release-notes + https://status.bigeye.com/ + openapi/*.json
+versioning:
+  scheme: uri-path
+  current: v1 and v2 in parallel
+  docs: https://docs.bigeye.com/reference
+  note: >-
+    Bigeye runs /api/v1/ and /api/v2/ side by side. No API-version header, no
+    dated version train. The three published OpenAPI definitions carry
+    info.version "version not set", so the contract itself is unversioned.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    No deprecation or sunset policy is published, and no RFC 8594 Sunset /
+    Deprecation header support is documented. Recorded as absent — no
+    Deprecation pointer is emitted in apis.yml.
+deprecated_operations: []
+deprecated_operations_note: >-
+  No operation in any of the three published OpenAPI definitions carries
+  deprecated: true.
+release_notes:
+  url: https://docs.bigeye.com/docs/release-notes
+  cadence: monthly
+  quote: Release notes are published on a monthly cadence.
+  artifact: changelog/bigeye-changelog.yml
+component_changelogs:
+- {name: Data Source Agent Changelog, url: 'https://docs.bigeye.com/docs/data-source-agent-changelog'}
+- {name: Cross Source Agent Changelog, url: 'https://docs.bigeye.com/docs/cross-source-agent-changelog'}
+status_page:
+  url: https://status.bigeye.com/
+  provider: Atlassian Statuspage
+  page_id: dlh9p8k25sk9
+  api: https://status.bigeye.com/api/v2/status.json
+  observed:
+    fetched: '2026-08-02'
+    http_status: 200
+    indicator: none
+    description: All Systems Operational
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No public SLA or uptime target found. Bigeye's Master Software Agreement is
+    a per-customer contract; PrivateLink and SSO are named as Enterprise-tier
+    features.
+maturity:
+- {surface: REST API, stage: general availability}
+- {surface: MCP Gateway, stage: public beta, since: '2026-07', source: 'https://docs.bigeye.com/docs/bigeye-mcp-server'}
+support:
+  api_support_email: support@bigeye.com
+  general_email: hello@bigeye.com
+  security_email: security@bigeye.com
+  contact_page: https://www.bigeye.com/contact-us

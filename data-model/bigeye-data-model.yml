@@ -1,0 +1,597 @@
+generated: '2026-08-02'
+method: derived
+source: openapi/bigeye-metadata-openapi.json, openapi/bigeye-observability-openapi.json, openapi/bigeye-sensitivity-openapi.json
+note: Derived from component schema $ref links and *Id / *Ids reference fields across the three published
+  OpenAPI definitions. Schema names are prefixed "generated" in the specs (grpc-gateway output); that
+  prefix is stripped here.
+schema_counts:
+  openapi/bigeye-metadata-openapi.json: 324
+  openapi/bigeye-observability-openapi.json: 231
+  openapi/bigeye-sensitivity-openapi.json: 86
+domains:
+- name: catalog
+  entities:
+  - Source
+  - Schema
+  - Table
+  - Column
+  - VirtualTable
+  - SchemaChange
+  spec: openapi/bigeye-metadata-openapi.json
+- name: lineage
+  entities:
+  - LineageNodeV2
+  - LineageEdgeV2
+  spec: openapi/bigeye-metadata-openapi.json
+- name: administration
+  entities:
+  - Workspace
+  - User
+  - Group
+  - Role
+  - ApiKey
+  - ServiceAccount
+  - Integration
+  - NamedSchedule
+  - Tag
+  spec: openapi/bigeye-metadata-openapi.json
+- name: monitoring
+  entities:
+  - Metric
+  - MetricInfo
+  - MetricTemplate
+  - CustomRule
+  - Collection
+  - Dimension
+  - Delta
+  - ComparisonTable
+  - Issue
+  spec: openapi/bigeye-observability-openapi.json
+- name: sensitivity
+  entities:
+  - Classifier
+  - DataClass
+  - ScanJob
+  - ScanRun
+  spec: openapi/bigeye-sensitivity-openapi.json
+entities:
+- entity: Table
+  schema: generatedTable
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: DataNode
+    via: dataNodeId
+  - kind: belongs_to
+    target: Schema
+    via: schemaId
+  - kind: belongs_to
+    target: Warehouse
+    via: warehouseId
+  - kind: has_many
+    target: TableColumn
+    via: columns
+  - kind: has_many
+    target: Tag
+    via: tags
+  - kind: has_one
+    target: Schema
+    via: schema
+  - kind: has_one
+    target: SchemaChangeInfo
+    via: schemaChangeInfo
+  - kind: has_one
+    target: TableColumn
+    via: metricTimeColumn
+  - kind: has_one
+    target: TableType
+    via: tableType
+  - kind: has_one
+    target: WarehouseType
+    via: warehouseVendor
+- entity: Schema
+  schema: generatedSchema
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: DataNode
+    via: dataNodeId
+  - kind: belongs_to
+    target: Warehouse
+    via: warehouseId
+  - kind: has_many
+    target: Tag
+    via: tags
+  - kind: has_one
+    target: SchemaChangeInfo
+    via: schemaChangeInfo
+  - kind: has_one
+    target: WarehouseType
+    via: databaseType
+- entity: Source
+  schema: generatedSource
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: AlationSource
+    via: alationSourceId
+  - kind: belongs_to
+    target: AtlanConnection
+    via: atlanConnectionId
+  - kind: belongs_to
+    target: DatadotworldConnection
+    via: datadotworldConnectionId
+  - kind: belongs_to
+    target: Project
+    via: projectId
+  - kind: belongs_to
+    target: TargetBigqueryProject
+    via: targetBigqueryProjectId
+  - kind: has_many
+    target: BigqueryQueryProject
+    via: bigqueryQueryProjectIds
+  - kind: has_many
+    target: Tag
+    via: tags
+  - kind: has_one
+    target: AgentHealthStatus
+    via: agentHealthStatus
+  - kind: has_one
+    target: AgentHealthStatus
+    via: crossSourceAgentHealthStatus
+  - kind: has_one
+    target: AgentHealthStatus
+    via: sensitiveDataAgentHealthStatus
+  - kind: has_one
+    target: AuthType
+    via: authType
+  - kind: has_one
+    target: IdAndDisplayName
+    via: indexingSchedule
+  - kind: has_one
+    target: SchemaChangeInfo
+    via: schemaChangeInfo
+  - kind: has_one
+    target: SourceMetadataOverrides
+    via: sourceMetadataOverrides
+  - kind: has_one
+    target: WarehouseType
+    via: databaseType
+- entity: MetricInfo
+  schema: generatedMetricInfo
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: has_many
+    target: IdAndDisplayName
+    via: collections
+  - kind: has_many
+    target: MetricRun
+    via: latestMetricRuns
+  - kind: has_many
+    target: Tag
+    via: tags
+  - kind: has_one
+    target: IdAndDisplayName
+    via: activeIssue
+  - kind: has_one
+    target: MetricConfiguration
+    via: metricConfiguration
+  - kind: has_one
+    target: MetricMetadata
+    via: metricMetadata
+  - kind: has_one
+    target: MetricRunStatus
+    via: status
+- entity: Issue
+  schema: generatedIssue
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: Dimension
+    via: dimensionId
+  - kind: belongs_to
+    target: Workspace
+    via: workspaceId
+  - kind: has_many
+    target: AlertingMetric
+    via: alertingMetricsWithLabel
+  - kind: has_many
+    target: IdAndDisplayName
+    via: alertingMetrics
+  - kind: has_many
+    target: IssueEvent
+    via: events
+  - kind: has_many
+    target: IssueResolutionStep
+    via: issueResolutionSteps
+  - kind: has_many
+    target: NotificationChannel
+    via: notificationChannels
+  - kind: has_one
+    target: IdAndDisplayName
+    via: parentIssue
+  - kind: has_one
+    target: IssuePriority
+    via: priority
+  - kind: has_one
+    target: IssueStatus
+    via: currentStatus
+  - kind: has_one
+    target: IssueType
+    via: issueType
+  - kind: has_one
+    target: MetricConfiguration
+    via: metricConfiguration
+  - kind: has_one
+    target: MetricMetadata
+    via: metricMetadata
+  - kind: has_one
+    target: MetricRunLabel
+    via: currentClosingFeedback
+  - kind: has_one
+    target: MetricRunStatus
+    via: firstMetricRunStatus
+  - kind: has_one
+    target: User
+    via: assignee
+- entity: Collection
+  schema: generatedCollection
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: has_many
+    target: Metric
+    via: metricIds
+  - kind: has_many
+    target: NotificationChannel
+    via: notificationChannels
+  - kind: has_many
+    target: Tag
+    via: tags
+  - kind: has_one
+    target: EntityInfo
+    via: entityInfo
+- entity: Workspace
+  schema: generatedWorkspace
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: has_many
+    target: Source
+    via: sources
+- entity: User
+  schema: generatedUser
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: has_many
+    target: IdAndDisplayName
+    via: groups
+- entity: Group
+  schema: generatedGroup
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: has_many
+    target: Grant
+    via: grants
+  - kind: has_many
+    target: IdAndDisplayName
+    via: users
+  - kind: has_many
+    target: UserGroupMembership
+    via: memberships
+- entity: Delta
+  schema: generatedDelta
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: has_many
+    target: ComparisonTableConfiguration
+    via: comparisonTableConfigurations
+  - kind: has_many
+    target: NotificationChannel
+    via: notificationChannels
+  - kind: has_many
+    target: Tag
+    via: tags
+  - kind: has_one
+    target: EntityInfo
+    via: entityInfo
+  - kind: has_one
+    target: IdAndDisplayName
+    via: dimension
+  - kind: has_one
+    target: IdAndDisplayName
+    via: namedSchedule
+  - kind: has_one
+    target: IdAndDisplayName
+    via: sourceSchema
+  - kind: has_one
+    target: IdAndDisplayName
+    via: sourceSource
+  - kind: has_one
+    target: IdAndDisplayName
+    via: sourceTable
+  - kind: has_one
+    target: WarehouseType
+    via: sourceWarehouseType
+- entity: CustomRule
+  schema: generatedCustomRule
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: Warehouse
+    via: warehouseId
+  - kind: has_many
+    target: Collection
+    via: collectionIds
+  - kind: has_many
+    target: ConstantThreshold
+    via: thresholds
+  - kind: has_many
+    target: IdAndDisplayName
+    via: leftSelectColumns
+  - kind: has_many
+    target: IdAndDisplayName
+    via: rightSelectColumns
+  - kind: has_many
+    target: MetricObservedColumnResponse
+    via: metricObservedColumnResponse
+  - kind: has_many
+    target: Tag
+    via: tags
+  - kind: has_one
+    target: ColumnCorrelation
+    via: profilingSuggestionForCorrelatedColumns
+  - kind: has_one
+    target: CustomRuleType
+    via: customRuleType
+  - kind: has_one
+    target: CustomRulesThresholdType
+    via: thresholdType
+  - kind: has_one
+    target: IdAndDisplayName
+    via: dimension
+  - kind: has_one
+    target: IdAndDisplayName
+    via: profilingSuggestionForColumn
+  - kind: has_one
+    target: Join
+    via: join
+  - kind: has_one
+    target: JoinType
+    via: joinType
+  - kind: has_one
+    target: MetricSchedule
+    via: metricSchedule
+  - kind: has_one
+    target: User
+    via: owner
+- entity: Dimension
+  schema: generatedDimension
+  source: openapi/bigeye-observability-openapi.json
+  relationships:
+  - kind: has_many
+    target: InstanceTypeWithCounts
+    via: instanceTypesWithCounts
+  - kind: has_one
+    target: EntityInfo
+    via: entityInfo
+  - kind: has_one
+    target: TopLevelCategory
+    via: topLevelCategory
+- entity: Tag
+  schema: generatedTag
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: Workspace
+    via: workspaceId
+- entity: LineageNodeV2
+  schema: generatedLineageNodeV2
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: NodeEntity
+    via: nodeEntityId
+  - kind: has_one
+    target: CatalogPath
+    via: catalogPath
+  - kind: has_one
+    target: CatalogSource
+    via: source
+  - kind: has_one
+    target: CustomNodeType
+    via: customNodeType
+  - kind: has_one
+    target: DataNodeType
+    via: nodeType
+- entity: LineageEdgeV2
+  schema: generatedLineageEdgeV2
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: has_one
+    target: LineageNodeV2
+    via: downstream
+  - kind: has_one
+    target: LineageNodeV2
+    via: upstream
+  - kind: has_one
+    target: RelationshipType
+    via: relationshipType
+- entity: ScanJob
+  schema: generatedScanJob
+  source: openapi/bigeye-sensitivity-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: Workspace
+    via: workspaceId
+  - kind: has_many
+    target: IdAndDisplayName
+    via: classifiers
+  - kind: has_many
+    target: NotificationChannel
+    via: notificationChannels
+  - kind: has_many
+    target: TableToScan
+    via: tables
+  - kind: has_many
+    target: Warehouse
+    via: distinctWarehouses
+  - kind: has_one
+    target: EntityInfo
+    via: entityInfo
+  - kind: has_one
+    target: ScanJobStatus
+    via: status
+  - kind: has_one
+    target: ScanRun
+    via: inProgressScanRun
+  - kind: has_one
+    target: ScanRun
+    via: latestCompletedScanRun
+  - kind: has_one
+    target: ScanSchedule
+    via: schedule
+  - kind: has_one
+    target: ScanType
+    via: scanType
+  - kind: has_one
+    target: User
+    via: creator
+- entity: ScanRun
+  schema: generatedScanRun
+  source: openapi/bigeye-sensitivity-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: Workspace
+    via: workspaceId
+  - kind: has_many
+    target: SplitFailure
+    via: splitFailures
+  - kind: has_one
+    target: IdAndDisplayName
+    via: scanJob
+  - kind: has_one
+    target: ScanJobStatus
+    via: status
+  - kind: has_one
+    target: ScanSchedule
+    via: schedule
+  - kind: has_one
+    target: ScanType
+    via: scanType
+- entity: DataClass
+  schema: generatedDataClass
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: Workspace
+    via: workspaceId
+  - kind: has_many
+    target: DataClassCategory
+    via: categories
+  - kind: has_one
+    target: DataSensitivity
+    via: sensitivity
+  - kind: has_one
+    target: EntityInfo
+    via: entityInfo
+  - kind: has_one
+    target: User
+    via: createdBy
+- entity: Classifier
+  schema: generatedClassifier
+  source: openapi/bigeye-sensitivity-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: Workspace
+    via: workspaceId
+  - kind: has_one
+    target: DataClass
+    via: dataClass
+  - kind: has_one
+    target: EntityInfo
+    via: entityInfo
+  - kind: has_one
+    target: User
+    via: createdBy
+  - kind: has_one
+    target: modelsgeneratedDetector
+    via: detector
+- entity: VirtualTable
+  schema: generatedVirtualTable
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: has_many
+    target: Tag
+    via: tags
+  - kind: has_one
+    target: Table
+    via: table
+- entity: Integration
+  schema: generatedIntegration
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: Company
+    via: companyId
+  - kind: belongs_to
+    target: CreatedBy
+    via: createdById
+  - kind: belongs_to
+    target: UpdatedBy
+    via: updatedById
+  - kind: has_many
+    target: Tag
+    via: tags
+  - kind: has_one
+    target: IntegrationPartner
+    via: integrationPartner
+  - kind: has_one
+    target: IntegrationType
+    via: integrationType
+- entity: NamedSchedule
+  schema: generatedNamedSchedule
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: has_one
+    target: EntityInfo
+    via: entityInfo
+- entity: MetricTemplate
+  schema: generatedMetricTemplate
+  source: openapi/bigeye-observability-openapi.json
+  relationships:
+  - kind: has_many
+    target: MetricTemplateParametersFieldEntry
+    via: parameters
+  - kind: has_one
+    target: EntityInfo
+    via: entityInfo
+  - kind: has_one
+    target: FieldType
+    via: returnType
+  - kind: has_one
+    target: IdAndDisplayName
+    via: dimension
+  - kind: has_one
+    target: Warehouse
+    via: source
+- entity: SchemaChange
+  schema: generatedSchemaChange
+  source: openapi/bigeye-metadata-openapi.json
+  relationships:
+  - kind: belongs_to
+    target: Column
+    via: columnId
+  - kind: belongs_to
+    target: Schema
+    via: schemaId
+  - kind: belongs_to
+    target: Source
+    via: sourceId
+  - kind: belongs_to
+    target: Table
+    via: tableId
+  - kind: has_one
+    target: CatalogEntityType
+    via: objectType
+  - kind: has_one
+    target: SchemaChangeOperation
+    via: changeType
