@@ -33,100 +33,14 @@ tags:
 - Snowflake
 - Databricks
 apis:
-- aid: bigeye:bigeye-metadata-api
-  name: Bigeye Metadata API
-  description: >-
-    The Bigeye Metadata API covers the data catalog and workspace administration
-    surface: sources, schemas, tables, columns and virtual tables; catalog rebuilds
-    and schema-change tracking; lineage (v1 and v2) nodes and edges; users, groups,
-    roles, workspaces and object ownership; agent registration, API keys and service
-    accounts; integrations, named schedules, tags, favorites, search, dashboards and
-    workflow status.
-  humanURL: https://docs.bigeye.com/reference
-  baseURL: https://app.bigeye.com
-  tags:
-  - Catalog
-  - Metadata
-  - Lineage
-  - Schemas
-  - Tables
-  - Columns
-  - Sources
-  - Workspaces
-  - Users
-  - API Keys
-  properties:
-  - type: OpenAPI
-    url: openapi/bigeye-metadata-openapi.json
-  - type: Documentation
-    url: https://docs.bigeye.com/docs/api-user-guide
-  - type: APIReference
-    url: https://docs.bigeye.com/reference
-  - type: Overlay
-    url: overlays/bigeye-metadata-overlay.yaml
-- aid: bigeye:bigeye-observability-api
-  name: Bigeye Observability API
-  description: >-
-    The Bigeye Observability API covers monitoring and data quality: metrics
-    (monitors) and metric templates, custom SQL rules, autometrics, backfills and
-    batch metric runs, collections of monitors, deltas and comparison tables for
-    cross-source validation, joins, observed columns, data quality dimensions, and
-    the issue lifecycle including merging issues into incidents.
-  humanURL: https://docs.bigeye.com/reference
-  baseURL: https://app.bigeye.com
-  tags:
-  - Monitoring
-  - Metrics
-  - Data Quality
-  - Issues
-  - Incidents
-  - Collections
-  - Deltas
-  - Custom Rules
-  - Dimensions
-  properties:
-  - type: OpenAPI
-    url: openapi/bigeye-observability-openapi.json
-  - type: Documentation
-    url: https://docs.bigeye.com/docs/monitoring
-  - type: APIReference
-    url: https://docs.bigeye.com/reference
-  - type: Overlay
-    url: overlays/bigeye-observability-overlay.yaml
-- aid: bigeye:bigeye-sensitivity-api
-  name: Bigeye Sensitivity API
-  description: >-
-    The Bigeye Sensitivity API covers sensitive data discovery and classification:
-    classifiers, data classes and data class categories, scan jobs and scan job
-    configuration, scan runs, and the aggregate and snapshot findings that report
-    where PII and other sensitive data was detected across connected sources.
-  humanURL: https://docs.bigeye.com/reference
-  baseURL: https://app.bigeye.com
-  tags:
-  - Sensitive Data
-  - Classification
-  - PII
-  - Scanning
-  - Data Governance
-  properties:
-  - type: OpenAPI
-    url: openapi/bigeye-sensitivity-openapi.json
-  - type: Documentation
-    url: https://docs.bigeye.com/docs/getting-started-scanning
-  - type: APIReference
-    url: https://docs.bigeye.com/reference
-  - type: Overlay
-    url: overlays/bigeye-sensitivity-overlay.yaml
 - aid: bigeye:bigeye-mcp-gateway
   name: Bigeye MCP Gateway
   description: >-
-    The Bigeye MCP Gateway is a hosted Model Context Protocol server at
-    https://mcpgateway.bigeye.com/mcp that exposes 56 tools over the Bigeye
-    platform for AI assistants and agents — listing and triaging data quality
-    issues, searching the catalog, tracing lineage, profiling tables, managing
-    metrics, dimensions and tags, and reading sensitive-data scan findings.
-    Authentication uses the same Bigeye API key passed as an "apikey" prefixed
-    Authorization header plus an x-bigeye-workspace-id header. Public beta since
+    The Bigeye MCP Gateway is a hosted Model Context Protocol server at https://mcpgateway.bigeye.com/mcp
+    that exposes 56 tools over the Bigeye platform for AI assistants and agents — listing and triaging
+    data quality issues, searching the catalog, tracing lineage, profiling tables, managing metrics, dimensions
+    and tags, and reading sensitive-data scan findings. Authentication uses the same Bigeye API key passed
+    as an "apikey" prefixed Authorization header plus an x-bigeye-workspace-id header. Public beta since
     July 2026; the server is also open source and self-hostable.
   humanURL: https://docs.bigeye.com/docs/bigeye-mcp-server
   baseURL: https://mcpgateway.bigeye.com/mcp
@@ -143,12 +57,809 @@ apis:
     url: https://docs.bigeye.com/docs/bigeye-mcp-server
   - type: SourceCode
     url: https://github.com/bigeyedata/bigeye-mcp-server
+- aid: bigeye:bigeye-agentservice-api
+  name: Bigeye Agent Service API
+  description: The AgentService API from Bigeye — 5 operation(s) for agentservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - AgentService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-agentservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-apikeyservice-api
+  name: Bigeye API Key Service API
+  description: The ApiKeyService API from Bigeye — 6 operation(s) for apikeyservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - ApiKeyService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-apikeyservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-catalogrebuildsservice-api
+  name: Bigeye Catalog Rebuilds Service API
+  description: The CatalogRebuildsService API from Bigeye — 3 operation(s) for catalogrebuildsservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - CatalogRebuildsService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-catalogrebuildsservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-classifierservice-api
+  name: Bigeye Classifier Service API
+  description: The ClassifierService API from Bigeye — 6 operation(s) for classifierservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - ClassifierService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-classifierservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-collectionservice-api
+  name: Bigeye Collection Service API
+  description: The CollectionService API from Bigeye — 4 operation(s) for collectionservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - CollectionService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-collectionservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-collectionv2service-api
+  name: Bigeye Collection V2 Service API
+  description: The CollectionV2Service API from Bigeye — 3 operation(s) for collectionv2service.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - CollectionV2Service
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-collectionv2service-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-columnservice-api
+  name: Bigeye Column Service API
+  description: The ColumnService API from Bigeye — 3 operation(s) for columnservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - ColumnService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-columnservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-companyservice-api
+  name: Bigeye Company Service API
+  description: The CompanyService API from Bigeye — 1 operation(s) for companyservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - CompanyService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-companyservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-comparisontableservice-api
+  name: Bigeye Comparison Table Service API
+  description: The ComparisonTableService API from Bigeye — 6 operation(s) for comparisontableservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - ComparisonTableService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-comparisontableservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-configservice-api
+  name: Bigeye Config Service API
+  description: The ConfigService API from Bigeye — 2 operation(s) for configservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - ConfigService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-configservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-customruleservice-api
+  name: Bigeye Custom Rule Service API
+  description: The CustomRuleService API from Bigeye — 8 operation(s) for customruleservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - CustomRuleService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-customruleservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-dashboardservice-api
+  name: Bigeye Dashboard Service API
+  description: The DashboardService API from Bigeye — 2 operation(s) for dashboardservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - DashboardService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-dashboardservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-dataclasscategoryservice-api
+  name: Bigeye Data Class Category Service API
+  description: >-
+    The DataClassCategoryService API from Bigeye — 1 operation(s) for dataclasscategoryservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - DataClassCategoryService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-dataclasscategoryservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-dataclassservice-api
+  name: Bigeye Data Class Service API
+  description: The DataClassService API from Bigeye — 4 operation(s) for dataclassservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - DataClassService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-dataclassservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-deltaservice-api
+  name: Bigeye Delta Service API
+  description: The DeltaService API from Bigeye — 5 operation(s) for deltaservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - DeltaService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-deltaservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-dimensionservice-api
+  name: Bigeye Dimension Service API
+  description: The DimensionService API from Bigeye — 5 operation(s) for dimensionservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - DimensionService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-dimensionservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-favoriteservice-api
+  name: Bigeye Favorite Service API
+  description: The FavoriteService API from Bigeye — 4 operation(s) for favoriteservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - FavoriteService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-favoriteservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-groupservice-api
+  name: Bigeye Group Service API
+  description: The GroupService API from Bigeye — 4 operation(s) for groupservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - GroupService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-groupservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-integrationservice-api
+  name: Bigeye Integration Service API
+  description: The IntegrationService API from Bigeye — 7 operation(s) for integrationservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - IntegrationService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-integrationservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-issueservice-api
+  name: Bigeye Issue Service API
+  description: The IssueService API from Bigeye — 5 operation(s) for issueservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - IssueService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-issueservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-joinservice-api
+  name: Bigeye Join Service API
+  description: The JoinService API from Bigeye — 3 operation(s) for joinservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - JoinService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-joinservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-lineageservice-api
+  name: Bigeye Lineage Service API
+  description: The LineageService API from Bigeye — 8 operation(s) for lineageservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - LineageService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-lineageservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-lineagev2service-api
+  name: Bigeye Lineage V2 Service API
+  description: The LineageV2Service API from Bigeye — 7 operation(s) for lineagev2service.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - LineageV2Service
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-lineagev2service-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-metricobservedcolumnservice-api
+  name: Bigeye Metric Observed Column Service API
+  description: >-
+    The MetricObservedColumnService API from Bigeye — 7 operation(s) for metricobservedcolumnservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - MetricObservedColumnService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-metricobservedcolumnservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-metricservice-api
+  name: Bigeye Metric Service API
+  description: The MetricService API from Bigeye — 20 operation(s) for metricservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - MetricService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-metricservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-metrictemplateservice-api
+  name: Bigeye Metric Template Service API
+  description: The MetricTemplateService API from Bigeye — 3 operation(s) for metrictemplateservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - MetricTemplateService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-metrictemplateservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-namedscheduleservice-api
+  name: Bigeye Named Schedule Service API
+  description: The NamedScheduleService API from Bigeye — 3 operation(s) for namedscheduleservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - NamedScheduleService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-namedscheduleservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-objectownerservice-api
+  name: Bigeye Object Owner Service API
+  description: The ObjectOwnerService API from Bigeye — 2 operation(s) for objectownerservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - ObjectOwnerService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-objectownerservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-queryservice-api
+  name: Bigeye Query Service API
+  description: The QueryService API from Bigeye — 1 operation(s) for queryservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - QueryService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-queryservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-roleservice-api
+  name: Bigeye Role Service API
+  description: The RoleService API from Bigeye — 4 operation(s) for roleservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - RoleService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-roleservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-scanjobservice-api
+  name: Bigeye Scan Job Service API
+  description: The ScanJobService API from Bigeye — 12 operation(s) for scanjobservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - ScanJobService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-scanjobservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-scanrunservice-api
+  name: Bigeye Scan Run Service API
+  description: The ScanRunService API from Bigeye — 2 operation(s) for scanrunservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - ScanRunService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-scanrunservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-schemachangeservice-api
+  name: Bigeye Schema Change Service API
+  description: The SchemaChangeService API from Bigeye — 1 operation(s) for schemachangeservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - SchemaChangeService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-schemachangeservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-schemaservice-api
+  name: Bigeye Schema Service API
+  description: The SchemaService API from Bigeye — 6 operation(s) for schemaservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - SchemaService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-schemaservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-searchservice-api
+  name: Bigeye Search Service API
+  description: The SearchService API from Bigeye — 1 operation(s) for searchservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - SearchService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-searchservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-serviceaccountapikeyservice-api
+  name: Bigeye Service Account API Key Service API
+  description: >-
+    The ServiceAccountApiKeyService API from Bigeye — 4 operation(s) for serviceaccountapikeyservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - ServiceAccountApiKeyService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-serviceaccountapikeyservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-sourceservice-api
+  name: Bigeye Source Service API
+  description: The SourceService API from Bigeye — 7 operation(s) for sourceservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - SourceService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-sourceservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-tableservice-api
+  name: Bigeye Table Service API
+  description: The TableService API from Bigeye — 14 operation(s) for tableservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - TableService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-tableservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-tagservice-api
+  name: Bigeye Tag Service API
+  description: The TagService API from Bigeye — 5 operation(s) for tagservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - TagService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-tagservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-userservice-api
+  name: Bigeye User Service API
+  description: The UserService API from Bigeye — 4 operation(s) for userservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - UserService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-userservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-virtualtableservice-api
+  name: Bigeye Virtual Table Service API
+  description: The VirtualTableService API from Bigeye — 5 operation(s) for virtualtableservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - VirtualTableService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-virtualtableservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-workflowservice-api
+  name: Bigeye Workflow Service API
+  description: The WorkflowService API from Bigeye — 1 operation(s) for workflowservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - WorkflowService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-workflowservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-workflowv2service-api
+  name: Bigeye Workflow V2 Service API
+  description: The WorkflowV2Service API from Bigeye — 2 operation(s) for workflowv2service.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - WorkflowV2Service
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-workflowv2service-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-workspaceservice-api
+  name: Bigeye Workspace Service API
+  description: The WorkspaceService API from Bigeye — 4 operation(s) for workspaceservice.
+  humanURL: https://docs.bigeye.com/reference
+  baseURL: https://app.bigeye.com
+  tags:
+  - WorkspaceService
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-workspaceservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: IssueTracker
+  url: https://github.com/bigeyedata/bigeye-mcp-server/issues
 - type: AgenticAccess
   url: agentic-access/bigeye-agentic-access.yml
 - type: TrustCenter
