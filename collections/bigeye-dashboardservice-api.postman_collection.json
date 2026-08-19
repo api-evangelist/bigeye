@@ -1,0 +1,357 @@
+{
+  "item": [
+    {
+      "id": "64a36a8f-4192-451c-9173-f988329b2b75",
+      "name": "DashboardService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "674d5e12-0c7c-4245-b35a-5265f0f56c24",
+          "name": "Gets last updated date for dashboard data series",
+          "request": {
+            "name": "Gets last updated date for dashboard data series",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "dashboard",
+                "refresh-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"companyId\": \"<integer>\",\n  \"endingTimestamp\": \"<int64>\",\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"startingTimestamp\": \"<int64>\",\n  \"workspaceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4122aba-956f-4a72-bbf7-a510955e6d34",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dashboard",
+                    "refresh-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyId\": \"<integer>\",\n  \"endingTimestamp\": \"<int64>\",\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"startingTimestamp\": \"<int64>\",\n  \"workspaceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"lastUpdatedAt\": \"string\",\n  \"nextUpdatedAt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3ac5a2b-c7c6-4649-aa44-dbe0cbae640c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dashboard",
+                    "refresh-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyId\": \"<integer>\",\n  \"endingTimestamp\": \"<int64>\",\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"startingTimestamp\": \"<int64>\",\n  \"workspaceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1740,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60bf7771-d375-411a-93aa-aca934e199be",
+          "name": "Get dashboard data series for requested types",
+          "request": {
+            "name": "Get dashboard data series for requested types",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "dashboard",
+                "calculate-data-points-request"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aggregationType\": \"DASHBOARD_DATE_AGGREGATION_TYPE_DAY\",\n  \"companyId\": \"<integer>\",\n  \"dataPointTypes\": [\n    \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\",\n    \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\"\n  ],\n  \"endingTimestamp\": \"<int64>\",\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"startingTimestamp\": \"<int64>\",\n  \"workspaceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a188308d-72ba-4fe6-b64a-3e283836f512",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dashboard",
+                    "calculate-data-points-request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aggregationType\": \"DASHBOARD_DATE_AGGREGATION_TYPE_DAY\",\n  \"companyId\": \"<integer>\",\n  \"dataPointTypes\": [\n    \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\",\n    \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\"\n  ],\n  \"endingTimestamp\": \"<int64>\",\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"startingTimestamp\": \"<int64>\",\n  \"workspaceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"companyId\": 933,\n  \"dataPointSeries\": [\n    {\n      \"companyId\": 7910,\n      \"dataPointType\": \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\",\n      \"dataPoints\": [\n        {\n          \"collectedTimestamp\": \"string\",\n          \"companyId\": 1784,\n          \"dataPointType\": \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\",\n          \"dataTimestamp\": \"string\",\n          \"key\": \"string\",\n          \"sourceIds\": [\n            5100,\n            9638\n          ],\n          \"value\": 4354.96329387253,\n          \"workspaceIds\": [\n            613,\n            3275\n          ]\n        },\n        {\n          \"collectedTimestamp\": \"string\",\n          \"companyId\": 3828,\n          \"dataPointType\": \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\",\n          \"dataTimestamp\": \"string\",\n          \"key\": \"string\",\n          \"sourceIds\": [\n            42,\n            7099\n          ],\n          \"value\": 1725.9844698621685,\n          \"workspaceIds\": [\n            5533,\n            8073\n          ]\n        }\n      ],\n      \"endingTimestamp\": \"string\",\n      \"key\": \"string\",\n      \"keyInfo\": \"string\",\n      \"sourceIds\": [\n        7009,\n        3254\n      ],\n      \"startingTimestamp\": \"string\",\n      \"workspaceIds\": [\n        7863,\n        8802\n      ]\n    },\n    {\n      \"companyId\": 9042,\n      \"dataPointType\": \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\",\n      \"dataPoints\": [\n        {\n          \"collectedTimestamp\": \"string\",\n          \"companyId\": 2546,\n          \"dataPointType\": \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\",\n          \"dataTimestamp\": \"string\",\n          \"key\": \"string\",\n          \"sourceIds\": [\n            3262,\n            4814\n          ],\n          \"value\": 5330.259633363953,\n          \"workspaceIds\": [\n            1328,\n            6222\n          ]\n        },\n        {\n          \"collectedTimestamp\": \"string\",\n          \"companyId\": 3549,\n          \"dataPointType\": \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\",\n          \"dataTimestamp\": \"string\",\n          \"key\": \"string\",\n          \"sourceIds\": [\n            4973,\n            3831\n          ],\n          \"value\": 9888.4264159077,\n          \"workspaceIds\": [\n            8417,\n            2707\n          ]\n        }\n      ],\n      \"endingTimestamp\": \"string\",\n      \"key\": \"string\",\n      \"keyInfo\": \"string\",\n      \"sourceIds\": [\n        782,\n        5873\n      ],\n      \"startingTimestamp\": \"string\",\n      \"workspaceIds\": [\n        8902,\n        7143\n      ]\n    }\n  ],\n  \"dataPointTypes\": [\n    \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\",\n    \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\"\n  ],\n  \"endingTimestamp\": \"string\",\n  \"sourceIds\": [\n    8738,\n    6736\n  ],\n  \"startingTimestamp\": \"string\",\n  \"workspaceIds\": [\n    1985,\n    5876\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ecda830-98d9-4e84-b4bd-ffadbfb6a697",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dashboard",
+                    "calculate-data-points-request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aggregationType\": \"DASHBOARD_DATE_AGGREGATION_TYPE_DAY\",\n  \"companyId\": \"<integer>\",\n  \"dataPointTypes\": [\n    \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\",\n    \"DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED\"\n  ],\n  \"endingTimestamp\": \"<int64>\",\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"startingTimestamp\": \"<int64>\",\n  \"workspaceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3324,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a9f3c25a-7ec6-416c-ac7f-02425040bafc",
+    "name": "Metadata Dashboard Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

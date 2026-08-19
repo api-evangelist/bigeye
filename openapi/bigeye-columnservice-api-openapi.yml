@@ -1,0 +1,639 @@
+openapi: 3.2.0
+info:
+  title: Metadata Column Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: ColumnService
+paths:
+  /api/v1/columns/{columnId}/applicable-metric-types:
+    get:
+      operationId: ColumnService_GetColumnApplicableMetricTypes
+      parameters:
+      - in: path
+        name: columnId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetColumnApplicableMetricTypesResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get applicable metric types for column
+      tags:
+      - ColumnService
+  /api/v1/columns/fetch:
+    post:
+      operationId: ColumnService_GetColumns
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedGetColumnListRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetColumnListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get columns
+      tags:
+      - ColumnService
+  /api/v1/columns:
+    get:
+      operationId: ColumnService_GetSpecifiedColumns
+      parameters:
+      - in: query
+        name: tableId
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: columnIds
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            format: int32
+            type: integer
+      - in: query
+        name: includeDataNodeIds
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedColumnSearchResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get specified columns
+      tags:
+      - ColumnService
+components:
+  schemas:
+    generatedTag:
+      properties:
+        colorHex:
+          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+          type: string
+        createdAt:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        updatedAt:
+          format: int64
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      title: Tags
+      type: object
+    generatedMetricType:
+      properties:
+        customRuleType:
+          $ref: '#/components/schemas/generatedCustomRuleType'
+        externalMonitor:
+          $ref: '#/components/schemas/generatedExternalMonitor'
+        isMetadataMetric:
+          type: boolean
+        isTableMetric:
+          type: boolean
+        predefinedMetric:
+          $ref: '#/components/schemas/generatedPredefinedMetric'
+        templateMetric:
+          $ref: '#/components/schemas/generatedTemplateMetric'
+      type: object
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
+    generatedSchema:
+      description: '*
+
+        Representation of a schema in a warehouse.'
+      properties:
+        dataNodeId:
+          format: int32
+          type: integer
+        databaseType:
+          $ref: '#/components/schemas/generatedWarehouseType'
+        id:
+          format: int32
+          type: integer
+        indexByTable:
+          type: boolean
+        isFavorite:
+          type: boolean
+        isVirtual:
+          type: boolean
+        latestMetricTimeValue:
+          format: int64
+          type: string
+        logicalSizeBytes:
+          format: int64
+          type: string
+        name:
+          type: string
+        numQueriesLatestPeriod:
+          format: int32
+          type: integer
+        popularityScore:
+          format: double
+          type: number
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        sizeLastUpdatedAtMillis:
+          format: int64
+          type: string
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        warehouseId:
+          format: int32
+          type: integer
+        warehouseName:
+          type: string
+      type: object
+    generatedGetColumnApplicableMetricTypesResponse:
+      properties:
+        metricTypes:
+          $ref: '#/components/schemas/generatedColumnApplicableMetricTypes'
+      type: object
+    generatedTable:
+      description: '*
+
+        Representation of a table in a warehouse.'
+      properties:
+        columns:
+          items:
+            $ref: '#/components/schemas/generatedTableColumn'
+          type: array
+        dataNodeId:
+          format: int32
+          type: integer
+        databaseName:
+          type: string
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        latestMetricTimeValue:
+          format: int64
+          type: string
+        logicalSizeBytes:
+          format: int64
+          type: string
+        metricTimeColumn:
+          $ref: '#/components/schemas/generatedTableColumn'
+        name:
+          type: string
+        numQueriesLatestPeriod:
+          format: int32
+          type: integer
+        popularityScore:
+          format: double
+          type: number
+        requiresPartitionFilter:
+          type: boolean
+        schema:
+          $ref: '#/components/schemas/generatedSchema'
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        schemaId:
+          format: int32
+          type: integer
+        schemaName:
+          type: string
+        sizeLastUpdatedAtMillis:
+          format: int64
+          type: string
+        tableType:
+          $ref: '#/components/schemas/generatedTableType'
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        usesAgent:
+          type: boolean
+        warehouseId:
+          format: int32
+          type: integer
+        warehouseName:
+          type: string
+        warehouseVendor:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedPredefinedMetric:
+      properties:
+        metricName:
+          $ref: '#/components/schemas/generatedPredefinedMetricName'
+      type: object
+    generatedColumnWithTable:
+      properties:
+        column:
+          $ref: '#/components/schemas/generatedTableColumn'
+        table:
+          $ref: '#/components/schemas/generatedTable'
+      type: object
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    generatedTableColumn:
+      description: '*
+
+        Representation of a column in a table.'
+      properties:
+        canBeMetricTime:
+          type: boolean
+        dataNodeId:
+          format: int32
+          type: integer
+        extendedType:
+          type: string
+        fullType:
+          type: string
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        isKeyInJoin:
+          type: boolean
+        isMetricTime:
+          type: boolean
+        isNullable:
+          type: boolean
+        isPartitionField:
+          type: boolean
+        name:
+          type: string
+        parentColumnId:
+          format: int32
+          type: integer
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        type:
+          type: string
+      type: object
+    generatedGetColumnListResponse:
+      properties:
+        columns:
+          items:
+            $ref: '#/components/schemas/generatedColumnWithTable'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedGetColumnListRequest:
+      properties:
+        columnIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        excludeDataNode:
+          type: boolean
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        schemaIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        search:
+          type: string
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedColumnSortField'
+        sourceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        tableIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedColumnSearchResponse:
+      properties:
+        columns:
+          items:
+            $ref: '#/components/schemas/generatedTableColumn'
+          type: array
+        schema:
+          $ref: '#/components/schemas/generatedSchema'
+        table:
+          $ref: '#/components/schemas/generatedTable'
+        warehouse:
+          $ref: '#/components/schemas/generatedWarehouse'
+      type: object
+    generatedAggregationType:
+      default: UNDEFINED_AGGREGATION_TYPE
+      enum:
+      - UNDEFINED_AGGREGATION_TYPE
+      - COUNT_AGGREGATION_TYPE
+      - PERCENT_AGGREGATION_TYPE
+      - MIN_AGGREGATION_TYPE
+      - MAX_AGGREGATION_TYPE
+      - AVG_AGGREGATION_TYPE
+      - SUM_AGGREGATION_TYPE
+      type: string
+    generatedWarehouse:
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        warehouseVendor:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedTemplateMetric:
+      properties:
+        aggregationType:
+          $ref: '#/components/schemas/generatedAggregationType'
+        templateId:
+          format: int32
+          type: integer
+        templateName:
+          type: string
+      type: object
+    generatedColumnSortField:
+      default: COLUMN_SORT_FIELD_UNSPECIFIED
+      enum:
+      - COLUMN_SORT_FIELD_UNSPECIFIED
+      - COLUMN_SORT_FIELD_NAME
+      - COLUMN_SORT_FIELD_FAVORITE
+      type: string
+    generatedSchemaChangeInfo:
+      properties:
+        initialSchemaScanAt:
+          format: int64
+          type: string
+        lastSchemaChangeAt:
+          format: int64
+          type: string
+        mostRecentSchemaScanAt:
+          format: int64
+          type: string
+      type: object
+    generatedPredefinedMetricName:
+      default: UNDEFINED_PREDEFINED_METRIC_NAME
+      enum:
+      - UNDEFINED_PREDEFINED_METRIC_NAME
+      - PERCENT_NULL
+      - COUNT_NULL
+      - PERCENT_EMPTY_STRING
+      - COUNT_EMPTY_STRING
+      - PERCENT_UNIQUE
+      - PERCENT_VALUE_IN_LIST
+      - AVERAGE
+      - MIN
+      - MAX
+      - SUM
+      - COUNT_ROWS
+      - COUNT_DISTINCT
+      - HOURS_SINCE_MAX_DATE
+      - HOURS_SINCE_MAX_TIMESTAMP
+      - COUNT_TRUE
+      - PERCENT_TRUE
+      - COUNT_FALSE
+      - PERCENT_FALSE
+      - COUNT_USA_PHONE
+      - PERCENT_USA_PHONE
+      - COUNT_USA_ZIP_CODE
+      - PERCENT_USA_ZIP_CODE
+      - PERCENT_UUID
+      - COUNT_TIMESTAMP_STRING
+      - PERCENT_TIMESTAMP_STRING
+      - COUNT_DUPLICATES
+      - COUNT_USA_STATE_CODE
+      - PERCENT_USA_STATE_CODE
+      - VARIANCE
+      - SKEW
+      - KURTOSIS
+      - GEOMETRIC_MEAN
+      - HARMONIC_MEAN
+      - COUNT_UUID
+      - COUNT_CUSIP
+      - PERCENT_CUSIP
+      - COUNT_SEDOL
+      - PERCENT_SEDOL
+      - COUNT_ISIN
+      - PERCENT_ISIN
+      - COUNT_LEI
+      - PERCENT_LEI
+      - COUNT_FIGI
+      - PERCENT_FIGI
+      - COUNT_PERM_ID
+      - PERCENT_PERM_ID
+      - COUNT_NAN
+      - PERCENT_NAN
+      - COUNT_LONGITUDE
+      - PERCENT_LONGITUDE
+      - COUNT_LATITUDE
+      - PERCENT_LATITUDE
+      - COUNT_NOT_IN_FUTURE
+      - PERCENT_NOT_IN_FUTURE
+      - COUNT_DATE_NOT_IN_FUTURE
+      - PERCENT_DATE_NOT_IN_FUTURE
+      - MEDIAN
+      - PERCENTILE
+      - COUNT_NOT_NULL
+      - STRING_LENGTH_AVERAGE
+      - STRING_LENGTH_MIN
+      - STRING_LENGTH_MAX
+      - COUNT_SSN
+      - PERCENT_SSN
+      - COUNT_EMAIL
+      - PERCENT_EMAIL
+      - ROWS_INSERTED
+      - HOURS_SINCE_LAST_LOAD
+      - COUNT_READ_QUERIES
+      - PERCENT_NOT_NULL
+      - FRESHNESS
+      - VOLUME
+      - FRESHNESS_DATA
+      - VOLUME_DATA
+      - COUNT_VALUE_IN_LIST
+      - PERCENT_DISTINCT
+      - PERCENT_DUPLICATES
+      - HOURS_SINCE_MAX_STRING
+      type: string
+    generatedColumnApplicableMetricTypes:
+      properties:
+        applicableMetricTypes:
+          items:
+            $ref: '#/components/schemas/generatedMetricType'
+          type: array
+        column:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        schema:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        source:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        table:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+      type: object
+    generatedExternalMonitorType:
+      default: EXTERNAL_MONITOR_TYPE_UNDEFINED
+      enum:
+      - EXTERNAL_MONITOR_TYPE_UNDEFINED
+      - EXTERNAL_MONITOR_TYPE_DBT_TEST
+      type: string
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedExternalMonitor:
+      properties:
+        type:
+          $ref: '#/components/schemas/generatedExternalMonitorType'
+      type: object
+    generatedCustomRuleType:
+      default: CUSTOM_RULE_TYPE_UNSPECIFIED
+      enum:
+      - CUSTOM_RULE_TYPE_UNSPECIFIED
+      - CUSTOM_RULE_TYPE_SQL_RULE
+      - CUSTOM_RULE_TYPE_JOIN_RULE
+      type: string
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedTableType:
+      default: TABLE_TYPE_UNSPECIFIED
+      enum:
+      - TABLE_TYPE_UNSPECIFIED
+      - TABLE_TYPE_TABLE
+      - TABLE_TYPE_VIEW
+      - TABLE_TYPE_VIRTUAL
+      - TABLE_TYPE_CUSTOM_RULE
+      type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metadata Object Owner Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ObjectOwnerService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get object owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/object-owners/:ownableType/:ownableId",
+            "params": [
+              {
+                "name": "ownableType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ownableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get object owner"
+        },
+        {
+          "info": {
+            "name": "Delete object owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/object-owners/:ownableType/:ownableId",
+            "params": [
+              {
+                "name": "ownableType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ownableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete object owner"
+        },
+        {
+          "info": {
+            "name": "Set object owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/object-owners",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set object owner"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metadata Column Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ColumnService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get applicable metric types for column",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/columns/:columnId/applicable-metric-types",
+            "params": [
+              {
+                "name": "columnId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get applicable metric types for column"
+        },
+        {
+          "info": {
+            "name": "Get columns",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/columns/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get columns"
+        },
+        {
+          "info": {
+            "name": "Get specified columns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/columns",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "columnIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeDataNodeIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get specified columns"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

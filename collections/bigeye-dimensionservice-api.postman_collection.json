@@ -1,0 +1,1116 @@
+{
+  "item": [
+    {
+      "id": "615e575f-33c2-4fbe-acb8-c39d14aa4ef7",
+      "name": "DimensionService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d0b7bc44-8496-4f62-a2f5-734a93e426db",
+          "name": "Bulk update dimensions",
+          "request": {
+            "name": "Bulk update dimensions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "dimensions",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n      \"isOverride\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"sourceDimensionId\": \"<integer>\",\n      \"targetDimensionId\": \"<integer>\"\n    },\n    {\n      \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n      \"isOverride\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"sourceDimensionId\": \"<integer>\",\n      \"targetDimensionId\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7cb88b9b-b5f2-4b19-8311-519d975d3f25",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimensions",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n      \"isOverride\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"sourceDimensionId\": \"<integer>\",\n      \"targetDimensionId\": \"<integer>\"\n    },\n    {\n      \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n      \"isOverride\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"sourceDimensionId\": \"<integer>\",\n      \"targetDimensionId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dimensions\": [\n    {\n      \"description\": \"string\",\n      \"entityInfo\": {\n        \"createdBy\": 6969,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 6123,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": 6342,\n      \"instanceTypesWithCounts\": [\n        {\n          \"count\": \"string\",\n          \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n          \"isOverride\": true,\n          \"name\": \"string\"\n        },\n        {\n          \"count\": \"string\",\n          \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n          \"isOverride\": false,\n          \"name\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n    },\n    {\n      \"description\": \"string\",\n      \"entityInfo\": {\n        \"createdBy\": 5892,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 37,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": 7392,\n      \"instanceTypesWithCounts\": [\n        {\n          \"count\": \"string\",\n          \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n          \"isOverride\": true,\n          \"name\": \"string\"\n        },\n        {\n          \"count\": \"string\",\n          \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n          \"isOverride\": true,\n          \"name\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "001aac9e-abe6-4141-9a69-7b942c2ca33e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimensions",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n      \"isOverride\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"sourceDimensionId\": \"<integer>\",\n      \"targetDimensionId\": \"<integer>\"\n    },\n    {\n      \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n      \"isOverride\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"sourceDimensionId\": \"<integer>\",\n      \"targetDimensionId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3526,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6d27c12-cb86-4455-9ec5-1a4233320d24",
+          "name": "Delete dimension",
+          "request": {
+            "name": "Delete dimension",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "dimensions",
+                ":dimensionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dimensionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68bb7b84-4613-4bc5-824c-390ade47a7ea",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimensions",
+                    ":dimensionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d7eae7b-61c6-4f71-a7a5-918e2f5be57e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimensions",
+                    ":dimensionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6724,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5aef5f0f-c44a-484a-aa47-b5859ab4d614",
+          "name": "Update dimension",
+          "request": {
+            "name": "Update dimension",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "dimensions",
+                ":dimensionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dimensionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dimensionId\": \"<integer>\",\n  \"request\": {\n    \"description\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f9880cb5-1519-4923-acb2-08645f5de257",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimensions",
+                    ":dimensionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimensionId\": \"<integer>\",\n  \"request\": {\n    \"description\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"entityInfo\": {\n    \"createdBy\": 2328,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 4219,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": 8251,\n  \"instanceTypesWithCounts\": [\n    {\n      \"count\": \"string\",\n      \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n      \"isOverride\": true,\n      \"name\": \"string\"\n    },\n    {\n      \"count\": \"string\",\n      \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n      \"isOverride\": false,\n      \"name\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5e1f94a-4bca-4305-835b-8ddf54da8158",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimensions",
+                    ":dimensionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimensionId\": \"<integer>\",\n  \"request\": {\n    \"description\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6724,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43907efe-78c5-40ee-8477-144d106d3d06",
+          "name": "Get dimension",
+          "request": {
+            "name": "Get dimension",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "dimension",
+                ":dimensionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dimensionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "925b35a8-c294-4ea5-93a4-74112293daa8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimension",
+                    ":dimensionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"entityInfo\": {\n    \"createdBy\": 2328,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 4219,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": 8251,\n  \"instanceTypesWithCounts\": [\n    {\n      \"count\": \"string\",\n      \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n      \"isOverride\": true,\n      \"name\": \"string\"\n    },\n    {\n      \"count\": \"string\",\n      \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n      \"isOverride\": false,\n      \"name\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2be1b241-ba46-4c03-8a37-1d4bac5d8a21",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimension",
+                    ":dimensionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6724,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05323ace-4f8c-4762-ba57-c390479ebf61",
+          "name": "Get all dimensions",
+          "request": {
+            "name": "Get all dimensions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "dimensions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2a06b9c-373b-440d-a7bd-dbb913a035a8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimensions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dimensions\": [\n    {\n      \"description\": \"string\",\n      \"entityInfo\": {\n        \"createdBy\": 7027,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 5486,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": 8630,\n      \"instanceTypesWithCounts\": [\n        {\n          \"count\": \"string\",\n          \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n          \"isOverride\": true,\n          \"name\": \"string\"\n        },\n        {\n          \"count\": \"string\",\n          \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n          \"isOverride\": false,\n          \"name\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n    },\n    {\n      \"description\": \"string\",\n      \"entityInfo\": {\n        \"createdBy\": 8650,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 9682,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": 7897,\n      \"instanceTypesWithCounts\": [\n        {\n          \"count\": \"string\",\n          \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n          \"isOverride\": false,\n          \"name\": \"string\"\n        },\n        {\n          \"count\": \"string\",\n          \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n          \"isOverride\": true,\n          \"name\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30dec24c-5c02-423d-a6e6-58a5bc61079c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimensions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6724,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f78eb600-e8ee-4fb2-9a50-10dfa6d28611",
+          "name": "Create dimension",
+          "request": {
+            "name": "Create dimension",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "dimensions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2737c817-0f22-49e8-bd54-e7212c34f29f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimensions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"entityInfo\": {\n    \"createdBy\": 2328,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 4219,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": 8251,\n  \"instanceTypesWithCounts\": [\n    {\n      \"count\": \"string\",\n      \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n      \"isOverride\": true,\n      \"name\": \"string\"\n    },\n    {\n      \"count\": \"string\",\n      \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n      \"isOverride\": false,\n      \"name\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11ac307d-38b7-4f04-95e0-e60eb1765dd5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimensions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6724,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e31a77c-42f2-4c9a-a8b5-eb3079e92005",
+          "name": "Assign statistic (e.g., \"AVERAGE\") to dimension",
+          "request": {
+            "name": "Assign statistic (e.g., \"AVERAGE\") to dimension",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "dimensions",
+                "assign-statistic"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dimensionId\": \"<integer>\",\n  \"statName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "afab9f7c-61c1-459f-8361-f72699d07f62",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimensions",
+                    "assign-statistic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimensionId\": \"<integer>\",\n  \"statName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"comments\": \"string\",\n  \"dimension\": {\n    \"description\": \"string\",\n    \"entityInfo\": {\n      \"createdBy\": 1505,\n      \"createdEpochSeconds\": \"string\",\n      \"updatedBy\": 2702,\n      \"updatedEpochSeconds\": \"string\"\n    },\n    \"id\": 2628,\n    \"instanceTypesWithCounts\": [\n      {\n        \"count\": \"string\",\n        \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n        \"isOverride\": true,\n        \"name\": \"string\"\n      },\n      {\n        \"count\": \"string\",\n        \"instanceType\": \"DIMENSION_INSTANCE_TYPE_UNSPECIFIED\",\n        \"isOverride\": true,\n        \"name\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"topLevelCategory\": \"TOP_LEVEL_CATEGORY_UNSPECIFIED\"\n  },\n  \"entityInfo\": {\n    \"createdBy\": 7555,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 6103,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": 8899,\n  \"statName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c84f1bf-3fbe-4c43-98ff-88c55f9e4c51",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "dimensions",
+                    "assign-statistic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimensionId\": \"<integer>\",\n  \"statName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6724,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "907854a3-0424-4e87-a870-39a0ca9a1879",
+    "name": "Observability Dimension Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

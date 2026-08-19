@@ -1,0 +1,2270 @@
+{
+  "item": [
+    {
+      "id": "e450abf5-44d0-4c00-bf4b-024186c94e63",
+      "name": "ScanJobService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9a722aa9-edd6-42bc-8c5e-bf151d463241",
+          "name": "Cancel a running scan job",
+          "request": {
+            "name": "Cancel a running scan job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                ":id",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91c4eead-d55b-452a-b85f-f45cc13cbd81",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "269c89a7-4490-453b-9780-03c6ba434f72",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2799,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2275a202-08cb-48c9-8e1f-66e4d878db77",
+          "name": "Create a scan job",
+          "request": {
+            "name": "Create a scan job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classifierIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"description\": \"<string>\",\n  \"incrementalScanStartAt\": \"<int64>\",\n  \"name\": \"<string>\",\n  \"notificationChannels\": [\n    {\n      \"email\": \"<string>\",\n      \"externalTicketInfo\": {\n        \"externalTicketId\": \"<string>\",\n        \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n        \"externalTicketUrl\": \"<string>\",\n        \"issueId\": \"<integer>\"\n      },\n      \"slackChannelInfo\": {\n        \"channelId\": \"<string>\",\n        \"channelName\": \"<string>\",\n        \"issueThreadPermalink\": \"<string>\",\n        \"threadTs\": \"<string>\"\n      },\n      \"webhook\": {\n        \"webhookHeaders\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"webhookUrl\": \"<string>\"\n      }\n    },\n    {\n      \"email\": \"<string>\",\n      \"externalTicketInfo\": {\n        \"externalTicketId\": \"<string>\",\n        \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n        \"externalTicketUrl\": \"<string>\",\n        \"issueId\": \"<integer>\"\n      },\n      \"slackChannelInfo\": {\n        \"channelId\": \"<string>\",\n        \"channelName\": \"<string>\",\n        \"issueThreadPermalink\": \"<string>\",\n        \"threadTs\": \"<string>\"\n      },\n      \"webhook\": {\n        \"webhookHeaders\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"webhookUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"sampledScanFractionOfRows\": \"<double>\",\n  \"sampledScanMinNumberOfRows\": \"<integer>\",\n  \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n  \"schedule\": {\n    \"namedSchedule\": {\n      \"cron\": \"<string>\",\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"scheduleFrequency\": {\n      \"cronString\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"startTimeEpochSeconds\": \"<int64>\",\n      \"timeInterval\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      }\n    }\n  },\n  \"tables\": [\n    {\n      \"logicalSizeBytes\": \"<int64>\",\n      \"partitionColumnId\": \"<integer>\",\n      \"rctColumnId\": \"<integer>\",\n      \"rctWatermarkEpochSeconds\": \"<int64>\",\n      \"schemaId\": \"<integer>\",\n      \"sizeLastUpdatedAtMillis\": \"<int64>\",\n      \"sourceId\": \"<integer>\",\n      \"tableId\": \"<integer>\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"logicalSizeBytes\": \"<int64>\",\n      \"partitionColumnId\": \"<integer>\",\n      \"rctColumnId\": \"<integer>\",\n      \"rctWatermarkEpochSeconds\": \"<int64>\",\n      \"schemaId\": \"<integer>\",\n      \"sizeLastUpdatedAtMillis\": \"<int64>\",\n      \"sourceId\": \"<integer>\",\n      \"tableId\": \"<integer>\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n    }\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "04b2a99d-252e-46c2-8d2c-eaa02bc6ef28",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifiers\": [\n    {\n      \"displayName\": \"string\",\n      \"id\": 481\n    },\n    {\n      \"displayName\": \"string\",\n      \"id\": 2601\n    }\n  ],\n  \"creator\": {\n    \"email\": \"string\",\n    \"groups\": [\n      {\n        \"displayName\": \"string\",\n        \"id\": 5349\n      },\n      {\n        \"displayName\": \"string\",\n        \"id\": 4843\n      }\n    ],\n    \"id\": 4138,\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"isServiceAccount\": true,\n    \"lastLoginAt\": \"string\",\n    \"name\": \"string\",\n    \"pictureUrl\": \"string\"\n  },\n  \"description\": \"string\",\n  \"distinctWarehouses\": [\n    {\n      \"id\": 4021,\n      \"name\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"id\": 6569,\n      \"name\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    }\n  ],\n  \"entityInfo\": {\n    \"createdBy\": \"<integer>\",\n    \"createdEpochSeconds\": \"<int64>\",\n    \"updatedBy\": \"<integer>\",\n    \"updatedEpochSeconds\": \"<int64>\"\n  },\n  \"id\": \"string\",\n  \"inProgressScanRun\": {\n    \"completedAt\": \"string\",\n    \"displayName\": \"string\",\n    \"errorMessage\": \"string\",\n    \"id\": \"string\",\n    \"nextRunAt\": \"string\",\n    \"numberOfClassifiers\": 5745,\n    \"rowsScanned\": \"string\",\n    \"scanJob\": {\n      \"displayName\": \"string\",\n      \"id\": 769\n    },\n    \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n    \"schedule\": {\n      \"namedSchedule\": {\n        \"cron\": \"<string>\",\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"scheduleFrequency\": {\n        \"cronString\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"startTimeEpochSeconds\": \"<int64>\",\n        \"timeInterval\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        }\n      }\n    },\n    \"splitFailures\": [\n      {\n        \"message\": \"string\",\n        \"tableId\": 2633\n      },\n      {\n        \"message\": \"string\",\n        \"tableId\": 6586\n      }\n    ],\n    \"startedAt\": \"string\",\n    \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n    \"workspaceId\": 9054\n  },\n  \"incrementalScanStartAt\": \"string\",\n  \"latestCompletedScanRun\": {\n    \"completedAt\": \"string\",\n    \"displayName\": \"string\",\n    \"errorMessage\": \"string\",\n    \"id\": \"string\",\n    \"nextRunAt\": \"string\",\n    \"numberOfClassifiers\": 7175,\n    \"rowsScanned\": \"string\",\n    \"scanJob\": {\n      \"displayName\": \"string\",\n      \"id\": 8255\n    },\n    \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n    \"schedule\": {\n      \"namedSchedule\": {\n        \"cron\": \"<string>\",\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"scheduleFrequency\": {\n        \"cronString\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"startTimeEpochSeconds\": \"<int64>\",\n        \"timeInterval\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        }\n      }\n    },\n    \"splitFailures\": [\n      {\n        \"message\": \"string\",\n        \"tableId\": 404\n      },\n      {\n        \"message\": \"string\",\n        \"tableId\": 7861\n      }\n    ],\n    \"startedAt\": \"string\",\n    \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n    \"workspaceId\": 2797\n  },\n  \"name\": \"string\",\n  \"nextRunAt\": \"string\",\n  \"notificationChannels\": [\n    {\n      \"email\": \"<string>\",\n      \"externalTicketInfo\": {\n        \"externalTicketId\": \"<string>\",\n        \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n        \"externalTicketUrl\": \"<string>\",\n        \"issueId\": \"<integer>\"\n      },\n      \"slackChannelInfo\": {\n        \"channelId\": \"<string>\",\n        \"channelName\": \"<string>\",\n        \"issueThreadPermalink\": \"<string>\",\n        \"threadTs\": \"<string>\"\n      },\n      \"webhook\": {\n        \"webhookHeaders\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"webhookUrl\": \"<string>\"\n      }\n    },\n    {\n      \"email\": \"<string>\",\n      \"externalTicketInfo\": {\n        \"externalTicketId\": \"<string>\",\n        \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n        \"externalTicketUrl\": \"<string>\",\n        \"issueId\": \"<integer>\"\n      },\n      \"slackChannelInfo\": {\n        \"channelId\": \"<string>\",\n        \"channelName\": \"<string>\",\n        \"issueThreadPermalink\": \"<string>\",\n        \"threadTs\": \"<string>\"\n      },\n      \"webhook\": {\n        \"webhookHeaders\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"webhookUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"sampledScanFractionOfRows\": 2508.657882011497,\n  \"sampledScanMinNumberOfRows\": 7508,\n  \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n  \"schedule\": {\n    \"namedSchedule\": {\n      \"cron\": \"<string>\",\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"scheduleFrequency\": {\n      \"cronString\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"startTimeEpochSeconds\": \"<int64>\",\n      \"timeInterval\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      }\n    }\n  },\n  \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n  \"tables\": [\n    {\n      \"logicalSizeBytes\": \"<int64>\",\n      \"partitionColumnId\": \"<integer>\",\n      \"rctColumnId\": \"<integer>\",\n      \"rctWatermarkEpochSeconds\": \"<int64>\",\n      \"schemaId\": \"<integer>\",\n      \"sizeLastUpdatedAtMillis\": \"<int64>\",\n      \"sourceId\": \"<integer>\",\n      \"tableId\": \"<integer>\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"logicalSizeBytes\": \"<int64>\",\n      \"partitionColumnId\": \"<integer>\",\n      \"rctColumnId\": \"<integer>\",\n      \"rctWatermarkEpochSeconds\": \"<int64>\",\n      \"schemaId\": \"<integer>\",\n      \"sizeLastUpdatedAtMillis\": \"<int64>\",\n      \"sourceId\": \"<integer>\",\n      \"tableId\": \"<integer>\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n    }\n  ],\n  \"workspaceId\": 3025\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e628bb07-afc4-43d7-bcb7-36b8f2c4aee0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f494ab8-c9fc-4e52-bf31-07a33e8f4019",
+          "name": "Fetch scan jobs with filters and pagination",
+          "request": {
+            "name": "Fetch scan jobs with filters and pagination",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classifierIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"creatorIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"includeClassifiers\": \"<boolean>\",\n  \"includeNotificationChannels\": \"<boolean>\",\n  \"includeTables\": \"<boolean>\",\n  \"includeWarehouses\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"returnJobsWithNoSchedule\": \"<boolean>\",\n  \"scanTypes\": [\n    \"SCAN_TYPE_UNSPECIFIED\",\n    \"SCAN_TYPE_UNSPECIFIED\"\n  ],\n  \"scheduleFrequencies\": [\n    {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    },\n    {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    }\n  ],\n  \"scheduleFrequencyCronStrings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scheduleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_JOB_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_JOB_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"statuses\": [\n    \"SCAN_JOB_STATUS_UNSPECIFIED\",\n    \"SCAN_JOB_STATUS_UNSPECIFIED\"\n  ],\n  \"warehouseIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cd6d6ebe-3b20-4f5d-b3a9-380efd3c8e82",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"classifierIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"creatorIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"includeClassifiers\": \"<boolean>\",\n  \"includeNotificationChannels\": \"<boolean>\",\n  \"includeTables\": \"<boolean>\",\n  \"includeWarehouses\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"returnJobsWithNoSchedule\": \"<boolean>\",\n  \"scanTypes\": [\n    \"SCAN_TYPE_UNSPECIFIED\",\n    \"SCAN_TYPE_UNSPECIFIED\"\n  ],\n  \"scheduleFrequencies\": [\n    {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    },\n    {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    }\n  ],\n  \"scheduleFrequencyCronStrings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scheduleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_JOB_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_JOB_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"statuses\": [\n    \"SCAN_JOB_STATUS_UNSPECIFIED\",\n    \"SCAN_JOB_STATUS_UNSPECIFIED\"\n  ],\n  \"warehouseIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": true,\n    \"numRecords\": 7371,\n    \"prevCursor\": \"string\"\n  },\n  \"scanJobs\": [\n    {\n      \"classifiers\": [\n        {\n          \"displayName\": \"string\",\n          \"id\": 8825\n        },\n        {\n          \"displayName\": \"string\",\n          \"id\": 8380\n        }\n      ],\n      \"creator\": {\n        \"email\": \"string\",\n        \"groups\": [\n          {\n            \"displayName\": \"string\",\n            \"id\": 1977\n          },\n          {\n            \"displayName\": \"string\",\n            \"id\": 1637\n          }\n        ],\n        \"id\": 7288,\n        \"idpGroups\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isServiceAccount\": false,\n        \"lastLoginAt\": \"string\",\n        \"name\": \"string\",\n        \"pictureUrl\": \"string\"\n      },\n      \"description\": \"string\",\n      \"distinctWarehouses\": [\n        {\n          \"id\": 6385,\n          \"name\": \"string\",\n          \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n        },\n        {\n          \"id\": 8596,\n          \"name\": \"string\",\n          \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n        }\n      ],\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"id\": \"string\",\n      \"inProgressScanRun\": {\n        \"completedAt\": \"string\",\n        \"displayName\": \"string\",\n        \"errorMessage\": \"string\",\n        \"id\": \"string\",\n        \"nextRunAt\": \"string\",\n        \"numberOfClassifiers\": 1527,\n        \"rowsScanned\": \"string\",\n        \"scanJob\": {\n          \"displayName\": \"string\",\n          \"id\": 5154\n        },\n        \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n        \"schedule\": {\n          \"namedSchedule\": {\n            \"cron\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timezone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scheduleFrequency\": {\n            \"cronString\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startTimeEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeInterval\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"splitFailures\": [\n          {\n            \"message\": \"string\",\n            \"tableId\": 8321\n          },\n          {\n            \"message\": \"string\",\n            \"tableId\": 334\n          }\n        ],\n        \"startedAt\": \"string\",\n        \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n        \"workspaceId\": 3336\n      },\n      \"incrementalScanStartAt\": \"string\",\n      \"latestCompletedScanRun\": {\n        \"completedAt\": \"string\",\n        \"displayName\": \"string\",\n        \"errorMessage\": \"string\",\n        \"id\": \"string\",\n        \"nextRunAt\": \"string\",\n        \"numberOfClassifiers\": 7111,\n        \"rowsScanned\": \"string\",\n        \"scanJob\": {\n          \"displayName\": \"string\",\n          \"id\": 430\n        },\n        \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n        \"schedule\": {\n          \"namedSchedule\": {\n            \"cron\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timezone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scheduleFrequency\": {\n            \"cronString\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startTimeEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeInterval\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"splitFailures\": [\n          {\n            \"message\": \"string\",\n            \"tableId\": 8712\n          },\n          {\n            \"message\": \"string\",\n            \"tableId\": 8248\n          }\n        ],\n        \"startedAt\": \"string\",\n        \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n        \"workspaceId\": 9715\n      },\n      \"name\": \"string\",\n      \"nextRunAt\": \"string\",\n      \"notificationChannels\": [\n        {\n          \"email\": \"<string>\",\n          \"externalTicketInfo\": {\n            \"externalTicketId\": \"<string>\",\n            \"externalTicketProvider\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalTicketUrl\": \"<string>\",\n            \"issueId\": \"<integer>\"\n          },\n          \"slackChannelInfo\": {\n            \"channelId\": \"<string>\",\n            \"channelName\": \"<string>\",\n            \"issueThreadPermalink\": \"<string>\",\n            \"threadTs\": \"<string>\"\n          },\n          \"webhook\": {\n            \"webhookHeaders\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"webhookUrl\": \"<string>\"\n          }\n        },\n        {\n          \"email\": \"<string>\",\n          \"externalTicketInfo\": {\n            \"externalTicketId\": \"<string>\",\n            \"externalTicketProvider\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalTicketUrl\": \"<string>\",\n            \"issueId\": \"<integer>\"\n          },\n          \"slackChannelInfo\": {\n            \"channelId\": \"<string>\",\n            \"channelName\": \"<string>\",\n            \"issueThreadPermalink\": \"<string>\",\n            \"threadTs\": \"<string>\"\n          },\n          \"webhook\": {\n            \"webhookHeaders\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"webhookUrl\": \"<string>\"\n          }\n        }\n      ],\n      \"sampledScanFractionOfRows\": 1483.0358853188063,\n      \"sampledScanMinNumberOfRows\": 2793,\n      \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n      \"schedule\": {\n        \"namedSchedule\": {\n          \"cron\": \"<string>\",\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"timezone\": \"<string>\"\n        },\n        \"scheduleFrequency\": {\n          \"cronString\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"startTimeEpochSeconds\": \"<int64>\",\n          \"timeInterval\": {\n            \"intervalType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"intervalValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n      \"tables\": [\n        {\n          \"logicalSizeBytes\": \"<int64>\",\n          \"partitionColumnId\": \"<integer>\",\n          \"rctColumnId\": \"<integer>\",\n          \"rctWatermarkEpochSeconds\": \"<int64>\",\n          \"schemaId\": \"<integer>\",\n          \"sizeLastUpdatedAtMillis\": \"<int64>\",\n          \"sourceId\": \"<integer>\",\n          \"tableId\": \"<integer>\",\n          \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n        },\n        {\n          \"logicalSizeBytes\": \"<int64>\",\n          \"partitionColumnId\": \"<integer>\",\n          \"rctColumnId\": \"<integer>\",\n          \"rctWatermarkEpochSeconds\": \"<int64>\",\n          \"schemaId\": \"<integer>\",\n          \"sizeLastUpdatedAtMillis\": \"<int64>\",\n          \"sourceId\": \"<integer>\",\n          \"tableId\": \"<integer>\",\n          \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n        }\n      ],\n      \"workspaceId\": 7964\n    },\n    {\n      \"classifiers\": [\n        {\n          \"displayName\": \"string\",\n          \"id\": 2475\n        },\n        {\n          \"displayName\": \"string\",\n          \"id\": 4808\n        }\n      ],\n      \"creator\": {\n        \"email\": \"string\",\n        \"groups\": [\n          {\n            \"displayName\": \"string\",\n            \"id\": 4128\n          },\n          {\n            \"displayName\": \"string\",\n            \"id\": 438\n          }\n        ],\n        \"id\": 2489,\n        \"idpGroups\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isServiceAccount\": true,\n        \"lastLoginAt\": \"string\",\n        \"name\": \"string\",\n        \"pictureUrl\": \"string\"\n      },\n      \"description\": \"string\",\n      \"distinctWarehouses\": [\n        {\n          \"id\": 1916,\n          \"name\": \"string\",\n          \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n        },\n        {\n          \"id\": 605,\n          \"name\": \"string\",\n          \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n        }\n      ],\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"id\": \"string\",\n      \"inProgressScanRun\": {\n        \"completedAt\": \"string\",\n        \"displayName\": \"string\",\n        \"errorMessage\": \"string\",\n        \"id\": \"string\",\n        \"nextRunAt\": \"string\",\n        \"numberOfClassifiers\": 7256,\n        \"rowsScanned\": \"string\",\n        \"scanJob\": {\n          \"displayName\": \"string\",\n          \"id\": 6664\n        },\n        \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n        \"schedule\": {\n          \"namedSchedule\": {\n            \"cron\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timezone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scheduleFrequency\": {\n            \"cronString\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startTimeEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeInterval\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"splitFailures\": [\n          {\n            \"message\": \"string\",\n            \"tableId\": 9093\n          },\n          {\n            \"message\": \"string\",\n            \"tableId\": 4133\n          }\n        ],\n        \"startedAt\": \"string\",\n        \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n        \"workspaceId\": 6939\n      },\n      \"incrementalScanStartAt\": \"string\",\n      \"latestCompletedScanRun\": {\n        \"completedAt\": \"string\",\n        \"displayName\": \"string\",\n        \"errorMessage\": \"string\",\n        \"id\": \"string\",\n        \"nextRunAt\": \"string\",\n        \"numberOfClassifiers\": 5891,\n        \"rowsScanned\": \"string\",\n        \"scanJob\": {\n          \"displayName\": \"string\",\n          \"id\": 1394\n        },\n        \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n        \"schedule\": {\n          \"namedSchedule\": {\n            \"cron\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timezone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"scheduleFrequency\": {\n            \"cronString\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startTimeEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeInterval\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"splitFailures\": [\n          {\n            \"message\": \"string\",\n            \"tableId\": 2475\n          },\n          {\n            \"message\": \"string\",\n            \"tableId\": 2627\n          }\n        ],\n        \"startedAt\": \"string\",\n        \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n        \"workspaceId\": 2029\n      },\n      \"name\": \"string\",\n      \"nextRunAt\": \"string\",\n      \"notificationChannels\": [\n        {\n          \"email\": \"<string>\",\n          \"externalTicketInfo\": {\n            \"externalTicketId\": \"<string>\",\n            \"externalTicketProvider\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalTicketUrl\": \"<string>\",\n            \"issueId\": \"<integer>\"\n          },\n          \"slackChannelInfo\": {\n            \"channelId\": \"<string>\",\n            \"channelName\": \"<string>\",\n            \"issueThreadPermalink\": \"<string>\",\n            \"threadTs\": \"<string>\"\n          },\n          \"webhook\": {\n            \"webhookHeaders\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"webhookUrl\": \"<string>\"\n          }\n        },\n        {\n          \"email\": \"<string>\",\n          \"externalTicketInfo\": {\n            \"externalTicketId\": \"<string>\",\n            \"externalTicketProvider\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalTicketUrl\": \"<string>\",\n            \"issueId\": \"<integer>\"\n          },\n          \"slackChannelInfo\": {\n            \"channelId\": \"<string>\",\n            \"channelName\": \"<string>\",\n            \"issueThreadPermalink\": \"<string>\",\n            \"threadTs\": \"<string>\"\n          },\n          \"webhook\": {\n            \"webhookHeaders\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"webhookUrl\": \"<string>\"\n          }\n        }\n      ],\n      \"sampledScanFractionOfRows\": 6954.349078241801,\n      \"sampledScanMinNumberOfRows\": 200,\n      \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n      \"schedule\": {\n        \"namedSchedule\": {\n          \"cron\": \"<string>\",\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"timezone\": \"<string>\"\n        },\n        \"scheduleFrequency\": {\n          \"cronString\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"startTimeEpochSeconds\": \"<int64>\",\n          \"timeInterval\": {\n            \"intervalType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"intervalValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n      \"tables\": [\n        {\n          \"logicalSizeBytes\": \"<int64>\",\n          \"partitionColumnId\": \"<integer>\",\n          \"rctColumnId\": \"<integer>\",\n          \"rctWatermarkEpochSeconds\": \"<int64>\",\n          \"schemaId\": \"<integer>\",\n          \"sizeLastUpdatedAtMillis\": \"<int64>\",\n          \"sourceId\": \"<integer>\",\n          \"tableId\": \"<integer>\",\n          \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n        },\n        {\n          \"logicalSizeBytes\": \"<int64>\",\n          \"partitionColumnId\": \"<integer>\",\n          \"rctColumnId\": \"<integer>\",\n          \"rctWatermarkEpochSeconds\": \"<int64>\",\n          \"schemaId\": \"<integer>\",\n          \"sizeLastUpdatedAtMillis\": \"<int64>\",\n          \"sourceId\": \"<integer>\",\n          \"tableId\": \"<integer>\",\n          \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n        }\n      ],\n      \"workspaceId\": 6064\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92c3d46e-aa13-472d-b540-52d2a9d33e18",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"classifierIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"creatorIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"includeClassifiers\": \"<boolean>\",\n  \"includeNotificationChannels\": \"<boolean>\",\n  \"includeTables\": \"<boolean>\",\n  \"includeWarehouses\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"returnJobsWithNoSchedule\": \"<boolean>\",\n  \"scanTypes\": [\n    \"SCAN_TYPE_UNSPECIFIED\",\n    \"SCAN_TYPE_UNSPECIFIED\"\n  ],\n  \"scheduleFrequencies\": [\n    {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    },\n    {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    }\n  ],\n  \"scheduleFrequencyCronStrings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scheduleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_JOB_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_JOB_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"statuses\": [\n    \"SCAN_JOB_STATUS_UNSPECIFIED\",\n    \"SCAN_JOB_STATUS_UNSPECIFIED\"\n  ],\n  \"warehouseIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf72adc4-03f3-470a-8271-d721a32b99ee",
+          "name": "Get aggregate findings for a scan job",
+          "request": {
+            "name": "Get aggregate findings for a scan job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                "findings",
+                "aggregate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classifierIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"columnIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"dataClassCategoryIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"dataClassIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"includeChunkInfo\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"positiveOrNegativeFindings\": \"THREE_LEGGED_BOOLEAN_UNSPECIFIED\",\n  \"scanJobIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"scanRunIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"schemaIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sensitivities\": [\n    \"DATA_SENSITIVITY_UNSPECIFIED\",\n    \"DATA_SENSITIVITY_UNSPECIFIED\"\n  ],\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_FINDING_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_FINDING_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tableIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3a7f9ba6-e5ab-4c02-bf25-61b666941146",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    "findings",
+                    "aggregate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"findings\": [\n    {\n      \"chunkInfos\": [\n        {\n          \"agentVersion\": \"string\",\n          \"chunkId\": 9544,\n          \"query\": \"string\",\n          \"queryExecutedAt\": \"string\",\n          \"rowsMatched\": \"string\",\n          \"rowsScanned\": \"string\",\n          \"sdsPythonVersion\": \"string\"\n        },\n        {\n          \"agentVersion\": \"string\",\n          \"chunkId\": 4224,\n          \"query\": \"string\",\n          \"queryExecutedAt\": \"string\",\n          \"rowsMatched\": \"string\",\n          \"rowsScanned\": \"string\",\n          \"sdsPythonVersion\": \"string\"\n        }\n      ],\n      \"classifier\": {\n        \"displayName\": \"string\",\n        \"id\": 910\n      },\n      \"column\": {\n        \"displayName\": \"string\",\n        \"id\": 5968\n      },\n      \"dataClass\": {\n        \"canResetToDefault\": false,\n        \"categories\": [\n          {\n            \"description\": \"string\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"workspaceId\": 6683\n          },\n          {\n            \"description\": \"string\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"workspaceId\": 142\n          }\n        ],\n        \"colorHex\": \"string\",\n        \"createdBy\": {\n          \"email\": \"string\",\n          \"groups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 3326,\n          \"idpGroups\": [\n            \"string\",\n            \"string\"\n          ],\n          \"isServiceAccount\": false,\n          \"lastLoginAt\": \"string\",\n          \"name\": \"string\",\n          \"pictureUrl\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"numberOfClassifiers\": 8020,\n        \"providedByBigeye\": true,\n        \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n        \"workspaceId\": 5450\n      },\n      \"earliestScanRunId\": \"string\",\n      \"earliestScanTableFinishedAt\": \"string\",\n      \"isColumnDeleted\": false,\n      \"isMarkedForResetScan\": true,\n      \"isPositive\": true,\n      \"isSchemaDeleted\": true,\n      \"isSourceDeleted\": true,\n      \"isTableDeleted\": false,\n      \"latestScanRunId\": \"string\",\n      \"latestScanTableFinishedAt\": \"string\",\n      \"rowsMatched\": \"string\",\n      \"rowsScanned\": \"string\",\n      \"scanJob\": {\n        \"displayName\": \"string\",\n        \"id\": 8476\n      },\n      \"scanRunId\": \"string\",\n      \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n      \"schema\": {\n        \"displayName\": \"string\",\n        \"id\": 7592\n      },\n      \"source\": {\n        \"displayName\": \"string\",\n        \"id\": 9201\n      },\n      \"table\": {\n        \"displayName\": \"string\",\n        \"id\": 4941\n      },\n      \"wasResetScan\": true\n    },\n    {\n      \"chunkInfos\": [\n        {\n          \"agentVersion\": \"string\",\n          \"chunkId\": 4607,\n          \"query\": \"string\",\n          \"queryExecutedAt\": \"string\",\n          \"rowsMatched\": \"string\",\n          \"rowsScanned\": \"string\",\n          \"sdsPythonVersion\": \"string\"\n        },\n        {\n          \"agentVersion\": \"string\",\n          \"chunkId\": 2226,\n          \"query\": \"string\",\n          \"queryExecutedAt\": \"string\",\n          \"rowsMatched\": \"string\",\n          \"rowsScanned\": \"string\",\n          \"sdsPythonVersion\": \"string\"\n        }\n      ],\n      \"classifier\": {\n        \"displayName\": \"string\",\n        \"id\": 2310\n      },\n      \"column\": {\n        \"displayName\": \"string\",\n        \"id\": 7421\n      },\n      \"dataClass\": {\n        \"canResetToDefault\": false,\n        \"categories\": [\n          {\n            \"description\": \"string\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"workspaceId\": 1419\n          },\n          {\n            \"description\": \"string\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"workspaceId\": 5572\n          }\n        ],\n        \"colorHex\": \"string\",\n        \"createdBy\": {\n          \"email\": \"string\",\n          \"groups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 3374,\n          \"idpGroups\": [\n            \"string\",\n            \"string\"\n          ],\n          \"isServiceAccount\": true,\n          \"lastLoginAt\": \"string\",\n          \"name\": \"string\",\n          \"pictureUrl\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"numberOfClassifiers\": 7816,\n        \"providedByBigeye\": true,\n        \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n        \"workspaceId\": 6209\n      },\n      \"earliestScanRunId\": \"string\",\n      \"earliestScanTableFinishedAt\": \"string\",\n      \"isColumnDeleted\": false,\n      \"isMarkedForResetScan\": true,\n      \"isPositive\": false,\n      \"isSchemaDeleted\": true,\n      \"isSourceDeleted\": true,\n      \"isTableDeleted\": true,\n      \"latestScanRunId\": \"string\",\n      \"latestScanTableFinishedAt\": \"string\",\n      \"rowsMatched\": \"string\",\n      \"rowsScanned\": \"string\",\n      \"scanJob\": {\n        \"displayName\": \"string\",\n        \"id\": 6663\n      },\n      \"scanRunId\": \"string\",\n      \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n      \"schema\": {\n        \"displayName\": \"string\",\n        \"id\": 9941\n      },\n      \"source\": {\n        \"displayName\": \"string\",\n        \"id\": 2799\n      },\n      \"table\": {\n        \"displayName\": \"string\",\n        \"id\": 4163\n      },\n      \"wasResetScan\": true\n    }\n  ],\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": true,\n    \"numRecords\": 8967,\n    \"prevCursor\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52c4d03a-0000-4b06-986d-330dddd92fef",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    "findings",
+                    "aggregate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb85be73-d519-45b8-84e1-72544b702454",
+          "name": "Delete a scan job",
+          "request": {
+            "name": "Delete a scan job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c967c87-e385-4b7b-9a44-70dca7b6ce9d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7951a097-0edb-4482-a758-e20d56281cf5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "078a5e13-f714-4c4b-bf6e-4253101bb546",
+          "name": "Get a scan job by ID",
+          "request": {
+            "name": "Get a scan job by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1efad8da-1c13-4ee6-a329-fe67bc13313c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifiers\": [\n    {\n      \"displayName\": \"string\",\n      \"id\": 158\n    },\n    {\n      \"displayName\": \"string\",\n      \"id\": 4058\n    }\n  ],\n  \"creator\": {\n    \"email\": \"string\",\n    \"groups\": [\n      {\n        \"displayName\": \"string\",\n        \"id\": 5785\n      },\n      {\n        \"displayName\": \"string\",\n        \"id\": 238\n      }\n    ],\n    \"id\": 1362,\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"isServiceAccount\": false,\n    \"lastLoginAt\": \"string\",\n    \"name\": \"string\",\n    \"pictureUrl\": \"string\"\n  },\n  \"description\": \"string\",\n  \"distinctWarehouses\": [\n    {\n      \"id\": 5887,\n      \"name\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"id\": 9126,\n      \"name\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    }\n  ],\n  \"entityInfo\": {\n    \"createdBy\": \"<integer>\",\n    \"createdEpochSeconds\": \"<int64>\",\n    \"updatedBy\": \"<integer>\",\n    \"updatedEpochSeconds\": \"<int64>\"\n  },\n  \"id\": \"string\",\n  \"inProgressScanRun\": {\n    \"completedAt\": \"string\",\n    \"displayName\": \"string\",\n    \"errorMessage\": \"string\",\n    \"id\": \"string\",\n    \"nextRunAt\": \"string\",\n    \"numberOfClassifiers\": 249,\n    \"rowsScanned\": \"string\",\n    \"scanJob\": {\n      \"displayName\": \"string\",\n      \"id\": 5501\n    },\n    \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n    \"schedule\": {\n      \"namedSchedule\": {\n        \"cron\": \"<string>\",\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"scheduleFrequency\": {\n        \"cronString\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"startTimeEpochSeconds\": \"<int64>\",\n        \"timeInterval\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        }\n      }\n    },\n    \"splitFailures\": [\n      {\n        \"message\": \"string\",\n        \"tableId\": 8794\n      },\n      {\n        \"message\": \"string\",\n        \"tableId\": 5971\n      }\n    ],\n    \"startedAt\": \"string\",\n    \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n    \"workspaceId\": 4742\n  },\n  \"incrementalScanStartAt\": \"string\",\n  \"latestCompletedScanRun\": {\n    \"completedAt\": \"string\",\n    \"displayName\": \"string\",\n    \"errorMessage\": \"string\",\n    \"id\": \"string\",\n    \"nextRunAt\": \"string\",\n    \"numberOfClassifiers\": 9408,\n    \"rowsScanned\": \"string\",\n    \"scanJob\": {\n      \"displayName\": \"string\",\n      \"id\": 4582\n    },\n    \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n    \"schedule\": {\n      \"namedSchedule\": {\n        \"cron\": \"<string>\",\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"scheduleFrequency\": {\n        \"cronString\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"startTimeEpochSeconds\": \"<int64>\",\n        \"timeInterval\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        }\n      }\n    },\n    \"splitFailures\": [\n      {\n        \"message\": \"string\",\n        \"tableId\": 2481\n      },\n      {\n        \"message\": \"string\",\n        \"tableId\": 5487\n      }\n    ],\n    \"startedAt\": \"string\",\n    \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n    \"workspaceId\": 5788\n  },\n  \"name\": \"string\",\n  \"nextRunAt\": \"string\",\n  \"notificationChannels\": [\n    {\n      \"email\": \"<string>\",\n      \"externalTicketInfo\": {\n        \"externalTicketId\": \"<string>\",\n        \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n        \"externalTicketUrl\": \"<string>\",\n        \"issueId\": \"<integer>\"\n      },\n      \"slackChannelInfo\": {\n        \"channelId\": \"<string>\",\n        \"channelName\": \"<string>\",\n        \"issueThreadPermalink\": \"<string>\",\n        \"threadTs\": \"<string>\"\n      },\n      \"webhook\": {\n        \"webhookHeaders\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"webhookUrl\": \"<string>\"\n      }\n    },\n    {\n      \"email\": \"<string>\",\n      \"externalTicketInfo\": {\n        \"externalTicketId\": \"<string>\",\n        \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n        \"externalTicketUrl\": \"<string>\",\n        \"issueId\": \"<integer>\"\n      },\n      \"slackChannelInfo\": {\n        \"channelId\": \"<string>\",\n        \"channelName\": \"<string>\",\n        \"issueThreadPermalink\": \"<string>\",\n        \"threadTs\": \"<string>\"\n      },\n      \"webhook\": {\n        \"webhookHeaders\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"webhookUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"sampledScanFractionOfRows\": 8419.217379270374,\n  \"sampledScanMinNumberOfRows\": 6759,\n  \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n  \"schedule\": {\n    \"namedSchedule\": {\n      \"cron\": \"<string>\",\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"scheduleFrequency\": {\n      \"cronString\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"startTimeEpochSeconds\": \"<int64>\",\n      \"timeInterval\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      }\n    }\n  },\n  \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n  \"tables\": [\n    {\n      \"logicalSizeBytes\": \"<int64>\",\n      \"partitionColumnId\": \"<integer>\",\n      \"rctColumnId\": \"<integer>\",\n      \"rctWatermarkEpochSeconds\": \"<int64>\",\n      \"schemaId\": \"<integer>\",\n      \"sizeLastUpdatedAtMillis\": \"<int64>\",\n      \"sourceId\": \"<integer>\",\n      \"tableId\": \"<integer>\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"logicalSizeBytes\": \"<int64>\",\n      \"partitionColumnId\": \"<integer>\",\n      \"rctColumnId\": \"<integer>\",\n      \"rctWatermarkEpochSeconds\": \"<int64>\",\n      \"schemaId\": \"<integer>\",\n      \"sizeLastUpdatedAtMillis\": \"<int64>\",\n      \"sourceId\": \"<integer>\",\n      \"tableId\": \"<integer>\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n    }\n  ],\n  \"workspaceId\": 1072\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6792638d-ce65-47cf-a42d-fec7fe79e907",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67875aab-fb01-4b07-a70b-0ef008cc53fd",
+          "name": "Update a scan job",
+          "request": {
+            "name": "Update a scan job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classifierIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"description\": \"<string>\",\n  \"incrementalScanStartAt\": \"<int64>\",\n  \"name\": \"<string>\",\n  \"notificationChannels\": [\n    {\n      \"email\": \"<string>\",\n      \"externalTicketInfo\": {\n        \"externalTicketId\": \"<string>\",\n        \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n        \"externalTicketUrl\": \"<string>\",\n        \"issueId\": \"<integer>\"\n      },\n      \"slackChannelInfo\": {\n        \"channelId\": \"<string>\",\n        \"channelName\": \"<string>\",\n        \"issueThreadPermalink\": \"<string>\",\n        \"threadTs\": \"<string>\"\n      },\n      \"webhook\": {\n        \"webhookHeaders\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"webhookUrl\": \"<string>\"\n      }\n    },\n    {\n      \"email\": \"<string>\",\n      \"externalTicketInfo\": {\n        \"externalTicketId\": \"<string>\",\n        \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n        \"externalTicketUrl\": \"<string>\",\n        \"issueId\": \"<integer>\"\n      },\n      \"slackChannelInfo\": {\n        \"channelId\": \"<string>\",\n        \"channelName\": \"<string>\",\n        \"issueThreadPermalink\": \"<string>\",\n        \"threadTs\": \"<string>\"\n      },\n      \"webhook\": {\n        \"webhookHeaders\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"webhookUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"sampledScanFractionOfRows\": \"<double>\",\n  \"sampledScanMinNumberOfRows\": \"<integer>\",\n  \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n  \"schedule\": {\n    \"namedSchedule\": {\n      \"cron\": \"<string>\",\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"scheduleFrequency\": {\n      \"cronString\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"startTimeEpochSeconds\": \"<int64>\",\n      \"timeInterval\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      }\n    }\n  },\n  \"tables\": [\n    {\n      \"logicalSizeBytes\": \"<int64>\",\n      \"partitionColumnId\": \"<integer>\",\n      \"rctColumnId\": \"<integer>\",\n      \"rctWatermarkEpochSeconds\": \"<int64>\",\n      \"schemaId\": \"<integer>\",\n      \"sizeLastUpdatedAtMillis\": \"<int64>\",\n      \"sourceId\": \"<integer>\",\n      \"tableId\": \"<integer>\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"logicalSizeBytes\": \"<int64>\",\n      \"partitionColumnId\": \"<integer>\",\n      \"rctColumnId\": \"<integer>\",\n      \"rctWatermarkEpochSeconds\": \"<int64>\",\n      \"schemaId\": \"<integer>\",\n      \"sizeLastUpdatedAtMillis\": \"<int64>\",\n      \"sourceId\": \"<integer>\",\n      \"tableId\": \"<integer>\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n    }\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd45a646-9d7d-4825-b498-1faee9f0e3ad",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifiers\": [\n    {\n      \"displayName\": \"string\",\n      \"id\": 158\n    },\n    {\n      \"displayName\": \"string\",\n      \"id\": 4058\n    }\n  ],\n  \"creator\": {\n    \"email\": \"string\",\n    \"groups\": [\n      {\n        \"displayName\": \"string\",\n        \"id\": 5785\n      },\n      {\n        \"displayName\": \"string\",\n        \"id\": 238\n      }\n    ],\n    \"id\": 1362,\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"isServiceAccount\": false,\n    \"lastLoginAt\": \"string\",\n    \"name\": \"string\",\n    \"pictureUrl\": \"string\"\n  },\n  \"description\": \"string\",\n  \"distinctWarehouses\": [\n    {\n      \"id\": 5887,\n      \"name\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"id\": 9126,\n      \"name\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    }\n  ],\n  \"entityInfo\": {\n    \"createdBy\": \"<integer>\",\n    \"createdEpochSeconds\": \"<int64>\",\n    \"updatedBy\": \"<integer>\",\n    \"updatedEpochSeconds\": \"<int64>\"\n  },\n  \"id\": \"string\",\n  \"inProgressScanRun\": {\n    \"completedAt\": \"string\",\n    \"displayName\": \"string\",\n    \"errorMessage\": \"string\",\n    \"id\": \"string\",\n    \"nextRunAt\": \"string\",\n    \"numberOfClassifiers\": 249,\n    \"rowsScanned\": \"string\",\n    \"scanJob\": {\n      \"displayName\": \"string\",\n      \"id\": 5501\n    },\n    \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n    \"schedule\": {\n      \"namedSchedule\": {\n        \"cron\": \"<string>\",\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"scheduleFrequency\": {\n        \"cronString\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"startTimeEpochSeconds\": \"<int64>\",\n        \"timeInterval\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        }\n      }\n    },\n    \"splitFailures\": [\n      {\n        \"message\": \"string\",\n        \"tableId\": 8794\n      },\n      {\n        \"message\": \"string\",\n        \"tableId\": 5971\n      }\n    ],\n    \"startedAt\": \"string\",\n    \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n    \"workspaceId\": 4742\n  },\n  \"incrementalScanStartAt\": \"string\",\n  \"latestCompletedScanRun\": {\n    \"completedAt\": \"string\",\n    \"displayName\": \"string\",\n    \"errorMessage\": \"string\",\n    \"id\": \"string\",\n    \"nextRunAt\": \"string\",\n    \"numberOfClassifiers\": 9408,\n    \"rowsScanned\": \"string\",\n    \"scanJob\": {\n      \"displayName\": \"string\",\n      \"id\": 4582\n    },\n    \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n    \"schedule\": {\n      \"namedSchedule\": {\n        \"cron\": \"<string>\",\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"timezone\": \"<string>\"\n      },\n      \"scheduleFrequency\": {\n        \"cronString\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"startTimeEpochSeconds\": \"<int64>\",\n        \"timeInterval\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        }\n      }\n    },\n    \"splitFailures\": [\n      {\n        \"message\": \"string\",\n        \"tableId\": 2481\n      },\n      {\n        \"message\": \"string\",\n        \"tableId\": 5487\n      }\n    ],\n    \"startedAt\": \"string\",\n    \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n    \"workspaceId\": 5788\n  },\n  \"name\": \"string\",\n  \"nextRunAt\": \"string\",\n  \"notificationChannels\": [\n    {\n      \"email\": \"<string>\",\n      \"externalTicketInfo\": {\n        \"externalTicketId\": \"<string>\",\n        \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n        \"externalTicketUrl\": \"<string>\",\n        \"issueId\": \"<integer>\"\n      },\n      \"slackChannelInfo\": {\n        \"channelId\": \"<string>\",\n        \"channelName\": \"<string>\",\n        \"issueThreadPermalink\": \"<string>\",\n        \"threadTs\": \"<string>\"\n      },\n      \"webhook\": {\n        \"webhookHeaders\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"webhookUrl\": \"<string>\"\n      }\n    },\n    {\n      \"email\": \"<string>\",\n      \"externalTicketInfo\": {\n        \"externalTicketId\": \"<string>\",\n        \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n        \"externalTicketUrl\": \"<string>\",\n        \"issueId\": \"<integer>\"\n      },\n      \"slackChannelInfo\": {\n        \"channelId\": \"<string>\",\n        \"channelName\": \"<string>\",\n        \"issueThreadPermalink\": \"<string>\",\n        \"threadTs\": \"<string>\"\n      },\n      \"webhook\": {\n        \"webhookHeaders\": [\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"webhookUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"sampledScanFractionOfRows\": 8419.217379270374,\n  \"sampledScanMinNumberOfRows\": 6759,\n  \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n  \"schedule\": {\n    \"namedSchedule\": {\n      \"cron\": \"<string>\",\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"scheduleFrequency\": {\n      \"cronString\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"startTimeEpochSeconds\": \"<int64>\",\n      \"timeInterval\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      }\n    }\n  },\n  \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n  \"tables\": [\n    {\n      \"logicalSizeBytes\": \"<int64>\",\n      \"partitionColumnId\": \"<integer>\",\n      \"rctColumnId\": \"<integer>\",\n      \"rctWatermarkEpochSeconds\": \"<int64>\",\n      \"schemaId\": \"<integer>\",\n      \"sizeLastUpdatedAtMillis\": \"<int64>\",\n      \"sourceId\": \"<integer>\",\n      \"tableId\": \"<integer>\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"logicalSizeBytes\": \"<int64>\",\n      \"partitionColumnId\": \"<integer>\",\n      \"rctColumnId\": \"<integer>\",\n      \"rctWatermarkEpochSeconds\": \"<int64>\",\n      \"schemaId\": \"<integer>\",\n      \"sizeLastUpdatedAtMillis\": \"<int64>\",\n      \"sourceId\": \"<integer>\",\n      \"tableId\": \"<integer>\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\"\n    }\n  ],\n  \"workspaceId\": 1072\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75412cea-8b23-436d-a1ec-83b44497c5a7",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b07302e2-b0c9-4373-8865-6b95d49277a8",
+          "name": "Get the status of a scan job",
+          "request": {
+            "name": "Get the status of a scan job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                ":id",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a314b787-dad2-42b4-a5fb-4acd2b841df9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"completedAt\": \"string\",\n  \"error\": \"string\",\n  \"startedAt\": \"string\",\n  \"status\": \"WORKFLOW_PROCESSING_STATUS_UNSPECIFIED\",\n  \"workflowV2Id\": {\n    \"runId\": \"string\",\n    \"workflowId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe08b17c-18cc-497f-9069-07c71eced979",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab56cce6-2593-46ec-9a38-2c7041b04418",
+          "name": "Get snapshot findings for a scan job",
+          "request": {
+            "name": "Get snapshot findings for a scan job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                "findings",
+                "snapshot"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classifierIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"columnIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"dataClassCategoryIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"dataClassIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"includeChunkInfo\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"positiveOrNegativeFindings\": \"THREE_LEGGED_BOOLEAN_UNSPECIFIED\",\n  \"scanJobIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"scanRunIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"schemaIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sensitivities\": [\n    \"DATA_SENSITIVITY_UNSPECIFIED\",\n    \"DATA_SENSITIVITY_UNSPECIFIED\"\n  ],\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_FINDING_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_FINDING_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tableIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "431dca34-c2a3-4c58-8439-738bd86b8b77",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    "findings",
+                    "snapshot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"findings\": [\n    {\n      \"chunkInfos\": [\n        {\n          \"agentVersion\": \"string\",\n          \"chunkId\": 6257,\n          \"query\": \"string\",\n          \"queryExecutedAt\": \"string\",\n          \"rowsMatched\": \"string\",\n          \"rowsScanned\": \"string\",\n          \"sdsPythonVersion\": \"string\"\n        },\n        {\n          \"agentVersion\": \"string\",\n          \"chunkId\": 2369,\n          \"query\": \"string\",\n          \"queryExecutedAt\": \"string\",\n          \"rowsMatched\": \"string\",\n          \"rowsScanned\": \"string\",\n          \"sdsPythonVersion\": \"string\"\n        }\n      ],\n      \"classifier\": {\n        \"displayName\": \"string\",\n        \"id\": 8606\n      },\n      \"column\": {\n        \"displayName\": \"string\",\n        \"id\": 3181\n      },\n      \"dataClass\": {\n        \"canResetToDefault\": false,\n        \"categories\": [\n          {\n            \"description\": \"string\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"workspaceId\": 6245\n          },\n          {\n            \"description\": \"string\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"workspaceId\": 5213\n          }\n        ],\n        \"colorHex\": \"string\",\n        \"createdBy\": {\n          \"email\": \"string\",\n          \"groups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 3699,\n          \"idpGroups\": [\n            \"string\",\n            \"string\"\n          ],\n          \"isServiceAccount\": true,\n          \"lastLoginAt\": \"string\",\n          \"name\": \"string\",\n          \"pictureUrl\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"numberOfClassifiers\": 7933,\n        \"providedByBigeye\": true,\n        \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n        \"workspaceId\": 65\n      },\n      \"earliestScanRunId\": \"string\",\n      \"earliestScanTableFinishedAt\": \"string\",\n      \"isColumnDeleted\": true,\n      \"isMarkedForResetScan\": false,\n      \"isPositive\": true,\n      \"isSchemaDeleted\": true,\n      \"isSourceDeleted\": false,\n      \"isTableDeleted\": true,\n      \"latestScanRunId\": \"string\",\n      \"latestScanTableFinishedAt\": \"string\",\n      \"rowsMatched\": \"string\",\n      \"rowsScanned\": \"string\",\n      \"scanJob\": {\n        \"displayName\": \"string\",\n        \"id\": 6614\n      },\n      \"scanRunId\": \"string\",\n      \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n      \"schema\": {\n        \"displayName\": \"string\",\n        \"id\": 1714\n      },\n      \"source\": {\n        \"displayName\": \"string\",\n        \"id\": 9379\n      },\n      \"table\": {\n        \"displayName\": \"string\",\n        \"id\": 6508\n      },\n      \"wasResetScan\": false\n    },\n    {\n      \"chunkInfos\": [\n        {\n          \"agentVersion\": \"string\",\n          \"chunkId\": 2247,\n          \"query\": \"string\",\n          \"queryExecutedAt\": \"string\",\n          \"rowsMatched\": \"string\",\n          \"rowsScanned\": \"string\",\n          \"sdsPythonVersion\": \"string\"\n        },\n        {\n          \"agentVersion\": \"string\",\n          \"chunkId\": 4788,\n          \"query\": \"string\",\n          \"queryExecutedAt\": \"string\",\n          \"rowsMatched\": \"string\",\n          \"rowsScanned\": \"string\",\n          \"sdsPythonVersion\": \"string\"\n        }\n      ],\n      \"classifier\": {\n        \"displayName\": \"string\",\n        \"id\": 9262\n      },\n      \"column\": {\n        \"displayName\": \"string\",\n        \"id\": 3242\n      },\n      \"dataClass\": {\n        \"canResetToDefault\": false,\n        \"categories\": [\n          {\n            \"description\": \"string\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"workspaceId\": 1662\n          },\n          {\n            \"description\": \"string\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"workspaceId\": 7782\n          }\n        ],\n        \"colorHex\": \"string\",\n        \"createdBy\": {\n          \"email\": \"string\",\n          \"groups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 9053,\n          \"idpGroups\": [\n            \"string\",\n            \"string\"\n          ],\n          \"isServiceAccount\": true,\n          \"lastLoginAt\": \"string\",\n          \"name\": \"string\",\n          \"pictureUrl\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"numberOfClassifiers\": 4865,\n        \"providedByBigeye\": true,\n        \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n        \"workspaceId\": 1886\n      },\n      \"earliestScanRunId\": \"string\",\n      \"earliestScanTableFinishedAt\": \"string\",\n      \"isColumnDeleted\": true,\n      \"isMarkedForResetScan\": true,\n      \"isPositive\": true,\n      \"isSchemaDeleted\": false,\n      \"isSourceDeleted\": false,\n      \"isTableDeleted\": false,\n      \"latestScanRunId\": \"string\",\n      \"latestScanTableFinishedAt\": \"string\",\n      \"rowsMatched\": \"string\",\n      \"rowsScanned\": \"string\",\n      \"scanJob\": {\n        \"displayName\": \"string\",\n        \"id\": 6850\n      },\n      \"scanRunId\": \"string\",\n      \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n      \"schema\": {\n        \"displayName\": \"string\",\n        \"id\": 2990\n      },\n      \"source\": {\n        \"displayName\": \"string\",\n        \"id\": 9931\n      },\n      \"table\": {\n        \"displayName\": \"string\",\n        \"id\": 6543\n      },\n      \"wasResetScan\": true\n    }\n  ],\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": false,\n    \"numRecords\": 3069,\n    \"prevCursor\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "acd54f9e-b2fc-4e92-a0a9-0ed09b659dc9",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    "findings",
+                    "snapshot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "721954be-8830-4514-96e0-99672a800274",
+          "name": "Reset scan data for specific tables in a scan job",
+          "request": {
+            "name": "Reset scan data for specific tables in a scan job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                "reset-scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"RESET_SCAN_ACTION_UNSPECIFIED\",\n  \"requests\": [\n    {\n      \"columnId\": \"<integer>\"\n    },\n    {\n      \"columnId\": \"<integer>\"\n    }\n  ],\n  \"scanJobId\": \"<int64>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "19e18b0b-9332-41ba-a661-110ac37fd159",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    "reset-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"RESET_SCAN_ACTION_UNSPECIFIED\",\n  \"requests\": [\n    {\n      \"columnId\": \"<integer>\"\n    },\n    {\n      \"columnId\": \"<integer>\"\n    }\n  ],\n  \"scanJobId\": \"<int64>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"failures\": [\n    {\n      \"reason\": \"string\",\n      \"request\": {\n        \"columnId\": \"<integer>\"\n      }\n    },\n    {\n      \"reason\": \"string\",\n      \"request\": {\n        \"columnId\": \"<integer>\"\n      }\n    }\n  ],\n  \"successes\": [\n    {\n      \"columnId\": \"<integer>\"\n    },\n    {\n      \"columnId\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0eee2cb-4d05-48d4-82b3-a81c23e46f4d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    "reset-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"RESET_SCAN_ACTION_UNSPECIFIED\",\n  \"requests\": [\n    {\n      \"columnId\": \"<integer>\"\n    },\n    {\n      \"columnId\": \"<integer>\"\n    }\n  ],\n  \"scanJobId\": \"<int64>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb2a7fa7-3aa1-4a22-a5a0-a290ef3fee0f",
+          "name": "Retry a failed scan job",
+          "request": {
+            "name": "Retry a failed scan job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                ":id",
+                "retry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7bdd7b2-42da-4330-9e75-6b15f9398263",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id",
+                    "retry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"completedAt\": \"string\",\n  \"error\": \"string\",\n  \"startedAt\": \"string\",\n  \"status\": \"WORKFLOW_PROCESSING_STATUS_UNSPECIFIED\",\n  \"workflowV2Id\": {\n    \"runId\": \"string\",\n    \"workflowId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "435425ee-27d3-46a7-96f8-7b37a7428530",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id",
+                    "retry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "080e2185-6266-4296-9758-8cdb65312d71",
+          "name": "Run a scan job",
+          "request": {
+            "name": "Run a scan job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                ":id",
+                "run"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee4e3a16-d372-46ec-b03f-484017e0b606",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"completedAt\": \"string\",\n  \"error\": \"string\",\n  \"startedAt\": \"string\",\n  \"status\": \"WORKFLOW_PROCESSING_STATUS_UNSPECIFIED\",\n  \"workflowV2Id\": {\n    \"runId\": \"string\",\n    \"workflowId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f3c3001-3b18-4a8d-b988-b96e24cbfc42",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37a63912-489e-4d5b-8853-de04a1a8a7f3",
+          "name": "Set partition columns for a scan job",
+          "request": {
+            "name": "Set partition columns for a scan job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                ":id",
+                "partition-columns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"columnId\": \"<integer>\"\n    },\n    {\n      \"columnId\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "578df052-b8c7-4eb4-881d-99ae8bd3ab0d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id",
+                    "partition-columns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"columnId\": \"<integer>\"\n    },\n    {\n      \"columnId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"failures\": [\n    {\n      \"reason\": \"string\",\n      \"request\": {\n        \"columnId\": \"<integer>\"\n      }\n    },\n    {\n      \"reason\": \"string\",\n      \"request\": {\n        \"columnId\": \"<integer>\"\n      }\n    }\n  ],\n  \"successes\": [\n    {\n      \"columnId\": \"<integer>\"\n    },\n    {\n      \"columnId\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e88bdb57-91f7-408b-9793-903b35e7ba94",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id",
+                    "partition-columns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"columnId\": \"<integer>\"\n    },\n    {\n      \"columnId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2dacab75-3335-4f06-9a9a-14f22412679b",
+          "name": "Terminate a running scan job",
+          "request": {
+            "name": "Terminate a running scan job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-job",
+                ":id",
+                "terminate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2c2c8ea2-dd24-470b-b6e2-635505c68162",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id",
+                    "terminate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50f376ab-8e51-4e7e-a65e-3ded964fb014",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-job",
+                    ":id",
+                    "terminate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4316,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0cf589f8-8c3b-4be5-b84c-f2c2ff020553",
+    "name": "Sensitivity Scan Job Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

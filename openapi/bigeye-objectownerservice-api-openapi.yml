@@ -1,0 +1,183 @@
+openapi: 3.2.0
+info:
+  title: Metadata Object Owner Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: ObjectOwnerService
+paths:
+  /api/v1/object-owners/{ownableType}/{ownableId}:
+    delete:
+      operationId: ObjectOwnerService_DeleteObjectOwner
+      parameters:
+      - in: path
+        name: ownableType
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: ownableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedObjectOwnerResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete object owner
+      tags:
+      - ObjectOwnerService
+    get:
+      operationId: ObjectOwnerService_GetObjectOwner
+      parameters:
+      - in: path
+        name: ownableType
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: ownableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedObjectOwnerResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get object owner
+      tags:
+      - ObjectOwnerService
+  /api/v1/object-owners:
+    post:
+      operationId: ObjectOwnerService_SetObjectOwner
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedSetObjectOwnerRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedObjectOwnerResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Set object owner
+      tags:
+      - ObjectOwnerService
+components:
+  schemas:
+    generatedObjectOwnerResponse:
+      properties:
+        inheritedOwner:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        ownableId:
+          format: int32
+          type: integer
+        ownableType:
+          $ref: '#/components/schemas/generatedOwnableType'
+        owner:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+      type: object
+    generatedSetObjectOwnerRequest:
+      properties:
+        ownableId:
+          format: int32
+          type: integer
+        ownableType:
+          $ref: '#/components/schemas/generatedOwnableType'
+        owner:
+          format: int32
+          type: integer
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedOwnableType:
+      default: OWNABLE_TYPE_UNSPECIFIED
+      enum:
+      - OWNABLE_TYPE_UNSPECIFIED
+      - OWNABLE_TYPE_SOURCE
+      - OWNABLE_TYPE_SCHEMA
+      - OWNABLE_TYPE_DATASET
+      - OWNABLE_TYPE_FIELD
+      - OWNABLE_TYPE_METRIC
+      - OWNABLE_TYPE_CUSTOM_RULE
+      - OWNABLE_TYPE_CUSTOM_REPOSITORY
+      - OWNABLE_TYPE_META_CENTER_ENTITY
+      - OWNABLE_TYPE_DATA_NODE_ENTITY
+      - OWNABLE_TYPE_META_CENTER_REPOSITORY
+      - OWNABLE_TYPE_INTEGRATION
+      type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

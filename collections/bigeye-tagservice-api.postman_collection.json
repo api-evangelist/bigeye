@@ -1,0 +1,780 @@
+{
+  "item": [
+    {
+      "id": "58510757-d664-40ca-b8ea-2188f39cc41a",
+      "name": "TagService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4ba523aa-ad52-4a41-972c-b7786813c0ba",
+          "name": "Add tags to multiple entities",
+          "request": {
+            "name": "Add tags to multiple entities",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tags",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tags\": [\n    {\n      \"catalogPath\": {\n        \"columnName\": \"<string>\",\n        \"pathParts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"schemaName\": \"<string>\",\n        \"sourceName\": \"<string>\",\n        \"tableName\": \"<string>\"\n      },\n      \"entityId\": \"<integer>\",\n      \"entityName\": \"<string>\",\n      \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n      \"nodeType\": {\n        \"customNodeType\": {\n          \"allowedChildNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedChildTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"allowedParentNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedParentTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": \"<int64>\",\n          \"integrationType\": {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iconUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isColumnDisplay\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"namePlural\": \"<string>\",\n          \"showInImpactAnalysis\": \"<boolean>\"\n        },\n        \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n      },\n      \"tag\": \"<string>\",\n      \"workspaceTag\": {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      }\n    },\n    {\n      \"catalogPath\": {\n        \"columnName\": \"<string>\",\n        \"pathParts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"schemaName\": \"<string>\",\n        \"sourceName\": \"<string>\",\n        \"tableName\": \"<string>\"\n      },\n      \"entityId\": \"<integer>\",\n      \"entityName\": \"<string>\",\n      \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n      \"nodeType\": {\n        \"customNodeType\": {\n          \"allowedChildNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedChildTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"allowedParentNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedParentTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": \"<int64>\",\n          \"integrationType\": {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iconUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isColumnDisplay\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"namePlural\": \"<string>\",\n          \"showInImpactAnalysis\": \"<boolean>\"\n        },\n        \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n      },\n      \"tag\": \"<string>\",\n      \"workspaceTag\": {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "18aa8b19-24e2-4674-8d48-5d4be618449f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tags",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"failures\": [\n    {\n      \"reason\": \"string\",\n      \"tag\": {\n        \"catalogPath\": {\n          \"columnName\": \"<string>\",\n          \"pathParts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"schemaName\": \"<string>\",\n          \"sourceName\": \"<string>\",\n          \"tableName\": \"<string>\"\n        },\n        \"entityId\": \"<integer>\",\n        \"entityName\": \"<string>\",\n        \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n        \"nodeType\": {\n          \"customNodeType\": {\n            \"allowedChildNodeTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowedChildTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowedParentNodeTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowedParentTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"integrationType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isColumnDisplay\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"namePlural\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"showInImpactAnalysis\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n        },\n        \"tag\": \"<string>\",\n        \"workspaceTag\": {\n          \"colorHex\": \"<string>\",\n          \"createdAt\": \"<int64>\",\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"updatedAt\": \"<int64>\",\n          \"workspaceId\": \"<integer>\"\n        }\n      }\n    },\n    {\n      \"reason\": \"string\",\n      \"tag\": {\n        \"catalogPath\": {\n          \"columnName\": \"<string>\",\n          \"pathParts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"schemaName\": \"<string>\",\n          \"sourceName\": \"<string>\",\n          \"tableName\": \"<string>\"\n        },\n        \"entityId\": \"<integer>\",\n        \"entityName\": \"<string>\",\n        \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n        \"nodeType\": {\n          \"customNodeType\": {\n            \"allowedChildNodeTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowedChildTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowedParentNodeTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowedParentTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"integrationType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isColumnDisplay\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"namePlural\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"showInImpactAnalysis\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n        },\n        \"tag\": \"<string>\",\n        \"workspaceTag\": {\n          \"colorHex\": \"<string>\",\n          \"createdAt\": \"<int64>\",\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"updatedAt\": \"<int64>\",\n          \"workspaceId\": \"<integer>\"\n        }\n      }\n    }\n  ],\n  \"successes\": [\n    {\n      \"catalogPath\": {\n        \"columnName\": \"<string>\",\n        \"pathParts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"schemaName\": \"<string>\",\n        \"sourceName\": \"<string>\",\n        \"tableName\": \"<string>\"\n      },\n      \"entityId\": \"<integer>\",\n      \"entityName\": \"<string>\",\n      \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n      \"nodeType\": {\n        \"customNodeType\": {\n          \"allowedChildNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedChildTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"allowedParentNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedParentTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": \"<int64>\",\n          \"integrationType\": {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iconUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isColumnDisplay\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"namePlural\": \"<string>\",\n          \"showInImpactAnalysis\": \"<boolean>\"\n        },\n        \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n      },\n      \"tag\": \"<string>\",\n      \"workspaceTag\": {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      }\n    },\n    {\n      \"catalogPath\": {\n        \"columnName\": \"<string>\",\n        \"pathParts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"schemaName\": \"<string>\",\n        \"sourceName\": \"<string>\",\n        \"tableName\": \"<string>\"\n      },\n      \"entityId\": \"<integer>\",\n      \"entityName\": \"<string>\",\n      \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n      \"nodeType\": {\n        \"customNodeType\": {\n          \"allowedChildNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedChildTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"allowedParentNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedParentTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": \"<int64>\",\n          \"integrationType\": {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iconUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isColumnDisplay\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"namePlural\": \"<string>\",\n          \"showInImpactAnalysis\": \"<boolean>\"\n        },\n        \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n      },\n      \"tag\": \"<string>\",\n      \"workspaceTag\": {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f041de07-e567-4ac2-9d22-a13f66244ea2",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tags",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6379,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5439aa7d-afcd-4f87-be15-f318fcd11206",
+          "name": "Remove tags from multiple entities",
+          "request": {
+            "name": "Remove tags from multiple entities",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tags",
+                "untag",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tags\": [\n    {\n      \"catalogPath\": {\n        \"columnName\": \"<string>\",\n        \"pathParts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"schemaName\": \"<string>\",\n        \"sourceName\": \"<string>\",\n        \"tableName\": \"<string>\"\n      },\n      \"entityId\": \"<integer>\",\n      \"entityName\": \"<string>\",\n      \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n      \"nodeType\": {\n        \"customNodeType\": {\n          \"allowedChildNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedChildTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"allowedParentNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedParentTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": \"<int64>\",\n          \"integrationType\": {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iconUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isColumnDisplay\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"namePlural\": \"<string>\",\n          \"showInImpactAnalysis\": \"<boolean>\"\n        },\n        \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n      },\n      \"tag\": \"<string>\",\n      \"workspaceTag\": {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      }\n    },\n    {\n      \"catalogPath\": {\n        \"columnName\": \"<string>\",\n        \"pathParts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"schemaName\": \"<string>\",\n        \"sourceName\": \"<string>\",\n        \"tableName\": \"<string>\"\n      },\n      \"entityId\": \"<integer>\",\n      \"entityName\": \"<string>\",\n      \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n      \"nodeType\": {\n        \"customNodeType\": {\n          \"allowedChildNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedChildTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"allowedParentNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedParentTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": \"<int64>\",\n          \"integrationType\": {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iconUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isColumnDisplay\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"namePlural\": \"<string>\",\n          \"showInImpactAnalysis\": \"<boolean>\"\n        },\n        \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n      },\n      \"tag\": \"<string>\",\n      \"workspaceTag\": {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "acb9cbe0-078f-4caa-a97d-a4d203618f2a",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tags",
+                    "untag",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"failures\": [\n    {\n      \"reason\": \"string\",\n      \"tag\": {\n        \"catalogPath\": {\n          \"columnName\": \"<string>\",\n          \"pathParts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"schemaName\": \"<string>\",\n          \"sourceName\": \"<string>\",\n          \"tableName\": \"<string>\"\n        },\n        \"entityId\": \"<integer>\",\n        \"entityName\": \"<string>\",\n        \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n        \"nodeType\": {\n          \"customNodeType\": {\n            \"allowedChildNodeTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowedChildTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowedParentNodeTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowedParentTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"integrationType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isColumnDisplay\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"namePlural\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"showInImpactAnalysis\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n        },\n        \"tag\": \"<string>\",\n        \"workspaceTag\": {\n          \"colorHex\": \"<string>\",\n          \"createdAt\": \"<int64>\",\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"updatedAt\": \"<int64>\",\n          \"workspaceId\": \"<integer>\"\n        }\n      }\n    },\n    {\n      \"reason\": \"string\",\n      \"tag\": {\n        \"catalogPath\": {\n          \"columnName\": \"<string>\",\n          \"pathParts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"schemaName\": \"<string>\",\n          \"sourceName\": \"<string>\",\n          \"tableName\": \"<string>\"\n        },\n        \"entityId\": \"<integer>\",\n        \"entityName\": \"<string>\",\n        \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n        \"nodeType\": {\n          \"customNodeType\": {\n            \"allowedChildNodeTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowedChildTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowedParentNodeTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"allowedParentTypes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"integrationType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isColumnDisplay\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"namePlural\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"showInImpactAnalysis\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n        },\n        \"tag\": \"<string>\",\n        \"workspaceTag\": {\n          \"colorHex\": \"<string>\",\n          \"createdAt\": \"<int64>\",\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"updatedAt\": \"<int64>\",\n          \"workspaceId\": \"<integer>\"\n        }\n      }\n    }\n  ],\n  \"successes\": [\n    {\n      \"catalogPath\": {\n        \"columnName\": \"<string>\",\n        \"pathParts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"schemaName\": \"<string>\",\n        \"sourceName\": \"<string>\",\n        \"tableName\": \"<string>\"\n      },\n      \"entityId\": \"<integer>\",\n      \"entityName\": \"<string>\",\n      \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n      \"nodeType\": {\n        \"customNodeType\": {\n          \"allowedChildNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedChildTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"allowedParentNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedParentTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": \"<int64>\",\n          \"integrationType\": {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iconUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isColumnDisplay\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"namePlural\": \"<string>\",\n          \"showInImpactAnalysis\": \"<boolean>\"\n        },\n        \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n      },\n      \"tag\": \"<string>\",\n      \"workspaceTag\": {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      }\n    },\n    {\n      \"catalogPath\": {\n        \"columnName\": \"<string>\",\n        \"pathParts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"schemaName\": \"<string>\",\n        \"sourceName\": \"<string>\",\n        \"tableName\": \"<string>\"\n      },\n      \"entityId\": \"<integer>\",\n      \"entityName\": \"<string>\",\n      \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n      \"nodeType\": {\n        \"customNodeType\": {\n          \"allowedChildNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedChildTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"allowedParentNodeTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n            }\n          ],\n          \"allowedParentTypes\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n            }\n          ],\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": \"<int64>\",\n          \"integrationType\": {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"iconUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isColumnDisplay\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"namePlural\": \"<string>\",\n          \"showInImpactAnalysis\": \"<boolean>\"\n        },\n        \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n      },\n      \"tag\": \"<string>\",\n      \"workspaceTag\": {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd70f65a-73e7-4b7a-a275-406d67cca001",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tags",
+                    "untag",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3230,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03e12de4-9b61-40af-887e-13f3dc26ecbc",
+          "name": "Get tags for an entity",
+          "request": {
+            "name": "Get tags for an entity",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tags",
+                ":entityType",
+                ":entityId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entityType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "entityId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc05876f-130a-4aa2-bbe0-52134a197f03",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tags",
+                    ":entityType",
+                    ":entityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entityType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "entityId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entityId\": 7327,\n  \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba567441-a5ff-480b-8d72-de85183b8913",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tags",
+                    ":entityType",
+                    ":entityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entityType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "entityId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3230,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2502e192-bebf-496e-97a5-0b01661e3e88",
+          "name": "Add a tag to an entity",
+          "request": {
+            "name": "Add a tag to an entity",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createTagIfDoesNotExist\": \"<boolean>\",\n  \"tag\": {\n    \"catalogPath\": {\n      \"columnName\": \"<string>\",\n      \"pathParts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"schemaName\": \"<string>\",\n      \"sourceName\": \"<string>\",\n      \"tableName\": \"<string>\"\n    },\n    \"entityId\": \"<integer>\",\n    \"entityName\": \"<string>\",\n    \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n    \"nodeType\": {\n      \"customNodeType\": {\n        \"allowedChildNodeTypes\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n          }\n        ],\n        \"allowedChildTypes\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n          }\n        ],\n        \"allowedParentNodeTypes\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n          }\n        ],\n        \"allowedParentTypes\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n          }\n        ],\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"id\": \"<int64>\",\n        \"integrationType\": {\n          \"description\": \"<string>\",\n          \"entityInfo\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"iconUrl\": \"<string>\",\n          \"id\": \"<int64>\",\n          \"name\": \"<string>\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"isColumnDisplay\": \"<boolean>\",\n        \"name\": \"<string>\",\n        \"namePlural\": \"<string>\",\n        \"showInImpactAnalysis\": \"<boolean>\"\n      },\n      \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n    },\n    \"tag\": \"<string>\",\n    \"workspaceTag\": {\n      \"colorHex\": \"<string>\",\n      \"createdAt\": \"<int64>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"updatedAt\": \"<int64>\",\n      \"workspaceId\": \"<integer>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "372b26ef-05d1-43a2-8bbc-7b142de4a4b2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb6d41c2-31e2-442d-b5f2-095671ea075c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3230,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c365ce5a-feff-46ac-90e9-3069586894e3",
+          "name": "Remove a tag from an entity",
+          "request": {
+            "name": "Remove a tag from an entity",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tags",
+                "untag"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createTagIfDoesNotExist\": \"<boolean>\",\n  \"tag\": {\n    \"catalogPath\": {\n      \"columnName\": \"<string>\",\n      \"pathParts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"schemaName\": \"<string>\",\n      \"sourceName\": \"<string>\",\n      \"tableName\": \"<string>\"\n    },\n    \"entityId\": \"<integer>\",\n    \"entityName\": \"<string>\",\n    \"entityType\": \"TAGGABLE_ENTITY_TYPE_UNSPECIFIED\",\n    \"nodeType\": {\n      \"customNodeType\": {\n        \"allowedChildNodeTypes\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n          }\n        ],\n        \"allowedChildTypes\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n          }\n        ],\n        \"allowedParentNodeTypes\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedNodeType detected>\"\n          }\n        ],\n        \"allowedParentTypes\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/generatedCustomNodeType detected>\"\n          }\n        ],\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"id\": \"<int64>\",\n        \"integrationType\": {\n          \"description\": \"<string>\",\n          \"entityInfo\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"iconUrl\": \"<string>\",\n          \"id\": \"<int64>\",\n          \"name\": \"<string>\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"isColumnDisplay\": \"<boolean>\",\n        \"name\": \"<string>\",\n        \"namePlural\": \"<string>\",\n        \"showInImpactAnalysis\": \"<boolean>\"\n      },\n      \"dataNodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n    },\n    \"tag\": \"<string>\",\n    \"workspaceTag\": {\n      \"colorHex\": \"<string>\",\n      \"createdAt\": \"<int64>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"updatedAt\": \"<int64>\",\n      \"workspaceId\": \"<integer>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a9a8378-cb10-497e-8807-8e5bae36e640",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tags",
+                    "untag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78f336e0-5c92-4b8d-8192-229745b63ec1",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tags",
+                    "untag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3230,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "483bda99-69ce-45b8-a49a-7f991928cc77",
+    "name": "Metadata Tag Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

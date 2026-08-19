@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sensitivity Data Class Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DataClassService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a data class",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/sds/data-class",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a data class"
+        },
+        {
+          "info": {
+            "name": "Fetch data classes with filters and pagination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/sds/data-class/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch data classes with filters and pagination"
+        },
+        {
+          "info": {
+            "name": "Get a data class by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/sds/data-class/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a data class by ID"
+        },
+        {
+          "info": {
+            "name": "Update a data class",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/sds/data-class/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a data class"
+        },
+        {
+          "info": {
+            "name": "Delete a data class",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/sds/data-class/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a data class"
+        },
+        {
+          "info": {
+            "name": "Reset a Bigeye-provided data class to its default state",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/sds/data-class/:id/reset",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reset a Bigeye-provided data class to its default state"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

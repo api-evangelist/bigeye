@@ -1,0 +1,157 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metadata Source Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SourceService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create or update source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/sources",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update source"
+        },
+        {
+          "info": {
+            "name": "Get single source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/sources/:sourceId",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get single source"
+        },
+        {
+          "info": {
+            "name": "Delete source",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/sources/:sourceId",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete source"
+        },
+        {
+          "info": {
+            "name": "Get workflow for source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/sources/:sourceId/workflow",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get workflow for source"
+        },
+        {
+          "info": {
+            "name": "Get the current status for a workflow for a source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/sources/:sourceId/workflow/status",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the current status for a workflow for a source"
+        },
+        {
+          "info": {
+            "name": "Get sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/sources/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get sources"
+        },
+        {
+          "info": {
+            "name": "Set the schemas that automatically get metadata metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/sources/metadata-schemas",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the schemas that automatically get metadata metrics"
+        },
+        {
+          "info": {
+            "name": "Validate source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/sources/validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate source"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

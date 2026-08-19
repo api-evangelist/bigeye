@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Observability Comparison Table Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ComparisonTableService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a comparison table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metrics/comparisons/tables",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a comparison table"
+        },
+        {
+          "info": {
+            "name": "Retrieve a comparison table configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/comparisons/tables/:comparisonTableId",
+            "params": [
+              {
+                "name": "comparisonTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a comparison table configuration"
+        },
+        {
+          "info": {
+            "name": "Delete a comparison table",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/metrics/comparisons/tables/:comparisonTableId",
+            "params": [
+              {
+                "name": "comparisonTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a comparison table"
+        },
+        {
+          "info": {
+            "name": "Get information about comparison tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metrics/comparisons/tables/info",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get information about comparison tables"
+        },
+        {
+          "info": {
+            "name": "Get list of metrics applicable for comparison tables and deltas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/tables/:tableId/delta-applicable-metric-types",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get list of metrics applicable for comparison tables and deltas"
+        },
+        {
+          "info": {
+            "name": "Get info about the groups of a particular metric in a comparison table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/comparisons/metrics/:comparisonMetricId/groups/info",
+            "params": [
+              {
+                "name": "comparisonMetricId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get info about the groups of a particular metric in a comparison table"
+        },
+        {
+          "info": {
+            "name": "Run a comparison table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/comparisons/tables/run/:comparisonTableId",
+            "params": [
+              {
+                "name": "comparisonTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Run a comparison table"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

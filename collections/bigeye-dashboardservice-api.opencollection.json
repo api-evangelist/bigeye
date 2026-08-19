@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metadata Dashboard Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DashboardService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets last updated date for dashboard data series",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/dashboard/refresh-info",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Gets last updated date for dashboard data series"
+        },
+        {
+          "info": {
+            "name": "Get dashboard data series for requested types",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/dashboard/calculate-data-points-request",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get dashboard data series for requested types"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

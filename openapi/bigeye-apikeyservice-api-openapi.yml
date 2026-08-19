@@ -1,0 +1,320 @@
+openapi: 3.2.0
+info:
+  title: Metadata API Key Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: ApiKeyService
+paths:
+  /api/v1/agent-api-keys/{apiKeyId}:
+    delete:
+      operationId: ApiKeyService_DeleteAgentApiKey
+      parameters:
+      - in: path
+        name: apiKeyId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete an Agent API Key
+      tags:
+      - ApiKeyService
+  /api/v1/personal-api-keys/{apiKeyId}:
+    delete:
+      operationId: ApiKeyService_DeletePersonalApiKey
+      parameters:
+      - in: path
+        name: apiKeyId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete a Personal API Key
+      tags:
+      - ApiKeyService
+  /api/v1/agent-api-keys:
+    get:
+      operationId: ApiKeyService_GetAllAgentApiKeys
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedListAgentApiKeyResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get all Agent API Keys
+      tags:
+      - ApiKeyService
+    post:
+      operationId: ApiKeyService_CreateAgentApiKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedCreateAgentApiKeyRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedCreateAgentApiKeyResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create an Agent API Key
+      tags:
+      - ApiKeyService
+  /api/v1/personal-api-keys:
+    get:
+      operationId: ApiKeyService_GetAllPersonalApiKeys
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedListPersonalApiKeyResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get all Personal API Keys
+      tags:
+      - ApiKeyService
+  /api/v1/agent-api-keys/verify:
+    get:
+      operationId: ApiKeyService_VerifyAgentApiKey
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      security:
+      - Agent_API_Key: []
+      summary: Verify an Agent API Key
+      tags:
+      - ApiKeyService
+  /api/v1/personal-api-keys/verify:
+    get:
+      operationId: ApiKeyService_VerifyPersonalApiKey
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      security:
+      - Personal_API_Key: []
+      summary: Verify a Personal API Key
+      tags:
+      - ApiKeyService
+components:
+  schemas:
+    generatedListAgentApiKeyResponse:
+      properties:
+        keys:
+          items:
+            $ref: '#/components/schemas/generatedAgentApiKeyInfo'
+          type: array
+      type: object
+    generatedEmpty:
+      type: object
+    generatedAgentApiKeyInfo:
+      properties:
+        createdAt:
+          format: int64
+          type: string
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        lastUsedAt:
+          format: int64
+          type: string
+        lastUsedIp:
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedAgentApiKeyType'
+      type: object
+    generatedUser:
+      properties:
+        email:
+          type: string
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        id:
+          format: int32
+          type: integer
+        idpGroups:
+          items:
+            type: string
+          type: array
+        isServiceAccount:
+          type: boolean
+        lastLoginAt:
+          format: int64
+          type: string
+        name:
+          type: string
+        pictureUrl:
+          type: string
+      type: object
+    generatedListPersonalApiKeyResponse:
+      properties:
+        keys:
+          items:
+            $ref: '#/components/schemas/generatedPersonalApiKeyInfo'
+          type: array
+      type: object
+    generatedCreateAgentApiKeyResponse:
+      properties:
+        apiKey:
+          type: string
+        info:
+          $ref: '#/components/schemas/generatedAgentApiKeyInfo'
+      type: object
+    generatedPersonalApiKeyInfo:
+      properties:
+        createdAt:
+          format: int64
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        lastUsedAt:
+          format: int64
+          type: string
+        lastUsedIp:
+          type: string
+        name:
+          type: string
+        owner:
+          $ref: '#/components/schemas/generatedUser'
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedAgentApiKeyType:
+      default: AGENT_API_KEY_TYPE_UNSPECIFIED
+      enum:
+      - AGENT_API_KEY_TYPE_UNSPECIFIED
+      - AGENT_API_KEY_TYPE_AGENT
+      - AGENT_API_KEY_TYPE_INTEGRATION
+      type: string
+    generatedCreateAgentApiKeyRequest:
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedAgentApiKeyType'
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

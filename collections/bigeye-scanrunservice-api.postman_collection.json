@@ -1,0 +1,358 @@
+{
+  "item": [
+    {
+      "id": "d268f123-956f-4a10-9dd3-eb7998dc25ca",
+      "name": "ScanRunService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5dab134c-4997-4bd8-a528-aa475c423818",
+          "name": "Fetch scan runs with filters and pagination",
+          "request": {
+            "name": "Fetch scan runs with filters and pagination",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-run",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"returnJobsWithNoSchedule\": \"<boolean>\",\n  \"scanJobIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"scanTypes\": [\n    \"SCAN_TYPE_UNSPECIFIED\",\n    \"SCAN_TYPE_UNSPECIFIED\"\n  ],\n  \"scheduleFrequencies\": [\n    {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    },\n    {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    }\n  ],\n  \"scheduleFrequencyCronStrings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scheduleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_RUN_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_RUN_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"statuses\": [\n    \"SCAN_JOB_STATUS_UNSPECIFIED\",\n    \"SCAN_JOB_STATUS_UNSPECIFIED\"\n  ],\n  \"warehouseIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d6752bcc-e275-46e8-942f-4fdece402f57",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-run",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"returnJobsWithNoSchedule\": \"<boolean>\",\n  \"scanJobIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"scanTypes\": [\n    \"SCAN_TYPE_UNSPECIFIED\",\n    \"SCAN_TYPE_UNSPECIFIED\"\n  ],\n  \"scheduleFrequencies\": [\n    {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    },\n    {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    }\n  ],\n  \"scheduleFrequencyCronStrings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scheduleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_RUN_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_RUN_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"statuses\": [\n    \"SCAN_JOB_STATUS_UNSPECIFIED\",\n    \"SCAN_JOB_STATUS_UNSPECIFIED\"\n  ],\n  \"warehouseIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": true,\n    \"numRecords\": 7300,\n    \"prevCursor\": \"string\"\n  },\n  \"scanRuns\": [\n    {\n      \"completedAt\": \"string\",\n      \"displayName\": \"string\",\n      \"errorMessage\": \"string\",\n      \"id\": \"string\",\n      \"nextRunAt\": \"string\",\n      \"numberOfClassifiers\": 400,\n      \"rowsScanned\": \"string\",\n      \"scanJob\": {\n        \"displayName\": \"string\",\n        \"id\": 1511\n      },\n      \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n      \"schedule\": {\n        \"namedSchedule\": {\n          \"cron\": \"string\",\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": 7836,\n          \"name\": \"string\",\n          \"timezone\": \"string\"\n        },\n        \"scheduleFrequency\": {\n          \"cronString\": \"string\",\n          \"displayName\": \"string\",\n          \"startTimeEpochSeconds\": \"string\",\n          \"timeInterval\": {\n            \"intervalType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"intervalValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"splitFailures\": [\n        {\n          \"message\": \"string\",\n          \"tableId\": 9077\n        },\n        {\n          \"message\": \"string\",\n          \"tableId\": 7568\n        }\n      ],\n      \"startedAt\": \"string\",\n      \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n      \"workspaceId\": 8867\n    },\n    {\n      \"completedAt\": \"string\",\n      \"displayName\": \"string\",\n      \"errorMessage\": \"string\",\n      \"id\": \"string\",\n      \"nextRunAt\": \"string\",\n      \"numberOfClassifiers\": 6007,\n      \"rowsScanned\": \"string\",\n      \"scanJob\": {\n        \"displayName\": \"string\",\n        \"id\": 1063\n      },\n      \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n      \"schedule\": {\n        \"namedSchedule\": {\n          \"cron\": \"string\",\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": 6076,\n          \"name\": \"string\",\n          \"timezone\": \"string\"\n        },\n        \"scheduleFrequency\": {\n          \"cronString\": \"string\",\n          \"displayName\": \"string\",\n          \"startTimeEpochSeconds\": \"string\",\n          \"timeInterval\": {\n            \"intervalType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"intervalValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"splitFailures\": [\n        {\n          \"message\": \"string\",\n          \"tableId\": 2655\n        },\n        {\n          \"message\": \"string\",\n          \"tableId\": 974\n        }\n      ],\n      \"startedAt\": \"string\",\n      \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n      \"workspaceId\": 4934\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e632341-82ac-4fe1-9266-0ca17e9523e2",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-run",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"returnJobsWithNoSchedule\": \"<boolean>\",\n  \"scanJobIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"scanTypes\": [\n    \"SCAN_TYPE_UNSPECIFIED\",\n    \"SCAN_TYPE_UNSPECIFIED\"\n  ],\n  \"scheduleFrequencies\": [\n    {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    },\n    {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    }\n  ],\n  \"scheduleFrequencyCronStrings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scheduleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_RUN_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"SCAN_RUN_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"statuses\": [\n    \"SCAN_JOB_STATUS_UNSPECIFIED\",\n    \"SCAN_JOB_STATUS_UNSPECIFIED\"\n  ],\n  \"warehouseIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7374,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52754b95-df88-4658-8c57-95d98d325390",
+          "name": "Get a scan run by ID",
+          "request": {
+            "name": "Get a scan run by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "scan-run",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc1fdb89-2d8b-452e-967d-8d3cb279653a",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-run",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"completedAt\": \"string\",\n  \"displayName\": \"string\",\n  \"errorMessage\": \"string\",\n  \"id\": \"string\",\n  \"nextRunAt\": \"string\",\n  \"numberOfClassifiers\": 9475,\n  \"rowsScanned\": \"string\",\n  \"scanJob\": {\n    \"displayName\": \"string\",\n    \"id\": 3720\n  },\n  \"scanType\": \"SCAN_TYPE_UNSPECIFIED\",\n  \"schedule\": {\n    \"namedSchedule\": {\n      \"cron\": \"string\",\n      \"entityInfo\": {\n        \"createdBy\": 245,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 7273,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": 3590,\n      \"name\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"scheduleFrequency\": {\n      \"cronString\": \"string\",\n      \"displayName\": \"string\",\n      \"startTimeEpochSeconds\": \"string\",\n      \"timeInterval\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      }\n    }\n  },\n  \"splitFailures\": [\n    {\n      \"message\": \"string\",\n      \"tableId\": 7457\n    },\n    {\n      \"message\": \"string\",\n      \"tableId\": 3515\n    }\n  ],\n  \"startedAt\": \"string\",\n  \"status\": \"SCAN_JOB_STATUS_UNSPECIFIED\",\n  \"workspaceId\": 1095\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c97cffe-919f-46bb-b55e-82b83412e1d0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "scan-run",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6939,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "89b34bc3-5b6c-4e8f-9368-144c0267ce99",
+    "name": "Sensitivity Scan Run Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

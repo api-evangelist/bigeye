@@ -1,0 +1,871 @@
+openapi: 3.2.0
+info:
+  title: Metadata Lineage V2 Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: LineageV2Service
+paths:
+  /api/v2/lineage/nodes/bulk:
+    post:
+      operationId: LineageV2Service_BulkCreateCustomLineageNodes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedCreateLineageNodeV2BulkRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedBulkResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Bulk create custom lineage nodes
+      tags:
+      - LineageV2Service
+  /api/v2/lineage/edges/bulk:
+    post:
+      operationId: LineageV2Service_BulkCreateLineageEdge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedCreateLineageEdgeV2BulkRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedBulkResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Bulk create custom lineage edges
+      tags:
+      - LineageV2Service
+  /api/v2/lineage/nodes:
+    post:
+      operationId: LineageV2Service_CreateCustomLineageNode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedCreateLineageNodeV2Request'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedLineageNodeV2'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create custom lineage node
+      tags:
+      - LineageV2Service
+  /api/v2/lineage/edges:
+    post:
+      operationId: LineageV2Service_CreateLineageEdge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedCreateLineageEdgeV2Request'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedLineageEdgeV2'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create custom lineage edge between two nodes
+      tags:
+      - LineageV2Service
+  /api/v2/lineage/edges/{edgeId}:
+    delete:
+      operationId: LineageV2Service_DeleteLineageEdge
+      parameters:
+      - in: path
+        name: edgeId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete custom lineage edge
+      tags:
+      - LineageV2Service
+    get:
+      operationId: LineageV2Service_GetLineageEdge
+      parameters:
+      - in: path
+        name: edgeId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedLineageEdgeV2'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get edge
+      tags:
+      - LineageV2Service
+  /api/v2/lineage/nodes/{dataNodeId}/graph:
+    get:
+      operationId: LineageV2Service_GetLineageGraphForNode
+      parameters:
+      - in: path
+        name: dataNodeId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: depth
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: direction
+        required: false
+        schema:
+          type: string
+          enum:
+          - ALL
+          - UPSTREAM
+          - DOWNSTREAM
+          default: ALL
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedTableLineageV2Response'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get lineage graph from a data node
+      tags:
+      - LineageV2Service
+  /api/v2/lineage/nodes/{dataNodeId}:
+    delete:
+      operationId: LineageV2Service_DeleteLineageNode
+      parameters:
+      - in: path
+        name: dataNodeId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete custom lineage node
+      tags:
+      - LineageV2Service
+    get:
+      operationId: LineageV2Service_GetLineageNode
+      parameters:
+      - in: path
+        name: dataNodeId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedLineageNodeV2'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get lineage node by id
+      tags:
+      - LineageV2Service
+components:
+  schemas:
+    generatedEmpty:
+      type: object
+    generatedDataClass:
+      properties:
+        canResetToDefault:
+          type: boolean
+        categories:
+          items:
+            $ref: '#/components/schemas/generatedDataClassCategory'
+          type: array
+        colorHex:
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        numberOfClassifiers:
+          format: int32
+          type: integer
+        providedByBigeye:
+          type: boolean
+        sensitivity:
+          $ref: '#/components/schemas/generatedDataSensitivity'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedCustomNodeType:
+      properties:
+        allowedChildNodeTypes:
+          description: 'Allowed child types, which may be either custom node types or catalog node types
+
+            (e.g. DATA_NODE_TYPE_SCHEMA). Supersedes allowed_child_types.'
+          items:
+            $ref: '#/components/schemas/generatedNodeType'
+          type: array
+        allowedChildTypes:
+          description: 'Deprecated: custom-node-type-only allowed children. Use allowed_child_node_types, which
+
+            also supports catalog node types. Still populated with the custom-type subset for
+
+            backwards compatibility.'
+          items:
+            $ref: '#/components/schemas/generatedCustomNodeType'
+          type: array
+        allowedParentNodeTypes:
+          description: 'Allowed parent types, which may be either custom node types or catalog node types
+
+            (e.g. DATA_NODE_TYPE_TABLE). Supersedes allowed_parent_types.'
+          items:
+            $ref: '#/components/schemas/generatedNodeType'
+          type: array
+        allowedParentTypes:
+          description: 'Deprecated: custom-node-type-only allowed parents. Use allowed_parent_node_types, which
+
+            also supports catalog node types. Still populated with the custom-type subset for
+
+            backwards compatibility.'
+          items:
+            $ref: '#/components/schemas/generatedCustomNodeType'
+          type: array
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int64
+          type: string
+        integrationType:
+          $ref: '#/components/schemas/generatedCustomIntegrationType'
+        isColumnDisplay:
+          title: If true, this node type will be displayed as a column in lineage UIs
+          type: boolean
+        name:
+          type: string
+        namePlural:
+          type: string
+        showInImpactAnalysis:
+          description: 'If true, nodes of this type are surfaced as impacted entities in issue impact analysis (RCA)
+
+            when they lie downstream of an issue.'
+          type: boolean
+      type: object
+    generatedUser:
+      properties:
+        email:
+          type: string
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        id:
+          format: int32
+          type: integer
+        idpGroups:
+          items:
+            type: string
+          type: array
+        isServiceAccount:
+          type: boolean
+        lastLoginAt:
+          format: int64
+          type: string
+        name:
+          type: string
+        pictureUrl:
+          type: string
+      type: object
+    generatedLineageRelationshipSimple:
+      properties:
+        downstreamId:
+          format: int32
+          type: integer
+        relationshipType:
+          $ref: '#/components/schemas/generatedRelationshipType'
+        upstreamId:
+          format: int32
+          type: integer
+      type: object
+    generatedCustomIntegrationType:
+      properties:
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        iconUrl:
+          type: string
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedIntegrationType'
+      type: object
+    generatedCustomRepository:
+      properties:
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        integrationType:
+          $ref: '#/components/schemas/generatedCustomIntegrationType'
+        name:
+          type: string
+        workspaceId:
+          format: int64
+          type: string
+      type: object
+    generatedDataSensitivity:
+      default: DATA_SENSITIVITY_UNSPECIFIED
+      enum:
+      - DATA_SENSITIVITY_UNSPECIFIED
+      - DATA_SENSITIVITY_PUBLIC
+      - DATA_SENSITIVITY_INTERNAL
+      - DATA_SENSITIVITY_CONFIDENTIAL
+      - DATA_SENSITIVITY_RESTRICTED
+      type: string
+    generatedTableLineageV2Response:
+      properties:
+        nodes:
+          additionalProperties:
+            $ref: '#/components/schemas/generatedLineageNavigationNodeV2Response'
+          type: object
+        partialResponse:
+          type: boolean
+      type: object
+    generatedBulkResponse:
+      properties:
+        failedUpdates:
+          items:
+            $ref: '#/components/schemas/generatedFailedUpdate'
+          type: array
+        notRunIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        successfulIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    generatedNodeType:
+      properties:
+        customNodeType:
+          $ref: '#/components/schemas/generatedCustomNodeType'
+        dataNodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedCreateLineageEdgeV2Request:
+      properties:
+        downstreamDataNodeId:
+          format: int32
+          type: integer
+        rebuildGraph:
+          type: boolean
+        relationshipType:
+          $ref: '#/components/schemas/generatedRelationshipType'
+        upstreamDataNodeId:
+          format: int32
+          type: integer
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedCatalogSource:
+      properties:
+        customCatalogSource:
+          $ref: '#/components/schemas/generatedCustomCatalogSource'
+        customRepository:
+          $ref: '#/components/schemas/generatedCustomRepository'
+        id:
+          format: int32
+          type: integer
+        integrationPartner:
+          $ref: '#/components/schemas/generatedIntegrationPartner'
+        name:
+          type: string
+        usesAgent:
+          type: boolean
+        warehouseVendor:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedCreateLineageEdgeV2BulkRequest:
+      properties:
+        edges:
+          items:
+            $ref: '#/components/schemas/generatedCreateLineageEdgeV2Request'
+          type: array
+      type: object
+    generatedRelationshipType:
+      default: RELATIONSHIP_TYPE_UNSPECIFIED
+      enum:
+      - RELATIONSHIP_TYPE_UNSPECIFIED
+      - RELATIONSHIP_TYPE_LINEAGE
+      - RELATIONSHIP_TYPE_CONTAINMENT
+      type: string
+    generatedFailedUpdate:
+      properties:
+        id:
+          format: int32
+          type: integer
+        reason:
+          type: string
+      type: object
+    generatedCatalogPath:
+      properties:
+        columnName:
+          type: string
+        pathParts:
+          items:
+            type: string
+          type: array
+        schemaName:
+          type: string
+        sourceName:
+          type: string
+        tableName:
+          type: string
+      type: object
+    generatedFindingState:
+      default: FINDING_STATE_UNSPECIFIED
+      enum:
+      - FINDING_STATE_UNSPECIFIED
+      - FINDING_STATE_POSITIVE_FINDINGS
+      - FINDING_STATE_NEGATIVE_FINDINGS_ONLY
+      - FINDING_STATE_NEVER_BEEN_SCANNED
+      type: string
+    generatedCreateLineageNodeV2BulkRequest:
+      properties:
+        nodes:
+          items:
+            $ref: '#/components/schemas/generatedCreateLineageNodeV2Request'
+          type: array
+      type: object
+    generatedLineageNavigationNodeV2Response:
+      properties:
+        applicableFilters:
+          items:
+            type: string
+          type: array
+        downstreamEdges:
+          items:
+            $ref: '#/components/schemas/generatedLineageRelationshipSimple'
+          type: array
+        findingState:
+          $ref: '#/components/schemas/generatedFindingState'
+        isDownstream:
+          type: boolean
+        isUpstream:
+          type: boolean
+        issueCount:
+          format: int32
+          type: integer
+        lineageNode:
+          $ref: '#/components/schemas/generatedLineageNodeV2'
+        maxSensitivity:
+          $ref: '#/components/schemas/generatedDataSensitivity'
+        metricCount:
+          format: int32
+          type: integer
+        positiveDataClasses:
+          items:
+            $ref: '#/components/schemas/generatedDataClass'
+          type: array
+        priorityScore:
+          format: int32
+          type: integer
+        sampledScanNegativeDataClasses:
+          items:
+            $ref: '#/components/schemas/generatedDataClass'
+          type: array
+        upstreamEdges:
+          items:
+            $ref: '#/components/schemas/generatedLineageRelationshipSimple'
+          type: array
+      type: object
+    generatedCustomCatalogSource:
+      properties:
+        iconUrl:
+          type: string
+        name:
+          type: string
+      type: object
+    generatedDataClassCategory:
+      properties:
+        description:
+          type: string
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedCreateLineageNodeV2Request:
+      properties:
+        customNodeTypeId:
+          format: int64
+          type: string
+        customRepositoryId:
+          format: int32
+          type: integer
+        externalId:
+          type: string
+        iconUrl:
+          type: string
+        nodeContainerEntityId:
+          format: int32
+          type: integer
+        nodeContainerName:
+          type: string
+        nodeEntityId:
+          format: int32
+          type: integer
+        nodeName:
+          type: string
+        nodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+        rebuildGraph:
+          type: boolean
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedIntegrationType:
+      default: INTEGRATION_TYPE_UNSPECIFIED
+      enum:
+      - INTEGRATION_TYPE_UNSPECIFIED
+      - INTEGRATION_TYPE_BI_TOOL
+      - INTEGRATION_TYPE_ETL_TOOL
+      - INTEGRATION_TYPE_DATABASE
+      type: string
+    generatedIntegrationPartner:
+      default: INTEGRATION_PARTNER_UNSPECIFIED
+      enum:
+      - INTEGRATION_PARTNER_UNSPECIFIED
+      - INTEGRATION_PARTNER_TABLEAU
+      - INTEGRATION_PARTNER_DBT_CLOUD
+      - INTEGRATION_PARTNER_METACENTER
+      - INTEGRATION_PARTNER_DBT_CORE
+      - INTEGRATION_PARTNER_POWERBI
+      - INTEGRATION_PARTNER_POWERCENTER
+      - INTEGRATION_PARTNER_SSIS
+      - INTEGRATION_PARTNER_COGNOS
+      - INTEGRATION_PARTNER_SAP_BUSINESS_OBJECTS
+      - INTEGRATION_PARTNER_FDS
+      - INTEGRATION_PARTNER_QLIK_REPLICATE
+      - INTEGRATION_PARTNER_LOOKER
+      - INTEGRATION_PARTNER_CDM
+      - INTEGRATION_PARTNER_SNAPLOGIC
+      - INTEGRATION_PARTNER_DATASTAGE
+      - INTEGRATION_PARTNER_SSRS
+      - INTEGRATION_PARTNER_QLIK_SENSE
+      - INTEGRATION_PARTNER_STRATEGY
+      - INTEGRATION_PARTNER_ADF
+      - INTEGRATION_PARTNER_MATILLION
+      - INTEGRATION_PARTNER_ANTHROPIC
+      type: string
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedLineageEdgeV2:
+      properties:
+        createdAt:
+          format: int64
+          type: string
+        downstream:
+          $ref: '#/components/schemas/generatedLineageNodeV2'
+        id:
+          format: int32
+          type: integer
+        relationshipType:
+          $ref: '#/components/schemas/generatedRelationshipType'
+        updatedAt:
+          format: int64
+          type: string
+        upstream:
+          $ref: '#/components/schemas/generatedLineageNodeV2'
+      type: object
+    generatedLineageNodeV2:
+      properties:
+        catalogPath:
+          $ref: '#/components/schemas/generatedCatalogPath'
+        createdAt:
+          format: int64
+          type: string
+        customNodeType:
+          $ref: '#/components/schemas/generatedCustomNodeType'
+        id:
+          format: int32
+          type: integer
+        nodeEntityId:
+          format: int32
+          type: integer
+        nodeName:
+          type: string
+        nodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+        source:
+          $ref: '#/components/schemas/generatedCatalogSource'
+        updatedAt:
+          format: int64
+          type: string
+        usesAgent:
+          type: boolean
+      type: object
+    generatedDataNodeType:
+      default: DATA_NODE_TYPE_UNSPECIFIED
+      description: " - DATA_NODE_TYPE_MC_STRATEGY_FOLDER: STRATEGY Formerly known as MicroStrategy\n - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE: AI_AGENT prefix: AI agents surfaced on the lineage graph.\nDeprecated: use the platform-agnostic DATA_NODE_TYPE_AI_AGENT instead."
+      enum:
+      - DATA_NODE_TYPE_UNSPECIFIED
+      - DATA_NODE_TYPE_TABLE
+      - DATA_NODE_TYPE_COLUMN
+      - DATA_NODE_TYPE_SCHEMA
+      - DATA_NODE_TYPE_MC_TABLEAU_PROJECT
+      - DATA_NODE_TYPE_MC_TABLEAU_WORKBOOK
+      - DATA_NODE_TYPE_MC_TABLEAU_STORY
+      - DATA_NODE_TYPE_MC_TABLEAU_SHEET
+      - DATA_NODE_TYPE_MC_TABLEAU_DASHBOARD
+      - DATA_NODE_TYPE_MC_POWERBI_WORKSPACE
+      - DATA_NODE_TYPE_MC_POWERBI_REPORT
+      - DATA_NODE_TYPE_MC_POWERBI_PAGE
+      - DATA_NODE_TYPE_MC_POWERBI_DASHBOARD
+      - DATA_NODE_TYPE_MC_POWERCENTER_WORKFLOW
+      - DATA_NODE_TYPE_MC_POWERCENTER_TARGET
+      - DATA_NODE_TYPE_MC_POWERCENTER_TARGET_FIELD
+      - DATA_NODE_TYPE_MC_SSIS_PACKAGE
+      - DATA_NODE_TYPE_MC_SSIS_DESTINATION
+      - DATA_NODE_TYPE_MC_SSIS_DESTINATION_FIELD
+      - DATA_NODE_TYPE_CUSTOM
+      - DATA_NODE_TYPE_CUSTOM_ENTRY
+      - DATA_NODE_TYPE_MC_COGNOS_FOLDER
+      - DATA_NODE_TYPE_MC_COGNOS_REPORT
+      - DATA_NODE_TYPE_MC_COGNOS_QUERY
+      - DATA_NODE_TYPE_MC_SAP_BO_FOLDER
+      - DATA_NODE_TYPE_MC_SAP_BO_REPORT
+      - DATA_NODE_TYPE_MC_FDS_FOLDER
+      - DATA_NODE_TYPE_MC_FDS_FILE
+      - DATA_NODE_TYPE_MC_FDS_FIELD
+      - DATA_NODE_TYPE_MC_QLIK_REPLICATE_SCHEMA
+      - DATA_NODE_TYPE_MC_QLIK_REPLICATE_TABLE
+      - DATA_NODE_TYPE_MC_QLIK_REPLICATE_COLUMN
+      - DATA_NODE_TYPE_MC_LOOKER_FOLDER
+      - DATA_NODE_TYPE_MC_LOOKER_BOARD
+      - DATA_NODE_TYPE_MC_LOOKER_LOOK
+      - DATA_NODE_TYPE_MC_LOOKER_DASHBOARD
+      - DATA_NODE_TYPE_MC_LOOKER_VISUALIZATION
+      - DATA_NODE_TYPE_MC_CDM_TARGET
+      - DATA_NODE_TYPE_MC_CDM_TARGET_FIELD
+      - DATA_NODE_TYPE_MC_CDM_TEMP_TABLE
+      - DATA_NODE_TYPE_MC_CDM_TEMP_FIELD
+      - DATA_NODE_TYPE_MC_CDM_TRANSFORM_FILE
+      - DATA_NODE_TYPE_MC_SNAPLOGIC_PIPELINE
+      - DATA_NODE_TYPE_MC_SNAPLOGIC_WRITE
+      - DATA_NODE_TYPE_MC_SNAPLOGIC_FIELD
+      - DATA_NODE_TYPE_MC_DATASTAGE_OUTPUT
+      - DATA_NODE_TYPE_MC_DATASTAGE_OUTPUT_FIELD
+      - DATA_NODE_TYPE_MC_SSRS_FOLDER
+      - DATA_NODE_TYPE_MC_SSRS_REPORT
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_VIS_DIMENSION
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_VIS_MEASURE
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_APPLICATION
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_SHEET
+      - DATA_NODE_TYPE_MC_STRATEGY_FOLDER
+      - DATA_NODE_TYPE_MC_STRATEGY_DOSSIER
+      - DATA_NODE_TYPE_MC_STRATEGY_GRAPH
+      - DATA_NODE_TYPE_MC_STRATEGY_GRID
+      - DATA_NODE_TYPE_MC_STRATEGY_GRIDGRAPH
+      - DATA_NODE_TYPE_MC_ADF_STORED_PROC
+      - DATA_NODE_TYPE_MC_ADF_TARGET_TABLE
+      - DATA_NODE_TYPE_MC_ADF_COPY_SINK
+      - DATA_NODE_TYPE_MC_ADF_FIELD
+      - DATA_NODE_TYPE_MC_MATILLION_COMPONENT
+      - DATA_NODE_TYPE_MC_MATILLION_TARGET_TABLE
+      - DATA_NODE_TYPE_MC_MATILLION_TARGET_FIELD
+      - DATA_NODE_TYPE_SOURCE
+      - DATA_NODE_TYPE_DBT_CLOUD
+      - DATA_NODE_TYPE_DBT_CORE
+      - DATA_NODE_TYPE_MC_REPOSITORY
+      - DATA_NODE_TYPE_DBT_PROJECT
+      - DATA_NODE_TYPE_CUSTOM_REPOSITORY
+      - DATA_NODE_TYPE_MC_SSIS_DATA_FLOW
+      - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE
+      - DATA_NODE_TYPE_AI_AGENT
+      type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metadata Schema Change Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SchemaChangeService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch schema changes with filters and pagination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/schema-changes/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch schema changes with filters and pagination"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

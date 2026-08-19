@@ -1,0 +1,912 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Observability Metric Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MetricService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Batch edit metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/metrics/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch edit metrics"
+        },
+        {
+          "info": {
+            "name": "Performs bulk metric updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/metrics/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Performs bulk metric updates"
+        },
+        {
+          "info": {
+            "name": "Performs bulk Delta updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/metrics/comparisons/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Performs bulk Delta updates"
+        },
+        {
+          "info": {
+            "name": "Get sample debug rows for debug page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/:metricId/debug/preview",
+            "params": [
+              {
+                "name": "metricId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get sample debug rows for debug page"
+        },
+        {
+          "info": {
+            "name": "Get queries for debug page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/:metricId/debug/queries",
+            "params": [
+              {
+                "name": "metricId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get queries for debug page"
+        },
+        {
+          "info": {
+            "name": "Gets the list of all metadata metric names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/metadata-metric-names"
+          },
+          "docs": "Gets the list of all metadata metric names"
+        },
+        {
+          "info": {
+            "name": "Get metric configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/:metricId",
+            "params": [
+              {
+                "name": "metricId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the metric"
+              }
+            ]
+          },
+          "docs": "Get metric configuration"
+        },
+        {
+          "info": {
+            "name": "Delete metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/metrics/:metricId",
+            "params": [
+              {
+                "name": "metricId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the metric"
+              }
+            ]
+          },
+          "docs": "Delete metric"
+        },
+        {
+          "info": {
+            "name": "Get single metric information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/info/:metricId",
+            "params": [
+              {
+                "name": "metricId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the metric"
+              }
+            ]
+          },
+          "docs": "Get single metric information"
+        },
+        {
+          "info": {
+            "name": "Get metric information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/info",
+            "params": [
+              {
+                "name": "metricIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "warehouseIds",
+                "value": "",
+                "type": "query",
+                "description": "If searching by table name or schema name, at least one warehouse ID must be present."
+              },
+              {
+                "name": "tableIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Valid statuses are: healthy, alerting, unknown."
+              },
+              {
+                "name": "metricCreationStates",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "muted",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageCursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortField",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "schemaName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "columnIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortDirection",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "schemaId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricTypes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeLatestMetricRuns",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tagIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dimensionIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "templateIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "monitorTypes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "conversationIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get metric information"
+        },
+        {
+          "info": {
+            "name": "Get batch metric information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metrics/info",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get batch metric information"
+        },
+        {
+          "info": {
+            "name": "Get metric runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metrics/runs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get metric runs"
+        },
+        {
+          "info": {
+            "name": "Get count of metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/count",
+            "params": [
+              {
+                "name": "metricIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "warehouseIds",
+                "value": "",
+                "type": "query",
+                "description": "If searching by table name or schema name, at least one warehouse ID must be present."
+              },
+              {
+                "name": "tableIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Valid statuses are: healthy, alerting, unknown."
+              },
+              {
+                "name": "metricCreationStates",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "muted",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageCursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortField",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "schemaName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "columnIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortDirection",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "schemaId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricTypes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeLatestMetricRuns",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tagIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dimensionIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "templateIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "monitorTypes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "conversationIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get count of metrics"
+        },
+        {
+          "info": {
+            "name": "Get metric revisions / history / timeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/:metricId/revisions",
+            "params": [
+              {
+                "name": "metricId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the metric"
+              }
+            ]
+          },
+          "docs": "Get metric revisions / history / timeline"
+        },
+        {
+          "info": {
+            "name": "Get metric scorecard",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metrics/scorecard",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get metric scorecard"
+        },
+        {
+          "info": {
+            "name": "Gets the list of all table-level metric names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/table-level-metric-names"
+          },
+          "docs": "Gets the list of all table-level metric names"
+        },
+        {
+          "info": {
+            "name": "Run metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/run/:metricId",
+            "params": [
+              {
+                "name": "metricId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the metric"
+              }
+            ]
+          },
+          "docs": "Run metric"
+        },
+        {
+          "info": {
+            "name": "Batch run metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metrics/run/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch run metrics"
+        },
+        {
+          "info": {
+            "name": "Queue batch run metrics. This is useful for batches that take a long time to run.\nReturns a WorkflowResponse, which contains a workflow_id.\nThe status of the batch can be checked by using the /api/v1/workflows/{workflow_id}/status endpoint.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metrics/run/batch/queue",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Queue batch run metrics. This is useful for batches that take a long time to run.\nReturns a WorkflowResponse, which contains a workflow_id.\nThe status of the batch can be checked by using the /api/v1/workflows/{workflow_id}/status endpoint."
+        },
+        {
+          "info": {
+            "name": "Get backfill status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/backfill",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "warehouseIds",
+                "value": "",
+                "type": "query",
+                "description": "If searching by table name, at least one warehouse ID must be present."
+              },
+              {
+                "name": "tableIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Valid statuses are: METRIC_BACKFILL_RUN_STATUS_QUEUED, METRIC_BACKFILL_RUN_STATUS_FAILED, METRIC_BACKFILL_RUN_STATUS_SUCCEEDED."
+              }
+            ]
+          },
+          "docs": "Get backfill status"
+        },
+        {
+          "info": {
+            "name": "Backfill metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metrics/backfill",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Backfill metric"
+        },
+        {
+          "info": {
+            "name": "Search metric configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "warehouseIds",
+                "value": "",
+                "type": "query",
+                "description": "If searching by table name, at least one warehouse ID must be present."
+              },
+              {
+                "name": "tableIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Valid statuses are: healthy, alerting, unknown."
+              },
+              {
+                "name": "muted",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search metric configuration"
+        },
+        {
+          "info": {
+            "name": "Create or update metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update metric"
+        },
+        {
+          "info": {
+            "name": "Validate a metric configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metrics/validation",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scheduleFrequency.IntervalType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scheduleFrequency.IntervalValue",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Each filter evaluates to a valid SQL boolean expression."
+              },
+              {
+                "name": "groupBys",
+                "value": "",
+                "type": "query",
+                "description": "Each group by is a column name from the table for this metric."
+              },
+              {
+                "name": "warehouseId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "query",
+                "description": "Bigeye ID for the table which this metric is run on."
+              },
+              {
+                "name": "metricType.PredefinedMetric.MetricName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricType.TemplateMetric.TemplateId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricType.TemplateMetric.AggregationType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricType.TemplateMetric.TemplateName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricType.ExternalMonitor.Type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricType.CustomRuleType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricType.IsMetadataMetric",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricType.IsTableMetric",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lookback.intervalType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lookback.intervalValue",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lookbackType",
+                "value": "",
+                "type": "query",
+                "description": "Lookback type for metrics on tables with metric time enabled. The default is DATA_TIME_LOOKBACK_TYPE."
+              },
+              {
+                "name": "metricCreationState",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "grainSeconds",
+                "value": "",
+                "type": "query",
+                "description": "width of METRIC_TIME based metric intervals."
+              },
+              {
+                "name": "mutedUntilEpochSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isTableMetric",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricSchedule.ScheduleFrequency.IntervalType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricSchedule.ScheduleFrequency.IntervalValue",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricSchedule.NamedSchedule.Id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricSchedule.NamedSchedule.Name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricSchedule.NamedSchedule.Cron",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricSchedule.NamedSchedule.EntityInfo.CreatedBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricSchedule.NamedSchedule.EntityInfo.CreatedEpochSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricSchedule.NamedSchedule.EntityInfo.UpdatedBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricSchedule.NamedSchedule.EntityInfo.UpdatedEpochSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricSchedule.NamedSchedule.Timezone",
+                "value": "",
+                "type": "query",
+                "description": "IANA timezone id (e.g. \"America/New_York\") used to interpret the cron. Defaults to UTC when unset."
+              },
+              {
+                "name": "rctOverride",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isLookbackUsingCurrentTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bigconfigNamespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dimension.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dimension.displayName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "profilingSuggestionForColumn.Id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "profilingSuggestionForColumn.DisplayName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "monitorType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "alertOnAbsentGroups",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "customRuleId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Validate a metric configuration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

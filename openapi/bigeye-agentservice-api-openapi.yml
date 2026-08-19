@@ -1,0 +1,239 @@
+openapi: 3.2.0
+info:
+  title: Metadata Agent Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: AgentService
+paths:
+  /api/v1/agent/public-key/bigeye:
+    get:
+      operationId: AgentService_GetBigeyePublicKey
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedPublicKeyMessage'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get the public key the user's company Agent should use when sending messages to Bigeye
+      tags:
+      - AgentService
+  /api/v1/agent/public-key:
+    get:
+      operationId: AgentService_GetCompanyPublicKey
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedPublicKeyMessage'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get the public key Bigeye currently has for the user's company Agent
+      tags:
+      - AgentService
+    put:
+      operationId: AgentService_SetCompanyPublicKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedPublicKeyMessage'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedPublicKeyMessage'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Set the public key Bigeye will use to encrypt messages to the user's company Agent
+      tags:
+      - AgentService
+  /api/v1/agent/health/ping:
+    get:
+      operationId: AgentService_PingAgents
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedAgentHealthResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Synchronously ping all agent sources for their health status
+      tags:
+      - AgentService
+  /api/v1/agent/health:
+    get:
+      operationId: AgentService_RetrieveAgentHealth
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedAgentHealthResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Retrieve the latest health status of all agent sources
+      tags:
+      - AgentService
+  /api/v1/agent/validate/source/{sourceId}:
+    get:
+      operationId: AgentService_ValidateAgentForSource
+      parameters:
+      - in: path
+        name: sourceId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedSourceValidationResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Validate that the agent is working for a given source
+      tags:
+      - AgentService
+components:
+  schemas:
+    generatedAgentHealthInfo:
+      properties:
+        agentHealthStatus:
+          $ref: '#/components/schemas/generatedAgentHealthStatus'
+        crossSourceAgentHealthStatus:
+          $ref: '#/components/schemas/generatedAgentHealthStatus'
+        lastHeartbeatLatencyMillis:
+          format: int64
+          type: string
+        lastHeartbeatReceivedAt:
+          format: int64
+          type: string
+        lastHeartbeatSentAt:
+          format: int64
+          type: string
+        sensitiveDataAgentHealthStatus:
+          $ref: '#/components/schemas/generatedAgentHealthStatus'
+        sourceId:
+          format: int32
+          type: integer
+      type: object
+    generatedSourceValidationResponse:
+      properties:
+        errors:
+          items:
+            type: string
+          type: array
+        isValid:
+          type: boolean
+      type: object
+    generatedAgentHealthStatus:
+      default: AGENT_HEALTH_STATUS_UNSPECIFIED
+      enum:
+      - AGENT_HEALTH_STATUS_UNSPECIFIED
+      - AGENT_HEALTH_STATUS_HEALTHY
+      - AGENT_HEALTH_STATUS_SLOW_BUT_UP
+      - AGENT_HEALTH_STATUS_DOWN
+      - AGENT_HEALTH_STATUS_NO_DATA
+      type: string
+    generatedAgentHealthResponse:
+      properties:
+        failures:
+          items:
+            $ref: '#/components/schemas/generatedFailedUpdate'
+          type: array
+        sources:
+          items:
+            $ref: '#/components/schemas/generatedAgentHealthInfo'
+          type: array
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedPublicKeyMessage:
+      properties:
+        publicKey:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedFailedUpdate:
+      properties:
+        id:
+          format: int32
+          type: integer
+        reason:
+          type: string
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

@@ -1,0 +1,185 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Observability Custom Rule Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CustomRuleService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a custom rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/custom-rules",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a custom rule"
+        },
+        {
+          "info": {
+            "name": "Get a custom rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/custom-rules/:customRuleId",
+            "params": [
+              {
+                "name": "customRuleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a custom rule"
+        },
+        {
+          "info": {
+            "name": "Delete a custom rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/custom-rules/:customRuleId",
+            "params": [
+              {
+                "name": "customRuleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a custom rule"
+        },
+        {
+          "info": {
+            "name": "Get custom rule revisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/custom-rules/:customRuleId/revisions",
+            "params": [
+              {
+                "name": "customRuleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get custom rule revisions"
+        },
+        {
+          "info": {
+            "name": "Get custom rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/custom-rules/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get custom rules"
+        },
+        {
+          "info": {
+            "name": "Get all custom rules for a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/custom-rules/collection/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get all custom rules for a collection"
+        },
+        {
+          "info": {
+            "name": "Get all custom rules for a warehouse",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/custom-rules/warehouse/:warehouseId",
+            "params": [
+              {
+                "name": "warehouseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get all custom rules for a warehouse"
+        },
+        {
+          "info": {
+            "name": "Run a custom rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/custom-rules/run/:customRuleId",
+            "params": [
+              {
+                "name": "customRuleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Run a custom rule"
+        },
+        {
+          "info": {
+            "name": "Update a custom rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/custom-rules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a custom rule"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

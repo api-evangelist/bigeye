@@ -1,0 +1,976 @@
+{
+  "item": [
+    {
+      "id": "6b41a190-afda-4c33-92e0-ca2f68ca5988",
+      "name": "DataClassService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2ef03b1c-1205-43d3-b188-3c0ffe3c6104",
+          "name": "Create a data class",
+          "request": {
+            "name": "Create a data class",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "data-class"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"colorHex\": \"<string>\",\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a66aa06f-0863-4430-988c-53b58d9abb51",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "data-class"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canResetToDefault\": false,\n  \"categories\": [\n    {\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"workspaceId\": 9802\n    },\n    {\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"workspaceId\": 6510\n    }\n  ],\n  \"colorHex\": \"string\",\n  \"createdBy\": {\n    \"email\": \"string\",\n    \"groups\": [\n      {\n        \"displayName\": \"string\",\n        \"id\": 4495\n      },\n      {\n        \"displayName\": \"string\",\n        \"id\": 1137\n      }\n    ],\n    \"id\": 7004,\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"isServiceAccount\": false,\n    \"lastLoginAt\": \"string\",\n    \"name\": \"string\",\n    \"pictureUrl\": \"string\"\n  },\n  \"description\": \"string\",\n  \"entityInfo\": {\n    \"createdBy\": 3548,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 2650,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"numberOfClassifiers\": 41,\n  \"providedByBigeye\": false,\n  \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n  \"workspaceId\": 4203\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f9a82d8-8bdf-4680-9059-0c179605555f",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "data-class"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8319,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce525f81-b012-4510-9d25-081ba7b36510",
+          "name": "Fetch data classes with filters and pagination",
+          "request": {
+            "name": "Fetch data classes with filters and pagination",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "data-class",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classifierIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"creatorIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"dataClassCategoryIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"scanJobIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"search\": \"<string>\",\n  \"sensitivities\": [\n    \"DATA_SENSITIVITY_UNSPECIFIED\",\n    \"DATA_SENSITIVITY_UNSPECIFIED\"\n  ],\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"DATA_CLASS_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"DATA_CLASS_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "77cca368-ce5c-4a68-bc81-48b56ab13f80",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "data-class",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"classifierIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"creatorIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"dataClassCategoryIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"scanJobIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"search\": \"<string>\",\n  \"sensitivities\": [\n    \"DATA_SENSITIVITY_UNSPECIFIED\",\n    \"DATA_SENSITIVITY_UNSPECIFIED\"\n  ],\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"DATA_CLASS_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"DATA_CLASS_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dataClasses\": [\n    {\n      \"canResetToDefault\": true,\n      \"categories\": [\n        {\n          \"description\": \"string\",\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"workspaceId\": 5630\n        },\n        {\n          \"description\": \"string\",\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"workspaceId\": 8087\n        }\n      ],\n      \"colorHex\": \"string\",\n      \"createdBy\": {\n        \"email\": \"string\",\n        \"groups\": [\n          {\n            \"displayName\": \"string\",\n            \"id\": 5045\n          },\n          {\n            \"displayName\": \"string\",\n            \"id\": 8277\n          }\n        ],\n        \"id\": 7246,\n        \"idpGroups\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isServiceAccount\": false,\n        \"lastLoginAt\": \"string\",\n        \"name\": \"string\",\n        \"pictureUrl\": \"string\"\n      },\n      \"description\": \"string\",\n      \"entityInfo\": {\n        \"createdBy\": 8069,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 1237,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"numberOfClassifiers\": 4772,\n      \"providedByBigeye\": true,\n      \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n      \"workspaceId\": 157\n    },\n    {\n      \"canResetToDefault\": true,\n      \"categories\": [\n        {\n          \"description\": \"string\",\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"workspaceId\": 1392\n        },\n        {\n          \"description\": \"string\",\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"workspaceId\": 9224\n        }\n      ],\n      \"colorHex\": \"string\",\n      \"createdBy\": {\n        \"email\": \"string\",\n        \"groups\": [\n          {\n            \"displayName\": \"string\",\n            \"id\": 3410\n          },\n          {\n            \"displayName\": \"string\",\n            \"id\": 4004\n          }\n        ],\n        \"id\": 8947,\n        \"idpGroups\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isServiceAccount\": false,\n        \"lastLoginAt\": \"string\",\n        \"name\": \"string\",\n        \"pictureUrl\": \"string\"\n      },\n      \"description\": \"string\",\n      \"entityInfo\": {\n        \"createdBy\": 4245,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 4513,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"numberOfClassifiers\": 8937,\n      \"providedByBigeye\": false,\n      \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n      \"workspaceId\": 1682\n    }\n  ],\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": false,\n    \"numRecords\": 9696,\n    \"prevCursor\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d014dfef-dc93-496e-8fc3-31e5adc0fced",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "data-class",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"classifierIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"creatorIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"dataClassCategoryIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"scanJobIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"search\": \"<string>\",\n  \"sensitivities\": [\n    \"DATA_SENSITIVITY_UNSPECIFIED\",\n    \"DATA_SENSITIVITY_UNSPECIFIED\"\n  ],\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"DATA_CLASS_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"DATA_CLASS_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6405,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73276dba-59fa-4765-8ada-83854d2453b8",
+          "name": "Delete a data class",
+          "request": {
+            "name": "Delete a data class",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "data-class",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "990d7a71-a5fb-4e26-a1e5-30db1e744ae6",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "data-class",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85355365-6cbd-4f7c-8574-10e2eeba7570",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "data-class",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6405,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a52492d0-c562-40f8-83a5-d6ea4ee03f62",
+          "name": "Get a data class by ID",
+          "request": {
+            "name": "Get a data class by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "data-class",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee83efb9-1339-4891-8cb6-f29ae3d8bf88",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "data-class",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canResetToDefault\": false,\n  \"categories\": [\n    {\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"workspaceId\": 830\n    },\n    {\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"workspaceId\": 7742\n    }\n  ],\n  \"colorHex\": \"string\",\n  \"createdBy\": {\n    \"email\": \"string\",\n    \"groups\": [\n      {\n        \"displayName\": \"string\",\n        \"id\": 4846\n      },\n      {\n        \"displayName\": \"string\",\n        \"id\": 1727\n      }\n    ],\n    \"id\": 1741,\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"isServiceAccount\": true,\n    \"lastLoginAt\": \"string\",\n    \"name\": \"string\",\n    \"pictureUrl\": \"string\"\n  },\n  \"description\": \"string\",\n  \"entityInfo\": {\n    \"createdBy\": 8155,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 7137,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"numberOfClassifiers\": 3946,\n  \"providedByBigeye\": false,\n  \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n  \"workspaceId\": 6915\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "35c8df02-a443-4e20-ab4c-3d1c2ea46dbb",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "data-class",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6405,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eab0bcd9-c452-4050-92ea-45404813895b",
+          "name": "Update a data class",
+          "request": {
+            "name": "Update a data class",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "data-class",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"colorHex\": \"<string>\",\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e8cbde9-445a-4e42-a711-e016e98f0c43",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "data-class",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canResetToDefault\": false,\n  \"categories\": [\n    {\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"workspaceId\": 830\n    },\n    {\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"workspaceId\": 7742\n    }\n  ],\n  \"colorHex\": \"string\",\n  \"createdBy\": {\n    \"email\": \"string\",\n    \"groups\": [\n      {\n        \"displayName\": \"string\",\n        \"id\": 4846\n      },\n      {\n        \"displayName\": \"string\",\n        \"id\": 1727\n      }\n    ],\n    \"id\": 1741,\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"isServiceAccount\": true,\n    \"lastLoginAt\": \"string\",\n    \"name\": \"string\",\n    \"pictureUrl\": \"string\"\n  },\n  \"description\": \"string\",\n  \"entityInfo\": {\n    \"createdBy\": 8155,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 7137,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"numberOfClassifiers\": 3946,\n  \"providedByBigeye\": false,\n  \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n  \"workspaceId\": 6915\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae5c9442-36cf-49e7-9dc2-bbc65912b8b9",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "data-class",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6405,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3cfe28e-5a1d-4b1f-9568-afa6b1d0accc",
+          "name": "Reset a Bigeye-provided data class to its default state",
+          "request": {
+            "name": "Reset a Bigeye-provided data class to its default state",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "data-class",
+                ":id",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed4b70a7-ea3d-42f4-a9dd-6f43185c6a4c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "data-class",
+                    ":id",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canResetToDefault\": false,\n  \"categories\": [\n    {\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"workspaceId\": 830\n    },\n    {\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"workspaceId\": 7742\n    }\n  ],\n  \"colorHex\": \"string\",\n  \"createdBy\": {\n    \"email\": \"string\",\n    \"groups\": [\n      {\n        \"displayName\": \"string\",\n        \"id\": 4846\n      },\n      {\n        \"displayName\": \"string\",\n        \"id\": 1727\n      }\n    ],\n    \"id\": 1741,\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"isServiceAccount\": true,\n    \"lastLoginAt\": \"string\",\n    \"name\": \"string\",\n    \"pictureUrl\": \"string\"\n  },\n  \"description\": \"string\",\n  \"entityInfo\": {\n    \"createdBy\": 8155,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 7137,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"numberOfClassifiers\": 3946,\n  \"providedByBigeye\": false,\n  \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n  \"workspaceId\": 6915\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a356ca0e-707c-42c3-be8a-46e10d6506dd",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "data-class",
+                    ":id",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6405,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4c4db241-18e9-40c1-bb77-110690750346",
+    "name": "Sensitivity Data Class Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1378 @@
+{
+  "item": [
+    {
+      "id": "4896eb20-9dc7-4192-83fa-a5227303238b",
+      "name": "SchemaService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e26d5ee-1810-4fbd-94a9-48c87cccd8f0",
+          "name": "Remove the manual override of a region for a BigQuery schema (called dataset in BigQuery)",
+          "request": {
+            "name": "Remove the manual override of a region for a BigQuery schema (called dataset in BigQuery)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schemas",
+                ":schemaId",
+                "region"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "schemaId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ba1c7b0-0730-49fd-ad7b-40ce1ea617e5",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    ":schemaId",
+                    "region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schemaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4934bb77-c4a8-4bab-910f-7954d7920e6b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    ":schemaId",
+                    "region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schemaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 911,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "991a443d-bf03-4e10-b029-5ef93c38604d",
+          "name": "Get the region for a BigQuery schema (called dataset in BigQuery)",
+          "request": {
+            "name": "Get the region for a BigQuery schema (called dataset in BigQuery)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schemas",
+                ":schemaId",
+                "region"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "schemaId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "648ca2dc-12e0-48c4-9d89-ea314aa3d517",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    ":schemaId",
+                    "region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schemaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"manuallySet\": false,\n  \"region\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91945f13-277e-4d18-a912-2c814d6bb842",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    ":schemaId",
+                    "region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schemaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3771,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf22ae9e-3a52-4a3d-820b-43cd32d8576a",
+          "name": "Set the region for a BigQuery schema (called dataset in BigQuery)",
+          "request": {
+            "name": "Set the region for a BigQuery schema (called dataset in BigQuery)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schemas",
+                ":schemaId",
+                "region"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "schemaId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"region\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "db1e4ff5-b575-4f7d-ba75-22ccfd886ead",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    ":schemaId",
+                    "region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schemaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"region\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc001016-7c5c-4448-9c9b-df0e29cfb8aa",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    ":schemaId",
+                    "region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schemaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"region\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3771,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6de8b883-fa6c-4fcc-b283-65f825df9347",
+          "name": "Get dbt jobs for schema",
+          "request": {
+            "name": "Get dbt jobs for schema",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schemas",
+                ":schemaId",
+                "dbt",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "schemaId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a48d5340-70c2-4dd8-8563-6fc010edd593",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    ":schemaId",
+                    "dbt",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schemaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dbtJobs\": [\n    {\n      \"dbtJobExtId\": \"string\",\n      \"id\": 8550,\n      \"isFavorite\": false,\n      \"mostRecentJobRuns\": [\n        {\n          \"completedAt\": \"string\",\n          \"dbtJobRunExtId\": \"string\",\n          \"gitSha\": \"string\",\n          \"id\": \"string\",\n          \"jobId\": 5609,\n          \"startedAt\": \"string\",\n          \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n          \"url\": \"string\"\n        },\n        {\n          \"completedAt\": \"string\",\n          \"dbtJobRunExtId\": \"string\",\n          \"gitSha\": \"string\",\n          \"id\": \"string\",\n          \"jobId\": 4104,\n          \"startedAt\": \"string\",\n          \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n          \"url\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"projectId\": 1404,\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 8390,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 4633\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 8323,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 4483\n        }\n      ],\n      \"url\": \"string\"\n    },\n    {\n      \"dbtJobExtId\": \"string\",\n      \"id\": 8299,\n      \"isFavorite\": true,\n      \"mostRecentJobRuns\": [\n        {\n          \"completedAt\": \"string\",\n          \"dbtJobRunExtId\": \"string\",\n          \"gitSha\": \"string\",\n          \"id\": \"string\",\n          \"jobId\": 3251,\n          \"startedAt\": \"string\",\n          \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n          \"url\": \"string\"\n        },\n        {\n          \"completedAt\": \"string\",\n          \"dbtJobRunExtId\": \"string\",\n          \"gitSha\": \"string\",\n          \"id\": \"string\",\n          \"jobId\": 841,\n          \"startedAt\": \"string\",\n          \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n          \"url\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"projectId\": 3431,\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 3316,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 1166\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1368,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 3952\n        }\n      ],\n      \"url\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ff87a54-881a-42ee-b657-67a306be369e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    ":schemaId",
+                    "dbt",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schemaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3771,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67660999-2aa3-4333-90b8-5dc630a47e8d",
+          "name": "Get workflow for schema",
+          "request": {
+            "name": "Get workflow for schema",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schemas",
+                ":schemaId",
+                "workflow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "schemaId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "887a7e03-e013-4a9f-b132-dcde6d536bad",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    ":schemaId",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schemaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workflowId\": \"string\",\n  \"workflowType\": \"WORKFLOW_PROCESSING_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ef1bbf1-12c0-41a6-a653-58d09f0075fd",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    ":schemaId",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schemaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3771,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8784c2d7-1b5c-49b1-81b3-2648bbda6ce6",
+          "name": "Get the current status for a workflow for a schema",
+          "request": {
+            "name": "Get the current status for a workflow for a schema",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schemas",
+                ":schemaId",
+                "workflow",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "schemaId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "346a8ff4-6446-40f0-9e66-5b8ec2f67396",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    ":schemaId",
+                    "workflow",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schemaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"completedAt\": \"string\",\n  \"completedOps\": 5942,\n  \"startedAt\": \"string\",\n  \"status\": \"WORKFLOW_PROCESSING_STATUS_UNSPECIFIED\",\n  \"totalOps\": 4840,\n  \"workflowId\": \"string\",\n  \"workflowType\": \"WORKFLOW_PROCESSING_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "abf3952e-7668-495a-b835-b27c9dfa36a3",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    ":schemaId",
+                    "workflow",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schemaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3771,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a19af3b6-8fa7-4d12-85ee-b41733349007",
+          "name": "Get schemas",
+          "request": {
+            "name": "Get schemas",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schemas",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hidden\": \"<boolean>\",\n  \"includeVirtual\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"SCHEMA_SORT_FIELD_UNSPECIFIED\",\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tagIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44fe6b41-4944-4a50-83c0-2c60cdee2f97",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hidden\": \"<boolean>\",\n  \"includeVirtual\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"SCHEMA_SORT_FIELD_UNSPECIFIED\",\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tagIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": true,\n    \"numRecords\": 7729,\n    \"prevCursor\": \"string\"\n  },\n  \"schemas\": [\n    {\n      \"dataNodeId\": 7753,\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"id\": 2119,\n      \"indexByTable\": false,\n      \"isFavorite\": false,\n      \"isVirtual\": false,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 9799,\n      \"popularityScore\": 1881.0546695116404,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7729,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 6806\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1277,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 2770\n        }\n      ],\n      \"warehouseId\": 4050,\n      \"warehouseName\": \"string\"\n    },\n    {\n      \"dataNodeId\": 3302,\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"id\": 6857,\n      \"indexByTable\": false,\n      \"isFavorite\": false,\n      \"isVirtual\": true,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 3795,\n      \"popularityScore\": 722.9329994414757,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 2565,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 8364\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 5480,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 3146\n        }\n      ],\n      \"warehouseId\": 1820,\n      \"warehouseName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b4b1fd4-41f7-45cd-a26e-e6fe7d3ff436",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hidden\": \"<boolean>\",\n  \"includeVirtual\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"SCHEMA_SORT_FIELD_UNSPECIFIED\",\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tagIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3771,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0ce9b02-b288-4e80-86bf-3239420ca1c7",
+          "name": "Search schemas",
+          "request": {
+            "name": "Search schemas",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schemas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "warehouseId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "warehouseId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "schemaName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "schemaName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "schemaId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "schemaId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "workspaceId",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23653b47-8277-450b-b992-0ac4a3902402",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "schemaName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schemaName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schemaId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "schemaId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "workspaceId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"schemas\": [\n    {\n      \"dataNodeId\": 1492,\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"id\": 5638,\n      \"indexByTable\": false,\n      \"isFavorite\": false,\n      \"isVirtual\": false,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 1315,\n      \"popularityScore\": 2331.4518730765344,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1033,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 2089\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 6376,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 1612\n        }\n      ],\n      \"warehouseId\": 9831,\n      \"warehouseName\": \"string\"\n    },\n    {\n      \"dataNodeId\": 6030,\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"id\": 9853,\n      \"indexByTable\": true,\n      \"isFavorite\": true,\n      \"isVirtual\": true,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 7031,\n      \"popularityScore\": 4432.9434088342405,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 4576,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 3359\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7813,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 6338\n        }\n      ],\n      \"warehouseId\": 5419,\n      \"warehouseName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00ae8c41-cc4d-4353-b213-474aafbc54fd",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schemas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "schemaName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schemaName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schemaId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "schemaId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "workspaceId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3771,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "eb942e5e-eeb5-4ace-ab54-80f604be3681",
+    "name": "Metadata Schema Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

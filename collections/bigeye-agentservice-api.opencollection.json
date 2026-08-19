@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metadata Agent Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AgentService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the public key the user's company Agent should use when sending messages to Bigeye",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/agent/public-key/bigeye"
+          },
+          "docs": "Get the public key the user's company Agent should use when sending messages to Bigeye"
+        },
+        {
+          "info": {
+            "name": "Get the public key Bigeye currently has for the user's company Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/agent/public-key"
+          },
+          "docs": "Get the public key Bigeye currently has for the user's company Agent"
+        },
+        {
+          "info": {
+            "name": "Set the public key Bigeye will use to encrypt messages to the user's company Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/agent/public-key",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the public key Bigeye will use to encrypt messages to the user's company Agent"
+        },
+        {
+          "info": {
+            "name": "Synchronously ping all agent sources for their health status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/agent/health/ping"
+          },
+          "docs": "Synchronously ping all agent sources for their health status"
+        },
+        {
+          "info": {
+            "name": "Retrieve the latest health status of all agent sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/agent/health"
+          },
+          "docs": "Retrieve the latest health status of all agent sources"
+        },
+        {
+          "info": {
+            "name": "Validate that the agent is working for a given source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/agent/validate/source/:sourceId",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Validate that the agent is working for a given source"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

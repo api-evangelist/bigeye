@@ -1,0 +1,2360 @@
+openapi: 3.2.0
+info:
+  title: Metadata Search Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: SearchService
+paths:
+  /api/v1/search:
+    post:
+      operationId: SearchService_Search
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedSearchRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedSearchResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Search for entities
+      tags:
+      - SearchService
+components:
+  schemas:
+    generatedTag:
+      properties:
+        colorHex:
+          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+          type: string
+        createdAt:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        updatedAt:
+          format: int64
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      title: Tags
+      type: object
+    generatedMetricType:
+      properties:
+        customRuleType:
+          $ref: '#/components/schemas/generatedCustomRuleType'
+        externalMonitor:
+          $ref: '#/components/schemas/generatedExternalMonitor'
+        isMetadataMetric:
+          type: boolean
+        isTableMetric:
+          type: boolean
+        predefinedMetric:
+          $ref: '#/components/schemas/generatedPredefinedMetric'
+        templateMetric:
+          $ref: '#/components/schemas/generatedTemplateMetric'
+      type: object
+    generatedComparisonColumnInfo:
+      properties:
+        alertingGroupCount:
+          format: int32
+          type: integer
+        alertingMetricCount:
+          format: int64
+          type: string
+        failedGroupCount:
+          format: int32
+          type: integer
+        failedMetricCount:
+          format: int32
+          type: integer
+        isPartOfKey:
+          type: boolean
+        metrics:
+          items:
+            $ref: '#/components/schemas/generatedMetricType'
+          type: array
+        sourceColumn:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        targetColumn:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        totalGroupCount:
+          format: int32
+          type: integer
+        totalMetricCount:
+          format: int64
+          type: string
+        userDefined:
+          type: boolean
+      type: object
+    generatedSimpleBoundType:
+      default: UNDEFINED_SIMPLE_BOUND_TYPE
+      enum:
+      - UNDEFINED_SIMPLE_BOUND_TYPE
+      - LOWER_BOUND_SIMPLE_BOUND_TYPE
+      - UPPER_BOUND_SIMPLE_BOUND_TYPE
+      type: string
+    generatedColumnCorrelation:
+      properties:
+        columnCorrelationString:
+          type: string
+        datasetId:
+          format: int32
+          type: integer
+      type: object
+    generatedIssueResolutionStep:
+      properties:
+        comments:
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        createdTimestamp:
+          format: int64
+          type: string
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        status:
+          $ref: '#/components/schemas/generatedIssueResolutionStepStatus'
+        updatedBy:
+          $ref: '#/components/schemas/generatedUser'
+        updatedTimestamp:
+          format: int64
+          type: string
+      type: object
+    generatedTimeIntervalType:
+      default: UNDEFINED_TIME_INTERVAL_TYPE
+      enum:
+      - UNDEFINED_TIME_INTERVAL_TYPE
+      - HOURS_TIME_INTERVAL_TYPE
+      - MINUTES_TIME_INTERVAL_TYPE
+      - SECONDS_TIME_INTERVAL_TYPE
+      - DAYS_TIME_INTERVAL_TYPE
+      - WEEKDAYS_TIME_INTERVAL_TYPE
+      - MARKET_DAYS_TIME_INTERVAL_TYPE
+      - MONTHS_TIME_INTERVAL_TYPE
+      - WEEKS_TIME_INTERVAL_TYPE
+      - YEARS_TIME_INTERVAL_TYPE
+      type: string
+    generatedJoin:
+      properties:
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        keyColumns:
+          items:
+            $ref: '#/components/schemas/generatedJoinColumnPairing'
+          type: array
+        leftFilter:
+          $ref: '#/components/schemas/generatedJoinTableFilter'
+        leftTable:
+          $ref: '#/components/schemas/generatedTable'
+        rightFilter:
+          $ref: '#/components/schemas/generatedJoinTableFilter'
+        rightTable:
+          $ref: '#/components/schemas/generatedTable'
+      type: object
+    generatedAiAgentStatus:
+      default: AI_AGENT_STATUS_UNSPECIFIED
+      enum:
+      - AI_AGENT_STATUS_UNSPECIFIED
+      - AI_AGENT_STATUS_ACTIVE
+      - AI_AGENT_STATUS_DEPRECATED
+      - AI_AGENT_STATUS_ERROR
+      type: string
+    generatedCustomRepository:
+      properties:
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        integrationType:
+          $ref: '#/components/schemas/generatedCustomIntegrationType'
+        name:
+          type: string
+        workspaceId:
+          format: int64
+          type: string
+      type: object
+    generatedMetricParameter:
+      properties:
+        columnName:
+          type: string
+        key:
+          type: string
+        numberValue:
+          format: double
+          type: number
+        stringValue:
+          type: string
+      type: object
+    generatedCatalogEntityType:
+      default: CATALOG_ENTITY_TYPE_UNSPECIFIED
+      enum:
+      - CATALOG_ENTITY_TYPE_UNSPECIFIED
+      - CATALOG_ENTITY_TYPE_SOURCE
+      - CATALOG_ENTITY_TYPE_SCHEMA
+      - CATALOG_ENTITY_TYPE_DATASET
+      - CATALOG_ENTITY_TYPE_FIELD
+      - CATALOG_ENTITY_TYPE_DATA_NODE_ENTITY
+      - CATALOG_ENTITY_TYPE_META_CENTER_ENTITY
+      type: string
+    generatedRelativeThreshold:
+      properties:
+        bound:
+          $ref: '#/components/schemas/generatedSimpleBound'
+        lookback:
+          $ref: '#/components/schemas/generatedTimeInterval'
+      type: object
+    generatedThreshold:
+      properties:
+        autoThreshold:
+          $ref: '#/components/schemas/generatedAutoThreshold'
+        constantThreshold:
+          $ref: '#/components/schemas/generatedConstantThreshold'
+        freshnessScheduleThreshold:
+          $ref: '#/components/schemas/generatedFreshnessScheduleThreshold'
+        noneThreshold:
+          $ref: '#/components/schemas/generatedNoneThreshold'
+        relativeThreshold:
+          $ref: '#/components/schemas/generatedRelativeThreshold'
+        standardDeviationThreshold:
+          $ref: '#/components/schemas/generatedStandardDeviationThreshold'
+      type: object
+    generatedIssueMessageUpdate:
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        id:
+          format: int32
+          type: integer
+        message:
+          type: string
+      type: object
+    generatedCustomRulesThresholdType:
+      default: CUSTOM_RULES_THRESHOLD_TYPE_UNSPECIFIED
+      enum:
+      - CUSTOM_RULES_THRESHOLD_TYPE_UNSPECIFIED
+      - CUSTOM_RULES_THRESHOLD_TYPE_COUNT
+      - CUSTOM_RULES_THRESHOLD_TYPE_VALUE
+      - CUSTOM_RULES_THRESHOLD_TYPE_PERCENT_MATCH
+      type: string
+    generatedMetricMetadata:
+      properties:
+        companionMetrics:
+          items:
+            $ref: '#/components/schemas/generatedCompanionMetric'
+          type: array
+        createdAt:
+          format: int64
+          type: string
+        currentMetricStatus:
+          $ref: '#/components/schemas/generatedMetricStatus'
+        datasetId:
+          format: int32
+          type: integer
+        datasetName:
+          type: string
+        datasetTimeColumnName:
+          type: string
+        deletedAt:
+          format: int64
+          type: string
+        fieldId:
+          format: int32
+          type: integer
+        fieldName:
+          type: string
+        isFavorite:
+          type: boolean
+        metricHistoryBeginAt:
+          format: int64
+          type: string
+        metricHistoryEndAt:
+          format: int64
+          type: string
+        monitoredObjects:
+          items:
+            $ref: '#/components/schemas/generatedMonitoredObject'
+          type: array
+        runAt:
+          format: int64
+          type: string
+        schemaId:
+          format: int32
+          type: integer
+        schemaName:
+          type: string
+        statisticFullName:
+          type: string
+        statisticName:
+          type: string
+        updatedAt:
+          format: int64
+          type: string
+        warehouseId:
+          format: int32
+          type: integer
+        warehouseName:
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedComparisonTableConfiguration:
+      properties:
+        columnMappings:
+          items:
+            $ref: '#/components/schemas/generatedComparisonColumnMapping'
+          type: array
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        groupBys:
+          items:
+            $ref: '#/components/schemas/generatedColumnNamePair'
+          type: array
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        namedSchedule:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        sourceFilters:
+          items:
+            type: string
+          type: array
+        sourceTableId:
+          format: int32
+          type: integer
+        targetFilters:
+          items:
+            type: string
+          type: array
+        targetSchema:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        targetTable:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        targetTableId:
+          format: int32
+          type: integer
+        tolerance:
+          format: double
+          type: number
+      type: object
+    generatedWebhookHeader:
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      type: object
+    generatedCatalogPath:
+      properties:
+        columnName:
+          type: string
+        pathParts:
+          items:
+            type: string
+          type: array
+        schemaName:
+          type: string
+        sourceName:
+          type: string
+        tableName:
+          type: string
+      type: object
+    generatedColumnNamePair:
+      properties:
+        sourceColumnName:
+          type: string
+        targetColumnName:
+          type: string
+      type: object
+    generatedAggregationType:
+      default: UNDEFINED_AGGREGATION_TYPE
+      enum:
+      - UNDEFINED_AGGREGATION_TYPE
+      - COUNT_AGGREGATION_TYPE
+      - PERCENT_AGGREGATION_TYPE
+      - MIN_AGGREGATION_TYPE
+      - MAX_AGGREGATION_TYPE
+      - AVG_AGGREGATION_TYPE
+      - SUM_AGGREGATION_TYPE
+      type: string
+    generatedSearchRequest:
+      properties:
+        includeDataNodeId:
+          description: 'Hydrate the lineage node id (data_node_id) on schema/table/column results. This requires an
+
+            extra per-entity-type lookup, so only the lineage typeahead (which navigates by data_node_id)
+
+            sets it; other searches leave it false.'
+          type: boolean
+        limit:
+          format: int32
+          type: integer
+        search:
+          type: string
+        searchMethod:
+          $ref: '#/components/schemas/generatedSearchMethod'
+        types:
+          items:
+            $ref: '#/components/schemas/generatedSearchType'
+          type: array
+      type: object
+    generatedTemplateMetric:
+      properties:
+        aggregationType:
+          $ref: '#/components/schemas/generatedAggregationType'
+        templateId:
+          format: int32
+          type: integer
+        templateName:
+          type: string
+      type: object
+    generatedMonitorType:
+      default: MONITOR_TYPE_UNDEFINED
+      enum:
+      - MONITOR_TYPE_UNDEFINED
+      - MONITOR_TYPE_METRIC
+      - MONITOR_TYPE_DBT_TEST
+      - MONITOR_TYPE_CUSTOM_RULE
+      type: string
+    generatedIssueExternalTicketInfo:
+      properties:
+        externalTicketId:
+          type: string
+        externalTicketProvider:
+          $ref: '#/components/schemas/generatedExternalTicketProvider'
+        externalTicketUrl:
+          type: string
+        issueId:
+          format: int32
+          type: integer
+      type: object
+    generatedAutothresholdSensitivity:
+      default: AUTOTHRESHOLD_SENSITIVITY_UNSPECIFIED
+      enum:
+      - AUTOTHRESHOLD_SENSITIVITY_UNSPECIFIED
+      - AUTOTHRESHOLD_SENSITIVITY_NARROW
+      - AUTOTHRESHOLD_SENSITIVITY_MEDIUM
+      - AUTOTHRESHOLD_SENSITIVITY_WIDE
+      - AUTOTHRESHOLD_SENSITIVITY_XWIDE
+      type: string
+    generatedIssueConfigUpdate:
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        muteUntilTimestamp:
+          format: int64
+          type: string
+        summary:
+          type: string
+      type: object
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedJoinColumnPairing:
+      properties:
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        leftColumn:
+          $ref: '#/components/schemas/generatedTableColumn'
+        rightColumn:
+          $ref: '#/components/schemas/generatedTableColumn'
+      type: object
+    generatedIssueAiOverviewUpdate:
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        id:
+          format: int32
+          type: integer
+        overview:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedIssueAiUpdateType'
+      type: object
+    generatedTableType:
+      default: TABLE_TYPE_UNSPECIFIED
+      enum:
+      - TABLE_TYPE_UNSPECIFIED
+      - TABLE_TYPE_TABLE
+      - TABLE_TYPE_VIEW
+      - TABLE_TYPE_VIRTUAL
+      - TABLE_TYPE_CUSTOM_RULE
+      type: string
+    generatedMetricGroupOverride:
+      properties:
+        groupDimensions:
+          items:
+            $ref: '#/components/schemas/generatedMetricGroupDimension'
+          type: array
+        groupName:
+          type: string
+        thresholds:
+          items:
+            $ref: '#/components/schemas/generatedThreshold'
+          type: array
+      type: object
+    generatedMetricObservedColumnResponse:
+      properties:
+        column:
+          $ref: '#/components/schemas/generatedColumnWithTable'
+        comments:
+          type: string
+        customRule:
+          $ref: '#/components/schemas/generatedCustomRuleInfo'
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        metric:
+          $ref: '#/components/schemas/generatedMetricInfo'
+      type: object
+    generatedIssueResolutionStepStatus:
+      default: ISSUE_RESOLUTION_STEP_STATUS_UNSPECIFIED
+      enum:
+      - ISSUE_RESOLUTION_STEP_STATUS_UNSPECIFIED
+      - ISSUE_RESOLUTION_STEP_STATUS_IRRELEVANT
+      - ISSUE_RESOLUTION_STEP_STATUS_UNSUCCESSFUL
+      - ISSUE_RESOLUTION_STEP_STATUS_SUCCESSFUL
+      type: string
+    generatedRowCreationTimeFilter:
+      properties:
+        lookback:
+          $ref: '#/components/schemas/generatedTimeInterval'
+        rctColumn:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+      type: object
+    generatedSlackChannelInfo:
+      properties:
+        channelId:
+          type: string
+        channelName:
+          type: string
+        issueThreadPermalink:
+          type: string
+        threadTs:
+          type: string
+      type: object
+    generatedExternalTicketProvider:
+      default: EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
+      enum:
+      - EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
+      - EXTERNAL_TICKET_PROVIDER_JIRA
+      - EXTERNAL_TICKET_PROVIDER_SERVICENOW
+      type: string
+    generatedMetricStatus:
+      default: METRIC_STATUS_UNSPECIFIED
+      enum:
+      - METRIC_STATUS_UNSPECIFIED
+      - METRIC_STATUS_ALERTING
+      - METRIC_STATUS_FAILED
+      - METRIC_STATUS_HEALTHY
+      - METRIC_STATUS_NO_OBSERVED_VALUE
+      - METRIC_STATUS_GROUPS_MIXED_STATUS
+      type: string
+    generatedMetricRunAnnotation:
+      properties:
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        metricRunId:
+          format: int32
+          type: integer
+        metricRunLabel:
+          $ref: '#/components/schemas/generatedMetricRunLabel'
+      type: object
+    generatedSearchType:
+      properties:
+        customNodeTypeId:
+          description: 'A specific custom lineage node type, identified by CustomNodeType.id. Selecting one
+
+            narrows search to DataNodeEntity nodes whose custom_node_type_id matches.'
+          format: int64
+          type: string
+        dataNodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+        systemSearchType:
+          $ref: '#/components/schemas/generatedSystemSearchType'
+      type: object
+    generatedMetricRun:
+      properties:
+        exceptionClass:
+          type: string
+        exceptionMessage:
+          type: string
+        failureReason:
+          $ref: '#/components/schemas/generatedMetricRunFailureReason'
+        grainEndEpochSeconds:
+          format: int64
+          title: end of grain for METRIC_TIME based runs
+          type: string
+        grainStartEpochSeconds:
+          format: int64
+          title: start of grain for METRIC_TIME based runs
+          type: string
+        groupDimensions:
+          items:
+            $ref: '#/components/schemas/generatedMetricGroupDimension'
+          type: array
+        groupName:
+          type: string
+        hasRowCounts:
+          type: boolean
+        hasRowsMatched:
+          type: boolean
+        id:
+          format: int32
+          type: integer
+        isPosthoc:
+          type: boolean
+        metricRunAnnotation:
+          $ref: '#/components/schemas/generatedMetricRunAnnotation'
+        observedValue:
+          format: double
+          type: number
+        rowsMatched:
+          format: int64
+          type: string
+        rowsScanned:
+          format: int64
+          type: string
+        runAtEpochSeconds:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedMetricRunStatus'
+        summaryStatus:
+          $ref: '#/components/schemas/generatedMetricStatus'
+        thresholds:
+          items:
+            $ref: '#/components/schemas/generatedConstantThreshold'
+          type: array
+      type: object
+    generatedNamedSchedule:
+      properties:
+        cron:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        timezone:
+          description: IANA timezone id (e.g. "America/New_York") used to interpret the cron. Defaults to UTC when unset.
+          type: string
+      type: object
+    generatedDeltaInfo:
+      properties:
+        comparisonTargetInfos:
+          items:
+            $ref: '#/components/schemas/generatedDeltaTargetInfo'
+          type: array
+        delta:
+          $ref: '#/components/schemas/generatedDelta'
+        isFavorite:
+          type: boolean
+        nextRunEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedMetricRunLabel:
+      default: METRIC_RUN_LABEL_UNSPECIFIED
+      enum:
+      - METRIC_RUN_LABEL_UNSPECIFIED
+      - METRIC_RUN_LABEL_TRUE_NEGATIVE
+      - METRIC_RUN_LABEL_FALSE_NEGATIVE
+      - METRIC_RUN_LABEL_TRUE_POSITIVE
+      - METRIC_RUN_LABEL_FALSE_POSITIVE
+      - METRIC_RUN_LABEL_UNDETERMINED
+      - METRIC_RUN_LABEL_EXPECTED
+      type: string
+    generatedCustomRuleInfo:
+      properties:
+        activeIssue:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        collections:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        createdAtEpochSeconds:
+          format: int64
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        customRule:
+          $ref: '#/components/schemas/generatedCustomRule'
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        latestRuns:
+          items:
+            $ref: '#/components/schemas/generatedMetricRun'
+          type: array
+        metricId:
+          format: int32
+          type: integer
+        updatedAtEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          $ref: '#/components/schemas/generatedUser'
+        warehouse:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+      type: object
+    generatedDeltaTargetInfo:
+      properties:
+        alertingGroupCount:
+          format: int32
+          type: integer
+        alertingMetricCount:
+          format: int64
+          type: string
+        comparisonColumnInfos:
+          items:
+            $ref: '#/components/schemas/generatedComparisonColumnInfo'
+          type: array
+        comparisonMetricInfos:
+          items:
+            $ref: '#/components/schemas/generatedComparisonMetricInfo'
+          type: array
+        failedGroupCount:
+          format: int32
+          type: integer
+        failedMetricCount:
+          format: int64
+          type: string
+        isTargetTableDeleted:
+          type: boolean
+        keysInAllCount:
+          format: int64
+          type: string
+        keysOnlyInSourceCount:
+          format: int64
+          type: string
+        keysOnlyInTargetCount:
+          format: int64
+          type: string
+        lastRunAtEpochSeconds:
+          format: int64
+          type: string
+        metricCount:
+          format: int64
+          type: string
+        schemaMatch:
+          type: boolean
+        sourceRowCount:
+          format: int64
+          type: string
+        targetRowCount:
+          format: int64
+          type: string
+        targetSchema:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        targetSource:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        targetTable:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        targetWarehouseType:
+          $ref: '#/components/schemas/generatedWarehouseType'
+        totalGroupCount:
+          format: int32
+          type: integer
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedSearchResponse:
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/generatedSearchResult'
+          type: array
+      type: object
+    generatedIssueAiUpdateType:
+      default: ISSUE_AI_UPDATE_TYPE_UNSPECIFIED
+      enum:
+      - ISSUE_AI_UPDATE_TYPE_UNSPECIFIED
+      - ISSUE_AI_UPDATE_TYPE_OVERVIEW
+      - ISSUE_AI_UPDATE_TYPE_RESOLUTION_SUGGESTION
+      - ISSUE_AI_UPDATE_TYPE_DATA_DESCRIPTION
+      - ISSUE_AI_UPDATE_TYPE_ETL_ANALYSIS
+      - ISSUE_AI_UPDATE_TYPE_PREVIOUS_RESOLUTIONS
+      - ISSUE_AI_UPDATE_TYPE_OVERVIEW_RESTRICTED
+      type: string
+    generatedStandardDeviationThreshold:
+      properties:
+        bound:
+          $ref: '#/components/schemas/generatedSimpleBound'
+        lookback:
+          $ref: '#/components/schemas/generatedTimeInterval'
+      type: object
+    generatedAlertingMetric:
+      properties:
+        label:
+          $ref: '#/components/schemas/generatedMetricRunLabel'
+        metric:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+      type: object
+    generatedComparisonMetricStatus:
+      enum:
+      - COMPARISON_METRIC_STATUS_UNKNOWN
+      - COMPARISON_METRIC_STATUS_OK
+      - COMPARISON_METRIC_STATUS_ALERT
+      - COMPARISON_METRIC_STATUS_OK_NO_RUNS
+      type: string
+    generatedIssueRootCauseUpdate:
+      properties:
+        id:
+          format: int32
+          type: integer
+        isRootCause:
+          type: boolean
+        numImpactedObjects:
+          format: int32
+          type: integer
+      type: object
+    generatedMetricRunStatus:
+      default: METRIC_RUN_STATUS_UNSPECIFIED
+      enum:
+      - METRIC_RUN_STATUS_UNSPECIFIED
+      - METRIC_RUN_STATUS_UPPERBOUND_CRITICAL
+      - METRIC_RUN_STATUS_LOWERBOUND_CRITICAL
+      - METRIC_RUN_STATUS_OK
+      - METRIC_RUN_STATUS_GROUPS_CRITICAL
+      - METRIC_RUN_STATUS_NO_RUNS
+      - METRIC_RUN_STATUS_UNKNOWN
+      - METRIC_RUN_STATUS_MUTABLE_UNKNOWN
+      - METRIC_RUN_STATUS_MUTABLE_UPPERBOUND_CRITICAL
+      - METRIC_RUN_STATUS_MUTABLE_LOWERBOUND_CRITICAL
+      - METRIC_RUN_STATUS_MUTABLE_OK
+      - METRIC_RUN_STATUS_GROUPS_LIMIT_FAILED
+      title: "- METRIC_RUN_STATUS_UNSPECIFIED: deprecated in favor of MetricStatus\n - METRIC_RUN_STATUS_GROUPS_CRITICAL: METRIC_RUN_STATUS_GROUPS_CRITICAL is not a valid value for MetricRun.status (it only applies to MetricInfo.status)\n - METRIC_RUN_STATUS_NO_RUNS: METRIC_RUN_STATUS_NO_RUNS is not a valid value for MetricRun.status (it only applies to MetricInfo.status)"
+      type: string
+    generatedIssueStatusUpdate:
+      properties:
+        anomalousMetricIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        closingLabel:
+          $ref: '#/components/schemas/generatedMetricRunLabel'
+        id:
+          format: int32
+          type: integer
+        message:
+          type: string
+        metricIdsToAdapt:
+          items:
+            format: int32
+            type: integer
+          type: array
+        metricIdsToMaintain:
+          items:
+            format: int32
+            type: integer
+          type: array
+        newStatus:
+          $ref: '#/components/schemas/generatedIssueStatus'
+        normalMetricIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        updatedBy:
+          $ref: '#/components/schemas/generatedUser'
+      type: object
+    generatedPredefinedMetricName:
+      default: UNDEFINED_PREDEFINED_METRIC_NAME
+      enum:
+      - UNDEFINED_PREDEFINED_METRIC_NAME
+      - PERCENT_NULL
+      - COUNT_NULL
+      - PERCENT_EMPTY_STRING
+      - COUNT_EMPTY_STRING
+      - PERCENT_UNIQUE
+      - PERCENT_VALUE_IN_LIST
+      - AVERAGE
+      - MIN
+      - MAX
+      - SUM
+      - COUNT_ROWS
+      - COUNT_DISTINCT
+      - HOURS_SINCE_MAX_DATE
+      - HOURS_SINCE_MAX_TIMESTAMP
+      - COUNT_TRUE
+      - PERCENT_TRUE
+      - COUNT_FALSE
+      - PERCENT_FALSE
+      - COUNT_USA_PHONE
+      - PERCENT_USA_PHONE
+      - COUNT_USA_ZIP_CODE
+      - PERCENT_USA_ZIP_CODE
+      - PERCENT_UUID
+      - COUNT_TIMESTAMP_STRING
+      - PERCENT_TIMESTAMP_STRING
+      - COUNT_DUPLICATES
+      - COUNT_USA_STATE_CODE
+      - PERCENT_USA_STATE_CODE
+      - VARIANCE
+      - SKEW
+      - KURTOSIS
+      - GEOMETRIC_MEAN
+      - HARMONIC_MEAN
+      - COUNT_UUID
+      - COUNT_CUSIP
+      - PERCENT_CUSIP
+      - COUNT_SEDOL
+      - PERCENT_SEDOL
+      - COUNT_ISIN
+      - PERCENT_ISIN
+      - COUNT_LEI
+      - PERCENT_LEI
+      - COUNT_FIGI
+      - PERCENT_FIGI
+      - COUNT_PERM_ID
+      - PERCENT_PERM_ID
+      - COUNT_NAN
+      - PERCENT_NAN
+      - COUNT_LONGITUDE
+      - PERCENT_LONGITUDE
+      - COUNT_LATITUDE
+      - PERCENT_LATITUDE
+      - COUNT_NOT_IN_FUTURE
+      - PERCENT_NOT_IN_FUTURE
+      - COUNT_DATE_NOT_IN_FUTURE
+      - PERCENT_DATE_NOT_IN_FUTURE
+      - MEDIAN
+      - PERCENTILE
+      - COUNT_NOT_NULL
+      - STRING_LENGTH_AVERAGE
+      - STRING_LENGTH_MIN
+      - STRING_LENGTH_MAX
+      - COUNT_SSN
+      - PERCENT_SSN
+      - COUNT_EMAIL
+      - PERCENT_EMAIL
+      - ROWS_INSERTED
+      - HOURS_SINCE_LAST_LOAD
+      - COUNT_READ_QUERIES
+      - PERCENT_NOT_NULL
+      - FRESHNESS
+      - VOLUME
+      - FRESHNESS_DATA
+      - VOLUME_DATA
+      - COUNT_VALUE_IN_LIST
+      - PERCENT_DISTINCT
+      - PERCENT_DUPLICATES
+      - HOURS_SINCE_MAX_STRING
+      type: string
+    generatedExternalMonitorType:
+      default: EXTERNAL_MONITOR_TYPE_UNDEFINED
+      enum:
+      - EXTERNAL_MONITOR_TYPE_UNDEFINED
+      - EXTERNAL_MONITOR_TYPE_DBT_TEST
+      type: string
+    generatedFreshnessScheduleThreshold:
+      properties:
+        bound:
+          $ref: '#/components/schemas/generatedSimpleBound'
+        cron:
+          type: string
+        delayAtUpdate:
+          $ref: '#/components/schemas/generatedTimeInterval'
+        timezone:
+          type: string
+      type: object
+    generatedWebhook:
+      properties:
+        webhookHeaders:
+          items:
+            $ref: '#/components/schemas/generatedWebhookHeader'
+          type: array
+        webhookUrl:
+          type: string
+      type: object
+    generatedConstantThreshold:
+      properties:
+        bound:
+          $ref: '#/components/schemas/generatedSimpleBound'
+      type: object
+    generatedCompanionMetric:
+      properties:
+        id:
+          format: int32
+          type: integer
+        metricInfo:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        type:
+          $ref: '#/components/schemas/generatedCompanionMetricType'
+      type: object
+    generatedJoinType:
+      default: JOIN_TYPE_UNSPECIFIED
+      enum:
+      - JOIN_TYPE_UNSPECIFIED
+      - JOIN_TYPE_INNER
+      - JOIN_TYPE_LEFT
+      - JOIN_TYPE_RIGHT
+      - JOIN_TYPE_FULL
+      type: string
+    generatedIssueMergeUpdate:
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        id:
+          format: int32
+          type: integer
+        issues:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        type:
+          $ref: '#/components/schemas/generatedIssueMergeUpdateType'
+      type: object
+    generatedDataNodeType:
+      default: DATA_NODE_TYPE_UNSPECIFIED
+      description: " - DATA_NODE_TYPE_MC_STRATEGY_FOLDER: STRATEGY Formerly known as MicroStrategy\n - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE: AI_AGENT prefix: AI agents surfaced on the lineage graph.\nDeprecated: use the platform-agnostic DATA_NODE_TYPE_AI_AGENT instead."
+      enum:
+      - DATA_NODE_TYPE_UNSPECIFIED
+      - DATA_NODE_TYPE_TABLE
+      - DATA_NODE_TYPE_COLUMN
+      - DATA_NODE_TYPE_SCHEMA
+      - DATA_NODE_TYPE_MC_TABLEAU_PROJECT
+      - DATA_NODE_TYPE_MC_TABLEAU_WORKBOOK
+      - DATA_NODE_TYPE_MC_TABLEAU_STORY
+      - DATA_NODE_TYPE_MC_TABLEAU_SHEET
+      - DATA_NODE_TYPE_MC_TABLEAU_DASHBOARD
+      - DATA_NODE_TYPE_MC_POWERBI_WORKSPACE
+      - DATA_NODE_TYPE_MC_POWERBI_REPORT
+      - DATA_NODE_TYPE_MC_POWERBI_PAGE
+      - DATA_NODE_TYPE_MC_POWERBI_DASHBOARD
+      - DATA_NODE_TYPE_MC_POWERCENTER_WORKFLOW
+      - DATA_NODE_TYPE_MC_POWERCENTER_TARGET
+      - DATA_NODE_TYPE_MC_POWERCENTER_TARGET_FIELD
+      - DATA_NODE_TYPE_MC_SSIS_PACKAGE
+      - DATA_NODE_TYPE_MC_SSIS_DESTINATION
+      - DATA_NODE_TYPE_MC_SSIS_DESTINATION_FIELD
+      - DATA_NODE_TYPE_CUSTOM
+      - DATA_NODE_TYPE_CUSTOM_ENTRY
+      - DATA_NODE_TYPE_MC_COGNOS_FOLDER
+      - DATA_NODE_TYPE_MC_COGNOS_REPORT
+      - DATA_NODE_TYPE_MC_COGNOS_QUERY
+      - DATA_NODE_TYPE_MC_SAP_BO_FOLDER
+      - DATA_NODE_TYPE_MC_SAP_BO_REPORT
+      - DATA_NODE_TYPE_MC_FDS_FOLDER
+      - DATA_NODE_TYPE_MC_FDS_FILE
+      - DATA_NODE_TYPE_MC_FDS_FIELD
+      - DATA_NODE_TYPE_MC_QLIK_REPLICATE_SCHEMA
+      - DATA_NODE_TYPE_MC_QLIK_REPLICATE_TABLE
+      - DATA_NODE_TYPE_MC_QLIK_REPLICATE_COLUMN
+      - DATA_NODE_TYPE_MC_LOOKER_FOLDER
+      - DATA_NODE_TYPE_MC_LOOKER_BOARD
+      - DATA_NODE_TYPE_MC_LOOKER_LOOK
+      - DATA_NODE_TYPE_MC_LOOKER_DASHBOARD
+      - DATA_NODE_TYPE_MC_LOOKER_VISUALIZATION
+      - DATA_NODE_TYPE_MC_CDM_TARGET
+      - DATA_NODE_TYPE_MC_CDM_TARGET_FIELD
+      - DATA_NODE_TYPE_MC_CDM_TEMP_TABLE
+      - DATA_NODE_TYPE_MC_CDM_TEMP_FIELD
+      - DATA_NODE_TYPE_MC_CDM_TRANSFORM_FILE
+      - DATA_NODE_TYPE_MC_SNAPLOGIC_PIPELINE
+      - DATA_NODE_TYPE_MC_SNAPLOGIC_WRITE
+      - DATA_NODE_TYPE_MC_SNAPLOGIC_FIELD
+      - DATA_NODE_TYPE_MC_DATASTAGE_OUTPUT
+      - DATA_NODE_TYPE_MC_DATASTAGE_OUTPUT_FIELD
+      - DATA_NODE_TYPE_MC_SSRS_FOLDER
+      - DATA_NODE_TYPE_MC_SSRS_REPORT
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_VIS_DIMENSION
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_VIS_MEASURE
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_APPLICATION
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_SHEET
+      - DATA_NODE_TYPE_MC_STRATEGY_FOLDER
+      - DATA_NODE_TYPE_MC_STRATEGY_DOSSIER
+      - DATA_NODE_TYPE_MC_STRATEGY_GRAPH
+      - DATA_NODE_TYPE_MC_STRATEGY_GRID
+      - DATA_NODE_TYPE_MC_STRATEGY_GRIDGRAPH
+      - DATA_NODE_TYPE_MC_ADF_STORED_PROC
+      - DATA_NODE_TYPE_MC_ADF_TARGET_TABLE
+      - DATA_NODE_TYPE_MC_ADF_COPY_SINK
+      - DATA_NODE_TYPE_MC_ADF_FIELD
+      - DATA_NODE_TYPE_MC_MATILLION_COMPONENT
+      - DATA_NODE_TYPE_MC_MATILLION_TARGET_TABLE
+      - DATA_NODE_TYPE_MC_MATILLION_TARGET_FIELD
+      - DATA_NODE_TYPE_SOURCE
+      - DATA_NODE_TYPE_DBT_CLOUD
+      - DATA_NODE_TYPE_DBT_CORE
+      - DATA_NODE_TYPE_MC_REPOSITORY
+      - DATA_NODE_TYPE_DBT_PROJECT
+      - DATA_NODE_TYPE_CUSTOM_REPOSITORY
+      - DATA_NODE_TYPE_MC_SSIS_DATA_FLOW
+      - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE
+      - DATA_NODE_TYPE_AI_AGENT
+      type: string
+    generatedUser:
+      properties:
+        email:
+          type: string
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        id:
+          format: int32
+          type: integer
+        idpGroups:
+          items:
+            type: string
+          type: array
+        isServiceAccount:
+          type: boolean
+        lastLoginAt:
+          format: int64
+          type: string
+        name:
+          type: string
+        pictureUrl:
+          type: string
+      type: object
+    generatedTimeInterval:
+      properties:
+        intervalType:
+          $ref: '#/components/schemas/generatedTimeIntervalType'
+        intervalValue:
+          format: int32
+          type: integer
+      type: object
+    generatedCustomIntegrationType:
+      properties:
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        iconUrl:
+          type: string
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedIntegrationType'
+      type: object
+    generatedAiAgent:
+      properties:
+        createdAtMillis:
+          format: int64
+          type: string
+        description:
+          type: string
+        externalId:
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        owner:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        platform:
+          $ref: '#/components/schemas/generatedAiPlatform'
+        sources:
+          items:
+            $ref: '#/components/schemas/generatedCatalogSource'
+          type: array
+        status:
+          $ref: '#/components/schemas/generatedAiAgentStatus'
+        trustScores:
+          $ref: '#/components/schemas/generatedAiAgentTrustScores'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedIssueType:
+      default: ISSUE_TYPE_UNSPECIFIED
+      enum:
+      - ISSUE_TYPE_UNSPECIFIED
+      - ISSUE_TYPE_ISSUE
+      - ISSUE_TYPE_INCIDENT
+      type: string
+    generatedTable:
+      description: '*
+
+        Representation of a table in a warehouse.'
+      properties:
+        columns:
+          items:
+            $ref: '#/components/schemas/generatedTableColumn'
+          type: array
+        dataNodeId:
+          format: int32
+          type: integer
+        databaseName:
+          type: string
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        latestMetricTimeValue:
+          format: int64
+          type: string
+        logicalSizeBytes:
+          format: int64
+          type: string
+        metricTimeColumn:
+          $ref: '#/components/schemas/generatedTableColumn'
+        name:
+          type: string
+        numQueriesLatestPeriod:
+          format: int32
+          type: integer
+        popularityScore:
+          format: double
+          type: number
+        requiresPartitionFilter:
+          type: boolean
+        schema:
+          $ref: '#/components/schemas/generatedSchema'
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        schemaId:
+          format: int32
+          type: integer
+        schemaName:
+          type: string
+        sizeLastUpdatedAtMillis:
+          format: int64
+          type: string
+        tableType:
+          $ref: '#/components/schemas/generatedTableType'
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        usesAgent:
+          type: boolean
+        warehouseId:
+          format: int32
+          type: integer
+        warehouseName:
+          type: string
+        warehouseVendor:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedPredefinedMetric:
+      properties:
+        metricName:
+          $ref: '#/components/schemas/generatedPredefinedMetricName'
+      type: object
+    generatedIssue:
+      properties:
+        ackSnoozeSeconds:
+          format: int32
+          type: integer
+        ackedTimeSeconds:
+          format: int64
+          type: string
+        aiOverview:
+          type: string
+        alertCount:
+          format: int32
+          type: integer
+        alertingDataDescription:
+          type: string
+        alertingMetrics:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        alertingMetricsWithLabel:
+          items:
+            $ref: '#/components/schemas/generatedAlertingMetric'
+          type: array
+        assignee:
+          $ref: '#/components/schemas/generatedUser'
+        closedTimeSeconds:
+          format: int64
+          type: string
+        currentClosingFeedback:
+          $ref: '#/components/schemas/generatedMetricRunLabel'
+        currentStatus:
+          $ref: '#/components/schemas/generatedIssueStatus'
+        description:
+          type: string
+        dimensionId:
+          format: int32
+          type: integer
+        earliestAlertingPointTimeSeconds:
+          format: int64
+          type: string
+        etlAnalysis:
+          type: string
+        events:
+          items:
+            $ref: '#/components/schemas/generatedIssueEvent'
+          type: array
+        firstMetricRunStatus:
+          $ref: '#/components/schemas/generatedMetricRunStatus'
+        id:
+          format: int32
+          type: integer
+        impactedObjects:
+          format: int32
+          type: integer
+        isRootCause:
+          type: boolean
+        issueResolutionSteps:
+          items:
+            $ref: '#/components/schemas/generatedIssueResolutionStep'
+          type: array
+        issueType:
+          $ref: '#/components/schemas/generatedIssueType'
+        metricConfiguration:
+          $ref: '#/components/schemas/generatedMetricConfiguration'
+        metricMetadata:
+          $ref: '#/components/schemas/generatedMetricMetadata'
+        mutedUntilTimestamp:
+          format: int64
+          type: string
+        name:
+          type: string
+        notificationChannels:
+          items:
+            $ref: '#/components/schemas/generatedNotificationChannel'
+          type: array
+        openedTimeSeconds:
+          format: int64
+          type: string
+        parentIssue:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        previousResolutionSummary:
+          type: string
+        priority:
+          $ref: '#/components/schemas/generatedIssuePriority'
+        priorityScore:
+          format: int32
+          type: integer
+        summary:
+          type: string
+        timeToAckSeconds:
+          format: int64
+          type: string
+        timeToResolveSeconds:
+          format: int64
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedMetricInfo:
+      properties:
+        activeIssue:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        canBackfill:
+          type: boolean
+        collections:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        criticalGroupCount:
+          format: int32
+          type: integer
+        groupCount:
+          format: int32
+          type: integer
+        isBackfillDestructive:
+          type: boolean
+        isSnoozed:
+          type: boolean
+        latestMetricRuns:
+          items:
+            $ref: '#/components/schemas/generatedMetricRun'
+          title: Latest metric run results
+          type: array
+        metricConfiguration:
+          $ref: '#/components/schemas/generatedMetricConfiguration'
+        metricMetadata:
+          $ref: '#/components/schemas/generatedMetricMetadata'
+        noValueGroupCount:
+          format: int32
+          type: integer
+        reasonCannotBackfill:
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedMetricRunStatus'
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+      type: object
+    generatedIssuePriority:
+      default: ISSUE_PRIORITY_UNSPECIFIED
+      enum:
+      - ISSUE_PRIORITY_UNSPECIFIED
+      - ISSUE_PRIORITY_LOW
+      - ISSUE_PRIORITY_MED
+      - ISSUE_PRIORITY_HIGH
+      type: string
+    generatedSystemSearchType:
+      default: SYSTEM_SEARCH_TYPE_UNSPECIFIED
+      enum:
+      - SYSTEM_SEARCH_TYPE_UNSPECIFIED
+      - SYSTEM_SEARCH_TYPE_COLLECTION
+      - SYSTEM_SEARCH_TYPE_DELTA
+      - SYSTEM_SEARCH_TYPE_ISSUE
+      type: string
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedCatalogSource:
+      properties:
+        customCatalogSource:
+          $ref: '#/components/schemas/generatedCustomCatalogSource'
+        customRepository:
+          $ref: '#/components/schemas/generatedCustomRepository'
+        id:
+          format: int32
+          type: integer
+        integrationPartner:
+          $ref: '#/components/schemas/generatedIntegrationPartner'
+        name:
+          type: string
+        usesAgent:
+          type: boolean
+        warehouseVendor:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedComparisonMetricInfo:
+      properties:
+        comparisonMetricConfiguration:
+          $ref: '#/components/schemas/generatedComparisonMetricConfiguration'
+        criticalGroupCount:
+          format: int32
+          type: integer
+        difference:
+          format: double
+          type: number
+        exceptionClass:
+          type: string
+        exceptionMessage:
+          type: string
+        failedGroupCount:
+          format: int32
+          type: integer
+        groupCount:
+          format: int32
+          type: integer
+        sourceFailed:
+          type: boolean
+        sourceMetricInfo:
+          $ref: '#/components/schemas/generatedMetricInfo'
+        sourceValue:
+          format: double
+          type: number
+        status:
+          $ref: '#/components/schemas/generatedComparisonMetricStatus'
+        targetFailed:
+          type: boolean
+        targetMetricInfo:
+          $ref: '#/components/schemas/generatedMetricInfo'
+        targetValue:
+          format: double
+          type: number
+      type: object
+    generatedForecastModelType:
+      default: UNDEFINED_THRESHOLD_MODEL_TYPE
+      enum:
+      - UNDEFINED_THRESHOLD_MODEL_TYPE
+      type: string
+    generatedAiPlatform:
+      default: AI_PLATFORM_UNSPECIFIED
+      enum:
+      - AI_PLATFORM_UNSPECIFIED
+      - AI_PLATFORM_SNOWFLAKE
+      - AI_PLATFORM_DATABRICKS
+      - AI_PLATFORM_LANGCHAIN
+      - AI_PLATFORM_COPILOT
+      - AI_PLATFORM_AGENTFORCE
+      - AI_PLATFORM_CLAUDE
+      type: string
+    generatedNoneThreshold:
+      type: object
+    generatedIssuePriorityChangeEvent:
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        id:
+          format: int32
+          type: integer
+        issuePriority:
+          $ref: '#/components/schemas/generatedIssuePriority'
+        metricRunObservedValue:
+          format: double
+          type: number
+      type: object
+    generatedMetricSchedule:
+      properties:
+        namedSchedule:
+          $ref: '#/components/schemas/generatedNamedSchedule'
+        scheduleFrequency:
+          $ref: '#/components/schemas/generatedTimeInterval'
+      type: object
+    generatedComparisonMetricConfiguration:
+      properties:
+        comparisonTableId:
+          format: int32
+          type: integer
+        id:
+          format: int32
+          type: integer
+        metric:
+          $ref: '#/components/schemas/generatedMetricType'
+        sourceColumnName:
+          type: string
+        sourceMetricConfiguration:
+          $ref: '#/components/schemas/generatedMetricConfiguration'
+        targetColumnName:
+          type: string
+        targetMetricConfiguration:
+          $ref: '#/components/schemas/generatedMetricConfiguration'
+        tolerance:
+          format: double
+          type: number
+      type: object
+    generatedSchemaChangeInfo:
+      properties:
+        initialSchemaScanAt:
+          format: int64
+          type: string
+        lastSchemaChangeAt:
+          format: int64
+          type: string
+        mostRecentSchemaScanAt:
+          format: int64
+          type: string
+      type: object
+    generatedAiAgentTrustScores:
+      description: 'Trust scores (0..1) computed over the assets an agent accessed. A score is unset when there
+
+        was nothing to score it on (no monitors for quality, no findings for sensitivity).'
+      properties:
+        quality:
+          format: double
+          type: number
+        sensitivity:
+          format: double
+          type: number
+      type: object
+    generatedLookbackType:
+      default: UNDEFINED_LOOKBACK_TYPE
+      enum:
+      - UNDEFINED_LOOKBACK_TYPE
+      - DATA_TIME_LOOKBACK_TYPE
+      - CLOCK_TIME_LOOKBACK_TYPE
+      - METRIC_TIME_LOOKBACK_TYPE
+      type: string
+    generatedIssueAssignmentUpdate:
+      properties:
+        assignee:
+          $ref: '#/components/schemas/generatedUser'
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedIntegrationType:
+      default: INTEGRATION_TYPE_UNSPECIFIED
+      enum:
+      - INTEGRATION_TYPE_UNSPECIFIED
+      - INTEGRATION_TYPE_BI_TOOL
+      - INTEGRATION_TYPE_ETL_TOOL
+      - INTEGRATION_TYPE_DATABASE
+      type: string
+    generatedIssueEvent:
+      properties:
+        issueAiOverviewUpdate:
+          $ref: '#/components/schemas/generatedIssueAiOverviewUpdate'
+        issueAssignmentUpdate:
+          $ref: '#/components/schemas/generatedIssueAssignmentUpdate'
+        issueConfigUpdate:
+          $ref: '#/components/schemas/generatedIssueConfigUpdate'
+        issueMergeUpdate:
+          $ref: '#/components/schemas/generatedIssueMergeUpdate'
+        issueMessageUpdate:
+          $ref: '#/components/schemas/generatedIssueMessageUpdate'
+        issuePriorityChangeEvent:
+          $ref: '#/components/schemas/generatedIssuePriorityChangeEvent'
+        issueRootCauseUpdate:
+          $ref: '#/components/schemas/generatedIssueRootCauseUpdate'
+        issueStatusUpdate:
+          $ref: '#/components/schemas/generatedIssueStatusUpdate'
+        metricEvent:
+          $ref: '#/components/schemas/generatedMetricEvent'
+        timestamp:
+          format: int64
+          type: string
+      type: object
+    generatedIssueStatus:
+      default: ISSUE_STATUS_UNSPECIFIED
+      enum:
+      - ISSUE_STATUS_UNSPECIFIED
+      - ISSUE_STATUS_NEW
+      - ISSUE_STATUS_ACKNOWLEDGED
+      - ISSUE_STATUS_CLOSED
+      - ISSUE_STATUS_MONITORING
+      - ISSUE_STATUS_MERGED
+      type: string
+    generatedDelta:
+      properties:
+        alertingMetricCount:
+          format: int64
+          type: string
+        comparisonTableConfigurations:
+          items:
+            $ref: '#/components/schemas/generatedComparisonTableConfiguration'
+          type: array
+        dimension:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        failedMetricCount:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        isSourceTableDeleted:
+          type: boolean
+        lastRunAtEpochSeconds:
+          format: int64
+          type: string
+        name:
+          type: string
+        namedSchedule:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        notificationChannels:
+          items:
+            $ref: '#/components/schemas/generatedNotificationChannel'
+          type: array
+        sourceSchema:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        sourceSource:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        sourceTable:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        sourceWarehouseType:
+          $ref: '#/components/schemas/generatedWarehouseType'
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        totalMetricCount:
+          format: int64
+          type: string
+      type: object
+    generatedCustomRuleType:
+      default: CUSTOM_RULE_TYPE_UNSPECIFIED
+      enum:
+      - CUSTOM_RULE_TYPE_UNSPECIFIED
+      - CUSTOM_RULE_TYPE_SQL_RULE
+      - CUSTOM_RULE_TYPE_JOIN_RULE
+      type: string
+    generatedMetricGroupDimension:
+      properties:
+        columnName:
+          type: string
+        columnValue:
+          type: string
+        nullValue:
+          type: boolean
+      type: object
+    generatedMetricRunFailureReason:
+      default: METRIC_RUN_FAILURE_REASON_UNKNOWN
+      enum:
+      - METRIC_RUN_FAILURE_REASON_UNKNOWN
+      - METRIC_RUN_FAILURE_REASON_QUERY_FAILED
+      - METRIC_RUN_FAILURE_REASON_CONNECTION_FAILURE
+      - METRIC_RUN_FAILURE_REASON_QUERY_TIMEOUT
+      - METRIC_RUN_FAILURE_REASON_INVALID_CREDS
+      - METRIC_RUN_FAILURE_REASON_NO_LOOKBACK_DATA
+      - METRIC_RUN_FAILURE_REASON_LOOKBACK_VALUE_NOT_FOUND
+      - METRIC_RUN_FAILURE_REASON_NO_OBSERVED_VALUE
+      - METRIC_RUN_FAILURE_REASON_DATA_ACCESS_EXCEPTION
+      - METRIC_RUN_FAILURE_REASON_BIGEYE_IP_NOT_WHITELISTED
+      - METRIC_RUN_FAILURE_REASON_MAX_METRIC_TIME_NOT_FOUND
+      - METRIC_RUN_FAILURE_REASON_DIMENSION_NOT_FOUND
+      - METRIC_RUN_FAILURE_REASON_GROUPS_OVER_LIMIT
+      - METRIC_RUN_FAILURE_REASON_BLOB_SIZE_LIMIT
+      - METRIC_RUN_FAILURE_REASON_GRPC_SIZE_LIMIT
+      - METRIC_RUN_FAILURE_REASON_UNHEALTHY_AGENT
+      type: string
+    generatedCompanionMetricType:
+      default: TYPE_FRESHNESS_VOLUME
+      enum:
+      - TYPE_FRESHNESS_VOLUME
+      type: string
+    generatedSchema:
+      description: '*
+
+        Representation of a schema in a warehouse.'
+      properties:
+        dataNodeId:
+          format: int32
+          type: integer
+        databaseType:
+          $ref: '#/components/schemas/generatedWarehouseType'
+        id:
+          format: int32
+          type: integer
+        indexByTable:
+          type: boolean
+        isFavorite:
+          type: boolean
+        isVirtual:
+          type: boolean
+        latestMetricTimeValue:
+          format: int64
+          type: string
+        logicalSizeBytes:
+          format: int64
+          type: string
+        name:
+          type: string
+        numQueriesLatestPeriod:
+          format: int32
+          type: integer
+        popularityScore:
+          format: double
+          type: number
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        sizeLastUpdatedAtMillis:
+          format: int64
+          type: string
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        warehouseId:
+          format: int32
+          type: integer
+        warehouseName:
+          type: string
+      type: object
+    generatedCustomNodeType:
+      properties:
+        allowedChildNodeTypes:
+          description: 'Allowed child types, which may be either custom node types or catalog node types
+
+            (e.g. DATA_NODE_TYPE_SCHEMA). Supersedes allowed_child_types.'
+          items:
+            $ref: '#/components/schemas/generatedNodeType'
+          type: array
+        allowedChildTypes:
+          description: 'Deprecated: custom-node-type-only allowed children. Use allowed_child_node_types, which
+
+            also supports catalog node types. Still populated with the custom-type subset for
+
+            backwards compatibility.'
+          items:
+            $ref: '#/components/schemas/generatedCustomNodeType'
+          type: array
+        allowedParentNodeTypes:
+          description: 'Allowed parent types, which may be either custom node types or catalog node types
+
+            (e.g. DATA_NODE_TYPE_TABLE). Supersedes allowed_parent_types.'
+          items:
+            $ref: '#/components/schemas/generatedNodeType'
+          type: array
+        allowedParentTypes:
+          description: 'Deprecated: custom-node-type-only allowed parents. Use allowed_parent_node_types, which
+
+            also supports catalog node types. Still populated with the custom-type subset for
+
+            backwards compatibility.'
+          items:
+            $ref: '#/components/schemas/generatedCustomNodeType'
+          type: array
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int64
+          type: string
+        integrationType:
+          $ref: '#/components/schemas/generatedCustomIntegrationType'
+        isColumnDisplay:
+          title: If true, this node type will be displayed as a column in lineage UIs
+          type: boolean
+        name:
+          type: string
+        namePlural:
+          type: string
+        showInImpactAnalysis:
+          description: 'If true, nodes of this type are surfaced as impacted entities in issue impact analysis (RCA)
+
+            when they lie downstream of an issue.'
+          type: boolean
+      type: object
+    generatedMonitoredObject:
+      properties:
+        entityInfo:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        entityType:
+          $ref: '#/components/schemas/generatedCatalogEntityType'
+      type: object
+    generatedMetricConfiguration:
+      properties:
+        alertOnAbsentGroups:
+          type: boolean
+        bigconfigNamespace:
+          type: string
+        customRuleId:
+          format: int32
+          type: integer
+        datasetId:
+          format: int32
+          title: Bigeye ID for the table which this metric is run on
+          type: integer
+        description:
+          type: string
+        dimension:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        filters:
+          items:
+            type: string
+          title: Each filter evaluates to a valid SQL boolean expression
+          type: array
+        grainSeconds:
+          format: int32
+          title: width of METRIC_TIME based metric intervals
+          type: integer
+        groupBys:
+          items:
+            type: string
+          title: Each group by is a column name from the table for this metric
+          type: array
+        id:
+          format: int32
+          type: integer
+        isLookbackUsingCurrentTime:
+          type: boolean
+        isTableMetric:
+          type: boolean
+        lookback:
+          $ref: '#/components/schemas/generatedTimeInterval'
+        lookbackType:
+          $ref: '#/components/schemas/generatedLookbackType'
+        metricCreationState:
+          $ref: '#/components/schemas/generatedMetricCreationState'
+        metricGroupOverrides:
+          items:
+            $ref: '#/components/schemas/generatedMetricGroupOverride'
+          type: array
+        metricObservedColumnResponse:
+          items:
+            $ref: '#/components/schemas/generatedMetricObservedColumnResponse'
+          type: array
+        metricSchedule:
+          $ref: '#/components/schemas/generatedMetricSchedule'
+        metricType:
+          $ref: '#/components/schemas/generatedMetricType'
+        monitorType:
+          $ref: '#/components/schemas/generatedMonitorType'
+        mutedUntilEpochSeconds:
+          format: int64
+          type: string
+        name:
+          type: string
+        notificationChannels:
+          items:
+            $ref: '#/components/schemas/generatedNotificationChannel'
+          type: array
+        parameters:
+          items:
+            $ref: '#/components/schemas/generatedMetricParameter'
+          type: array
+        profilingSuggestionForColumn:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        rctOverride:
+          type: string
+        scheduleFrequency:
+          $ref: '#/components/schemas/generatedTimeInterval'
+        thresholds:
+          items:
+            $ref: '#/components/schemas/generatedThreshold'
+          type: array
+        warehouseId:
+          format: int32
+          type: integer
+      type: object
+    generatedColumnWithTable:
+      properties:
+        column:
+          $ref: '#/components/schemas/generatedTableColumn'
+        table:
+          $ref: '#/components/schemas/generatedTable'
+      type: object
+    generatedSearchResult:
+      properties:
+        aiAgent:
+          $ref: '#/components/schemas/generatedAiAgent'
+        collection:
+          $ref: '#/components/schemas/generatedCollection'
+        columnNode:
+          $ref: '#/components/schemas/generatedColumnWithTable'
+        delta:
+          $ref: '#/components/schemas/generatedDeltaInfo'
+        issue:
+          $ref: '#/components/schemas/generatedIssue'
+        lineageNode:
+          $ref: '#/components/schemas/generatedLineageNodeV2'
+        schemaNode:
+          $ref: '#/components/schemas/generatedSchema'
+        tableNode:
+          $ref: '#/components/schemas/generatedTable'
+      type: object
+    generatedSearchMethod:
+      default: SEARCH_METHOD_UNSPECIFIED
+      description: "Controls how a search term is matched against indexed names.\n\n - SEARCH_METHOD_UNSPECIFIED: Unset behaves the same as SEARCH_METHOD_EXACT_TERM.\n - SEARCH_METHOD_EXACT_TERM: Match the term exactly (no fuzziness). A term containing \"*\" is treated as a wildcard.\n - SEARCH_METHOD_CONTAINS: Per-word \"contains\" matching: split the term on whitespace; every word must match via a\n\"*word*\" wildcard or a fuzzy match."
+      enum:
+      - SEARCH_METHOD_UNSPECIFIED
+      - SEARCH_METHOD_EXACT_TERM
+      - SEARCH_METHOD_CONTAINS
+      type: string
+    generatedTableColumn:
+      description: '*
+
+        Representation of a column in a table.'
+      properties:
+        canBeMetricTime:
+          type: boolean
+        dataNodeId:
+          format: int32
+          type: integer
+        extendedType:
+          type: string
+        fullType:
+          type: string
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        isKeyInJoin:
+          type: boolean
+        isMetricTime:
+          type: boolean
+        isNullable:
+          type: boolean
+        isPartitionField:
+          type: boolean
+        name:
+          type: string
+        parentColumnId:
+          format: int32
+          type: integer
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        type:
+          type: string
+      type: object
+    generatedComparisonColumnMapping:
+      properties:
+        isPartOfKey:
+          type: boolean
+        metrics:
+          items:
+            $ref: '#/components/schemas/generatedMetricType'
+          type: array
+        sourceColumn:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        targetColumn:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        userDefined:
+          type: boolean
+      type: object
+    generatedNodeType:
+      properties:
+        customNodeType:
+          $ref: '#/components/schemas/generatedCustomNodeType'
+        dataNodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+      type: object
+    generatedMetricEvent:
+      properties:
+        description:
+          type: string
+        failureReason:
+          $ref: '#/components/schemas/generatedMetricRunFailureReason'
+        id:
+          format: int32
+          type: integer
+        metricRunStatus:
+          $ref: '#/components/schemas/generatedMetricRunStatus'
+        metricRuns:
+          items:
+            $ref: '#/components/schemas/generatedMetricRun'
+          type: array
+        notificationSent:
+          type: boolean
+      type: object
+    generatedJoinTableFilter:
+      properties:
+        rctFilter:
+          $ref: '#/components/schemas/generatedRowCreationTimeFilter'
+        whereClause:
+          type: string
+      type: object
+    generatedCustomCatalogSource:
+      properties:
+        iconUrl:
+          type: string
+        name:
+          type: string
+      type: object
+    generatedSimpleBound:
+      properties:
+        boundType:
+          $ref: '#/components/schemas/generatedSimpleBoundType'
+        value:
+          description: Value of the threshold. For AutoThreshold types this is ignored.
+          format: double
+          type: number
+      type: object
+    generatedMetricCreationState:
+      default: METRIC_CREATION_STATE_UNSPECIFIED
+      enum:
+      - METRIC_CREATION_STATE_UNSPECIFIED
+      - METRIC_CREATION_STATE_MANUAL
+      - METRIC_CREATION_STATE_SUGGESTED_AUTO
+      - METRIC_CREATION_STATE_ACCEPTED_AUTO
+      - METRIC_CREATION_STATE_REJECTED_AUTO
+      - METRIC_CREATION_STATE_COMPARISON
+      - METRIC_CREATION_STATE_AUTOMATIC_SETUP
+      - METRIC_CREATION_STATE_SUITE
+      - METRIC_CREATION_STATE_CUSTOM_RULE
+      - METRIC_CREATION_STATE_INTEGRATION
+      type: string
+    generatedIntegrationPartner:
+      default: INTEGRATION_PARTNER_UNSPECIFIED
+      enum:
+      - INTEGRATION_PARTNER_UNSPECIFIED
+      - INTEGRATION_PARTNER_TABLEAU
+      - INTEGRATION_PARTNER_DBT_CLOUD
+      - INTEGRATION_PARTNER_METACENTER
+      - INTEGRATION_PARTNER_DBT_CORE
+      - INTEGRATION_PARTNER_POWERBI
+      - INTEGRATION_PARTNER_POWERCENTER
+      - INTEGRATION_PARTNER_SSIS
+      - INTEGRATION_PARTNER_COGNOS
+      - INTEGRATION_PARTNER_SAP_BUSINESS_OBJECTS
+      - INTEGRATION_PARTNER_FDS
+      - INTEGRATION_PARTNER_QLIK_REPLICATE
+      - INTEGRATION_PARTNER_LOOKER
+      - INTEGRATION_PARTNER_CDM
+      - INTEGRATION_PARTNER_SNAPLOGIC
+      - INTEGRATION_PARTNER_DATASTAGE
+      - INTEGRATION_PARTNER_SSRS
+      - INTEGRATION_PARTNER_QLIK_SENSE
+      - INTEGRATION_PARTNER_STRATEGY
+      - INTEGRATION_PARTNER_ADF
+      - INTEGRATION_PARTNER_MATILLION
+      - INTEGRATION_PARTNER_ANTHROPIC
+      type: string
+    generatedExternalMonitor:
+      properties:
+        type:
+          $ref: '#/components/schemas/generatedExternalMonitorType'
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedCollection:
+      properties:
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        metricIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        mutedUntilTimestamp:
+          format: int32
+          type: integer
+        name:
+          type: string
+        notificationChannels:
+          items:
+            $ref: '#/components/schemas/generatedNotificationChannel'
+          type: array
+        owner:
+          format: int32
+          type: integer
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedIssueMergeUpdateType:
+      default: ISSUE_MERGE_UPDATE_TYPE_UNSPECIFIED
+      enum:
+      - ISSUE_MERGE_UPDATE_TYPE_UNSPECIFIED
+      - ISSUE_MERGE_UPDATE_TYPE_MERGE
+      - ISSUE_MERGE_UPDATE_TYPE_UNMERGE
+      type: string
+    generatedLineageNodeV2:
+      properties:
+        catalogPath:
+          $ref: '#/components/schemas/generatedCatalogPath'
+        createdAt:
+          format: int64
+          type: string
+        customNodeType:
+          $ref: '#/components/schemas/generatedCustomNodeType'
+        id:
+          format: int32
+          type: integer
+        nodeEntityId:
+          format: int32
+          type: integer
+        nodeName:
+          type: string
+        nodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+        source:
+          $ref: '#/components/schemas/generatedCatalogSource'
+        updatedAt:
+          format: int64
+          type: string
+        usesAgent:
+          type: boolean
+      type: object
+    generatedAutoThreshold:
+      properties:
+        bound:
+          $ref: '#/components/schemas/generatedSimpleBound'
+        forecastTime:
+          format: int64
+          type: string
+        forecastValue:
+          description: This field is ignored for configuration purposes.
+          format: double
+          type: number
+        modelType:
+          $ref: '#/components/schemas/generatedForecastModelType'
+        sensitivity:
+          $ref: '#/components/schemas/generatedAutothresholdSensitivity'
+      type: object
+    generatedCustomRule:
+      properties:
+        bigconfigNamespace:
+          description: The Bigconfig namespace that owns this rule, if any. Output-only.
+          type: string
+        collectionIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        customRuleType:
+          $ref: '#/components/schemas/generatedCustomRuleType'
+        description:
+          type: string
+        dimension:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        isBigconfig:
+          description: 'True when this rule is managed by a Bigconfig suite. Output-only: set by the backend
+
+            from the backing metric''s creation state; ignored on input.'
+          type: boolean
+        join:
+          $ref: '#/components/schemas/generatedJoin'
+        joinType:
+          $ref: '#/components/schemas/generatedJoinType'
+        leftAlias:
+          type: string
+        leftSelectColumns:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        lowerThreshold:
+          format: double
+          type: number
+        metricObservedColumnResponse:
+          items:
+            $ref: '#/components/schemas/generatedMetricObservedColumnResponse'
+          type: array
+        metricSchedule:
+          $ref: '#/components/schemas/generatedMetricSchedule'
+        name:
+          type: string
+        observedColumns:
+          description: 'Fully-qualified column names this rule observes (e.g. source.schema.table.column). Used as
+
+            Bigconfig suite input to link the rule to assets; resolved to dataset fields on apply.'
+          items:
+            type: string
+          type: array
+        owner:
+          $ref: '#/components/schemas/generatedUser'
+        profilingSuggestionForColumn:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        profilingSuggestionForCorrelatedColumns:
+          $ref: '#/components/schemas/generatedColumnCorrelation'
+        rightAlias:
+          type: string
+        rightSelectColumns:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        sql:
+          type: string
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        thresholdType:
+          $ref: '#/components/schemas/generatedCustomRulesThresholdType'
+        thresholds:
+          items:
+            $ref: '#/components/schemas/generatedConstantThreshold'
+          type: array
+        upperThreshold:
+          format: double
+          type: number
+        warehouseId:
+          format: int32
+          type: integer
+      type: object
+    generatedNotificationChannel:
+      properties:
+        email:
+          type: string
+        externalTicketInfo:
+          $ref: '#/components/schemas/generatedIssueExternalTicketInfo'
+        slackChannelInfo:
+          $ref: '#/components/schemas/generatedSlackChannelInfo'
+        webhook:
+          $ref: '#/components/schemas/generatedWebhook'
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

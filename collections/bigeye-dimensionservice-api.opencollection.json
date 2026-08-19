@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Observability Dimension Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DimensionService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bulk update dimensions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/dimensions/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk update dimensions"
+        },
+        {
+          "info": {
+            "name": "Update dimension",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/dimensions/:dimensionId",
+            "params": [
+              {
+                "name": "dimensionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update dimension"
+        },
+        {
+          "info": {
+            "name": "Delete dimension",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/dimensions/:dimensionId",
+            "params": [
+              {
+                "name": "dimensionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete dimension"
+        },
+        {
+          "info": {
+            "name": "Get dimension",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/dimension/:dimensionId",
+            "params": [
+              {
+                "name": "dimensionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get dimension"
+        },
+        {
+          "info": {
+            "name": "Get all dimensions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/dimensions"
+          },
+          "docs": "Get all dimensions"
+        },
+        {
+          "info": {
+            "name": "Create dimension",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/dimensions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create dimension"
+        },
+        {
+          "info": {
+            "name": "Assign statistic (e.g., \"AVERAGE\") to dimension",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/dimensions/assign-statistic",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign statistic (e.g., \"AVERAGE\") to dimension"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

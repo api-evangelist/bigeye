@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Observability Delta Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DeltaService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Perform bulk operations on deltas",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/deltas/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Perform bulk operations on deltas"
+        },
+        {
+          "info": {
+            "name": "Create a delta",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/deltas",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a delta"
+        },
+        {
+          "info": {
+            "name": "Update a delta",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/deltas",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a delta"
+        },
+        {
+          "info": {
+            "name": "Fetch deltas with filters and pagination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/deltas/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch deltas with filters and pagination"
+        },
+        {
+          "info": {
+            "name": "Get a delta by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/deltas/:deltaId",
+            "params": [
+              {
+                "name": "deltaId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a delta by ID"
+        },
+        {
+          "info": {
+            "name": "Delete a delta by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/deltas/:deltaId",
+            "params": [
+              {
+                "name": "deltaId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a delta by ID"
+        },
+        {
+          "info": {
+            "name": "Run a delta by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/deltas/run/:deltaId",
+            "params": [
+              {
+                "name": "deltaId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Run a delta by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

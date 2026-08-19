@@ -1,0 +1,1290 @@
+openapi: 3.2.0
+info:
+  title: Sensitivity Scan Job Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: ScanJobService
+paths:
+  /api/v1/sds/scan-job/{id}/cancel:
+    post:
+      operationId: ScanJobService_CancelScanJob
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Cancel a running scan job
+      tags:
+      - ScanJobService
+  /api/v1/sds/scan-job:
+    post:
+      operationId: ScanJobService_CreateScanJob
+      requestBody:
+        $ref: '#/components/requestBodies/generatedCreateOrUpdateScanJobRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedScanJob'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create a scan job
+      tags:
+      - ScanJobService
+  /api/v1/sds/scan-job/fetch:
+    post:
+      operationId: ScanJobService_FetchScanJobs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedGetScanJobListRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetScanJobListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Fetch scan jobs with filters and pagination
+      tags:
+      - ScanJobService
+  /api/v1/sds/scan-job/findings/aggregate:
+    post:
+      operationId: ScanJobService_GetAggregateFindings
+      requestBody:
+        $ref: '#/components/requestBodies/generatedGetScanFindingsRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetScanFindingsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get aggregate findings for a scan job
+      tags:
+      - ScanJobService
+  /api/v1/sds/scan-job/{id}:
+    delete:
+      operationId: ScanJobService_DeleteScanJob
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete a scan job
+      tags:
+      - ScanJobService
+    get:
+      operationId: ScanJobService_GetScanJob
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedScanJob'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get a scan job by ID
+      tags:
+      - ScanJobService
+    put:
+      operationId: ScanJobService_UpdateScanJob
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/generatedCreateOrUpdateScanJobRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedScanJob'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Update a scan job
+      tags:
+      - ScanJobService
+  /api/v1/sds/scan-job/{id}/status:
+    get:
+      operationId: ScanJobService_GetScanJobStatus
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkflowV2StatusResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get the status of a scan job
+      tags:
+      - ScanJobService
+  /api/v1/sds/scan-job/findings/snapshot:
+    post:
+      operationId: ScanJobService_GetSnapshotFindings
+      requestBody:
+        $ref: '#/components/requestBodies/generatedGetScanFindingsRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetScanFindingsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get snapshot findings for a scan job
+      tags:
+      - ScanJobService
+  /api/v1/sds/scan-job/reset-scan:
+    put:
+      operationId: ScanJobService_ResetScan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedBulkResetScanRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedBulkResetScanResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Reset scan data for specific tables in a scan job
+      tags:
+      - ScanJobService
+  /api/v1/sds/scan-job/{id}/retry:
+    put:
+      operationId: ScanJobService_RetryScanJob
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkflowV2StatusResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Retry a failed scan job
+      tags:
+      - ScanJobService
+  /api/v1/sds/scan-job/{id}/run:
+    post:
+      operationId: ScanJobService_RunScanJob
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkflowV2StatusResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Run a scan job
+      tags:
+      - ScanJobService
+  /api/v1/sds/scan-job/{id}/partition-columns:
+    put:
+      operationId: ScanJobService_SetPartitionColumns
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedBulkSetPartitionColumnsRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedBulkSetPartitionColumnsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Set partition columns for a scan job
+      tags:
+      - ScanJobService
+  /api/v1/sds/scan-job/{id}/terminate:
+    post:
+      operationId: ScanJobService_TerminateScanJob
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedTerminateScanJobRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Terminate a running scan job
+      tags:
+      - ScanJobService
+components:
+  schemas:
+    generatedSlackChannelInfo:
+      properties:
+        channelId:
+          type: string
+        channelName:
+          type: string
+        issueThreadPermalink:
+          type: string
+        threadTs:
+          type: string
+      type: object
+    generatedCreateOrUpdateScanJobRequest:
+      properties:
+        classifierIds:
+          items:
+            format: int64
+            type: string
+          type: array
+        description:
+          type: string
+        incrementalScanStartAt:
+          format: int64
+          type: string
+        name:
+          type: string
+        notificationChannels:
+          items:
+            $ref: '#/components/schemas/generatedNotificationChannel'
+          type: array
+        sampledScanFractionOfRows:
+          format: double
+          type: number
+        sampledScanMinNumberOfRows:
+          format: int32
+          type: integer
+        scanType:
+          $ref: '#/components/schemas/generatedScanType'
+        schedule:
+          $ref: '#/components/schemas/generatedScanSchedule'
+        tables:
+          items:
+            $ref: '#/components/schemas/generatedTableToScan'
+          type: array
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedEmpty:
+      type: object
+    generatedExternalTicketProvider:
+      default: EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
+      enum:
+      - EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
+      - EXTERNAL_TICKET_PROVIDER_JIRA
+      - EXTERNAL_TICKET_PROVIDER_SERVICENOW
+      type: string
+    generatedSetPartitionColumnRequest:
+      properties:
+        columnId:
+          format: int32
+          type: integer
+      type: object
+    generatedScanJobStatus:
+      default: SCAN_JOB_STATUS_UNSPECIFIED
+      enum:
+      - SCAN_JOB_STATUS_UNSPECIFIED
+      - SCAN_JOB_STATUS_SCANNED
+      - SCAN_JOB_STATUS_SCANNING
+      - SCAN_JOB_STATUS_NO_RUNS
+      - SCAN_JOB_STATUS_CANCELLED
+      - SCAN_JOB_STATUS_FAILED
+      type: string
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
+    generatedUser:
+      properties:
+        email:
+          type: string
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        id:
+          format: int32
+          type: integer
+        idpGroups:
+          items:
+            type: string
+          type: array
+        isServiceAccount:
+          type: boolean
+        lastLoginAt:
+          format: int64
+          type: string
+        name:
+          type: string
+        pictureUrl:
+          type: string
+      type: object
+    generatedDataClass:
+      properties:
+        canResetToDefault:
+          type: boolean
+        categories:
+          items:
+            $ref: '#/components/schemas/generatedDataClassCategory'
+          type: array
+        colorHex:
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        numberOfClassifiers:
+          format: int32
+          type: integer
+        providedByBigeye:
+          type: boolean
+        sensitivity:
+          $ref: '#/components/schemas/generatedDataSensitivity'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedTimeIntervalType:
+      default: UNDEFINED_TIME_INTERVAL_TYPE
+      enum:
+      - UNDEFINED_TIME_INTERVAL_TYPE
+      - HOURS_TIME_INTERVAL_TYPE
+      - MINUTES_TIME_INTERVAL_TYPE
+      - SECONDS_TIME_INTERVAL_TYPE
+      - DAYS_TIME_INTERVAL_TYPE
+      - WEEKDAYS_TIME_INTERVAL_TYPE
+      - MARKET_DAYS_TIME_INTERVAL_TYPE
+      - MONTHS_TIME_INTERVAL_TYPE
+      - WEEKS_TIME_INTERVAL_TYPE
+      - YEARS_TIME_INTERVAL_TYPE
+      type: string
+    generatedTimeInterval:
+      properties:
+        intervalType:
+          $ref: '#/components/schemas/generatedTimeIntervalType'
+        intervalValue:
+          format: int32
+          type: integer
+      type: object
+    generatedScanType:
+      default: SCAN_TYPE_UNSPECIFIED
+      enum:
+      - SCAN_TYPE_UNSPECIFIED
+      - SCAN_TYPE_AUTO
+      - SCAN_TYPE_FULL
+      - SCAN_TYPE_INCREMENTAL
+      - SCAN_TYPE_SAMPLED
+      type: string
+    generatedResetScanRequest:
+      properties:
+        columnId:
+          format: int32
+          type: integer
+      type: object
+    generatedGetScanFindingsRequest:
+      properties:
+        classifierIds:
+          items:
+            format: int64
+            type: string
+          type: array
+        columnIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        dataClassCategoryIds:
+          items:
+            format: int64
+            type: string
+          type: array
+        dataClassIds:
+          items:
+            format: int64
+            type: string
+          type: array
+        includeChunkInfo:
+          type: boolean
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        positiveOrNegativeFindings:
+          $ref: '#/components/schemas/generatedThreeLeggedBoolean'
+        scanJobIds:
+          items:
+            format: int64
+            type: string
+          type: array
+        scanRunIds:
+          items:
+            format: int64
+            type: string
+          type: array
+        schemaIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        search:
+          type: string
+        sensitivities:
+          items:
+            $ref: '#/components/schemas/generatedDataSensitivity'
+          type: array
+        sortOptions:
+          items:
+            $ref: '#/components/schemas/generatedScanFindingSortOption'
+          type: array
+        sourceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        tableIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedScanRun:
+      properties:
+        completedAt:
+          format: int64
+          type: string
+        displayName:
+          type: string
+        errorMessage:
+          type: string
+        id:
+          format: int64
+          type: string
+        nextRunAt:
+          format: int64
+          type: string
+        numberOfClassifiers:
+          format: int32
+          type: integer
+        rowsScanned:
+          format: int64
+          type: string
+        scanJob:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        scanType:
+          $ref: '#/components/schemas/generatedScanType'
+        schedule:
+          $ref: '#/components/schemas/generatedScanSchedule'
+        splitFailures:
+          items:
+            $ref: '#/components/schemas/generatedSplitFailure'
+          type: array
+        startedAt:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedScanJobStatus'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedScanFindingChunkInfo:
+      properties:
+        agentVersion:
+          type: string
+        chunkId:
+          format: int32
+          type: integer
+        query:
+          type: string
+        queryExecutedAt:
+          format: int64
+          type: string
+        rowsMatched:
+          format: int64
+          type: string
+        rowsScanned:
+          format: int64
+          type: string
+        sdsPythonVersion:
+          type: string
+      type: object
+    generatedScanScheduleFrequency:
+      properties:
+        cronString:
+          type: string
+        displayName:
+          type: string
+        startTimeEpochSeconds:
+          format: int64
+          type: string
+        timeInterval:
+          $ref: '#/components/schemas/generatedTimeInterval'
+      type: object
+    generatedBulkSetPartitionColumnsResponse:
+      properties:
+        failures:
+          items:
+            $ref: '#/components/schemas/generatedSetPartitionColumnFailure'
+          type: array
+        successes:
+          items:
+            $ref: '#/components/schemas/generatedSetPartitionColumnRequest'
+          type: array
+      type: object
+    generatedBulkResetScanResponse:
+      properties:
+        failures:
+          items:
+            $ref: '#/components/schemas/generatedResetScanFailure'
+          type: array
+        successes:
+          items:
+            $ref: '#/components/schemas/generatedResetScanRequest'
+          type: array
+      type: object
+    generatedDataSensitivity:
+      default: DATA_SENSITIVITY_UNSPECIFIED
+      enum:
+      - DATA_SENSITIVITY_UNSPECIFIED
+      - DATA_SENSITIVITY_PUBLIC
+      - DATA_SENSITIVITY_INTERNAL
+      - DATA_SENSITIVITY_CONFIDENTIAL
+      - DATA_SENSITIVITY_RESTRICTED
+      type: string
+    generatedNamedSchedule:
+      properties:
+        cron:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        timezone:
+          description: IANA timezone id (e.g. "America/New_York") used to interpret the cron. Defaults to UTC when unset.
+          type: string
+      type: object
+    generatedScanSchedule:
+      properties:
+        namedSchedule:
+          $ref: '#/components/schemas/generatedNamedSchedule'
+        scheduleFrequency:
+          $ref: '#/components/schemas/generatedScanScheduleFrequency'
+      type: object
+    generatedScanJobSortField:
+      default: SCAN_JOB_SORT_FIELD_UNSPECIFIED
+      enum:
+      - SCAN_JOB_SORT_FIELD_UNSPECIFIED
+      - SCAN_JOB_SORT_FIELD_NAME
+      - SCAN_JOB_SORT_FIELD_TYPE
+      - SCAN_JOB_SORT_FIELD_LAST_RUN
+      - SCAN_JOB_SORT_FIELD_NEXT_RUN
+      - SCAN_JOB_SORT_FIELD_STATUS
+      - SCAN_JOB_SORT_FIELD_SCHEDULE
+      type: string
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    generatedBulkSetPartitionColumnsRequest:
+      properties:
+        requests:
+          items:
+            $ref: '#/components/schemas/generatedSetPartitionColumnRequest'
+          type: array
+      type: object
+    generatedScanJob:
+      properties:
+        classifiers:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        creator:
+          $ref: '#/components/schemas/generatedUser'
+        description:
+          type: string
+        distinctWarehouses:
+          items:
+            $ref: '#/components/schemas/generatedWarehouse'
+          type: array
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int64
+          type: string
+        inProgressScanRun:
+          $ref: '#/components/schemas/generatedScanRun'
+        incrementalScanStartAt:
+          format: int64
+          type: string
+        latestCompletedScanRun:
+          $ref: '#/components/schemas/generatedScanRun'
+        name:
+          type: string
+        nextRunAt:
+          format: int64
+          type: string
+        notificationChannels:
+          items:
+            $ref: '#/components/schemas/generatedNotificationChannel'
+          type: array
+        sampledScanFractionOfRows:
+          format: double
+          type: number
+        sampledScanMinNumberOfRows:
+          format: int32
+          type: integer
+        scanType:
+          $ref: '#/components/schemas/generatedScanType'
+        schedule:
+          $ref: '#/components/schemas/generatedScanSchedule'
+        status:
+          $ref: '#/components/schemas/generatedScanJobStatus'
+        tables:
+          items:
+            $ref: '#/components/schemas/generatedTableToScan'
+          type: array
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedGetScanJobListRequest:
+      properties:
+        classifierIds:
+          items:
+            format: int64
+            type: string
+          type: array
+        creatorIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        includeClassifiers:
+          type: boolean
+        includeNotificationChannels:
+          type: boolean
+        includeTables:
+          type: boolean
+        includeWarehouses:
+          type: boolean
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        returnJobsWithNoSchedule:
+          type: boolean
+        scanTypes:
+          items:
+            $ref: '#/components/schemas/generatedScanType'
+          type: array
+        scheduleFrequencies:
+          items:
+            $ref: '#/components/schemas/generatedTimeInterval'
+          type: array
+        scheduleFrequencyCronStrings:
+          items:
+            type: string
+          type: array
+        scheduleIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        search:
+          type: string
+        sortOptions:
+          items:
+            $ref: '#/components/schemas/generatedScanJobSortOption'
+          type: array
+        statuses:
+          items:
+            $ref: '#/components/schemas/generatedScanJobStatus'
+          type: array
+        warehouseIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedGetScanFindingsResponse:
+      properties:
+        findings:
+          items:
+            $ref: '#/components/schemas/generatedScanFinding'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedScanFinding:
+      properties:
+        chunkInfos:
+          items:
+            $ref: '#/components/schemas/generatedScanFindingChunkInfo'
+          type: array
+        classifier:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        column:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        dataClass:
+          $ref: '#/components/schemas/generatedDataClass'
+        earliestScanRunId:
+          format: int64
+          type: string
+        earliestScanTableFinishedAt:
+          format: int64
+          type: string
+        isColumnDeleted:
+          type: boolean
+        isMarkedForResetScan:
+          type: boolean
+        isPositive:
+          type: boolean
+        isSchemaDeleted:
+          type: boolean
+        isSourceDeleted:
+          type: boolean
+        isTableDeleted:
+          type: boolean
+        latestScanRunId:
+          format: int64
+          type: string
+        latestScanTableFinishedAt:
+          format: int64
+          type: string
+        rowsMatched:
+          format: int64
+          type: string
+        rowsScanned:
+          format: int64
+          type: string
+        scanJob:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        scanRunId:
+          format: int64
+          type: string
+        scanType:
+          $ref: '#/components/schemas/generatedScanType'
+        schema:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        source:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        table:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        wasResetScan:
+          type: boolean
+      type: object
+    generatedGetScanJobListResponse:
+      properties:
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+        scanJobs:
+          items:
+            $ref: '#/components/schemas/generatedScanJob'
+          type: array
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedWebhookHeader:
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      type: object
+    generatedScanJobSortOption:
+      properties:
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedScanJobSortField'
+      type: object
+    generatedSetPartitionColumnFailure:
+      properties:
+        reason:
+          type: string
+        request:
+          $ref: '#/components/schemas/generatedSetPartitionColumnRequest'
+      type: object
+    generatedWarehouse:
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        warehouseVendor:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedThreeLeggedBoolean:
+      default: THREE_LEGGED_BOOLEAN_UNSPECIFIED
+      description: 'We need this for isMuted filters as unspecified == no filter, but the generated typescript file is
+
+        setting null to false so there is no way for the receiver to tell if there is no filter, or if
+
+        the filter is set to false.'
+      enum:
+      - THREE_LEGGED_BOOLEAN_UNSPECIFIED
+      - THREE_LEGGED_BOOLEAN_TRUE
+      - THREE_LEGGED_BOOLEAN_FALSE
+      type: string
+    generatedWorkflowV2StatusResponse:
+      properties:
+        completedAt:
+          format: int64
+          type: string
+        error:
+          type: string
+        startedAt:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedWorkflowProcessingStatus'
+        workflowV2Id:
+          $ref: '#/components/schemas/generatedWorkflowV2Id'
+      type: object
+    generatedDataClassCategory:
+      properties:
+        description:
+          type: string
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedTerminateScanJobRequest:
+      properties:
+        reason:
+          type: string
+      type: object
+    generatedIssueExternalTicketInfo:
+      properties:
+        externalTicketId:
+          type: string
+        externalTicketProvider:
+          $ref: '#/components/schemas/generatedExternalTicketProvider'
+        externalTicketUrl:
+          type: string
+        issueId:
+          format: int32
+          type: integer
+      type: object
+    generatedSplitFailure:
+      properties:
+        message:
+          type: string
+        tableId:
+          format: int32
+          type: integer
+      type: object
+    generatedWorkflowV2Id:
+      properties:
+        runId:
+          type: string
+        workflowId:
+          type: string
+      type: object
+    generatedTableToScan:
+      properties:
+        logicalSizeBytes:
+          format: int64
+          type: string
+        partitionColumnId:
+          format: int32
+          type: integer
+        rctColumnId:
+          format: int32
+          type: integer
+        rctWatermarkEpochSeconds:
+          format: int64
+          type: string
+        schemaId:
+          format: int32
+          type: integer
+        sizeLastUpdatedAtMillis:
+          format: int64
+          type: string
+        sourceId:
+          format: int32
+          type: integer
+        tableId:
+          format: int32
+          type: integer
+        tableType:
+          $ref: '#/components/schemas/generatedTableType'
+      type: object
+    generatedWebhook:
+      properties:
+        webhookHeaders:
+          items:
+            $ref: '#/components/schemas/generatedWebhookHeader'
+          type: array
+        webhookUrl:
+          type: string
+      type: object
+    generatedResetScanFailure:
+      properties:
+        reason:
+          type: string
+        request:
+          $ref: '#/components/schemas/generatedResetScanRequest'
+      type: object
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedScanFindingSortField:
+      default: SCAN_FINDING_SORT_FIELD_UNSPECIFIED
+      enum:
+      - SCAN_FINDING_SORT_FIELD_UNSPECIFIED
+      - SCAN_FINDING_SORT_FIELD_SCAN_JOB_NAME
+      - SCAN_FINDING_SORT_FIELD_SCAN_RUN_STARTED_AT
+      - SCAN_FINDING_SORT_FIELD_SOURCE_NAME
+      - SCAN_FINDING_SORT_FIELD_SCHEMA_NAME
+      - SCAN_FINDING_SORT_FIELD_TABLE_NAME
+      - SCAN_FINDING_SORT_FIELD_COLUMN_NAME
+      - SCAN_FINDING_SORT_FIELD_CLASSIFIER_NAME
+      - SCAN_FINDING_SORT_FIELD_DATA_CLASS_NAME
+      - SCAN_FINDING_SORT_FIELD_ROWS_SCANNED
+      - SCAN_FINDING_SORT_FIELD_ROWS_MATCHED
+      - SCAN_FINDING_SORT_FIELD_POSITIVE_FIRST
+      - SCAN_FINDING_SORT_FIELD_SENSITIVITY
+      - SCAN_FINDING_SORT_FIELD_EARLIEST_SCAN_AT
+      - SCAN_FINDING_SORT_FIELD_LATEST_SCAN_AT
+      type: string
+    generatedBulkResetScanRequest:
+      properties:
+        action:
+          $ref: '#/components/schemas/generatedResetScanAction'
+        requests:
+          items:
+            $ref: '#/components/schemas/generatedResetScanRequest'
+          type: array
+        scanJobId:
+          format: int64
+          type: string
+      type: object
+    generatedWorkflowProcessingStatus:
+      default: WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      enum:
+      - WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      - WORKFLOW_PROCESSING_STATUS_QUEUED
+      - WORKFLOW_PROCESSING_STATUS_IN_PROGRESS
+      - WORKFLOW_PROCESSING_STATUS_COMPLETED
+      - WORKFLOW_PROCESSING_STATUS_PARTIAL_FAILURE
+      - WORKFLOW_PROCESSING_STATUS_FAILED
+      - WORKFLOW_PROCESSING_STATUS_TIMED_OUT
+      type: string
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedResetScanAction:
+      default: RESET_SCAN_ACTION_UNSPECIFIED
+      enum:
+      - RESET_SCAN_ACTION_UNSPECIFIED
+      - RESET_SCAN_ACTION_MARK_FOR_RESET_SCAN
+      - RESET_SCAN_ACTION_UNMARK_FOR_RESET_SCAN
+      type: string
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedScanFindingSortOption:
+      properties:
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedScanFindingSortField'
+      type: object
+    generatedTableType:
+      default: TABLE_TYPE_UNSPECIFIED
+      enum:
+      - TABLE_TYPE_UNSPECIFIED
+      - TABLE_TYPE_TABLE
+      - TABLE_TYPE_VIEW
+      - TABLE_TYPE_VIRTUAL
+      - TABLE_TYPE_CUSTOM_RULE
+      type: string
+    generatedNotificationChannel:
+      properties:
+        email:
+          type: string
+        externalTicketInfo:
+          $ref: '#/components/schemas/generatedIssueExternalTicketInfo'
+        slackChannelInfo:
+          $ref: '#/components/schemas/generatedSlackChannelInfo'
+        webhook:
+          $ref: '#/components/schemas/generatedWebhook'
+      type: object
+  requestBodies:
+    generatedCreateOrUpdateScanJobRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedCreateOrUpdateScanJobRequest'
+      required: true
+    generatedGetScanFindingsRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedGetScanFindingsRequest'
+      required: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

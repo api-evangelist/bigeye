@@ -1,0 +1,1084 @@
+{
+  "item": [
+    {
+      "id": "174b22f9-4424-4e22-adec-30d481f6acd3",
+      "name": "GroupService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "799e52df-5246-4764-95dc-16e4c1105ebb",
+          "name": "Change a group's access to workspaces",
+          "request": {
+            "name": "Change a group's access to workspaces",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "groups",
+                "grants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operation\": \"ROLE_OPERATION_UNSPECIFIED\",\n  \"requests\": [\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8291234f-e449-4eb2-b84f-36320c0ff3bf",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups",
+                    "grants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"operation\": \"ROLE_OPERATION_UNSPECIFIED\",\n  \"requests\": [\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"failedUpdates\": [\n    {\n      \"reason\": \"string\",\n      \"request\": {\n        \"group\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"id\": \"<integer>\",\n        \"role\": {\n          \"description\": \"<string>\",\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"rolePermissions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n        },\n        \"workspace\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      }\n    },\n    {\n      \"reason\": \"string\",\n      \"request\": {\n        \"group\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"id\": \"<integer>\",\n        \"role\": {\n          \"description\": \"<string>\",\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"rolePermissions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n        },\n        \"workspace\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      }\n    }\n  ],\n  \"successfulRequests\": [\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0005b584-716a-4044-ad3e-0b96f4e0927f",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups",
+                    "grants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"operation\": \"ROLE_OPERATION_UNSPECIFIED\",\n  \"requests\": [\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 370,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53b37f5a-612a-4c6f-bb22-7bd979f607a7",
+          "name": "Add or remove users to a group",
+          "request": {
+            "name": "Add or remove users to a group",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "groups",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"groupIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"operation\": \"GROUP_USER_OPERATION_UNSPECIFIED\",\n  \"userIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d56f76ef-464f-43e6-b9ea-6f7cb17a8351",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"groupIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"operation\": \"GROUP_USER_OPERATION_UNSPECIFIED\",\n  \"userIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"failedUpdates\": [\n    {\n      \"groupId\": 3494,\n      \"reason\": \"string\",\n      \"userId\": 6560\n    },\n    {\n      \"groupId\": 3675,\n      \"reason\": \"string\",\n      \"userId\": 5187\n    }\n  ],\n  \"successfulIds\": [\n    {\n      \"groupId\": 8992,\n      \"userId\": 459\n    },\n    {\n      \"groupId\": 5654,\n      \"userId\": 9894\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab62bdc9-4fb5-4124-aea4-cba7728c9dec",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"groupIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"operation\": \"GROUP_USER_OPERATION_UNSPECIFIED\",\n  \"userIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5075,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6738e0ce-3dd8-4d3e-9f88-395aae132c30",
+          "name": "Get all groups",
+          "request": {
+            "name": "Get all groups",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43b56793-0203-499b-ae71-bf26f441654f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"groups\": [\n    {\n      \"grants\": [\n        {\n          \"group\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"id\": \"<integer>\",\n          \"role\": {\n            \"description\": \"<string>\",\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"rolePermissions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"roleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"workspace\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          }\n        },\n        {\n          \"group\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"id\": \"<integer>\",\n          \"role\": {\n            \"description\": \"<string>\",\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"rolePermissions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"roleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"workspace\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          }\n        }\n      ],\n      \"id\": 7858,\n      \"idpGroups\": [\n        \"string\",\n        \"string\"\n      ],\n      \"memberships\": [\n        {\n          \"membershipPaths\": [\n            \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\",\n            \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\"\n          ],\n          \"user\": {\n            \"email\": \"string\",\n            \"groups\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": 1885,\n            \"idpGroups\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isServiceAccount\": false,\n            \"lastLoginAt\": \"string\",\n            \"name\": \"string\",\n            \"pictureUrl\": \"string\"\n          }\n        },\n        {\n          \"membershipPaths\": [\n            \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\",\n            \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\"\n          ],\n          \"user\": {\n            \"email\": \"string\",\n            \"groups\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": 7026,\n            \"idpGroups\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isServiceAccount\": false,\n            \"lastLoginAt\": \"string\",\n            \"name\": \"string\",\n            \"pictureUrl\": \"string\"\n          }\n        }\n      ],\n      \"name\": \"string\",\n      \"users\": [\n        {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      ]\n    },\n    {\n      \"grants\": [\n        {\n          \"group\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"id\": \"<integer>\",\n          \"role\": {\n            \"description\": \"<string>\",\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"rolePermissions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"roleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"workspace\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          }\n        },\n        {\n          \"group\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"id\": \"<integer>\",\n          \"role\": {\n            \"description\": \"<string>\",\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"rolePermissions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"roleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"workspace\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          }\n        }\n      ],\n      \"id\": 6586,\n      \"idpGroups\": [\n        \"string\",\n        \"string\"\n      ],\n      \"memberships\": [\n        {\n          \"membershipPaths\": [\n            \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\",\n            \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\"\n          ],\n          \"user\": {\n            \"email\": \"string\",\n            \"groups\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": 4523,\n            \"idpGroups\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isServiceAccount\": true,\n            \"lastLoginAt\": \"string\",\n            \"name\": \"string\",\n            \"pictureUrl\": \"string\"\n          }\n        },\n        {\n          \"membershipPaths\": [\n            \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\",\n            \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\"\n          ],\n          \"user\": {\n            \"email\": \"string\",\n            \"groups\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": 7283,\n            \"idpGroups\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isServiceAccount\": false,\n            \"lastLoginAt\": \"string\",\n            \"name\": \"string\",\n            \"pictureUrl\": \"string\"\n          }\n        }\n      ],\n      \"name\": \"string\",\n      \"users\": [\n        {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "067432b4-ecd3-4ffd-8dda-3a01978db5d9",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5075,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "afc759af-ea92-4c0a-8b99-7d0ad75f7af8",
+          "name": "Create a group",
+          "request": {
+            "name": "Create a group",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idpGroups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dc897677-73de-47ed-a18f-a565da598e22",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"grants\": [\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    }\n  ],\n  \"id\": 1219,\n  \"idpGroups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"memberships\": [\n    {\n      \"membershipPaths\": [\n        \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\",\n        \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\"\n      ],\n      \"user\": {\n        \"email\": \"string\",\n        \"groups\": [\n          {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          }\n        ],\n        \"id\": 3295,\n        \"idpGroups\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isServiceAccount\": true,\n        \"lastLoginAt\": \"string\",\n        \"name\": \"string\",\n        \"pictureUrl\": \"string\"\n      }\n    },\n    {\n      \"membershipPaths\": [\n        \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\",\n        \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\"\n      ],\n      \"user\": {\n        \"email\": \"string\",\n        \"groups\": [\n          {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          }\n        ],\n        \"id\": 5281,\n        \"idpGroups\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isServiceAccount\": true,\n        \"lastLoginAt\": \"string\",\n        \"name\": \"string\",\n        \"pictureUrl\": \"string\"\n      }\n    }\n  ],\n  \"name\": \"string\",\n  \"users\": [\n    {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77ea3746-4b46-43b2-83b0-3a47e6c01587",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5075,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffda8da0-25a4-4cbc-9e0d-376b82f2069e",
+          "name": "Delete a group",
+          "request": {
+            "name": "Delete a group",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "groups",
+                ":groupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "groupId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cbe9e4da-14f0-4fe6-9ab2-935001dbdfa1",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6615c122-803c-43cc-8fc8-d7067f2d7991",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5075,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9895f5f5-d1c7-470a-9a8e-c8644af47530",
+          "name": "Get a group",
+          "request": {
+            "name": "Get a group",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "groups",
+                ":groupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "groupId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b12fcb3-d5c0-4718-a0e1-3aa92195c92e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"grants\": [\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    }\n  ],\n  \"id\": 1219,\n  \"idpGroups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"memberships\": [\n    {\n      \"membershipPaths\": [\n        \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\",\n        \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\"\n      ],\n      \"user\": {\n        \"email\": \"string\",\n        \"groups\": [\n          {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          }\n        ],\n        \"id\": 3295,\n        \"idpGroups\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isServiceAccount\": true,\n        \"lastLoginAt\": \"string\",\n        \"name\": \"string\",\n        \"pictureUrl\": \"string\"\n      }\n    },\n    {\n      \"membershipPaths\": [\n        \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\",\n        \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\"\n      ],\n      \"user\": {\n        \"email\": \"string\",\n        \"groups\": [\n          {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          }\n        ],\n        \"id\": 5281,\n        \"idpGroups\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isServiceAccount\": true,\n        \"lastLoginAt\": \"string\",\n        \"name\": \"string\",\n        \"pictureUrl\": \"string\"\n      }\n    }\n  ],\n  \"name\": \"string\",\n  \"users\": [\n    {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80e6752e-9831-414c-9fdd-e979af048a7c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5075,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79332277-122e-4945-8a6d-483d46da1c5a",
+          "name": "Update a group",
+          "request": {
+            "name": "Update a group",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "groups",
+                ":groupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "groupId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idpGroups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0d0e1ee0-2b5e-4ef6-ad3c-01edbef72cb4",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"grants\": [\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    {\n      \"group\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"id\": \"<integer>\",\n      \"role\": {\n        \"description\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"rolePermissions\": [\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"actions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"domains\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n      },\n      \"workspace\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    }\n  ],\n  \"id\": 1219,\n  \"idpGroups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"memberships\": [\n    {\n      \"membershipPaths\": [\n        \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\",\n        \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\"\n      ],\n      \"user\": {\n        \"email\": \"string\",\n        \"groups\": [\n          {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          }\n        ],\n        \"id\": 3295,\n        \"idpGroups\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isServiceAccount\": true,\n        \"lastLoginAt\": \"string\",\n        \"name\": \"string\",\n        \"pictureUrl\": \"string\"\n      }\n    },\n    {\n      \"membershipPaths\": [\n        \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\",\n        \"GROUP_MEMBERSHIP_VIA_UNSPECIFIED\"\n      ],\n      \"user\": {\n        \"email\": \"string\",\n        \"groups\": [\n          {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          }\n        ],\n        \"id\": 5281,\n        \"idpGroups\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isServiceAccount\": true,\n        \"lastLoginAt\": \"string\",\n        \"name\": \"string\",\n        \"pictureUrl\": \"string\"\n      }\n    }\n  ],\n  \"name\": \"string\",\n  \"users\": [\n    {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fe88278-cdb9-49ff-a9a2-0f2c3412149d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5075,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f4e1b254-d3a6-4aa3-816d-ec09c8d1819e",
+    "name": "Metadata Group Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

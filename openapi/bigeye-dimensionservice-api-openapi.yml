@@ -1,0 +1,362 @@
+openapi: 3.2.0
+info:
+  title: Observability Dimension Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: DimensionService
+paths:
+  /api/v1/dimensions/bulk:
+    post:
+      operationId: DimensionService_BulkUpdateDimensions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedBulkMoveDimensionRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetDimensionsListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Bulk update dimensions
+      tags:
+      - DimensionService
+  /api/v1/dimensions/{dimensionId}:
+    delete:
+      operationId: DimensionService_DeleteDimension
+      parameters:
+      - in: path
+        name: dimensionId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete dimension
+      tags:
+      - DimensionService
+    put:
+      operationId: DimensionService_UpdateDimension
+      parameters:
+      - in: path
+        name: dimensionId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedUpsertDimensionRequestWrapper'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDimension'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Update dimension
+      tags:
+      - DimensionService
+  /api/v1/dimension/{dimensionId}:
+    get:
+      operationId: DimensionService_GetDimension
+      parameters:
+      - in: path
+        name: dimensionId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDimension'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get dimension
+      tags:
+      - DimensionService
+  /api/v1/dimensions:
+    get:
+      operationId: DimensionService_GetDimensions
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetDimensionsListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get all dimensions
+      tags:
+      - DimensionService
+    post:
+      operationId: DimensionService_CreateDimension
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedUpsertDimensionRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDimension'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create dimension
+      tags:
+      - DimensionService
+  /api/v1/dimensions/assign-statistic:
+    post:
+      operationId: DimensionService_SetStatDimension
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedUpsertStatDimensionRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedStatDimension'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Assign statistic (e.g., "AVERAGE") to dimension
+      tags:
+      - DimensionService
+components:
+  schemas:
+    generatedUpsertStatDimensionRequest:
+      properties:
+        dimensionId:
+          format: int32
+          type: integer
+        statName:
+          type: string
+      type: object
+    generatedMoveDimensionRequest:
+      properties:
+        instanceType:
+          $ref: '#/components/schemas/generatedDimensionInstanceType'
+        isOverride:
+          type: boolean
+        name:
+          type: string
+        sourceDimensionId:
+          format: int32
+          type: integer
+        targetDimensionId:
+          format: int32
+          type: integer
+      type: object
+    generatedUpsertDimensionRequest:
+      properties:
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        topLevelCategory:
+          $ref: '#/components/schemas/generatedTopLevelCategory'
+      type: object
+    generatedEmpty:
+      type: object
+    generatedBulkMoveDimensionRequest:
+      properties:
+        requests:
+          items:
+            $ref: '#/components/schemas/generatedMoveDimensionRequest'
+          type: array
+      type: object
+    generatedDimension:
+      properties:
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        instanceTypesWithCounts:
+          items:
+            $ref: '#/components/schemas/generatedInstanceTypeWithCounts'
+          type: array
+        name:
+          type: string
+        topLevelCategory:
+          $ref: '#/components/schemas/generatedTopLevelCategory'
+      type: object
+    generatedInstanceTypeWithCounts:
+      properties:
+        count:
+          format: int64
+          type: string
+        instanceType:
+          $ref: '#/components/schemas/generatedDimensionInstanceType'
+        isOverride:
+          type: boolean
+        name:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedTopLevelCategory:
+      default: TOP_LEVEL_CATEGORY_UNSPECIFIED
+      enum:
+      - TOP_LEVEL_CATEGORY_UNSPECIFIED
+      - TOP_LEVEL_CATEGORY_PIPELINE_RELIABILITY
+      - TOP_LEVEL_CATEGORY_DATA_QUALITY
+      title: Dimensions
+      type: string
+    generatedGetDimensionsListResponse:
+      properties:
+        dimensions:
+          items:
+            $ref: '#/components/schemas/generatedDimension'
+          type: array
+      type: object
+    generatedStatDimension:
+      properties:
+        comments:
+          type: string
+        dimension:
+          $ref: '#/components/schemas/generatedDimension'
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        statName:
+          type: string
+      type: object
+    generatedDimensionInstanceType:
+      default: DIMENSION_INSTANCE_TYPE_UNSPECIFIED
+      enum:
+      - DIMENSION_INSTANCE_TYPE_UNSPECIFIED
+      - DIMENSION_INSTANCE_TYPE_METRIC
+      - DIMENSION_INSTANCE_TYPE_DELTA
+      - DIMENSION_INSTANCE_TYPE_CUSTOM_RULE
+      - DIMENSION_INSTANCE_TYPE_JOIN_RULE
+      - DIMENSION_INSTANCE_TYPE_TEMPLATE_METRIC
+      type: string
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedUpsertDimensionRequestWrapper:
+      properties:
+        dimensionId:
+          format: int32
+          type: integer
+        request:
+          $ref: '#/components/schemas/generatedUpsertDimensionRequest'
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

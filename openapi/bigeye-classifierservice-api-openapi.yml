@@ -1,0 +1,647 @@
+openapi: 3.2.0
+info:
+  title: Sensitivity Classifier Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: ClassifierService
+paths:
+  /api/v1/sds/classifier:
+    post:
+      operationId: ClassifierService_CreateClassifier
+      requestBody:
+        $ref: '#/components/requestBodies/generatedCreateOrUpdateClassifierRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedClassifier'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create a classifier
+      tags:
+      - ClassifierService
+  /api/v1/sds/classifier/fetch:
+    post:
+      operationId: ClassifierService_FetchClassifiers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedGetClassifierListRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetClassifierListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Fetch classifiers with filters and pagination
+      tags:
+      - ClassifierService
+  /api/v1/sds/classifier/{id}:
+    delete:
+      operationId: ClassifierService_DeleteClassifier
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete a classifier
+      tags:
+      - ClassifierService
+    get:
+      operationId: ClassifierService_GetClassifier
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedClassifier'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get a classifier by ID
+      tags:
+      - ClassifierService
+    put:
+      operationId: ClassifierService_UpdateClassifier
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/generatedCreateOrUpdateClassifierRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedClassifier'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Update a classifier
+      tags:
+      - ClassifierService
+  /api/v1/sds/classifier/machine-learning-detectors:
+    post:
+      operationId: ClassifierService_GetMachineLearningDetectors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedGetMachineLearningDetectorListRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetMachineLearningDetectorListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get available machine learning detectors
+      tags:
+      - ClassifierService
+  /api/v1/sds/classifier/{id}/reset:
+    put:
+      operationId: ClassifierService_ResetClassifier
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedClassifier'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Reset a Bigeye-provided classifier to its default state
+      tags:
+      - ClassifierService
+  /api/v1/sds/classifier/test-detector:
+    post:
+      operationId: ClassifierService_TestDetector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedTestDetectorRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedTestDetectorResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Test a detector against a sample value
+      tags:
+      - ClassifierService
+components:
+  schemas:
+    generatedEmpty:
+      type: object
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
+    generatedDataClass:
+      properties:
+        canResetToDefault:
+          type: boolean
+        categories:
+          items:
+            $ref: '#/components/schemas/generatedDataClassCategory'
+          type: array
+        colorHex:
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        numberOfClassifiers:
+          format: int32
+          type: integer
+        providedByBigeye:
+          type: boolean
+        sensitivity:
+          $ref: '#/components/schemas/generatedDataSensitivity'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedUser:
+      properties:
+        email:
+          type: string
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        id:
+          format: int32
+          type: integer
+        idpGroups:
+          items:
+            type: string
+          type: array
+        isServiceAccount:
+          type: boolean
+        lastLoginAt:
+          format: int64
+          type: string
+        name:
+          type: string
+        pictureUrl:
+          type: string
+      type: object
+    generatedTestDetectorResponse:
+      properties:
+        error:
+          type: string
+        responseType:
+          $ref: '#/components/schemas/generatedTestDetectorResponseType'
+      type: object
+    generatedClassifierSortOption:
+      properties:
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedClassifierSortField'
+      type: object
+    generatedDataSensitivity:
+      default: DATA_SENSITIVITY_UNSPECIFIED
+      enum:
+      - DATA_SENSITIVITY_UNSPECIFIED
+      - DATA_SENSITIVITY_PUBLIC
+      - DATA_SENSITIVITY_INTERNAL
+      - DATA_SENSITIVITY_CONFIDENTIAL
+      - DATA_SENSITIVITY_RESTRICTED
+      type: string
+    modelsgeneratedDetector:
+      properties:
+        compoundDetector:
+          $ref: '#/components/schemas/generatedCompoundDetector'
+        simpleDetector:
+          $ref: '#/components/schemas/generatedSimpleDetector'
+      type: object
+    generatedTestDetectorRequest:
+      properties:
+        detector:
+          $ref: '#/components/schemas/generatedSimpleDetector'
+        value:
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    generatedCreateOrUpdateClassifierRequest:
+      properties:
+        dataClassId:
+          format: int64
+          type: string
+        description:
+          type: string
+        detector:
+          $ref: '#/components/schemas/modelsgeneratedDetector'
+        name:
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedClassifierSortField:
+      default: CLASSIFIER_SORT_FIELD_UNSPECIFIED
+      enum:
+      - CLASSIFIER_SORT_FIELD_UNSPECIFIED
+      - CLASSIFIER_SORT_FIELD_NAME
+      - CLASSIFIER_SORT_FIELD_DATA_CLASS_NAME
+      - CLASSIFIER_SORT_FIELD_SENSITIVITY
+      - CLASSIFIER_SORT_FIELD_CREATOR
+      - CLASSIFIER_SORT_FIELD_DETECTOR_TYPE
+      - CLASSIFIER_SORT_FIELD_NUMBER_OF_SCAN_JOBS
+      - CLASSIFIER_SORT_FIELD_DESCRIPTION
+      type: string
+    generatedGetMachineLearningDetectorListRequest:
+      properties:
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedTestDetectorResponseType:
+      default: TEST_DETECTOR_RESPONSE_TYPE_UNSPECIFIED
+      enum:
+      - TEST_DETECTOR_RESPONSE_TYPE_UNSPECIFIED
+      - TEST_DETECTOR_RESPONSE_TYPE_POSITIVE
+      - TEST_DETECTOR_RESPONSE_TYPE_NEGATIVE
+      - TEST_DETECTOR_RESPONSE_TYPE_MALFORMED
+      - TEST_DETECTOR_RESPONSE_TYPE_INTERNAL_ERROR
+      type: string
+    generatedRegexDetector:
+      properties:
+        flagCaseInsensitive:
+          type: boolean
+        flagDotall:
+          type: boolean
+        regex:
+          type: string
+        target:
+          $ref: '#/components/schemas/generatedDetectorTarget'
+      type: object
+    generatedMachineLearningDetector:
+      properties:
+        detector:
+          $ref: '#/components/schemas/generatedsdsDetector'
+        displayName:
+          type: string
+        target:
+          $ref: '#/components/schemas/generatedDetectorTarget'
+        threshold:
+          format: double
+          type: number
+      type: object
+    generatedDataClassCategory:
+      properties:
+        description:
+          type: string
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedClassifier:
+      properties:
+        canResetToDefault:
+          type: boolean
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        dataClass:
+          $ref: '#/components/schemas/generatedDataClass'
+        description:
+          type: string
+        detector:
+          $ref: '#/components/schemas/modelsgeneratedDetector'
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        numberOfScanJobs:
+          format: int32
+          type: integer
+        providedByBigeye:
+          type: boolean
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedGetClassifierListResponse:
+      properties:
+        classifiers:
+          items:
+            $ref: '#/components/schemas/generatedClassifier'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedGetMachineLearningDetectorListResponse:
+      properties:
+        detectors:
+          items:
+            $ref: '#/components/schemas/generatedMachineLearningDetector'
+          type: array
+      type: object
+    generatedDetectorTarget:
+      default: DETECTOR_TARGET_UNSPECIFIED
+      enum:
+      - DETECTOR_TARGET_UNSPECIFIED
+      - DETECTOR_TARGET_DATA
+      - DETECTOR_TARGET_COLUMN_NAME
+      type: string
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedCompoundDetector:
+      properties:
+        combinator:
+          $ref: '#/components/schemas/generatedDetectorCombinator'
+        detectors:
+          items:
+            $ref: '#/components/schemas/modelsgeneratedDetector'
+          type: array
+      type: object
+    generatedsdsDetector:
+      default: DETECTOR_UNSPECIFIED
+      enum:
+      - DETECTOR_UNSPECIFIED
+      - DETECTOR_ACCOUNT_PIN
+      - DETECTOR_AGE
+      - DETECTOR_CC_EXPIRATION_DATE
+      - DETECTOR_CREDIT_CARD
+      - DETECTOR_CREDIT_SCORE
+      - DETECTOR_CVV
+      - DETECTOR_DATE_OF_BIRTH
+      - DETECTOR_DATE_OF_ADMISSION
+      - DETECTOR_DATE_OF_DISCHARGE
+      - DETECTOR_DIAGNOSIS
+      - DETECTOR_EMAIL_ADDRESS
+      - DETECTOR_IBAN_CODE
+      - DETECTOR_IP_ADDRESS
+      - DETECTOR_LOCATION
+      - DETECTOR_MAIDEN_NAME
+      - DETECTOR_MAILING_ADDRESS
+      - DETECTOR_MEDICAL_INFORMATION
+      - DETECTOR_NPI
+      - DETECTOR_NRP
+      - DETECTOR_PASSWORD
+      - DETECTOR_PATIENT_NAME
+      - DETECTOR_PERSON
+      - DETECTOR_PHONE_NUMBER
+      - DETECTOR_PLACE_OF_BIRTH
+      - DETECTOR_TREATMENT_CODE
+      - DETECTOR_US_BANK_NUMBER
+      - DETECTOR_US_DRIVER_LICENSE
+      - DETECTOR_US_HEALTHCARE_PLAN_OR_INSURANCE_NUMBER
+      - DETECTOR_US_HEALTHCARE_DEVICE_ID
+      - DETECTOR_US_HEALTHCARE_MRN
+      - DETECTOR_US_ITIN
+      - DETECTOR_US_PASSPORT
+      - DETECTOR_US_SSN
+      - DETECTOR_US_VEHICLE_IDENTIFIER
+      - DETECTOR_USERNAME
+      - DETECTOR_CRYPTO
+      - DETECTOR_DATE_TIME
+      - DETECTOR_MEDICAL_LICENSE
+      - DETECTOR_URL
+      - DETECTOR_ALWAYS_FAIL
+      type: string
+    generatedGetClassifierListRequest:
+      properties:
+        creatorIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        dataClassCategoryIds:
+          items:
+            format: int64
+            type: string
+          type: array
+        dataClassIds:
+          items:
+            format: int64
+            type: string
+          type: array
+        detectorTypes:
+          items:
+            $ref: '#/components/schemas/generatedSimpleDetector'
+          type: array
+        includeDetector:
+          type: boolean
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        scanJobIds:
+          items:
+            format: int64
+            type: string
+          title: Filter to classifiers used by these scan jobs
+          type: array
+        search:
+          type: string
+        sensitivities:
+          items:
+            $ref: '#/components/schemas/generatedDataSensitivity'
+          type: array
+        sortOptions:
+          items:
+            $ref: '#/components/schemas/generatedClassifierSortOption'
+          type: array
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedDetectorCombinator:
+      default: DETECTOR_COMBINATOR_UNSPECIFIED
+      enum:
+      - DETECTOR_COMBINATOR_UNSPECIFIED
+      - DETECTOR_COMBINATOR_AND
+      - DETECTOR_COMBINATOR_OR
+      type: string
+    generatedSimpleDetector:
+      properties:
+        machineLearningDetector:
+          $ref: '#/components/schemas/generatedMachineLearningDetector'
+        regexDetector:
+          $ref: '#/components/schemas/generatedRegexDetector'
+      type: object
+  requestBodies:
+    generatedCreateOrUpdateClassifierRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedCreateOrUpdateClassifierRequest'
+      required: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

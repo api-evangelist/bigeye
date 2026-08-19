@@ -1,0 +1,2634 @@
+{
+  "item": [
+    {
+      "id": "4b1125dd-d7d0-45fe-be39-f76f853ed232",
+      "name": "TableService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3a501cf6-f5c2-47d4-b6fe-147c0f02ec08",
+          "name": "Get dbt jobs for table",
+          "request": {
+            "name": "Get dbt jobs for table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                ":tableId",
+                "dbt",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae7644ca-e2da-4eda-91bd-85ed475847af",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "dbt",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dbtJobs\": [\n    {\n      \"dbtJobExtId\": \"string\",\n      \"id\": 7067,\n      \"isFavorite\": true,\n      \"mostRecentJobRuns\": [\n        {\n          \"completedAt\": \"string\",\n          \"dbtJobRunExtId\": \"string\",\n          \"gitSha\": \"string\",\n          \"id\": \"string\",\n          \"jobId\": 5246,\n          \"startedAt\": \"string\",\n          \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n          \"url\": \"string\"\n        },\n        {\n          \"completedAt\": \"string\",\n          \"dbtJobRunExtId\": \"string\",\n          \"gitSha\": \"string\",\n          \"id\": \"string\",\n          \"jobId\": 9700,\n          \"startedAt\": \"string\",\n          \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n          \"url\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"projectId\": 5830,\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 5175,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 2426\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 2222,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 4934\n        }\n      ],\n      \"url\": \"string\"\n    },\n    {\n      \"dbtJobExtId\": \"string\",\n      \"id\": 68,\n      \"isFavorite\": true,\n      \"mostRecentJobRuns\": [\n        {\n          \"completedAt\": \"string\",\n          \"dbtJobRunExtId\": \"string\",\n          \"gitSha\": \"string\",\n          \"id\": \"string\",\n          \"jobId\": 7145,\n          \"startedAt\": \"string\",\n          \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n          \"url\": \"string\"\n        },\n        {\n          \"completedAt\": \"string\",\n          \"dbtJobRunExtId\": \"string\",\n          \"gitSha\": \"string\",\n          \"id\": \"string\",\n          \"jobId\": 5391,\n          \"startedAt\": \"string\",\n          \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n          \"url\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"projectId\": 4005,\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 5060,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 6701\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 9769,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5567\n        }\n      ],\n      \"url\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f13d4713-e486-4886-bbe9-b80dec9d0a37",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "dbt",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1059,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f944528-156a-4d7f-8b19-2f32e4825047",
+          "name": "Get list of metrics applicable for deltas",
+          "request": {
+            "name": "Get list of metrics applicable for deltas",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                ":tableId",
+                "delta-applicable-metric-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3bc5416-5e54-4aa6-826b-0b83eb777c4c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "delta-applicable-metric-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metricTypes\": {\n    \"applicableMetricTypes\": [\n      {\n        \"applicableMetricTypes\": [\n          {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": false,\n            \"isTableMetric\": true,\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": false,\n            \"isTableMetric\": true,\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"column\": {\n          \"displayName\": \"string\",\n          \"id\": 6310\n        },\n        \"schema\": {\n          \"displayName\": \"string\",\n          \"id\": 6446\n        },\n        \"source\": {\n          \"displayName\": \"string\",\n          \"id\": 9226\n        },\n        \"table\": {\n          \"displayName\": \"string\",\n          \"id\": 6294\n        }\n      },\n      {\n        \"applicableMetricTypes\": [\n          {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": true,\n            \"isTableMetric\": false,\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": false,\n            \"isTableMetric\": true,\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"column\": {\n          \"displayName\": \"string\",\n          \"id\": 6778\n        },\n        \"schema\": {\n          \"displayName\": \"string\",\n          \"id\": 447\n        },\n        \"source\": {\n          \"displayName\": \"string\",\n          \"id\": 3673\n        },\n        \"table\": {\n          \"displayName\": \"string\",\n          \"id\": 3490\n        }\n      }\n    ],\n    \"id\": 8780\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "664504a3-ad2a-4f13-b3b2-68eb4c9053d7",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "delta-applicable-metric-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "146a9f01-cf99-4bec-acee-474a47844c97",
+          "name": "Profile a column",
+          "request": {
+            "name": "Profile a column",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                "profile",
+                ":tableId",
+                ":columnId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "columnId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11f6dd55-bd53-4550-96a7-6bee0ada29ef",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    "profile",
+                    ":tableId",
+                    ":columnId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "columnId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"profiles\": [\n    {\n      \"columnId\": 6374,\n      \"id\": 4935,\n      \"max\": 6012.702184907633,\n      \"mean\": 2646.1929730011802,\n      \"metricName\": \"string\",\n      \"min\": 2031.0712589458512,\n      \"p25\": 8045.215742116025,\n      \"p75\": 370.0123123997523,\n      \"standardDeviation\": 3185.1430385195745\n    },\n    {\n      \"columnId\": 5557,\n      \"id\": 7632,\n      \"max\": 2209.7727641721144,\n      \"mean\": 6231.656427792051,\n      \"metricName\": \"string\",\n      \"min\": 3804.0963721069697,\n      \"p25\": 7992.607074727658,\n      \"p75\": 6535.83627546179,\n      \"standardDeviation\": 5122.029753061142\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74c59947-bfb4-4dbb-bf2c-95bca94a286e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    "profile",
+                    ":tableId",
+                    ":columnId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "columnId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef9004bd-9f25-4f11-8046-d255f6f07de7",
+          "name": "Profile a table",
+          "request": {
+            "name": "Profile a table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                "profile",
+                ":tableId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bad3fc70-3877-4d6b-ae5d-27757a23bed3",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    "profile",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"profiles\": [\n    {\n      \"columnId\": 1163,\n      \"id\": 3958,\n      \"max\": 2082.4233111412327,\n      \"mean\": 5606.941887069363,\n      \"metricName\": \"string\",\n      \"min\": 708.5628928220622,\n      \"p25\": 9748.20379590106,\n      \"p75\": 6242.493175899552,\n      \"standardDeviation\": 4817.976771373169\n    },\n    {\n      \"columnId\": 2913,\n      \"id\": 2873,\n      \"max\": 2636.7884040749577,\n      \"mean\": 1253.5760315004295,\n      \"metricName\": \"string\",\n      \"min\": 2959.601361228578,\n      \"p25\": 1054.936310796062,\n      \"p75\": 6464.377244452211,\n      \"standardDeviation\": 4126.255802450942\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd25187f-861c-4ca6-b252-3f666aafa7ea",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    "profile",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb36348b-256f-41f6-8030-187fc81456e7",
+          "name": "Get the date column information for a table",
+          "request": {
+            "name": "Get the date column information for a table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                ":tableId",
+                "date-columns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c0b9b7e0-5f42-49f5-9ba7-f540db2cbf54",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "date-columns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"columns\": [\n    {\n      \"id\": 6039,\n      \"isCurrentMetricTime\": false,\n      \"isRecommendedMetricTime\": false,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 5840,\n      \"isCurrentMetricTime\": true,\n      \"isRecommendedMetricTime\": false,\n      \"name\": \"string\"\n    }\n  ],\n  \"hasUserSelectedNoneRct\": true,\n  \"id\": 8226,\n  \"schemaName\": \"string\",\n  \"tableName\": \"string\",\n  \"warehouseId\": 1391,\n  \"warehouseName\": \"string\",\n  \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7bfed7dc-872b-433e-a4c7-776a9e874356",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "date-columns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2fc9521-7059-426f-beae-fd2cd3cca981",
+          "name": "Get workflow for table",
+          "request": {
+            "name": "Get workflow for table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                ":tableId",
+                "workflow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2601745f-96e9-4875-a8d5-19f513600943",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workflowId\": \"string\",\n  \"workflowType\": \"WORKFLOW_PROCESSING_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7f970c5-6f31-410e-a169-b5a68e6232e5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b3651b2-f17f-4b87-88de-62fcbf92bc4c",
+          "name": "Get the current status for a workflow for a table",
+          "request": {
+            "name": "Get the current status for a workflow for a table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                ":tableId",
+                "workflow",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a0cf48e-8529-451e-a5cb-9b6d3e0901d5",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "workflow",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"completedAt\": \"string\",\n  \"completedOps\": 2501,\n  \"startedAt\": \"string\",\n  \"status\": \"WORKFLOW_PROCESSING_STATUS_UNSPECIFIED\",\n  \"totalOps\": 141,\n  \"workflowId\": \"string\",\n  \"workflowType\": \"WORKFLOW_PROCESSING_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9bd61413-c364-40bc-b694-df30cd08b5c8",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "workflow",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1fb4f3bf-c521-48fe-8f52-09065a205231",
+          "name": "Get tables",
+          "request": {
+            "name": "Get tables",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ignoreFields\": \"<boolean>\",\n  \"includeDataNodeIds\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"schemaIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"TABLE_SORT_FIELD_UNSPECIFIED\",\n  \"sourceConnectionTypes\": [\n    \"SOURCE_CONNECTION_TYPE_UNSPECIFIED\",\n    \"SOURCE_CONNECTION_TYPE_UNSPECIFIED\"\n  ],\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tableIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tagIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d30cea9b-d060-4d2b-a3d1-a199b719cae3",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ignoreFields\": \"<boolean>\",\n  \"includeDataNodeIds\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"schemaIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"TABLE_SORT_FIELD_UNSPECIFIED\",\n  \"sourceConnectionTypes\": [\n    \"SOURCE_CONNECTION_TYPE_UNSPECIFIED\",\n    \"SOURCE_CONNECTION_TYPE_UNSPECIFIED\"\n  ],\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tableIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tagIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": true,\n    \"numRecords\": 1347,\n    \"prevCursor\": \"string\"\n  },\n  \"tables\": [\n    {\n      \"columns\": [\n        {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 173,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 5316,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": false,\n          \"isNullable\": false,\n          \"isPartitionField\": false,\n          \"name\": \"string\",\n          \"parentColumnId\": 8622,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": \"string\",\n            \"lastSchemaChangeAt\": \"string\",\n            \"mostRecentSchemaScanAt\": \"string\"\n          },\n          \"tags\": [\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"type\": \"string\"\n        },\n        {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 937,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 3759,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 5991,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": \"string\",\n            \"lastSchemaChangeAt\": \"string\",\n            \"mostRecentSchemaScanAt\": \"string\"\n          },\n          \"tags\": [\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"type\": \"string\"\n        }\n      ],\n      \"dataNodeId\": 4003,\n      \"databaseName\": \"string\",\n      \"id\": 8081,\n      \"isFavorite\": false,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"metricTimeColumn\": {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 8170,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 6576,\n        \"isFavorite\": false,\n        \"isKeyInJoin\": false,\n        \"isMetricTime\": true,\n        \"isNullable\": false,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 2293,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1771,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 1102\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 5668,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 29\n          }\n        ],\n        \"type\": \"string\"\n      },\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 1289,\n      \"popularityScore\": 5361.123152791342,\n      \"requiresPartitionFilter\": false,\n      \"schema\": {\n        \"dataNodeId\": 2127,\n        \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"id\": 1033,\n        \"indexByTable\": true,\n        \"isFavorite\": false,\n        \"isVirtual\": true,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 8815,\n        \"popularityScore\": 2540.6704192613493,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 8838,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 9541\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 5004,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 3316\n          }\n        ],\n        \"warehouseId\": 6201,\n        \"warehouseName\": \"string\"\n      },\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"schemaId\": 5359,\n      \"schemaName\": \"string\",\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1351,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7253\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 2961,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 1636\n        }\n      ],\n      \"usesAgent\": true,\n      \"warehouseId\": 4079,\n      \"warehouseName\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"columns\": [\n        {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 2032,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 9072,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": false,\n          \"isNullable\": true,\n          \"isPartitionField\": false,\n          \"name\": \"string\",\n          \"parentColumnId\": 7006,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": \"string\",\n            \"lastSchemaChangeAt\": \"string\",\n            \"mostRecentSchemaScanAt\": \"string\"\n          },\n          \"tags\": [\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"type\": \"string\"\n        },\n        {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 3468,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 987,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": false,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 2577,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": \"string\",\n            \"lastSchemaChangeAt\": \"string\",\n            \"mostRecentSchemaScanAt\": \"string\"\n          },\n          \"tags\": [\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"type\": \"string\"\n        }\n      ],\n      \"dataNodeId\": 8913,\n      \"databaseName\": \"string\",\n      \"id\": 6393,\n      \"isFavorite\": true,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"metricTimeColumn\": {\n        \"canBeMetricTime\": true,\n        \"dataNodeId\": 9129,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 7643,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": false,\n        \"isMetricTime\": false,\n        \"isNullable\": true,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 6696,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 4533,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 8455\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 874,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 8933\n          }\n        ],\n        \"type\": \"string\"\n      },\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 7938,\n      \"popularityScore\": 6527.636935797182,\n      \"requiresPartitionFilter\": false,\n      \"schema\": {\n        \"dataNodeId\": 168,\n        \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"id\": 5346,\n        \"indexByTable\": false,\n        \"isFavorite\": false,\n        \"isVirtual\": true,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 3339,\n        \"popularityScore\": 6489.63067296642,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1654,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 7916\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 4674,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 571\n          }\n        ],\n        \"warehouseId\": 9606,\n        \"warehouseName\": \"string\"\n      },\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"schemaId\": 5207,\n      \"schemaName\": \"string\",\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 9268,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 2317\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1301,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 2128\n        }\n      ],\n      \"usesAgent\": false,\n      \"warehouseId\": 513,\n      \"warehouseName\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "273ba0ec-e665-4313-b298-31226c173636",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ignoreFields\": \"<boolean>\",\n  \"includeDataNodeIds\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"schemaIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"TABLE_SORT_FIELD_UNSPECIFIED\",\n  \"sourceConnectionTypes\": [\n    \"SOURCE_CONNECTION_TYPE_UNSPECIFIED\",\n    \"SOURCE_CONNECTION_TYPE_UNSPECIFIED\"\n  ],\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tableIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tagIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac4d4cb1-8dc4-4b01-aa62-ba602301db86",
+          "name": "Search tables",
+          "request": {
+            "name": "Search tables",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "warehouseId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "warehouseId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "schema",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "schema",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tableName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tableName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "schemaId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "schemaId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFavorites",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ignoreFields",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "workspaceId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDataNodeIds",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "70e74c97-caa8-4ae5-82e1-3438158fda3f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "schema",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schema",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tableName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tableName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "schemaId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "schemaId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeFavorites",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ignoreFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "workspaceId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeDataNodeIds",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tables\": [\n    {\n      \"columns\": [\n        {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 456,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 7303,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 8151,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": \"string\",\n            \"lastSchemaChangeAt\": \"string\",\n            \"mostRecentSchemaScanAt\": \"string\"\n          },\n          \"tags\": [\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"type\": \"string\"\n        },\n        {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 5931,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 6172,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": false,\n          \"isNullable\": true,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 5977,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": \"string\",\n            \"lastSchemaChangeAt\": \"string\",\n            \"mostRecentSchemaScanAt\": \"string\"\n          },\n          \"tags\": [\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"type\": \"string\"\n        }\n      ],\n      \"dataNodeId\": 9439,\n      \"databaseName\": \"string\",\n      \"id\": 9116,\n      \"isFavorite\": true,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"metricTimeColumn\": {\n        \"canBeMetricTime\": true,\n        \"dataNodeId\": 8735,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 7232,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": false,\n        \"isMetricTime\": false,\n        \"isNullable\": true,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 3869,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1802,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 836\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 4670,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 4449\n          }\n        ],\n        \"type\": \"string\"\n      },\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 5657,\n      \"popularityScore\": 8820.544909729768,\n      \"requiresPartitionFilter\": true,\n      \"schema\": {\n        \"dataNodeId\": 9425,\n        \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"id\": 8901,\n        \"indexByTable\": true,\n        \"isFavorite\": false,\n        \"isVirtual\": false,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 3494,\n        \"popularityScore\": 9786.471488606665,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 7573,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 2363\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 9143,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 5142\n          }\n        ],\n        \"warehouseId\": 3741,\n        \"warehouseName\": \"string\"\n      },\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"schemaId\": 8515,\n      \"schemaName\": \"string\",\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 5627,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7581\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 5825,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9058\n        }\n      ],\n      \"usesAgent\": false,\n      \"warehouseId\": 4909,\n      \"warehouseName\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"columns\": [\n        {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 4454,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 4236,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 3881,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": \"string\",\n            \"lastSchemaChangeAt\": \"string\",\n            \"mostRecentSchemaScanAt\": \"string\"\n          },\n          \"tags\": [\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"type\": \"string\"\n        },\n        {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 604,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 5296,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": false,\n          \"name\": \"string\",\n          \"parentColumnId\": 9749,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": \"string\",\n            \"lastSchemaChangeAt\": \"string\",\n            \"mostRecentSchemaScanAt\": \"string\"\n          },\n          \"tags\": [\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"type\": \"string\"\n        }\n      ],\n      \"dataNodeId\": 4233,\n      \"databaseName\": \"string\",\n      \"id\": 5692,\n      \"isFavorite\": true,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"metricTimeColumn\": {\n        \"canBeMetricTime\": true,\n        \"dataNodeId\": 1197,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 6204,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": false,\n        \"isNullable\": true,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 9828,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 9970,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 7212\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 2001,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 4441\n          }\n        ],\n        \"type\": \"string\"\n      },\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 1666,\n      \"popularityScore\": 7294.317489811989,\n      \"requiresPartitionFilter\": false,\n      \"schema\": {\n        \"dataNodeId\": 742,\n        \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"id\": 209,\n        \"indexByTable\": false,\n        \"isFavorite\": false,\n        \"isVirtual\": false,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 7430,\n        \"popularityScore\": 8688.383243933193,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 7554,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 3982\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 2224,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 9773\n          }\n        ],\n        \"warehouseId\": 895,\n        \"warehouseName\": \"string\"\n      },\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"schemaId\": 2242,\n      \"schemaName\": \"string\",\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 4272,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 1376\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7457,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7785\n        }\n      ],\n      \"usesAgent\": true,\n      \"warehouseId\": 5109,\n      \"warehouseName\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d55abfcb-787a-4dae-8a91-c25d492e14a3",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "schema",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schema",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tableName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tableName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "schemaId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "schemaId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeFavorites",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ignoreFields",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "workspaceId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeDataNodeIds",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff92e0a1-8d78-4fbe-9535-621ceddf3695",
+          "name": "Set the date columns for a list of tables",
+          "request": {
+            "name": "Set the date columns for a list of tables",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                "date-columns",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"columnIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tableIdsWithNoneRct\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "824b83eb-101c-4400-83de-d6adefe8c237",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    "date-columns",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"columnIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tableIdsWithNoneRct\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"failures\": [\n    {\n      \"failedColumns\": [\n        {\n          \"displayName\": \"string\",\n          \"id\": 3444\n        },\n        {\n          \"displayName\": \"string\",\n          \"id\": 4929\n        }\n      ],\n      \"message\": \"string\"\n    },\n    {\n      \"failedColumns\": [\n        {\n          \"displayName\": \"string\",\n          \"id\": 9726\n        },\n        {\n          \"displayName\": \"string\",\n          \"id\": 1855\n        }\n      ],\n      \"message\": \"string\"\n    }\n  ],\n  \"info\": [\n    {\n      \"columns\": [\n        {\n          \"id\": 7998,\n          \"isCurrentMetricTime\": true,\n          \"isRecommendedMetricTime\": false,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 7963,\n          \"isCurrentMetricTime\": false,\n          \"isRecommendedMetricTime\": true,\n          \"name\": \"string\"\n        }\n      ],\n      \"hasUserSelectedNoneRct\": false,\n      \"id\": 6741,\n      \"schemaName\": \"string\",\n      \"tableName\": \"string\",\n      \"warehouseId\": 7737,\n      \"warehouseName\": \"string\",\n      \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"columns\": [\n        {\n          \"id\": 2279,\n          \"isCurrentMetricTime\": false,\n          \"isRecommendedMetricTime\": true,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 9172,\n          \"isCurrentMetricTime\": true,\n          \"isRecommendedMetricTime\": false,\n          \"name\": \"string\"\n        }\n      ],\n      \"hasUserSelectedNoneRct\": false,\n      \"id\": 8071,\n      \"schemaName\": \"string\",\n      \"tableName\": \"string\",\n      \"warehouseId\": 6558,\n      \"warehouseName\": \"string\",\n      \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c3e4671-716e-4c5f-85a2-db3ef2e7509f",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    "date-columns",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"columnIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tableIdsWithNoneRct\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dd0042b-54e3-4765-bf06-bce3ecb9ce9a",
+          "name": "Snooze table",
+          "request": {
+            "name": "Snooze table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                ":tableId",
+                "snooze"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"includeDescendants\": \"<boolean>\",\n  \"minutes\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8a6901e8-edca-462e-908b-78273e8cd4b0",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "snooze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeDescendants\": \"<boolean>\",\n  \"minutes\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metricIds\": [\n    7987,\n    1870\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcc1e117-a814-463b-9a85-6d90c331845f",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "snooze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeDescendants\": \"<boolean>\",\n  \"minutes\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99f5297f-3400-4581-a2ed-d16acec05e17",
+          "name": "Get list of metrics applicable to an entire table,\nfiltered for only the ones that are valid for that table's warehouse",
+          "request": {
+            "name": "Get list of metrics applicable to an entire table,\nfiltered for only the ones that are valid for that table's warehouse",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                ":tableId",
+                "applicable-metric-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc1ea9a7-d625-436d-8d44-1921b9fe3211",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "applicable-metric-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metricTypes\": {\n    \"applicableMetricTypes\": [\n      {\n        \"applicableMetricTypes\": [\n          {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": false,\n            \"isTableMetric\": true,\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": true,\n            \"isTableMetric\": true,\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"column\": {\n          \"displayName\": \"string\",\n          \"id\": 6586\n        },\n        \"schema\": {\n          \"displayName\": \"string\",\n          \"id\": 8315\n        },\n        \"source\": {\n          \"displayName\": \"string\",\n          \"id\": 8462\n        },\n        \"table\": {\n          \"displayName\": \"string\",\n          \"id\": 1049\n        }\n      },\n      {\n        \"applicableMetricTypes\": [\n          {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": false,\n            \"isTableMetric\": false,\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": true,\n            \"isTableMetric\": false,\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"column\": {\n          \"displayName\": \"string\",\n          \"id\": 3029\n        },\n        \"schema\": {\n          \"displayName\": \"string\",\n          \"id\": 2257\n        },\n        \"source\": {\n          \"displayName\": \"string\",\n          \"id\": 3840\n        },\n        \"table\": {\n          \"displayName\": \"string\",\n          \"id\": 9501\n        }\n      }\n    ],\n    \"id\": 8119\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e04b2c9-fa0b-45ce-9e37-9341d24d336b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "applicable-metric-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17a2151c-69cf-45b7-aceb-bbe8f468005e",
+          "name": "Remove the configured required partition column for a table",
+          "request": {
+            "name": "Remove the configured required partition column for a table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                ":tableId",
+                "required-partition-column"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74d0b754-e42a-4dbb-85a4-daff3f4a626d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "required-partition-column"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1bbd47c9-a899-45b5-99a2-8d1e7b00e886",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "required-partition-column"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc9cca1f-8512-4c76-b4b9-5f1965f37723",
+          "name": "Set the required partition column for a table",
+          "request": {
+            "name": "Set the required partition column for a table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                ":tableId",
+                "required-partition-column"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"columnId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "867a73cb-a528-4893-87f7-6f881982cb76",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "required-partition-column"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"columnId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"datasetId\": 5408,\n  \"requiredPartitionColumnId\": 8938\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46a60646-3112-4163-b884-36ebec38f5e6",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "required-partition-column"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"columnId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90b65fab-bb4e-4e60-8c92-84da73380af2",
+          "name": "Unsnooze table",
+          "request": {
+            "name": "Unsnooze table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tables",
+                ":tableId",
+                "unsnooze"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tableId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"includeDescendants\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "13b3205b-7112-4e8c-b2f5-b55513fe7f28",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "unsnooze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeDescendants\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metricIds\": [\n    7987,\n    1870\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a7ef0fa-d3e0-4458-8d4f-61bc978b99fa",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tables",
+                    ":tableId",
+                    "unsnooze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tableId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeDescendants\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1971,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ea6c2bd6-74ee-402e-a61e-c80edd84ed11",
+    "name": "Metadata Table Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

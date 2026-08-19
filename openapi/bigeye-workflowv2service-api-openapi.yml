@@ -1,0 +1,149 @@
+openapi: 3.2.0
+info:
+  title: Metadata Workflow V2 Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: WorkflowV2Service
+paths:
+  /api/v2/workflows/status/{workflowId}/{runId}:
+    post:
+      operationId: WorkflowV2Service_GetWorkflowV2Status
+      parameters:
+      - in: path
+        name: workflowId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: runId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/generatedWorkflowV2Id'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkflowV2StatusResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get status for V2 workflow and run
+      tags:
+      - WorkflowV2Service
+  /api/v2/workflows/status/{workflowId}:
+    post:
+      operationId: WorkflowV2Service_GetWorkflowV2StatusWithoutRun
+      parameters:
+      - in: path
+        name: workflowId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/generatedWorkflowV2Id'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkflowV2StatusResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get status for V2 workflow without run
+      tags:
+      - WorkflowV2Service
+components:
+  schemas:
+    generatedWorkflowV2Id:
+      properties:
+        runId:
+          type: string
+        workflowId:
+          type: string
+      type: object
+    generatedWorkflowV2StatusResponse:
+      properties:
+        completedAt:
+          format: int64
+          type: string
+        error:
+          type: string
+        startedAt:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedWorkflowProcessingStatus'
+        workflowV2Id:
+          $ref: '#/components/schemas/generatedWorkflowV2Id'
+      type: object
+    generatedWorkflowProcessingStatus:
+      default: WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      enum:
+      - WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      - WORKFLOW_PROCESSING_STATUS_QUEUED
+      - WORKFLOW_PROCESSING_STATUS_IN_PROGRESS
+      - WORKFLOW_PROCESSING_STATUS_COMPLETED
+      - WORKFLOW_PROCESSING_STATUS_PARTIAL_FAILURE
+      - WORKFLOW_PROCESSING_STATUS_FAILED
+      - WORKFLOW_PROCESSING_STATUS_TIMED_OUT
+      type: string
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+  requestBodies:
+    generatedWorkflowV2Id:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedWorkflowV2Id'
+      required: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

@@ -1,0 +1,836 @@
+{
+  "item": [
+    {
+      "id": "939fea08-8ad0-4093-934f-ac19dccea969",
+      "name": "JoinService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f2800beb-acb7-4efa-80ad-35518ab5f031",
+          "name": "Create join",
+          "request": {
+            "name": "Create join",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "joins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keyColumns\": [\n    {\n      \"leftColumnId\": \"<integer>\",\n      \"rightColumnId\": \"<integer>\"\n    },\n    {\n      \"leftColumnId\": \"<integer>\",\n      \"rightColumnId\": \"<integer>\"\n    }\n  ],\n  \"leftFilter\": {\n    \"rctFilter\": {\n      \"lookback\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      },\n      \"rctColumn\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    \"whereClause\": \"<string>\"\n  },\n  \"leftTableId\": \"<integer>\",\n  \"rightFilter\": {\n    \"rctFilter\": {\n      \"lookback\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      },\n      \"rctColumn\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    \"whereClause\": \"<string>\"\n  },\n  \"rightTableId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9316a2a9-fd07-4a0e-b0a4-9de7b01c24ff",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "joins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keyColumns\": [\n    {\n      \"leftColumnId\": \"<integer>\",\n      \"rightColumnId\": \"<integer>\"\n    },\n    {\n      \"leftColumnId\": \"<integer>\",\n      \"rightColumnId\": \"<integer>\"\n    }\n  ],\n  \"leftFilter\": {\n    \"rctFilter\": {\n      \"lookback\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      },\n      \"rctColumn\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    \"whereClause\": \"<string>\"\n  },\n  \"leftTableId\": \"<integer>\",\n  \"rightFilter\": {\n    \"rctFilter\": {\n      \"lookback\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      },\n      \"rctColumn\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    \"whereClause\": \"<string>\"\n  },\n  \"rightTableId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"join\": {\n    \"entityInfo\": {\n      \"createdBy\": 7424,\n      \"createdEpochSeconds\": \"string\",\n      \"updatedBy\": 847,\n      \"updatedEpochSeconds\": \"string\"\n    },\n    \"id\": 4789,\n    \"keyColumns\": [\n      {\n        \"entityInfo\": {\n          \"createdBy\": 3833,\n          \"createdEpochSeconds\": \"string\",\n          \"updatedBy\": 270,\n          \"updatedEpochSeconds\": \"string\"\n        },\n        \"id\": 9251,\n        \"leftColumn\": {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 2045,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 5536,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": false,\n          \"name\": \"string\",\n          \"parentColumnId\": 2759,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        \"rightColumn\": {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 4112,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 1528,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 6227,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        }\n      },\n      {\n        \"entityInfo\": {\n          \"createdBy\": 1634,\n          \"createdEpochSeconds\": \"string\",\n          \"updatedBy\": 5377,\n          \"updatedEpochSeconds\": \"string\"\n        },\n        \"id\": 2664,\n        \"leftColumn\": {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 6561,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 3817,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": false,\n          \"isNullable\": true,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 8058,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        \"rightColumn\": {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 3729,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 66,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": true,\n          \"isNullable\": true,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 2832,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        }\n      }\n    ],\n    \"leftFilter\": {\n      \"rctFilter\": {\n        \"lookback\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        },\n        \"rctColumn\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      },\n      \"whereClause\": \"<string>\"\n    },\n    \"leftTable\": {\n      \"columns\": [\n        {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 9280,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 6918,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": true,\n          \"isNullable\": true,\n          \"isPartitionField\": false,\n          \"name\": \"string\",\n          \"parentColumnId\": 65,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 2789,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 1308,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": false,\n          \"name\": \"string\",\n          \"parentColumnId\": 6206,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        }\n      ],\n      \"dataNodeId\": 4364,\n      \"databaseName\": \"string\",\n      \"id\": 9958,\n      \"isFavorite\": true,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"metricTimeColumn\": {\n        \"canBeMetricTime\": true,\n        \"dataNodeId\": 7497,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 872,\n        \"isFavorite\": false,\n        \"isKeyInJoin\": false,\n        \"isMetricTime\": false,\n        \"isNullable\": false,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 665,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"type\": \"string\"\n      },\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 2469,\n      \"popularityScore\": 7281.41390035798,\n      \"requiresPartitionFilter\": true,\n      \"schema\": {\n        \"dataNodeId\": 497,\n        \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"id\": 462,\n        \"indexByTable\": false,\n        \"isFavorite\": false,\n        \"isVirtual\": false,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 6105,\n        \"popularityScore\": 2768.496487897747,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tags\": [\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"warehouseId\": 7954,\n        \"warehouseName\": \"string\"\n      },\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"schemaId\": 5859,\n      \"schemaName\": \"string\",\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 4886,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5751\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 6628,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 4337\n        }\n      ],\n      \"usesAgent\": true,\n      \"warehouseId\": 1981,\n      \"warehouseName\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    \"rightFilter\": {\n      \"rctFilter\": {\n        \"lookback\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        },\n        \"rctColumn\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      },\n      \"whereClause\": \"<string>\"\n    },\n    \"rightTable\": {\n      \"columns\": [\n        {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 2412,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 7366,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": false,\n          \"isNullable\": false,\n          \"isPartitionField\": false,\n          \"name\": \"string\",\n          \"parentColumnId\": 7529,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 5477,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 8789,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 1267,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        }\n      ],\n      \"dataNodeId\": 3922,\n      \"databaseName\": \"string\",\n      \"id\": 9190,\n      \"isFavorite\": true,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"metricTimeColumn\": {\n        \"canBeMetricTime\": true,\n        \"dataNodeId\": 1475,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 1261,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": false,\n        \"isMetricTime\": false,\n        \"isNullable\": false,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 1478,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"type\": \"string\"\n      },\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 8268,\n      \"popularityScore\": 7765.831736093805,\n      \"requiresPartitionFilter\": false,\n      \"schema\": {\n        \"dataNodeId\": 5169,\n        \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"id\": 1631,\n        \"indexByTable\": true,\n        \"isFavorite\": false,\n        \"isVirtual\": false,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 57,\n        \"popularityScore\": 1313.9335294944865,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tags\": [\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"warehouseId\": 9179,\n        \"warehouseName\": \"string\"\n      },\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"schemaId\": 6674,\n      \"schemaName\": \"string\",\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 2457,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 1133\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1123,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 6469\n        }\n      ],\n      \"usesAgent\": true,\n      \"warehouseId\": 3430,\n      \"warehouseName\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41af759f-26ac-4c1f-969d-b03a86762208",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "joins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keyColumns\": [\n    {\n      \"leftColumnId\": \"<integer>\",\n      \"rightColumnId\": \"<integer>\"\n    },\n    {\n      \"leftColumnId\": \"<integer>\",\n      \"rightColumnId\": \"<integer>\"\n    }\n  ],\n  \"leftFilter\": {\n    \"rctFilter\": {\n      \"lookback\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      },\n      \"rctColumn\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    \"whereClause\": \"<string>\"\n  },\n  \"leftTableId\": \"<integer>\",\n  \"rightFilter\": {\n    \"rctFilter\": {\n      \"lookback\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      },\n      \"rctColumn\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    \"whereClause\": \"<string>\"\n  },\n  \"rightTableId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5144,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33f1f4db-35f1-49dc-9563-07932696b6bd",
+          "name": "Delete join",
+          "request": {
+            "name": "Delete join",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "joins",
+                ":joinId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "joinId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c9ccc9a-48eb-4983-af30-054821a717d0",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "joins",
+                    ":joinId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "joinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a578e22-5ae9-4292-8ffa-083f16b26f03",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "joins",
+                    ":joinId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "joinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 653,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77da0885-c00e-4e2b-a114-8d37da453706",
+          "name": "Get join",
+          "request": {
+            "name": "Get join",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "joins",
+                ":joinId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "joinId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a71c0d42-488f-4c84-947d-d7606da66a57",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "joins",
+                    ":joinId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "joinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entityInfo\": {\n    \"createdBy\": 8659,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 9422,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": 9020,\n  \"keyColumns\": [\n    {\n      \"entityInfo\": {\n        \"createdBy\": 9111,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 1504,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": 2965,\n      \"leftColumn\": {\n        \"canBeMetricTime\": true,\n        \"dataNodeId\": 610,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 5304,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": false,\n        \"isMetricTime\": true,\n        \"isNullable\": false,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 2383,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 991,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 5216\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 2778,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 7928\n          }\n        ],\n        \"type\": \"string\"\n      },\n      \"rightColumn\": {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 6094,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 5362,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": false,\n        \"isNullable\": true,\n        \"isPartitionField\": true,\n        \"name\": \"string\",\n        \"parentColumnId\": 3142,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 2442,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 5262\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 8685,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 30\n          }\n        ],\n        \"type\": \"string\"\n      }\n    },\n    {\n      \"entityInfo\": {\n        \"createdBy\": 977,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 1965,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": 160,\n      \"leftColumn\": {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 6707,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 1748,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": true,\n        \"isNullable\": true,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 5642,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 6638,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 5874\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 7371,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 1221\n          }\n        ],\n        \"type\": \"string\"\n      },\n      \"rightColumn\": {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 3699,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 3335,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": false,\n        \"isMetricTime\": false,\n        \"isNullable\": false,\n        \"isPartitionField\": true,\n        \"name\": \"string\",\n        \"parentColumnId\": 6780,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 912,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 763\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 9160,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 8304\n          }\n        ],\n        \"type\": \"string\"\n      }\n    }\n  ],\n  \"leftFilter\": {\n    \"rctFilter\": {\n      \"lookback\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      },\n      \"rctColumn\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    \"whereClause\": \"<string>\"\n  },\n  \"leftTable\": {\n    \"columns\": [\n      {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 7836,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 4475,\n        \"isFavorite\": false,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": false,\n        \"isNullable\": true,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 275,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 4945,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 6388\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 952,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 6595\n          }\n        ],\n        \"type\": \"string\"\n      },\n      {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 8538,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 2448,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": true,\n        \"isNullable\": true,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 2644,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 9961,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 8819\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 8384,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 4211\n          }\n        ],\n        \"type\": \"string\"\n      }\n    ],\n    \"dataNodeId\": 2907,\n    \"databaseName\": \"string\",\n    \"id\": 705,\n    \"isFavorite\": false,\n    \"latestMetricTimeValue\": \"string\",\n    \"logicalSizeBytes\": \"string\",\n    \"metricTimeColumn\": {\n      \"canBeMetricTime\": false,\n      \"dataNodeId\": 1657,\n      \"extendedType\": \"string\",\n      \"fullType\": \"string\",\n      \"id\": 7338,\n      \"isFavorite\": true,\n      \"isKeyInJoin\": false,\n      \"isMetricTime\": false,\n      \"isNullable\": false,\n      \"isPartitionField\": true,\n      \"name\": \"string\",\n      \"parentColumnId\": 2211,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7547,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 2777\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7202,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 638\n        }\n      ],\n      \"type\": \"string\"\n    },\n    \"name\": \"string\",\n    \"numQueriesLatestPeriod\": 6594,\n    \"popularityScore\": 6816.447851106201,\n    \"requiresPartitionFilter\": false,\n    \"schema\": {\n      \"dataNodeId\": 9167,\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"id\": 9488,\n      \"indexByTable\": false,\n      \"isFavorite\": true,\n      \"isVirtual\": false,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 4608,\n      \"popularityScore\": 3727.863897675092,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 8588,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 6624\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7218,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 4149\n        }\n      ],\n      \"warehouseId\": 1423,\n      \"warehouseName\": \"string\"\n    },\n    \"schemaChangeInfo\": {\n      \"initialSchemaScanAt\": \"string\",\n      \"lastSchemaChangeAt\": \"string\",\n      \"mostRecentSchemaScanAt\": \"string\"\n    },\n    \"schemaId\": 7822,\n    \"schemaName\": \"string\",\n    \"sizeLastUpdatedAtMillis\": \"string\",\n    \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n    \"tags\": [\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 9397,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 3800\n      },\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 9723,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 5974\n      }\n    ],\n    \"usesAgent\": true,\n    \"warehouseId\": 4900,\n    \"warehouseName\": \"string\",\n    \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n  },\n  \"rightFilter\": {\n    \"rctFilter\": {\n      \"lookback\": {\n        \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n        \"intervalValue\": \"<integer>\"\n      },\n      \"rctColumn\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    },\n    \"whereClause\": \"<string>\"\n  },\n  \"rightTable\": {\n    \"columns\": [\n      {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 3084,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 2174,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": false,\n        \"isNullable\": false,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 1792,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 3132,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 7313\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 840,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 7794\n          }\n        ],\n        \"type\": \"string\"\n      },\n      {\n        \"canBeMetricTime\": true,\n        \"dataNodeId\": 3673,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 3611,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": true,\n        \"isNullable\": false,\n        \"isPartitionField\": true,\n        \"name\": \"string\",\n        \"parentColumnId\": 8138,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 7670,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 4138\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 6086,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 1226\n          }\n        ],\n        \"type\": \"string\"\n      }\n    ],\n    \"dataNodeId\": 6280,\n    \"databaseName\": \"string\",\n    \"id\": 3269,\n    \"isFavorite\": true,\n    \"latestMetricTimeValue\": \"string\",\n    \"logicalSizeBytes\": \"string\",\n    \"metricTimeColumn\": {\n      \"canBeMetricTime\": true,\n      \"dataNodeId\": 3800,\n      \"extendedType\": \"string\",\n      \"fullType\": \"string\",\n      \"id\": 6051,\n      \"isFavorite\": false,\n      \"isKeyInJoin\": true,\n      \"isMetricTime\": true,\n      \"isNullable\": false,\n      \"isPartitionField\": false,\n      \"name\": \"string\",\n      \"parentColumnId\": 7286,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 9587,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5036\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 5323,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 1672\n        }\n      ],\n      \"type\": \"string\"\n    },\n    \"name\": \"string\",\n    \"numQueriesLatestPeriod\": 9372,\n    \"popularityScore\": 2212.2011879561255,\n    \"requiresPartitionFilter\": true,\n    \"schema\": {\n      \"dataNodeId\": 9129,\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"id\": 7176,\n      \"indexByTable\": true,\n      \"isFavorite\": false,\n      \"isVirtual\": true,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 4168,\n      \"popularityScore\": 9617.548767574859,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 3672,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5804\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 4782,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5100\n        }\n      ],\n      \"warehouseId\": 7179,\n      \"warehouseName\": \"string\"\n    },\n    \"schemaChangeInfo\": {\n      \"initialSchemaScanAt\": \"string\",\n      \"lastSchemaChangeAt\": \"string\",\n      \"mostRecentSchemaScanAt\": \"string\"\n    },\n    \"schemaId\": 6990,\n    \"schemaName\": \"string\",\n    \"sizeLastUpdatedAtMillis\": \"string\",\n    \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n    \"tags\": [\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 7619,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 6715\n      },\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 6971,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 1084\n      }\n    ],\n    \"usesAgent\": false,\n    \"warehouseId\": 9271,\n    \"warehouseName\": \"string\",\n    \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2297573-27ab-4597-8688-3ad2414a6e8a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "joins",
+                    ":joinId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "joinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 653,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11f34b2e-f77b-4b23-8ab7-fcb5dab98f0f",
+          "name": "Update join",
+          "request": {
+            "name": "Update join",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "joins",
+                ":joinId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "joinId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"joinId\": \"<integer>\",\n  \"request\": {\n    \"keyColumns\": [\n      {\n        \"leftColumnId\": \"<integer>\",\n        \"rightColumnId\": \"<integer>\"\n      },\n      {\n        \"leftColumnId\": \"<integer>\",\n        \"rightColumnId\": \"<integer>\"\n      }\n    ],\n    \"leftFilter\": {\n      \"rctFilter\": {\n        \"lookback\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        },\n        \"rctColumn\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      },\n      \"whereClause\": \"<string>\"\n    },\n    \"leftTableId\": \"<integer>\",\n    \"rightFilter\": {\n      \"rctFilter\": {\n        \"lookback\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        },\n        \"rctColumn\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      },\n      \"whereClause\": \"<string>\"\n    },\n    \"rightTableId\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b55d91ee-24d6-4e4a-87df-98aac6e3790f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "joins",
+                    ":joinId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "joinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"joinId\": \"<integer>\",\n  \"request\": {\n    \"keyColumns\": [\n      {\n        \"leftColumnId\": \"<integer>\",\n        \"rightColumnId\": \"<integer>\"\n      },\n      {\n        \"leftColumnId\": \"<integer>\",\n        \"rightColumnId\": \"<integer>\"\n      }\n    ],\n    \"leftFilter\": {\n      \"rctFilter\": {\n        \"lookback\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        },\n        \"rctColumn\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      },\n      \"whereClause\": \"<string>\"\n    },\n    \"leftTableId\": \"<integer>\",\n    \"rightFilter\": {\n      \"rctFilter\": {\n        \"lookback\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        },\n        \"rctColumn\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      },\n      \"whereClause\": \"<string>\"\n    },\n    \"rightTableId\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"join\": {\n    \"entityInfo\": {\n      \"createdBy\": 8859,\n      \"createdEpochSeconds\": \"string\",\n      \"updatedBy\": 7696,\n      \"updatedEpochSeconds\": \"string\"\n    },\n    \"id\": 228,\n    \"keyColumns\": [\n      {\n        \"entityInfo\": {\n          \"createdBy\": 8475,\n          \"createdEpochSeconds\": \"string\",\n          \"updatedBy\": 6495,\n          \"updatedEpochSeconds\": \"string\"\n        },\n        \"id\": 270,\n        \"leftColumn\": {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 2209,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 8239,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": false,\n          \"isNullable\": false,\n          \"isPartitionField\": false,\n          \"name\": \"string\",\n          \"parentColumnId\": 289,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        \"rightColumn\": {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 6850,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 6691,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 6070,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        }\n      },\n      {\n        \"entityInfo\": {\n          \"createdBy\": 6061,\n          \"createdEpochSeconds\": \"string\",\n          \"updatedBy\": 168,\n          \"updatedEpochSeconds\": \"string\"\n        },\n        \"id\": 232,\n        \"leftColumn\": {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 3209,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 6541,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": true,\n          \"isNullable\": true,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 7525,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        \"rightColumn\": {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 9520,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 8376,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": false,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 6984,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        }\n      }\n    ],\n    \"leftFilter\": {\n      \"rctFilter\": {\n        \"lookback\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        },\n        \"rctColumn\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      },\n      \"whereClause\": \"<string>\"\n    },\n    \"leftTable\": {\n      \"columns\": [\n        {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 5867,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 2050,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": false,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 8205,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 2237,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 978,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": false,\n          \"isNullable\": true,\n          \"isPartitionField\": false,\n          \"name\": \"string\",\n          \"parentColumnId\": 4427,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        }\n      ],\n      \"dataNodeId\": 3501,\n      \"databaseName\": \"string\",\n      \"id\": 6668,\n      \"isFavorite\": true,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"metricTimeColumn\": {\n        \"canBeMetricTime\": true,\n        \"dataNodeId\": 9928,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 6938,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": false,\n        \"isNullable\": true,\n        \"isPartitionField\": true,\n        \"name\": \"string\",\n        \"parentColumnId\": 211,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"type\": \"string\"\n      },\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 7059,\n      \"popularityScore\": 4078.204300248286,\n      \"requiresPartitionFilter\": false,\n      \"schema\": {\n        \"dataNodeId\": 792,\n        \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"id\": 1537,\n        \"indexByTable\": true,\n        \"isFavorite\": true,\n        \"isVirtual\": true,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 7899,\n        \"popularityScore\": 3677.0715398115926,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tags\": [\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"warehouseId\": 5894,\n        \"warehouseName\": \"string\"\n      },\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"schemaId\": 917,\n      \"schemaName\": \"string\",\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 886,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 1258\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 3261,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9853\n        }\n      ],\n      \"usesAgent\": false,\n      \"warehouseId\": 7736,\n      \"warehouseName\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    \"rightFilter\": {\n      \"rctFilter\": {\n        \"lookback\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        },\n        \"rctColumn\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      },\n      \"whereClause\": \"<string>\"\n    },\n    \"rightTable\": {\n      \"columns\": [\n        {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 95,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 9687,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": false,\n          \"isNullable\": true,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 6901,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 9658,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 4605,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": true,\n          \"isNullable\": true,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 1772,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        }\n      ],\n      \"dataNodeId\": 7868,\n      \"databaseName\": \"string\",\n      \"id\": 1122,\n      \"isFavorite\": false,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"metricTimeColumn\": {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 4203,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 9624,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": false,\n        \"isMetricTime\": true,\n        \"isNullable\": true,\n        \"isPartitionField\": true,\n        \"name\": \"string\",\n        \"parentColumnId\": 3345,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"type\": \"string\"\n      },\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 7578,\n      \"popularityScore\": 6769.860594042289,\n      \"requiresPartitionFilter\": false,\n      \"schema\": {\n        \"dataNodeId\": 8393,\n        \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"id\": 417,\n        \"indexByTable\": false,\n        \"isFavorite\": true,\n        \"isVirtual\": false,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 4157,\n        \"popularityScore\": 6017.801650865918,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tags\": [\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"warehouseId\": 3953,\n        \"warehouseName\": \"string\"\n      },\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"schemaId\": 2419,\n      \"schemaName\": \"string\",\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 8770,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 3243\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 9829,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 977\n        }\n      ],\n      \"usesAgent\": false,\n      \"warehouseId\": 6509,\n      \"warehouseName\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "311bc338-e12d-4556-a066-4bf9914d87ad",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "joins",
+                    ":joinId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "joinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"joinId\": \"<integer>\",\n  \"request\": {\n    \"keyColumns\": [\n      {\n        \"leftColumnId\": \"<integer>\",\n        \"rightColumnId\": \"<integer>\"\n      },\n      {\n        \"leftColumnId\": \"<integer>\",\n        \"rightColumnId\": \"<integer>\"\n      }\n    ],\n    \"leftFilter\": {\n      \"rctFilter\": {\n        \"lookback\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        },\n        \"rctColumn\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      },\n      \"whereClause\": \"<string>\"\n    },\n    \"leftTableId\": \"<integer>\",\n    \"rightFilter\": {\n      \"rctFilter\": {\n        \"lookback\": {\n          \"intervalType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"intervalValue\": \"<integer>\"\n        },\n        \"rctColumn\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        }\n      },\n      \"whereClause\": \"<string>\"\n    },\n    \"rightTableId\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 653,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48ac3b80-225b-4794-9eda-97f691db5bae",
+          "name": "Get joins",
+          "request": {
+            "name": "Get joins",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "joins",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"columnId\": \"<integer>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"schemaId\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortOption\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"JOIN_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"JOIN_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"sourceId\": \"<integer>\",\n  \"tableId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "984f39e8-8d9c-48b0-b371-3d8abed46dc2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "joins",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"columnId\": \"<integer>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"schemaId\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortOption\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"JOIN_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"JOIN_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"sourceId\": \"<integer>\",\n  \"tableId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"joins\": [\n    {\n      \"entityInfo\": {\n        \"createdBy\": 7432,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 500,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": 914,\n      \"keyColumns\": [\n        {\n          \"entityInfo\": {\n            \"createdBy\": 2201,\n            \"createdEpochSeconds\": \"string\",\n            \"updatedBy\": 922,\n            \"updatedEpochSeconds\": \"string\"\n          },\n          \"id\": 5925,\n          \"leftColumn\": {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 4780,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 8127,\n            \"isFavorite\": true,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": true,\n            \"isNullable\": true,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 9920,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          },\n          \"rightColumn\": {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 2117,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 5834,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": true,\n            \"isNullable\": false,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 6659,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          }\n        },\n        {\n          \"entityInfo\": {\n            \"createdBy\": 5664,\n            \"createdEpochSeconds\": \"string\",\n            \"updatedBy\": 8540,\n            \"updatedEpochSeconds\": \"string\"\n          },\n          \"id\": 9181,\n          \"leftColumn\": {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 3598,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 310,\n            \"isFavorite\": true,\n            \"isKeyInJoin\": false,\n            \"isMetricTime\": true,\n            \"isNullable\": false,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 3301,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          },\n          \"rightColumn\": {\n            \"canBeMetricTime\": false,\n            \"dataNodeId\": 5170,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 9244,\n            \"isFavorite\": true,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": true,\n            \"isNullable\": false,\n            \"isPartitionField\": false,\n            \"name\": \"string\",\n            \"parentColumnId\": 2928,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          }\n        }\n      ],\n      \"leftFilter\": {\n        \"rctFilter\": {\n          \"lookback\": {\n            \"intervalType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"intervalValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rctColumn\": {\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"whereClause\": \"<string>\"\n      },\n      \"leftTable\": {\n        \"columns\": [\n          {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 6865,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 2021,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": false,\n            \"isMetricTime\": false,\n            \"isNullable\": false,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 5831,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          },\n          {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 2029,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 2258,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": true,\n            \"isNullable\": false,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 459,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          }\n        ],\n        \"dataNodeId\": 7646,\n        \"databaseName\": \"string\",\n        \"id\": 7655,\n        \"isFavorite\": true,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"metricTimeColumn\": {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 9663,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 3681,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": false,\n          \"isNullable\": true,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 3638,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 6715,\n        \"popularityScore\": 9693.339958003053,\n        \"requiresPartitionFilter\": false,\n        \"schema\": {\n          \"dataNodeId\": 8428,\n          \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"id\": 760,\n          \"indexByTable\": true,\n          \"isFavorite\": true,\n          \"isVirtual\": true,\n          \"latestMetricTimeValue\": \"string\",\n          \"logicalSizeBytes\": \"string\",\n          \"name\": \"string\",\n          \"numQueriesLatestPeriod\": 1211,\n          \"popularityScore\": 2786.697670963455,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sizeLastUpdatedAtMillis\": \"string\",\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"warehouseId\": 4376,\n          \"warehouseName\": \"string\"\n        },\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"schemaId\": 268,\n        \"schemaName\": \"string\",\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 9552,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 7457\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 9422,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 7787\n          }\n        ],\n        \"usesAgent\": true,\n        \"warehouseId\": 4979,\n        \"warehouseName\": \"string\",\n        \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"rightFilter\": {\n        \"rctFilter\": {\n          \"lookback\": {\n            \"intervalType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"intervalValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rctColumn\": {\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"whereClause\": \"<string>\"\n      },\n      \"rightTable\": {\n        \"columns\": [\n          {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 2261,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 2631,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": false,\n            \"isMetricTime\": false,\n            \"isNullable\": true,\n            \"isPartitionField\": false,\n            \"name\": \"string\",\n            \"parentColumnId\": 5771,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          },\n          {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 4033,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 6108,\n            \"isFavorite\": true,\n            \"isKeyInJoin\": false,\n            \"isMetricTime\": true,\n            \"isNullable\": false,\n            \"isPartitionField\": false,\n            \"name\": \"string\",\n            \"parentColumnId\": 9916,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          }\n        ],\n        \"dataNodeId\": 5059,\n        \"databaseName\": \"string\",\n        \"id\": 28,\n        \"isFavorite\": true,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"metricTimeColumn\": {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 6847,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 3714,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": false,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 9712,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 5797,\n        \"popularityScore\": 6479.59633465333,\n        \"requiresPartitionFilter\": false,\n        \"schema\": {\n          \"dataNodeId\": 5633,\n          \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"id\": 4232,\n          \"indexByTable\": false,\n          \"isFavorite\": true,\n          \"isVirtual\": true,\n          \"latestMetricTimeValue\": \"string\",\n          \"logicalSizeBytes\": \"string\",\n          \"name\": \"string\",\n          \"numQueriesLatestPeriod\": 5757,\n          \"popularityScore\": 7339.186596848924,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sizeLastUpdatedAtMillis\": \"string\",\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"warehouseId\": 6531,\n          \"warehouseName\": \"string\"\n        },\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"schemaId\": 7255,\n        \"schemaName\": \"string\",\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 8811,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 1077\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 3420,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 988\n          }\n        ],\n        \"usesAgent\": false,\n        \"warehouseId\": 5277,\n        \"warehouseName\": \"string\",\n        \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n      }\n    },\n    {\n      \"entityInfo\": {\n        \"createdBy\": 6041,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 9623,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": 209,\n      \"keyColumns\": [\n        {\n          \"entityInfo\": {\n            \"createdBy\": 9090,\n            \"createdEpochSeconds\": \"string\",\n            \"updatedBy\": 160,\n            \"updatedEpochSeconds\": \"string\"\n          },\n          \"id\": 951,\n          \"leftColumn\": {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 5671,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 2361,\n            \"isFavorite\": true,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": true,\n            \"isNullable\": false,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 3185,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          },\n          \"rightColumn\": {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 1542,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 8769,\n            \"isFavorite\": true,\n            \"isKeyInJoin\": false,\n            \"isMetricTime\": false,\n            \"isNullable\": false,\n            \"isPartitionField\": false,\n            \"name\": \"string\",\n            \"parentColumnId\": 2940,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          }\n        },\n        {\n          \"entityInfo\": {\n            \"createdBy\": 1316,\n            \"createdEpochSeconds\": \"string\",\n            \"updatedBy\": 2444,\n            \"updatedEpochSeconds\": \"string\"\n          },\n          \"id\": 5132,\n          \"leftColumn\": {\n            \"canBeMetricTime\": false,\n            \"dataNodeId\": 1536,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 340,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": false,\n            \"isMetricTime\": false,\n            \"isNullable\": false,\n            \"isPartitionField\": false,\n            \"name\": \"string\",\n            \"parentColumnId\": 8316,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          },\n          \"rightColumn\": {\n            \"canBeMetricTime\": false,\n            \"dataNodeId\": 5379,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 9056,\n            \"isFavorite\": true,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": true,\n            \"isNullable\": true,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 606,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          }\n        }\n      ],\n      \"leftFilter\": {\n        \"rctFilter\": {\n          \"lookback\": {\n            \"intervalType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"intervalValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rctColumn\": {\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"whereClause\": \"<string>\"\n      },\n      \"leftTable\": {\n        \"columns\": [\n          {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 2399,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 6399,\n            \"isFavorite\": true,\n            \"isKeyInJoin\": false,\n            \"isMetricTime\": true,\n            \"isNullable\": false,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 9279,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          },\n          {\n            \"canBeMetricTime\": false,\n            \"dataNodeId\": 2038,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 1227,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": false,\n            \"isMetricTime\": false,\n            \"isNullable\": true,\n            \"isPartitionField\": false,\n            \"name\": \"string\",\n            \"parentColumnId\": 9409,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          }\n        ],\n        \"dataNodeId\": 3108,\n        \"databaseName\": \"string\",\n        \"id\": 4453,\n        \"isFavorite\": false,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"metricTimeColumn\": {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 1375,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 8826,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": false,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 7323,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 109,\n        \"popularityScore\": 4828.7223316031495,\n        \"requiresPartitionFilter\": true,\n        \"schema\": {\n          \"dataNodeId\": 2651,\n          \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"id\": 9565,\n          \"indexByTable\": true,\n          \"isFavorite\": false,\n          \"isVirtual\": true,\n          \"latestMetricTimeValue\": \"string\",\n          \"logicalSizeBytes\": \"string\",\n          \"name\": \"string\",\n          \"numQueriesLatestPeriod\": 4100,\n          \"popularityScore\": 4235.4395535419035,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sizeLastUpdatedAtMillis\": \"string\",\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"warehouseId\": 2027,\n          \"warehouseName\": \"string\"\n        },\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"schemaId\": 5675,\n        \"schemaName\": \"string\",\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 6508,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 9129\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1404,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 1918\n          }\n        ],\n        \"usesAgent\": false,\n        \"warehouseId\": 2454,\n        \"warehouseName\": \"string\",\n        \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"rightFilter\": {\n        \"rctFilter\": {\n          \"lookback\": {\n            \"intervalType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"intervalValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"rctColumn\": {\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"whereClause\": \"<string>\"\n      },\n      \"rightTable\": {\n        \"columns\": [\n          {\n            \"canBeMetricTime\": false,\n            \"dataNodeId\": 9473,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 5451,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": true,\n            \"isNullable\": true,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 5403,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          },\n          {\n            \"canBeMetricTime\": false,\n            \"dataNodeId\": 6851,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 6306,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": false,\n            \"isNullable\": false,\n            \"isPartitionField\": false,\n            \"name\": \"string\",\n            \"parentColumnId\": 2722,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          }\n        ],\n        \"dataNodeId\": 7025,\n        \"databaseName\": \"string\",\n        \"id\": 5579,\n        \"isFavorite\": true,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"metricTimeColumn\": {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 2493,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 7107,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": false,\n          \"name\": \"string\",\n          \"parentColumnId\": 6173,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 1539,\n        \"popularityScore\": 1029.450671648915,\n        \"requiresPartitionFilter\": false,\n        \"schema\": {\n          \"dataNodeId\": 5945,\n          \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"id\": 3804,\n          \"indexByTable\": false,\n          \"isFavorite\": false,\n          \"isVirtual\": false,\n          \"latestMetricTimeValue\": \"string\",\n          \"logicalSizeBytes\": \"string\",\n          \"name\": \"string\",\n          \"numQueriesLatestPeriod\": 5477,\n          \"popularityScore\": 8965.679888380806,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sizeLastUpdatedAtMillis\": \"string\",\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"warehouseId\": 8974,\n          \"warehouseName\": \"string\"\n        },\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"schemaId\": 7246,\n        \"schemaName\": \"string\",\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 5368,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 6141\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 6115,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 9599\n          }\n        ],\n        \"usesAgent\": false,\n        \"warehouseId\": 465,\n        \"warehouseName\": \"string\",\n        \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n      }\n    }\n  ],\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": true,\n    \"numRecords\": 5878,\n    \"prevCursor\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d1efe01-6e41-461d-a9a9-33290670b058",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "joins",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"columnId\": \"<integer>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"schemaId\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortOption\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"JOIN_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"JOIN_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"sourceId\": \"<integer>\",\n  \"tableId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 653,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bdc5f5ca-c4ee-4283-bcf7-ce1b313363c3",
+    "name": "Observability Join Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

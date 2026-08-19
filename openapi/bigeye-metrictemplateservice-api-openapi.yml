@@ -1,0 +1,338 @@
+openapi: 3.2.0
+info:
+  title: Observability Metric Template Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: MetricTemplateService
+paths:
+  /api/v1/metric-templates:
+    post:
+      operationId: MetricTemplateService_CreateMetricTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedCreateMetricTemplateRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedCreateMetricTemplateResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create or update a metric template
+      tags:
+      - MetricTemplateService
+  /api/v1/metric-templates/{metricTemplateId}:
+    delete:
+      operationId: MetricTemplateService_DeleteMetricTemplate
+      parameters:
+      - description: The ID of the metric template
+        in: path
+        name: metricTemplateId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete a metric template
+      tags:
+      - MetricTemplateService
+    get:
+      operationId: MetricTemplateService_GetMetricTemplate
+      parameters:
+      - description: The ID of the metric template
+        in: path
+        name: metricTemplateId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetMetricTemplateResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get single metric template
+      tags:
+      - MetricTemplateService
+  /api/v1/metric-templates/fetch:
+    post:
+      operationId: MetricTemplateService_GetMetricTemplates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedGetMetricTemplateListRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetMetricTemplateListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get all metric templates
+      tags:
+      - MetricTemplateService
+components:
+  schemas:
+    generatedEmpty:
+      type: object
+    generatedGetMetricTemplateListResponse:
+      properties:
+        metricTemplates:
+          items:
+            $ref: '#/components/schemas/generatedMetricTemplate'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
+    generatedGetMetricTemplateListRequest:
+      properties:
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        search:
+          type: string
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedMetricTemplateSortField'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedCreateMetricTemplateRequest:
+      properties:
+        metricTemplate:
+          $ref: '#/components/schemas/generatedMetricTemplate'
+      type: object
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    generatedMetricTemplate:
+      properties:
+        dimension:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        parameters:
+          items:
+            $ref: '#/components/schemas/generatedMetricTemplateParametersFieldEntry'
+          title: this should be a map, but https://github.com/stephenh/ts-proto/issues/382 was causing frontend problems
+          type: array
+        returnType:
+          $ref: '#/components/schemas/generatedFieldType'
+        source:
+          $ref: '#/components/schemas/generatedWarehouse'
+        template:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedCreateMetricTemplateResponse:
+      properties:
+        metricTemplate:
+          $ref: '#/components/schemas/generatedMetricTemplate'
+      type: object
+    generatedWarehouse:
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        warehouseVendor:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedMetricTemplateSortField:
+      default: METRIC_TEMPLATE_SORT_UNSPECIFIED
+      enum:
+      - METRIC_TEMPLATE_SORT_UNSPECIFIED
+      - METRIC_TEMPLATE_SORT_ID
+      - METRIC_TEMPLATE_SORT_NAME
+      - METRIC_TEMPLATE_SORT_SOURCE_NAME
+      type: string
+    generatedMetricTemplateParameterType:
+      default: METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED
+      enum:
+      - METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED
+      - METRIC_TEMPLATE_PARAMETER_TYPE_COLUMN_REFERENCE
+      - METRIC_TEMPLATE_PARAMETER_TYPE_NUMBER
+      - METRIC_TEMPLATE_PARAMETER_TYPE_STRING
+      type: string
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedFieldType:
+      default: FIELD_TYPE_UNSPECIFIED
+      enum:
+      - FIELD_TYPE_UNSPECIFIED
+      - FIELD_TYPE_STRING
+      - FIELD_TYPE_UUID
+      - FIELD_TYPE_BINARY
+      - FIELD_TYPE_NUMERIC
+      - FIELD_TYPE_DATE_LIKE
+      - FIELD_TYPE_TIMESTAMP_LIKE
+      - FIELD_TYPE_ANY
+      - FIELD_TYPE_BOOLEAN
+      - FIELD_TYPE_UNKNOWN
+      - FIELD_TYPE_ARRAY
+      - FIELD_TYPE_STRUCT
+      type: string
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedGetMetricTemplateResponse:
+      properties:
+        metricTemplate:
+          $ref: '#/components/schemas/generatedMetricTemplate'
+      type: object
+    generatedMetricTemplateParametersFieldEntry:
+      properties:
+        key:
+          type: string
+        value:
+          $ref: '#/components/schemas/generatedMetricTemplateParameterType'
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

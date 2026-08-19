@@ -1,0 +1,626 @@
+openapi: 3.2.0
+info:
+  title: Metadata Lineage Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: LineageService
+paths:
+  /api/v1/lineage/nodes:
+    post:
+      operationId: LineageService_CreateDataNode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedCreateDataNodeRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDataNode'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create a custom node
+      tags:
+      - LineageService
+  /api/v1/lineage/relationships:
+    post:
+      operationId: LineageService_CreateLineageRelationship
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedCreateLineageRelationshipRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedLineageRelationship'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create a custom edge between two nodes
+      tags:
+      - LineageService
+  /api/v1/lineage/nodes/{dataNodeId}:
+    delete:
+      operationId: LineageService_DeleteDataNode
+      parameters:
+      - in: path
+        name: dataNodeId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete a node by ID
+      tags:
+      - LineageService
+    get:
+      operationId: LineageService_GetDataNode
+      parameters:
+      - in: path
+        name: dataNodeId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDataNode'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get a node by ID
+      tags:
+      - LineageService
+  /api/v1/lineage/nodes/{dataNodeId}/downstream/fetch:
+    post:
+      operationId: LineageService_GetDownstreamDataNodes
+      parameters:
+      - in: path
+        name: dataNodeId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedGetDownstreamDataNodesRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetDownstreamDataNodesResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get downstream nodes for a given node
+      tags:
+      - LineageService
+  /api/v1/lineage/relationships/{lineageRelationshipId}:
+    delete:
+      operationId: LineageService_DeleteLineageRelationship
+      parameters:
+      - in: path
+        name: lineageRelationshipId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete an edge by ID
+      tags:
+      - LineageService
+    get:
+      operationId: LineageService_GetLineageRelationship
+      parameters:
+      - in: path
+        name: lineageRelationshipId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedLineageRelationship'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get an edge by ID
+      tags:
+      - LineageService
+  /api/v1/lineage/nodes/{dataNodeId}/relationships:
+    delete:
+      operationId: LineageService_DeleteLineageRelationshipsForNode
+      parameters:
+      - in: path
+        name: dataNodeId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDeleteLineageRelationshipsForNodeResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete all edges for a node
+      tags:
+      - LineageService
+    get:
+      operationId: LineageService_GetLineageRelationshipsForNode
+      parameters:
+      - in: path
+        name: dataNodeId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetLineageRelationshipsForNodeResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get all edges for a node
+      tags:
+      - LineageService
+  /api/v1/lineage/integrations/{integrationId}/lineage/workflow:
+    post:
+      operationId: LineageService_QueueLineageForIntegration
+      parameters:
+      - in: path
+        name: integrationId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkflowResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Queue a lineage collection workflow for an integration
+      tags:
+      - LineageService
+  /api/v1/lineage/sources/{sourceId}/lineage/workflow:
+    post:
+      operationId: LineageService_QueueLineageForSource
+      parameters:
+      - in: path
+        name: sourceId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkflowResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Queue a lineage collection workflow for a source
+      tags:
+      - LineageService
+components:
+  schemas:
+    generatedEmpty:
+      type: object
+    generatedLineageRelationship:
+      properties:
+        companyId:
+          format: int32
+          type: integer
+        createdAt:
+          format: int64
+          type: string
+        downstream:
+          $ref: '#/components/schemas/generatedDataNode'
+        id:
+          format: int32
+          type: integer
+        updatedAt:
+          format: int64
+          type: string
+        upstream:
+          $ref: '#/components/schemas/generatedDataNode'
+      title: '*
+
+        represents relationships between DataNodes'
+      type: object
+    generatedGetLineageRelationshipsForNodeResponse:
+      properties:
+        downstream:
+          items:
+            $ref: '#/components/schemas/generatedLineageRelationship'
+          type: array
+        upstream:
+          items:
+            $ref: '#/components/schemas/generatedLineageRelationship'
+          type: array
+      type: object
+    generatedCreateDataNodeRequest:
+      properties:
+        nodeContainerEntityId:
+          format: int32
+          type: integer
+        nodeContainerName:
+          type: string
+        nodeEntityId:
+          format: int32
+          type: integer
+        nodeName:
+          type: string
+        nodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+        rebuildGraph:
+          type: boolean
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedIntegrationPartner:
+      default: INTEGRATION_PARTNER_UNSPECIFIED
+      enum:
+      - INTEGRATION_PARTNER_UNSPECIFIED
+      - INTEGRATION_PARTNER_TABLEAU
+      - INTEGRATION_PARTNER_DBT_CLOUD
+      - INTEGRATION_PARTNER_METACENTER
+      - INTEGRATION_PARTNER_DBT_CORE
+      - INTEGRATION_PARTNER_POWERBI
+      - INTEGRATION_PARTNER_POWERCENTER
+      - INTEGRATION_PARTNER_SSIS
+      - INTEGRATION_PARTNER_COGNOS
+      - INTEGRATION_PARTNER_SAP_BUSINESS_OBJECTS
+      - INTEGRATION_PARTNER_FDS
+      - INTEGRATION_PARTNER_QLIK_REPLICATE
+      - INTEGRATION_PARTNER_LOOKER
+      - INTEGRATION_PARTNER_CDM
+      - INTEGRATION_PARTNER_SNAPLOGIC
+      - INTEGRATION_PARTNER_DATASTAGE
+      - INTEGRATION_PARTNER_SSRS
+      - INTEGRATION_PARTNER_QLIK_SENSE
+      - INTEGRATION_PARTNER_STRATEGY
+      - INTEGRATION_PARTNER_ADF
+      - INTEGRATION_PARTNER_MATILLION
+      - INTEGRATION_PARTNER_ANTHROPIC
+      type: string
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedGetDownstreamDataNodesRequest:
+      properties:
+        applicableFilters:
+          items:
+            type: string
+          type: array
+        nodeIdFilters:
+          items:
+            format: int32
+            type: integer
+          type: array
+        nodeTypeFilters:
+          items:
+            $ref: '#/components/schemas/generatedDataNodeType'
+          type: array
+      type: object
+    generatedDeleteLineageRelationshipsForNodeResponse:
+      properties:
+        deleted:
+          items:
+            $ref: '#/components/schemas/generatedLineageRelationship'
+          type: array
+      type: object
+    generatedWorkflowProcessingType:
+      default: WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
+      enum:
+      - WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SOURCE
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SCHEMA
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_DATASET
+      - WORKFLOW_PROCESSING_TYPE_LINEAGE
+      - WORKFLOW_PROCESSING_TYPE_METADATA_METRICS
+      - WORKFLOW_PROCESSING_TYPE_GENERATE_POP_SCORES
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION
+      - WORKFLOW_PROCESSING_TYPE_APPLY_BIGCONFIG
+      - WORKFLOW_PROCESSING_TYPE_RUN_DELTA
+      - WORKFLOW_PROCESSING_TYPE_RUN_COMPARISON_TABLE
+      - WORKFLOW_PROCESSING_TYPE_RUN_METRIC_BATCH
+      - WORKFLOW_PROCESSING_TYPE_PLAN_BIGCONFIG
+      - WORKFLOW_PROCESSING_TYPE_METRIC_DEPLOY
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION_ENTITY
+      type: string
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedDataNode:
+      properties:
+        companyId:
+          format: int32
+          type: integer
+        createdAt:
+          format: int64
+          type: string
+        customNodeTypeId:
+          format: int64
+          type: string
+        externalId:
+          type: string
+        id:
+          format: int32
+          type: integer
+        integrationId:
+          format: int32
+          type: integer
+        integrationType:
+          $ref: '#/components/schemas/generatedIntegrationPartner'
+        nodeContainerEntityId:
+          format: int32
+          type: integer
+        nodeContainerName:
+          type: string
+        nodeEntityId:
+          format: int32
+          type: integer
+        nodeName:
+          type: string
+        nodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+        updatedAt:
+          format: int64
+          type: string
+        warehouseType:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedCreateLineageRelationshipRequest:
+      properties:
+        downstreamDataNodeId:
+          format: int32
+          type: integer
+        upstreamDataNodeId:
+          format: int32
+          type: integer
+      type: object
+    generatedGetDownstreamDataNodesResponse:
+      properties:
+        nodes:
+          items:
+            $ref: '#/components/schemas/generatedDataNode'
+          type: array
+      type: object
+    generatedDataNodeType:
+      default: DATA_NODE_TYPE_UNSPECIFIED
+      description: " - DATA_NODE_TYPE_MC_STRATEGY_FOLDER: STRATEGY Formerly known as MicroStrategy\n - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE: AI_AGENT prefix: AI agents surfaced on the lineage graph.\nDeprecated: use the platform-agnostic DATA_NODE_TYPE_AI_AGENT instead."
+      enum:
+      - DATA_NODE_TYPE_UNSPECIFIED
+      - DATA_NODE_TYPE_TABLE
+      - DATA_NODE_TYPE_COLUMN
+      - DATA_NODE_TYPE_SCHEMA
+      - DATA_NODE_TYPE_MC_TABLEAU_PROJECT
+      - DATA_NODE_TYPE_MC_TABLEAU_WORKBOOK
+      - DATA_NODE_TYPE_MC_TABLEAU_STORY
+      - DATA_NODE_TYPE_MC_TABLEAU_SHEET
+      - DATA_NODE_TYPE_MC_TABLEAU_DASHBOARD
+      - DATA_NODE_TYPE_MC_POWERBI_WORKSPACE
+      - DATA_NODE_TYPE_MC_POWERBI_REPORT
+      - DATA_NODE_TYPE_MC_POWERBI_PAGE
+      - DATA_NODE_TYPE_MC_POWERBI_DASHBOARD
+      - DATA_NODE_TYPE_MC_POWERCENTER_WORKFLOW
+      - DATA_NODE_TYPE_MC_POWERCENTER_TARGET
+      - DATA_NODE_TYPE_MC_POWERCENTER_TARGET_FIELD
+      - DATA_NODE_TYPE_MC_SSIS_PACKAGE
+      - DATA_NODE_TYPE_MC_SSIS_DESTINATION
+      - DATA_NODE_TYPE_MC_SSIS_DESTINATION_FIELD
+      - DATA_NODE_TYPE_CUSTOM
+      - DATA_NODE_TYPE_CUSTOM_ENTRY
+      - DATA_NODE_TYPE_MC_COGNOS_FOLDER
+      - DATA_NODE_TYPE_MC_COGNOS_REPORT
+      - DATA_NODE_TYPE_MC_COGNOS_QUERY
+      - DATA_NODE_TYPE_MC_SAP_BO_FOLDER
+      - DATA_NODE_TYPE_MC_SAP_BO_REPORT
+      - DATA_NODE_TYPE_MC_FDS_FOLDER
+      - DATA_NODE_TYPE_MC_FDS_FILE
+      - DATA_NODE_TYPE_MC_FDS_FIELD
+      - DATA_NODE_TYPE_MC_QLIK_REPLICATE_SCHEMA
+      - DATA_NODE_TYPE_MC_QLIK_REPLICATE_TABLE
+      - DATA_NODE_TYPE_MC_QLIK_REPLICATE_COLUMN
+      - DATA_NODE_TYPE_MC_LOOKER_FOLDER
+      - DATA_NODE_TYPE_MC_LOOKER_BOARD
+      - DATA_NODE_TYPE_MC_LOOKER_LOOK
+      - DATA_NODE_TYPE_MC_LOOKER_DASHBOARD
+      - DATA_NODE_TYPE_MC_LOOKER_VISUALIZATION
+      - DATA_NODE_TYPE_MC_CDM_TARGET
+      - DATA_NODE_TYPE_MC_CDM_TARGET_FIELD
+      - DATA_NODE_TYPE_MC_CDM_TEMP_TABLE
+      - DATA_NODE_TYPE_MC_CDM_TEMP_FIELD
+      - DATA_NODE_TYPE_MC_CDM_TRANSFORM_FILE
+      - DATA_NODE_TYPE_MC_SNAPLOGIC_PIPELINE
+      - DATA_NODE_TYPE_MC_SNAPLOGIC_WRITE
+      - DATA_NODE_TYPE_MC_SNAPLOGIC_FIELD
+      - DATA_NODE_TYPE_MC_DATASTAGE_OUTPUT
+      - DATA_NODE_TYPE_MC_DATASTAGE_OUTPUT_FIELD
+      - DATA_NODE_TYPE_MC_SSRS_FOLDER
+      - DATA_NODE_TYPE_MC_SSRS_REPORT
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_VIS_DIMENSION
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_VIS_MEASURE
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_APPLICATION
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_SHEET
+      - DATA_NODE_TYPE_MC_STRATEGY_FOLDER
+      - DATA_NODE_TYPE_MC_STRATEGY_DOSSIER
+      - DATA_NODE_TYPE_MC_STRATEGY_GRAPH
+      - DATA_NODE_TYPE_MC_STRATEGY_GRID
+      - DATA_NODE_TYPE_MC_STRATEGY_GRIDGRAPH
+      - DATA_NODE_TYPE_MC_ADF_STORED_PROC
+      - DATA_NODE_TYPE_MC_ADF_TARGET_TABLE
+      - DATA_NODE_TYPE_MC_ADF_COPY_SINK
+      - DATA_NODE_TYPE_MC_ADF_FIELD
+      - DATA_NODE_TYPE_MC_MATILLION_COMPONENT
+      - DATA_NODE_TYPE_MC_MATILLION_TARGET_TABLE
+      - DATA_NODE_TYPE_MC_MATILLION_TARGET_FIELD
+      - DATA_NODE_TYPE_SOURCE
+      - DATA_NODE_TYPE_DBT_CLOUD
+      - DATA_NODE_TYPE_DBT_CORE
+      - DATA_NODE_TYPE_MC_REPOSITORY
+      - DATA_NODE_TYPE_DBT_PROJECT
+      - DATA_NODE_TYPE_CUSTOM_REPOSITORY
+      - DATA_NODE_TYPE_MC_SSIS_DATA_FLOW
+      - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE
+      - DATA_NODE_TYPE_AI_AGENT
+      type: string
+    generatedWorkflowResponse:
+      properties:
+        workflowId:
+          format: int64
+          type: string
+        workflowType:
+          $ref: '#/components/schemas/generatedWorkflowProcessingType'
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

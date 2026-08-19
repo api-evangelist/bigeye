@@ -1,0 +1,201 @@
+{
+  "item": [
+    {
+      "id": "65bb0ae3-3b93-455f-8f73-792ca9a38330",
+      "name": "QueryService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d2b57130-030c-4b25-9b52-51310f6df4d2",
+          "name": "Compute the requested counts",
+          "request": {
+            "name": "Compute the requested counts",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "query",
+                "counts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"excludeZeros\": \"<boolean>\",\n  \"queries\": [\n    {\n      \"fields\": [\n        \"AGGREGATE_FIELD_UNSPECIFIED\",\n        \"AGGREGATE_FIELD_UNSPECIFIED\"\n      ],\n      \"filters\": [\n        {\n          \"catalogEntity\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<int64>\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classifierId\": \"<int64>\",\n          \"collectionId\": \"<integer>\",\n          \"columnId\": \"<integer>\",\n          \"dataClassId\": \"<int64>\",\n          \"dimensionId\": \"<integer>\",\n          \"endEpochSeconds\": \"<int64>\",\n          \"endIssueClosedEpochSeconds\": \"<int64>\",\n          \"isPositiveFinding\": \"<boolean>\",\n          \"isRootCause\": \"<boolean>\",\n          \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n          \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n          \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n          \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n          \"metricId\": \"<integer>\",\n          \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n          \"metricType\": {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": \"<boolean>\",\n            \"isTableMetric\": \"<boolean>\",\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n          \"ownerId\": \"<integer>\",\n          \"parentIssueId\": \"<integer>\",\n          \"scanJobId\": \"<int64>\",\n          \"scanRunId\": \"<int64>\",\n          \"scheduleId\": \"<integer>\",\n          \"schemaId\": \"<integer>\",\n          \"schemaName\": \"<string>\",\n          \"startEpochSeconds\": \"<int64>\",\n          \"startIssueClosedEpochSeconds\": \"<int64>\",\n          \"tableId\": \"<integer>\",\n          \"warehouseId\": \"<integer>\",\n          \"workspaceId\": \"<integer>\"\n        },\n        {\n          \"catalogEntity\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<int64>\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classifierId\": \"<int64>\",\n          \"collectionId\": \"<integer>\",\n          \"columnId\": \"<integer>\",\n          \"dataClassId\": \"<int64>\",\n          \"dimensionId\": \"<integer>\",\n          \"endEpochSeconds\": \"<int64>\",\n          \"endIssueClosedEpochSeconds\": \"<int64>\",\n          \"isPositiveFinding\": \"<boolean>\",\n          \"isRootCause\": \"<boolean>\",\n          \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n          \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n          \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n          \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n          \"metricId\": \"<integer>\",\n          \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n          \"metricType\": {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": \"<boolean>\",\n            \"isTableMetric\": \"<boolean>\",\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n          \"ownerId\": \"<integer>\",\n          \"parentIssueId\": \"<integer>\",\n          \"scanJobId\": \"<int64>\",\n          \"scanRunId\": \"<int64>\",\n          \"scheduleId\": \"<integer>\",\n          \"schemaId\": \"<integer>\",\n          \"schemaName\": \"<string>\",\n          \"startEpochSeconds\": \"<int64>\",\n          \"startIssueClosedEpochSeconds\": \"<int64>\",\n          \"tableId\": \"<integer>\",\n          \"warehouseId\": \"<integer>\",\n          \"workspaceId\": \"<integer>\"\n        }\n      ],\n      \"groupByEntityType\": \"GROUP_BY_ENTITY_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"fields\": [\n        \"AGGREGATE_FIELD_UNSPECIFIED\",\n        \"AGGREGATE_FIELD_UNSPECIFIED\"\n      ],\n      \"filters\": [\n        {\n          \"catalogEntity\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<int64>\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classifierId\": \"<int64>\",\n          \"collectionId\": \"<integer>\",\n          \"columnId\": \"<integer>\",\n          \"dataClassId\": \"<int64>\",\n          \"dimensionId\": \"<integer>\",\n          \"endEpochSeconds\": \"<int64>\",\n          \"endIssueClosedEpochSeconds\": \"<int64>\",\n          \"isPositiveFinding\": \"<boolean>\",\n          \"isRootCause\": \"<boolean>\",\n          \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n          \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n          \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n          \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n          \"metricId\": \"<integer>\",\n          \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n          \"metricType\": {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": \"<boolean>\",\n            \"isTableMetric\": \"<boolean>\",\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n          \"ownerId\": \"<integer>\",\n          \"parentIssueId\": \"<integer>\",\n          \"scanJobId\": \"<int64>\",\n          \"scanRunId\": \"<int64>\",\n          \"scheduleId\": \"<integer>\",\n          \"schemaId\": \"<integer>\",\n          \"schemaName\": \"<string>\",\n          \"startEpochSeconds\": \"<int64>\",\n          \"startIssueClosedEpochSeconds\": \"<int64>\",\n          \"tableId\": \"<integer>\",\n          \"warehouseId\": \"<integer>\",\n          \"workspaceId\": \"<integer>\"\n        },\n        {\n          \"catalogEntity\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<int64>\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classifierId\": \"<int64>\",\n          \"collectionId\": \"<integer>\",\n          \"columnId\": \"<integer>\",\n          \"dataClassId\": \"<int64>\",\n          \"dimensionId\": \"<integer>\",\n          \"endEpochSeconds\": \"<int64>\",\n          \"endIssueClosedEpochSeconds\": \"<int64>\",\n          \"isPositiveFinding\": \"<boolean>\",\n          \"isRootCause\": \"<boolean>\",\n          \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n          \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n          \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n          \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n          \"metricId\": \"<integer>\",\n          \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n          \"metricType\": {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": \"<boolean>\",\n            \"isTableMetric\": \"<boolean>\",\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n          \"ownerId\": \"<integer>\",\n          \"parentIssueId\": \"<integer>\",\n          \"scanJobId\": \"<int64>\",\n          \"scanRunId\": \"<int64>\",\n          \"scheduleId\": \"<integer>\",\n          \"schemaId\": \"<integer>\",\n          \"schemaName\": \"<string>\",\n          \"startEpochSeconds\": \"<int64>\",\n          \"startIssueClosedEpochSeconds\": \"<int64>\",\n          \"tableId\": \"<integer>\",\n          \"warehouseId\": \"<integer>\",\n          \"workspaceId\": \"<integer>\"\n        }\n      ],\n      \"groupByEntityType\": \"GROUP_BY_ENTITY_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "666986e1-aae9-488d-a0cd-73b7deebfa27",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "query",
+                    "counts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"excludeZeros\": \"<boolean>\",\n  \"queries\": [\n    {\n      \"fields\": [\n        \"AGGREGATE_FIELD_UNSPECIFIED\",\n        \"AGGREGATE_FIELD_UNSPECIFIED\"\n      ],\n      \"filters\": [\n        {\n          \"catalogEntity\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<int64>\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classifierId\": \"<int64>\",\n          \"collectionId\": \"<integer>\",\n          \"columnId\": \"<integer>\",\n          \"dataClassId\": \"<int64>\",\n          \"dimensionId\": \"<integer>\",\n          \"endEpochSeconds\": \"<int64>\",\n          \"endIssueClosedEpochSeconds\": \"<int64>\",\n          \"isPositiveFinding\": \"<boolean>\",\n          \"isRootCause\": \"<boolean>\",\n          \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n          \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n          \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n          \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n          \"metricId\": \"<integer>\",\n          \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n          \"metricType\": {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": \"<boolean>\",\n            \"isTableMetric\": \"<boolean>\",\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n          \"ownerId\": \"<integer>\",\n          \"parentIssueId\": \"<integer>\",\n          \"scanJobId\": \"<int64>\",\n          \"scanRunId\": \"<int64>\",\n          \"scheduleId\": \"<integer>\",\n          \"schemaId\": \"<integer>\",\n          \"schemaName\": \"<string>\",\n          \"startEpochSeconds\": \"<int64>\",\n          \"startIssueClosedEpochSeconds\": \"<int64>\",\n          \"tableId\": \"<integer>\",\n          \"warehouseId\": \"<integer>\",\n          \"workspaceId\": \"<integer>\"\n        },\n        {\n          \"catalogEntity\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<int64>\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classifierId\": \"<int64>\",\n          \"collectionId\": \"<integer>\",\n          \"columnId\": \"<integer>\",\n          \"dataClassId\": \"<int64>\",\n          \"dimensionId\": \"<integer>\",\n          \"endEpochSeconds\": \"<int64>\",\n          \"endIssueClosedEpochSeconds\": \"<int64>\",\n          \"isPositiveFinding\": \"<boolean>\",\n          \"isRootCause\": \"<boolean>\",\n          \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n          \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n          \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n          \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n          \"metricId\": \"<integer>\",\n          \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n          \"metricType\": {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": \"<boolean>\",\n            \"isTableMetric\": \"<boolean>\",\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n          \"ownerId\": \"<integer>\",\n          \"parentIssueId\": \"<integer>\",\n          \"scanJobId\": \"<int64>\",\n          \"scanRunId\": \"<int64>\",\n          \"scheduleId\": \"<integer>\",\n          \"schemaId\": \"<integer>\",\n          \"schemaName\": \"<string>\",\n          \"startEpochSeconds\": \"<int64>\",\n          \"startIssueClosedEpochSeconds\": \"<int64>\",\n          \"tableId\": \"<integer>\",\n          \"warehouseId\": \"<integer>\",\n          \"workspaceId\": \"<integer>\"\n        }\n      ],\n      \"groupByEntityType\": \"GROUP_BY_ENTITY_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"fields\": [\n        \"AGGREGATE_FIELD_UNSPECIFIED\",\n        \"AGGREGATE_FIELD_UNSPECIFIED\"\n      ],\n      \"filters\": [\n        {\n          \"catalogEntity\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<int64>\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classifierId\": \"<int64>\",\n          \"collectionId\": \"<integer>\",\n          \"columnId\": \"<integer>\",\n          \"dataClassId\": \"<int64>\",\n          \"dimensionId\": \"<integer>\",\n          \"endEpochSeconds\": \"<int64>\",\n          \"endIssueClosedEpochSeconds\": \"<int64>\",\n          \"isPositiveFinding\": \"<boolean>\",\n          \"isRootCause\": \"<boolean>\",\n          \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n          \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n          \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n          \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n          \"metricId\": \"<integer>\",\n          \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n          \"metricType\": {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": \"<boolean>\",\n            \"isTableMetric\": \"<boolean>\",\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n          \"ownerId\": \"<integer>\",\n          \"parentIssueId\": \"<integer>\",\n          \"scanJobId\": \"<int64>\",\n          \"scanRunId\": \"<int64>\",\n          \"scheduleId\": \"<integer>\",\n          \"schemaId\": \"<integer>\",\n          \"schemaName\": \"<string>\",\n          \"startEpochSeconds\": \"<int64>\",\n          \"startIssueClosedEpochSeconds\": \"<int64>\",\n          \"tableId\": \"<integer>\",\n          \"warehouseId\": \"<integer>\",\n          \"workspaceId\": \"<integer>\"\n        },\n        {\n          \"catalogEntity\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<int64>\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classifierId\": \"<int64>\",\n          \"collectionId\": \"<integer>\",\n          \"columnId\": \"<integer>\",\n          \"dataClassId\": \"<int64>\",\n          \"dimensionId\": \"<integer>\",\n          \"endEpochSeconds\": \"<int64>\",\n          \"endIssueClosedEpochSeconds\": \"<int64>\",\n          \"isPositiveFinding\": \"<boolean>\",\n          \"isRootCause\": \"<boolean>\",\n          \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n          \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n          \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n          \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n          \"metricId\": \"<integer>\",\n          \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n          \"metricType\": {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": \"<boolean>\",\n            \"isTableMetric\": \"<boolean>\",\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n          \"ownerId\": \"<integer>\",\n          \"parentIssueId\": \"<integer>\",\n          \"scanJobId\": \"<int64>\",\n          \"scanRunId\": \"<int64>\",\n          \"scheduleId\": \"<integer>\",\n          \"schemaId\": \"<integer>\",\n          \"schemaName\": \"<string>\",\n          \"startEpochSeconds\": \"<int64>\",\n          \"startIssueClosedEpochSeconds\": \"<int64>\",\n          \"tableId\": \"<integer>\",\n          \"warehouseId\": \"<integer>\",\n          \"workspaceId\": \"<integer>\"\n        }\n      ],\n      \"groupByEntityType\": \"GROUP_BY_ENTITY_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"queryResults\": [\n    {\n      \"catalogEntity\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<int64>\",\n        \"type\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n      },\n      \"classifierId\": \"string\",\n      \"columnId\": 4997,\n      \"countsForFields\": [\n        {\n          \"count\": \"string\",\n          \"field\": \"AGGREGATE_FIELD_UNSPECIFIED\"\n        },\n        {\n          \"count\": \"string\",\n          \"field\": \"AGGREGATE_FIELD_UNSPECIFIED\"\n        }\n      ],\n      \"dataClassCategoryId\": \"string\",\n      \"dataClassId\": \"string\",\n      \"dimensionId\": 5802,\n      \"entity\": {\n        \"displayName\": \"string\",\n        \"id\": 6149\n      },\n      \"isRootCause\": true,\n      \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n      \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n      \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n      \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n      \"metricRunLabel\": \"METRIC_RUN_LABEL_UNSPECIFIED\",\n      \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n      \"metricType\": {\n        \"customRuleType\": \"CUSTOM_RULE_TYPE_UNSPECIFIED\",\n        \"externalMonitor\": {\n          \"type\": \"EXTERNAL_MONITOR_TYPE_UNDEFINED\"\n        },\n        \"isMetadataMetric\": \"<boolean>\",\n        \"isTableMetric\": \"<boolean>\",\n        \"predefinedMetric\": {\n          \"metricName\": \"UNDEFINED_PREDEFINED_METRIC_NAME\"\n        },\n        \"templateMetric\": {\n          \"aggregationType\": \"UNDEFINED_AGGREGATION_TYPE\",\n          \"templateId\": 4136,\n          \"templateName\": \"string\"\n        }\n      },\n      \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n      \"ownerId\": 7222,\n      \"scanJobId\": \"string\",\n      \"scheduleId\": 548,\n      \"schemaId\": 3102,\n      \"schemaName\": \"string\",\n      \"slaId\": 82,\n      \"tableId\": 8336,\n      \"warehouseId\": 7400\n    },\n    {\n      \"catalogEntity\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<int64>\",\n        \"type\": \"DATA_NODE_TYPE_UNSPECIFIED\"\n      },\n      \"classifierId\": \"string\",\n      \"columnId\": 8519,\n      \"countsForFields\": [\n        {\n          \"count\": \"string\",\n          \"field\": \"AGGREGATE_FIELD_UNSPECIFIED\"\n        },\n        {\n          \"count\": \"string\",\n          \"field\": \"AGGREGATE_FIELD_UNSPECIFIED\"\n        }\n      ],\n      \"dataClassCategoryId\": \"string\",\n      \"dataClassId\": \"string\",\n      \"dimensionId\": 510,\n      \"entity\": {\n        \"displayName\": \"string\",\n        \"id\": 7789\n      },\n      \"isRootCause\": true,\n      \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n      \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n      \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n      \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n      \"metricRunLabel\": \"METRIC_RUN_LABEL_UNSPECIFIED\",\n      \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n      \"metricType\": {\n        \"customRuleType\": \"CUSTOM_RULE_TYPE_UNSPECIFIED\",\n        \"externalMonitor\": {\n          \"type\": \"EXTERNAL_MONITOR_TYPE_UNDEFINED\"\n        },\n        \"isMetadataMetric\": \"<boolean>\",\n        \"isTableMetric\": \"<boolean>\",\n        \"predefinedMetric\": {\n          \"metricName\": \"UNDEFINED_PREDEFINED_METRIC_NAME\"\n        },\n        \"templateMetric\": {\n          \"aggregationType\": \"UNDEFINED_AGGREGATION_TYPE\",\n          \"templateId\": 6950,\n          \"templateName\": \"string\"\n        }\n      },\n      \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n      \"ownerId\": 6678,\n      \"scanJobId\": \"string\",\n      \"scheduleId\": 992,\n      \"schemaId\": 422,\n      \"schemaName\": \"string\",\n      \"slaId\": 4486,\n      \"tableId\": 2912,\n      \"warehouseId\": 9536\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b89fa17-6078-4c95-9e4b-ae565791c92e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "query",
+                    "counts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"excludeZeros\": \"<boolean>\",\n  \"queries\": [\n    {\n      \"fields\": [\n        \"AGGREGATE_FIELD_UNSPECIFIED\",\n        \"AGGREGATE_FIELD_UNSPECIFIED\"\n      ],\n      \"filters\": [\n        {\n          \"catalogEntity\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<int64>\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classifierId\": \"<int64>\",\n          \"collectionId\": \"<integer>\",\n          \"columnId\": \"<integer>\",\n          \"dataClassId\": \"<int64>\",\n          \"dimensionId\": \"<integer>\",\n          \"endEpochSeconds\": \"<int64>\",\n          \"endIssueClosedEpochSeconds\": \"<int64>\",\n          \"isPositiveFinding\": \"<boolean>\",\n          \"isRootCause\": \"<boolean>\",\n          \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n          \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n          \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n          \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n          \"metricId\": \"<integer>\",\n          \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n          \"metricType\": {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": \"<boolean>\",\n            \"isTableMetric\": \"<boolean>\",\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n          \"ownerId\": \"<integer>\",\n          \"parentIssueId\": \"<integer>\",\n          \"scanJobId\": \"<int64>\",\n          \"scanRunId\": \"<int64>\",\n          \"scheduleId\": \"<integer>\",\n          \"schemaId\": \"<integer>\",\n          \"schemaName\": \"<string>\",\n          \"startEpochSeconds\": \"<int64>\",\n          \"startIssueClosedEpochSeconds\": \"<int64>\",\n          \"tableId\": \"<integer>\",\n          \"warehouseId\": \"<integer>\",\n          \"workspaceId\": \"<integer>\"\n        },\n        {\n          \"catalogEntity\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<int64>\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classifierId\": \"<int64>\",\n          \"collectionId\": \"<integer>\",\n          \"columnId\": \"<integer>\",\n          \"dataClassId\": \"<int64>\",\n          \"dimensionId\": \"<integer>\",\n          \"endEpochSeconds\": \"<int64>\",\n          \"endIssueClosedEpochSeconds\": \"<int64>\",\n          \"isPositiveFinding\": \"<boolean>\",\n          \"isRootCause\": \"<boolean>\",\n          \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n          \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n          \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n          \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n          \"metricId\": \"<integer>\",\n          \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n          \"metricType\": {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": \"<boolean>\",\n            \"isTableMetric\": \"<boolean>\",\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n          \"ownerId\": \"<integer>\",\n          \"parentIssueId\": \"<integer>\",\n          \"scanJobId\": \"<int64>\",\n          \"scanRunId\": \"<int64>\",\n          \"scheduleId\": \"<integer>\",\n          \"schemaId\": \"<integer>\",\n          \"schemaName\": \"<string>\",\n          \"startEpochSeconds\": \"<int64>\",\n          \"startIssueClosedEpochSeconds\": \"<int64>\",\n          \"tableId\": \"<integer>\",\n          \"warehouseId\": \"<integer>\",\n          \"workspaceId\": \"<integer>\"\n        }\n      ],\n      \"groupByEntityType\": \"GROUP_BY_ENTITY_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"fields\": [\n        \"AGGREGATE_FIELD_UNSPECIFIED\",\n        \"AGGREGATE_FIELD_UNSPECIFIED\"\n      ],\n      \"filters\": [\n        {\n          \"catalogEntity\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<int64>\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classifierId\": \"<int64>\",\n          \"collectionId\": \"<integer>\",\n          \"columnId\": \"<integer>\",\n          \"dataClassId\": \"<int64>\",\n          \"dimensionId\": \"<integer>\",\n          \"endEpochSeconds\": \"<int64>\",\n          \"endIssueClosedEpochSeconds\": \"<int64>\",\n          \"isPositiveFinding\": \"<boolean>\",\n          \"isRootCause\": \"<boolean>\",\n          \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n          \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n          \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n          \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n          \"metricId\": \"<integer>\",\n          \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n          \"metricType\": {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": \"<boolean>\",\n            \"isTableMetric\": \"<boolean>\",\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n          \"ownerId\": \"<integer>\",\n          \"parentIssueId\": \"<integer>\",\n          \"scanJobId\": \"<int64>\",\n          \"scanRunId\": \"<int64>\",\n          \"scheduleId\": \"<integer>\",\n          \"schemaId\": \"<integer>\",\n          \"schemaName\": \"<string>\",\n          \"startEpochSeconds\": \"<int64>\",\n          \"startIssueClosedEpochSeconds\": \"<int64>\",\n          \"tableId\": \"<integer>\",\n          \"warehouseId\": \"<integer>\",\n          \"workspaceId\": \"<integer>\"\n        },\n        {\n          \"catalogEntity\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<int64>\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classifierId\": \"<int64>\",\n          \"collectionId\": \"<integer>\",\n          \"columnId\": \"<integer>\",\n          \"dataClassId\": \"<int64>\",\n          \"dimensionId\": \"<integer>\",\n          \"endEpochSeconds\": \"<int64>\",\n          \"endIssueClosedEpochSeconds\": \"<int64>\",\n          \"isPositiveFinding\": \"<boolean>\",\n          \"isRootCause\": \"<boolean>\",\n          \"issuePriority\": \"ISSUE_PRIORITY_UNSPECIFIED\",\n          \"issueStatus\": \"ISSUE_STATUS_UNSPECIFIED\",\n          \"issueType\": \"ISSUE_TYPE_UNSPECIFIED\",\n          \"metricCategory\": \"METRIC_CATEGORY_UNSPECIFIED\",\n          \"metricId\": \"<integer>\",\n          \"metricStatus\": \"METRIC_STATUS_UNSPECIFIED\",\n          \"metricType\": {\n            \"customRuleType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalMonitor\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isMetadataMetric\": \"<boolean>\",\n            \"isTableMetric\": \"<boolean>\",\n            \"predefinedMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"templateMetric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"monitorType\": \"MONITOR_TYPE_UNDEFINED\",\n          \"ownerId\": \"<integer>\",\n          \"parentIssueId\": \"<integer>\",\n          \"scanJobId\": \"<int64>\",\n          \"scanRunId\": \"<int64>\",\n          \"scheduleId\": \"<integer>\",\n          \"schemaId\": \"<integer>\",\n          \"schemaName\": \"<string>\",\n          \"startEpochSeconds\": \"<int64>\",\n          \"startIssueClosedEpochSeconds\": \"<int64>\",\n          \"tableId\": \"<integer>\",\n          \"warehouseId\": \"<integer>\",\n          \"workspaceId\": \"<integer>\"\n        }\n      ],\n      \"groupByEntityType\": \"GROUP_BY_ENTITY_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3220,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "57801fd1-1876-4cd8-875e-b9164623f731",
+    "name": "Metadata Query Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

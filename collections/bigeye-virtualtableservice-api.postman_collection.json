@@ -1,0 +1,1254 @@
+{
+  "item": [
+    {
+      "id": "477917be-1402-43b1-88f3-daf0ac4ff5a5",
+      "name": "VirtualTableService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b9657161-4146-46b2-9d40-05c79b3d7786",
+          "name": "Get all Virtual Tables",
+          "request": {
+            "name": "Get all Virtual Tables",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "virtual-tables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "workspaceId",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da5aaf32-5797-46b9-a93d-9e83cb3e0552",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"virtualTables\": [\n    {\n      \"sqlQuery\": \"string\",\n      \"table\": {\n        \"columns\": [\n          {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 2294,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 1504,\n            \"isFavorite\": true,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": true,\n            \"isNullable\": false,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 7805,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          },\n          {\n            \"canBeMetricTime\": false,\n            \"dataNodeId\": 8023,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 3309,\n            \"isFavorite\": true,\n            \"isKeyInJoin\": false,\n            \"isMetricTime\": false,\n            \"isNullable\": true,\n            \"isPartitionField\": false,\n            \"name\": \"string\",\n            \"parentColumnId\": 110,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          }\n        ],\n        \"dataNodeId\": 4293,\n        \"databaseName\": \"string\",\n        \"id\": 2796,\n        \"isFavorite\": true,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"metricTimeColumn\": {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 1770,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 3195,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 7629,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 7280,\n        \"popularityScore\": 3271.373652513059,\n        \"requiresPartitionFilter\": true,\n        \"schema\": {\n          \"dataNodeId\": 5104,\n          \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"id\": 968,\n          \"indexByTable\": false,\n          \"isFavorite\": true,\n          \"isVirtual\": true,\n          \"latestMetricTimeValue\": \"string\",\n          \"logicalSizeBytes\": \"string\",\n          \"name\": \"string\",\n          \"numQueriesLatestPeriod\": 4731,\n          \"popularityScore\": 884.2074189400329,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sizeLastUpdatedAtMillis\": \"string\",\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"warehouseId\": 3735,\n          \"warehouseName\": \"string\"\n        },\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"schemaId\": 4545,\n        \"schemaName\": \"string\",\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1228,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 8607\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 3994,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 1555\n          }\n        ],\n        \"usesAgent\": false,\n        \"warehouseId\": 9098,\n        \"warehouseName\": \"string\",\n        \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 9887,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5050\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 6893,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9301\n        }\n      ]\n    },\n    {\n      \"sqlQuery\": \"string\",\n      \"table\": {\n        \"columns\": [\n          {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 1074,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 531,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": false,\n            \"isNullable\": false,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 6864,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          },\n          {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 322,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 2395,\n            \"isFavorite\": true,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": true,\n            \"isNullable\": true,\n            \"isPartitionField\": false,\n            \"name\": \"string\",\n            \"parentColumnId\": 8101,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          }\n        ],\n        \"dataNodeId\": 9156,\n        \"databaseName\": \"string\",\n        \"id\": 4933,\n        \"isFavorite\": false,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"metricTimeColumn\": {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 5541,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 2675,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": true,\n          \"isMetricTime\": false,\n          \"isNullable\": true,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 1560,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 7534,\n        \"popularityScore\": 6463.69220840032,\n        \"requiresPartitionFilter\": false,\n        \"schema\": {\n          \"dataNodeId\": 8475,\n          \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"id\": 399,\n          \"indexByTable\": true,\n          \"isFavorite\": false,\n          \"isVirtual\": false,\n          \"latestMetricTimeValue\": \"string\",\n          \"logicalSizeBytes\": \"string\",\n          \"name\": \"string\",\n          \"numQueriesLatestPeriod\": 6263,\n          \"popularityScore\": 6143.500120167142,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sizeLastUpdatedAtMillis\": \"string\",\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"warehouseId\": 7468,\n          \"warehouseName\": \"string\"\n        },\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"schemaId\": 7568,\n        \"schemaName\": \"string\",\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1445,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 1329\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1862,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 1822\n          }\n        ],\n        \"usesAgent\": true,\n        \"warehouseId\": 5151,\n        \"warehouseName\": \"string\",\n        \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7275,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9347\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 6884,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7857\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b63c12e-5996-48dc-b3cf-de0cf78460f6",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4029,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff771725-3369-4b6d-8b37-f33847bbcdbb",
+          "name": "Create a Virtual Table",
+          "request": {
+            "name": "Create a Virtual Table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "virtual-tables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"sql\": \"<string>\",\n  \"warehouseId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c35e60d2-c70a-4693-b234-ab822a20e07e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sqlQuery\": \"string\",\n  \"table\": {\n    \"columns\": [\n      {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 2188,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 2035,\n        \"isFavorite\": false,\n        \"isKeyInJoin\": false,\n        \"isMetricTime\": true,\n        \"isNullable\": false,\n        \"isPartitionField\": true,\n        \"name\": \"string\",\n        \"parentColumnId\": 5749,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 2339,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 2282\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 955,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 599\n          }\n        ],\n        \"type\": \"string\"\n      },\n      {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 5724,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 1394,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": false,\n        \"isNullable\": false,\n        \"isPartitionField\": true,\n        \"name\": \"string\",\n        \"parentColumnId\": 2337,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1330,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 275\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1023,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 2390\n          }\n        ],\n        \"type\": \"string\"\n      }\n    ],\n    \"dataNodeId\": 3964,\n    \"databaseName\": \"string\",\n    \"id\": 424,\n    \"isFavorite\": false,\n    \"latestMetricTimeValue\": \"string\",\n    \"logicalSizeBytes\": \"string\",\n    \"metricTimeColumn\": {\n      \"canBeMetricTime\": true,\n      \"dataNodeId\": 4412,\n      \"extendedType\": \"string\",\n      \"fullType\": \"string\",\n      \"id\": 5866,\n      \"isFavorite\": true,\n      \"isKeyInJoin\": true,\n      \"isMetricTime\": true,\n      \"isNullable\": true,\n      \"isPartitionField\": true,\n      \"name\": \"string\",\n      \"parentColumnId\": 5509,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 2382,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 3103\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 6152,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9784\n        }\n      ],\n      \"type\": \"string\"\n    },\n    \"name\": \"string\",\n    \"numQueriesLatestPeriod\": 9530,\n    \"popularityScore\": 9104.677647712402,\n    \"requiresPartitionFilter\": true,\n    \"schema\": {\n      \"dataNodeId\": 3911,\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"id\": 7305,\n      \"indexByTable\": false,\n      \"isFavorite\": false,\n      \"isVirtual\": false,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 6003,\n      \"popularityScore\": 8152.768714641544,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7677,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 6501\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 9325,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 148\n        }\n      ],\n      \"warehouseId\": 6216,\n      \"warehouseName\": \"string\"\n    },\n    \"schemaChangeInfo\": {\n      \"initialSchemaScanAt\": \"string\",\n      \"lastSchemaChangeAt\": \"string\",\n      \"mostRecentSchemaScanAt\": \"string\"\n    },\n    \"schemaId\": 2837,\n    \"schemaName\": \"string\",\n    \"sizeLastUpdatedAtMillis\": \"string\",\n    \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n    \"tags\": [\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 8915,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 2628\n      },\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 946,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 9888\n      }\n    ],\n    \"usesAgent\": true,\n    \"warehouseId\": 2064,\n    \"warehouseName\": \"string\",\n    \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n  },\n  \"tags\": [\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 6681,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 2016\n    },\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 3840,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 1673\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "315bac25-7c60-444a-955d-336a431b79e0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4179,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d7c15d1-1c73-44d5-8f84-32352040b293",
+          "name": "Delete Virtual Table",
+          "request": {
+            "name": "Delete Virtual Table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "virtual-tables",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9aedc426-d8fa-46d2-8cda-e697ff202664",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1102edd-da0c-4c31-87eb-dfdcc5616386",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4179,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bca2b88a-999c-4f0b-bbda-b9a81d338fd8",
+          "name": "Get a Virtual Table",
+          "request": {
+            "name": "Get a Virtual Table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "virtual-tables",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6622da39-35d3-43df-90a5-de2462ad1f69",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sqlQuery\": \"string\",\n  \"table\": {\n    \"columns\": [\n      {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 2188,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 2035,\n        \"isFavorite\": false,\n        \"isKeyInJoin\": false,\n        \"isMetricTime\": true,\n        \"isNullable\": false,\n        \"isPartitionField\": true,\n        \"name\": \"string\",\n        \"parentColumnId\": 5749,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 2339,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 2282\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 955,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 599\n          }\n        ],\n        \"type\": \"string\"\n      },\n      {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 5724,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 1394,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": false,\n        \"isNullable\": false,\n        \"isPartitionField\": true,\n        \"name\": \"string\",\n        \"parentColumnId\": 2337,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1330,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 275\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1023,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 2390\n          }\n        ],\n        \"type\": \"string\"\n      }\n    ],\n    \"dataNodeId\": 3964,\n    \"databaseName\": \"string\",\n    \"id\": 424,\n    \"isFavorite\": false,\n    \"latestMetricTimeValue\": \"string\",\n    \"logicalSizeBytes\": \"string\",\n    \"metricTimeColumn\": {\n      \"canBeMetricTime\": true,\n      \"dataNodeId\": 4412,\n      \"extendedType\": \"string\",\n      \"fullType\": \"string\",\n      \"id\": 5866,\n      \"isFavorite\": true,\n      \"isKeyInJoin\": true,\n      \"isMetricTime\": true,\n      \"isNullable\": true,\n      \"isPartitionField\": true,\n      \"name\": \"string\",\n      \"parentColumnId\": 5509,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 2382,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 3103\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 6152,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9784\n        }\n      ],\n      \"type\": \"string\"\n    },\n    \"name\": \"string\",\n    \"numQueriesLatestPeriod\": 9530,\n    \"popularityScore\": 9104.677647712402,\n    \"requiresPartitionFilter\": true,\n    \"schema\": {\n      \"dataNodeId\": 3911,\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"id\": 7305,\n      \"indexByTable\": false,\n      \"isFavorite\": false,\n      \"isVirtual\": false,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 6003,\n      \"popularityScore\": 8152.768714641544,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7677,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 6501\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 9325,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 148\n        }\n      ],\n      \"warehouseId\": 6216,\n      \"warehouseName\": \"string\"\n    },\n    \"schemaChangeInfo\": {\n      \"initialSchemaScanAt\": \"string\",\n      \"lastSchemaChangeAt\": \"string\",\n      \"mostRecentSchemaScanAt\": \"string\"\n    },\n    \"schemaId\": 2837,\n    \"schemaName\": \"string\",\n    \"sizeLastUpdatedAtMillis\": \"string\",\n    \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n    \"tags\": [\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 8915,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 2628\n      },\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 946,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 9888\n      }\n    ],\n    \"usesAgent\": true,\n    \"warehouseId\": 2064,\n    \"warehouseName\": \"string\",\n    \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n  },\n  \"tags\": [\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 6681,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 2016\n    },\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 3840,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 1673\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a230818-09fc-45fd-bb29-34a70ce85dcf",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4179,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d666b9d6-8614-4234-b2df-dfa1f2623ad9",
+          "name": "Update a Virtual Table",
+          "request": {
+            "name": "Update a Virtual Table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "virtual-tables",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"sql\": \"<string>\",\n  \"warehouseId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1320719-a7a8-41d1-bfb7-6d245d2584ae",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sqlQuery\": \"string\",\n  \"table\": {\n    \"columns\": [\n      {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 2188,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 2035,\n        \"isFavorite\": false,\n        \"isKeyInJoin\": false,\n        \"isMetricTime\": true,\n        \"isNullable\": false,\n        \"isPartitionField\": true,\n        \"name\": \"string\",\n        \"parentColumnId\": 5749,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 2339,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 2282\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 955,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 599\n          }\n        ],\n        \"type\": \"string\"\n      },\n      {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 5724,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 1394,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": false,\n        \"isNullable\": false,\n        \"isPartitionField\": true,\n        \"name\": \"string\",\n        \"parentColumnId\": 2337,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1330,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 275\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1023,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 2390\n          }\n        ],\n        \"type\": \"string\"\n      }\n    ],\n    \"dataNodeId\": 3964,\n    \"databaseName\": \"string\",\n    \"id\": 424,\n    \"isFavorite\": false,\n    \"latestMetricTimeValue\": \"string\",\n    \"logicalSizeBytes\": \"string\",\n    \"metricTimeColumn\": {\n      \"canBeMetricTime\": true,\n      \"dataNodeId\": 4412,\n      \"extendedType\": \"string\",\n      \"fullType\": \"string\",\n      \"id\": 5866,\n      \"isFavorite\": true,\n      \"isKeyInJoin\": true,\n      \"isMetricTime\": true,\n      \"isNullable\": true,\n      \"isPartitionField\": true,\n      \"name\": \"string\",\n      \"parentColumnId\": 5509,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 2382,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 3103\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 6152,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9784\n        }\n      ],\n      \"type\": \"string\"\n    },\n    \"name\": \"string\",\n    \"numQueriesLatestPeriod\": 9530,\n    \"popularityScore\": 9104.677647712402,\n    \"requiresPartitionFilter\": true,\n    \"schema\": {\n      \"dataNodeId\": 3911,\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"id\": 7305,\n      \"indexByTable\": false,\n      \"isFavorite\": false,\n      \"isVirtual\": false,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 6003,\n      \"popularityScore\": 8152.768714641544,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7677,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 6501\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 9325,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 148\n        }\n      ],\n      \"warehouseId\": 6216,\n      \"warehouseName\": \"string\"\n    },\n    \"schemaChangeInfo\": {\n      \"initialSchemaScanAt\": \"string\",\n      \"lastSchemaChangeAt\": \"string\",\n      \"mostRecentSchemaScanAt\": \"string\"\n    },\n    \"schemaId\": 2837,\n    \"schemaName\": \"string\",\n    \"sizeLastUpdatedAtMillis\": \"string\",\n    \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n    \"tags\": [\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 8915,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 2628\n      },\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 946,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 9888\n      }\n    ],\n    \"usesAgent\": true,\n    \"warehouseId\": 2064,\n    \"warehouseName\": \"string\",\n    \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n  },\n  \"tags\": [\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 6681,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 2016\n    },\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 3840,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 1673\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c77c75e-3531-445f-a650-f34ca73582f1",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4179,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e41f4f8c-54d2-4fbb-8bbe-d9cfee023fed",
+          "name": "Get status of Virtual Table Creation workflow",
+          "request": {
+            "name": "Get status of Virtual Table Creation workflow",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "virtual-tables",
+                "status",
+                ":workflowId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "runId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workflowId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d777f8e4-580d-40ed-83a7-4decd4db7c0f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables",
+                    "status",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "runId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusResponse\": {\n    \"completedAt\": \"string\",\n    \"error\": \"string\",\n    \"startedAt\": \"string\",\n    \"status\": \"WORKFLOW_PROCESSING_STATUS_UNSPECIFIED\",\n    \"workflowV2Id\": {\n      \"runId\": \"string\",\n      \"workflowId\": \"string\"\n    }\n  },\n  \"virtualTable\": {\n    \"sqlQuery\": \"string\",\n    \"table\": {\n      \"columns\": [\n        {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 8358,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 9345,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 3099,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 6921,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 454,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 7944,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        }\n      ],\n      \"dataNodeId\": 1563,\n      \"databaseName\": \"string\",\n      \"id\": 478,\n      \"isFavorite\": true,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"metricTimeColumn\": {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 7842,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 7379,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": false,\n        \"isNullable\": true,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 7273,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"type\": \"string\"\n      },\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 34,\n      \"popularityScore\": 4809.3574452176035,\n      \"requiresPartitionFilter\": false,\n      \"schema\": {\n        \"dataNodeId\": 3841,\n        \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"id\": 6689,\n        \"indexByTable\": false,\n        \"isFavorite\": true,\n        \"isVirtual\": false,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 4511,\n        \"popularityScore\": 5795.220335799235,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tags\": [\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"warehouseId\": 4496,\n        \"warehouseName\": \"string\"\n      },\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"schemaId\": 8926,\n      \"schemaName\": \"string\",\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1388,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7973\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 3359,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 528\n        }\n      ],\n      \"usesAgent\": true,\n      \"warehouseId\": 4443,\n      \"warehouseName\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    \"tags\": [\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 5663,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 4642\n      },\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 1542,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 3263\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a024d2dc-2376-49fd-8264-729537ff138d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables",
+                    "status",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "runId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4179,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a05d9b7-0e6e-4088-9a4c-db44143f265d",
+          "name": "Get Virtual Tables",
+          "request": {
+            "name": "Get Virtual Tables",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "virtual-tables",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ignoreFields\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"schemaIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"VIRTUAL_TABLE_SORT_FIELD_UNSPECIFIED\",\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tableIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f9f3c5d6-3ce4-4812-bd9f-158a50efc70f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ignoreFields\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"schemaIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"VIRTUAL_TABLE_SORT_FIELD_UNSPECIFIED\",\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tableIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": false,\n    \"numRecords\": 6093,\n    \"prevCursor\": \"string\"\n  },\n  \"virtualTables\": [\n    {\n      \"sqlQuery\": \"string\",\n      \"table\": {\n        \"columns\": [\n          {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 5168,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 9749,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": false,\n            \"isNullable\": false,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 6861,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          },\n          {\n            \"canBeMetricTime\": true,\n            \"dataNodeId\": 9631,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 4687,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": false,\n            \"isMetricTime\": true,\n            \"isNullable\": true,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 6343,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          }\n        ],\n        \"dataNodeId\": 2148,\n        \"databaseName\": \"string\",\n        \"id\": 3713,\n        \"isFavorite\": true,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"metricTimeColumn\": {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 1580,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 4545,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": false,\n          \"isNullable\": false,\n          \"isPartitionField\": false,\n          \"name\": \"string\",\n          \"parentColumnId\": 2884,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 611,\n        \"popularityScore\": 9185.683106770697,\n        \"requiresPartitionFilter\": false,\n        \"schema\": {\n          \"dataNodeId\": 8617,\n          \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"id\": 1528,\n          \"indexByTable\": true,\n          \"isFavorite\": false,\n          \"isVirtual\": false,\n          \"latestMetricTimeValue\": \"string\",\n          \"logicalSizeBytes\": \"string\",\n          \"name\": \"string\",\n          \"numQueriesLatestPeriod\": 7575,\n          \"popularityScore\": 4176.042225618373,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sizeLastUpdatedAtMillis\": \"string\",\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"warehouseId\": 9824,\n          \"warehouseName\": \"string\"\n        },\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"schemaId\": 9533,\n        \"schemaName\": \"string\",\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 4449,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 824\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 8981,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 1159\n          }\n        ],\n        \"usesAgent\": true,\n        \"warehouseId\": 6386,\n        \"warehouseName\": \"string\",\n        \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 9370,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 6691\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 5217,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7136\n        }\n      ]\n    },\n    {\n      \"sqlQuery\": \"string\",\n      \"table\": {\n        \"columns\": [\n          {\n            \"canBeMetricTime\": false,\n            \"dataNodeId\": 1468,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 7155,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": true,\n            \"isNullable\": false,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 267,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          },\n          {\n            \"canBeMetricTime\": false,\n            \"dataNodeId\": 8783,\n            \"extendedType\": \"string\",\n            \"fullType\": \"string\",\n            \"id\": 2069,\n            \"isFavorite\": false,\n            \"isKeyInJoin\": true,\n            \"isMetricTime\": false,\n            \"isNullable\": false,\n            \"isPartitionField\": true,\n            \"name\": \"string\",\n            \"parentColumnId\": 9993,\n            \"schemaChangeInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"type\": \"string\"\n          }\n        ],\n        \"dataNodeId\": 8100,\n        \"databaseName\": \"string\",\n        \"id\": 5472,\n        \"isFavorite\": false,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"metricTimeColumn\": {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 8249,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 992,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": false,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 1301,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 4915,\n        \"popularityScore\": 2915.8419089708,\n        \"requiresPartitionFilter\": false,\n        \"schema\": {\n          \"dataNodeId\": 1973,\n          \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"id\": 9063,\n          \"indexByTable\": true,\n          \"isFavorite\": true,\n          \"isVirtual\": true,\n          \"latestMetricTimeValue\": \"string\",\n          \"logicalSizeBytes\": \"string\",\n          \"name\": \"string\",\n          \"numQueriesLatestPeriod\": 3147,\n          \"popularityScore\": 9643.536844139046,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sizeLastUpdatedAtMillis\": \"string\",\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"warehouseId\": 5205,\n          \"warehouseName\": \"string\"\n        },\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"schemaId\": 9766,\n        \"schemaName\": \"string\",\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 4163,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 1574\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 4322,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 1029\n          }\n        ],\n        \"usesAgent\": false,\n        \"warehouseId\": 2955,\n        \"warehouseName\": \"string\",\n        \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1987,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 4425\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7582,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 3537\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a67c3974-af21-4fc0-a7f9-a1e2084b48f1",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ignoreFields\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"schemaIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"VIRTUAL_TABLE_SORT_FIELD_UNSPECIFIED\",\n  \"sourceIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tableIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4179,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abd4756d-2b84-47ad-8cd0-28b1d48b2152",
+          "name": "Queue creation of a Virtual Table",
+          "request": {
+            "name": "Queue creation of a Virtual Table",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "virtual-tables",
+                "queue"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"sql\": \"<string>\",\n  \"warehouseId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f18ffd0e-581d-49bf-b940-e8d9f2f6f118",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables",
+                    "queue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusResponse\": {\n    \"completedAt\": \"string\",\n    \"error\": \"string\",\n    \"startedAt\": \"string\",\n    \"status\": \"WORKFLOW_PROCESSING_STATUS_UNSPECIFIED\",\n    \"workflowV2Id\": {\n      \"runId\": \"string\",\n      \"workflowId\": \"string\"\n    }\n  },\n  \"virtualTable\": {\n    \"sqlQuery\": \"string\",\n    \"table\": {\n      \"columns\": [\n        {\n          \"canBeMetricTime\": false,\n          \"dataNodeId\": 8358,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 9345,\n          \"isFavorite\": false,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 3099,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        },\n        {\n          \"canBeMetricTime\": true,\n          \"dataNodeId\": 6921,\n          \"extendedType\": \"string\",\n          \"fullType\": \"string\",\n          \"id\": 454,\n          \"isFavorite\": true,\n          \"isKeyInJoin\": false,\n          \"isMetricTime\": true,\n          \"isNullable\": false,\n          \"isPartitionField\": true,\n          \"name\": \"string\",\n          \"parentColumnId\": 7944,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastSchemaChangeAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mostRecentSchemaScanAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"type\": \"string\"\n        }\n      ],\n      \"dataNodeId\": 1563,\n      \"databaseName\": \"string\",\n      \"id\": 478,\n      \"isFavorite\": true,\n      \"latestMetricTimeValue\": \"string\",\n      \"logicalSizeBytes\": \"string\",\n      \"metricTimeColumn\": {\n        \"canBeMetricTime\": false,\n        \"dataNodeId\": 7842,\n        \"extendedType\": \"string\",\n        \"fullType\": \"string\",\n        \"id\": 7379,\n        \"isFavorite\": true,\n        \"isKeyInJoin\": true,\n        \"isMetricTime\": false,\n        \"isNullable\": true,\n        \"isPartitionField\": false,\n        \"name\": \"string\",\n        \"parentColumnId\": 7273,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"tags\": [\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"type\": \"string\"\n      },\n      \"name\": \"string\",\n      \"numQueriesLatestPeriod\": 34,\n      \"popularityScore\": 4809.3574452176035,\n      \"requiresPartitionFilter\": false,\n      \"schema\": {\n        \"dataNodeId\": 3841,\n        \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"id\": 6689,\n        \"indexByTable\": false,\n        \"isFavorite\": true,\n        \"isVirtual\": false,\n        \"latestMetricTimeValue\": \"string\",\n        \"logicalSizeBytes\": \"string\",\n        \"name\": \"string\",\n        \"numQueriesLatestPeriod\": 4511,\n        \"popularityScore\": 5795.220335799235,\n        \"schemaChangeInfo\": {\n          \"initialSchemaScanAt\": \"string\",\n          \"lastSchemaChangeAt\": \"string\",\n          \"mostRecentSchemaScanAt\": \"string\"\n        },\n        \"sizeLastUpdatedAtMillis\": \"string\",\n        \"tags\": [\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"colorHex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedAt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"workspaceId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"warehouseId\": 4496,\n        \"warehouseName\": \"string\"\n      },\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"schemaId\": 8926,\n      \"schemaName\": \"string\",\n      \"sizeLastUpdatedAtMillis\": \"string\",\n      \"tableType\": \"TABLE_TYPE_UNSPECIFIED\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1388,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7973\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 3359,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 528\n        }\n      ],\n      \"usesAgent\": true,\n      \"warehouseId\": 4443,\n      \"warehouseName\": \"string\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    \"tags\": [\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 5663,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 4642\n      },\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 1542,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 3263\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0bfb747c-0f95-4861-8210-d53a9866cc44",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "virtual-tables",
+                    "queue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4179,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f54318d0-fe12-4d16-81d5-fe5e2acec46f",
+    "name": "Metadata Virtual Table Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

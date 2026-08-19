@@ -1,0 +1,185 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metadata Schema Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SchemaService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the region for a BigQuery schema (called dataset in BigQuery)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/schemas/:schemaId/region",
+            "params": [
+              {
+                "name": "schemaId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the region for a BigQuery schema (called dataset in BigQuery)"
+        },
+        {
+          "info": {
+            "name": "Set the region for a BigQuery schema (called dataset in BigQuery)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/schemas/:schemaId/region",
+            "params": [
+              {
+                "name": "schemaId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the region for a BigQuery schema (called dataset in BigQuery)"
+        },
+        {
+          "info": {
+            "name": "Remove the manual override of a region for a BigQuery schema (called dataset in BigQuery)",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/schemas/:schemaId/region",
+            "params": [
+              {
+                "name": "schemaId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove the manual override of a region for a BigQuery schema (called dataset in BigQuery)"
+        },
+        {
+          "info": {
+            "name": "Get dbt jobs for schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/schemas/:schemaId/dbt/jobs",
+            "params": [
+              {
+                "name": "schemaId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get dbt jobs for schema"
+        },
+        {
+          "info": {
+            "name": "Get workflow for schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/schemas/:schemaId/workflow",
+            "params": [
+              {
+                "name": "schemaId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get workflow for schema"
+        },
+        {
+          "info": {
+            "name": "Get the current status for a workflow for a schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/schemas/:schemaId/workflow/status",
+            "params": [
+              {
+                "name": "schemaId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the current status for a workflow for a schema"
+        },
+        {
+          "info": {
+            "name": "Get schemas",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/schemas/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get schemas"
+        },
+        {
+          "info": {
+            "name": "Search schemas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/schemas",
+            "params": [
+              {
+                "name": "warehouseId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "schemaName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "schemaId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search schemas"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

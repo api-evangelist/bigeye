@@ -1,0 +1,1304 @@
+openapi: 3.2.0
+info:
+  title: Metadata Table Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: TableService
+paths:
+  /api/v1/tables/{tableId}/dbt/jobs:
+    get:
+      operationId: TableService_GetDbtJobsForTable
+      parameters:
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetDbtJobsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get dbt jobs for table
+      tags:
+      - TableService
+  /api/v1/tables/{tableId}/delta-applicable-metric-types:
+    get:
+      operationId: TableService_GetDeltaApplicableMetricTypes
+      parameters:
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetDeltaApplicableMetricTypesResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get list of metrics applicable for deltas
+      tags:
+      - TableService
+  /api/v1/tables/profile/{tableId}/{columnId}:
+    get:
+      operationId: TableService_GetProfileForColumn
+      parameters:
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: columnId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedColumnMetricProfileList'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Profile a column
+      tags:
+      - TableService
+  /api/v1/tables/profile/{tableId}:
+    get:
+      operationId: TableService_GetProfileForTable
+      parameters:
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedColumnMetricProfileList'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Profile a table
+      tags:
+      - TableService
+  /api/v1/tables/{tableId}/date-columns:
+    get:
+      operationId: TableService_GetTableInfoWithColumns
+      parameters:
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedTableInfoWithColumns'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get the date column information for a table
+      tags:
+      - TableService
+  /api/v1/tables/{tableId}/workflow:
+    get:
+      operationId: TableService_GetTableWorkflow
+      parameters:
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkflowResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get workflow for table
+      tags:
+      - TableService
+  /api/v1/tables/{tableId}/workflow/status:
+    get:
+      operationId: TableService_GetTableWorkflowStatus
+      parameters:
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkflowStatusResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get the current status for a workflow for a table
+      tags:
+      - TableService
+  /api/v1/tables/fetch:
+    post:
+      operationId: TableService_GetTables
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedGetTableListRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetTableListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get tables
+      tags:
+      - TableService
+  /api/v1/tables:
+    get:
+      operationId: TableService_SearchTables
+      parameters:
+      - in: query
+        name: warehouseId
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            format: int32
+            type: integer
+      - in: query
+        name: schema
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: tableName
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: ids
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            format: int32
+            type: integer
+      - in: query
+        name: schemaId
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            format: int32
+            type: integer
+      - in: query
+        name: includeFavorites
+        required: false
+        schema:
+          type: boolean
+      - in: query
+        name: ignoreFields
+        required: false
+        schema:
+          type: boolean
+      - in: query
+        name: workspaceId
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: includeDataNodeIds
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedTableList'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Search tables
+      tags:
+      - TableService
+  /api/v1/tables/date-columns/bulk:
+    put:
+      operationId: TableService_SetDateColumns
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedSetDateColumnRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedTableInfoWithColumnsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Set the date columns for a list of tables
+      tags:
+      - TableService
+  /api/v1/tables/{tableId}/snooze:
+    post:
+      operationId: TableService_SnoozeTable
+      parameters:
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedSnoozeTableRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedSnoozeTableResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Snooze table
+      tags:
+      - TableService
+  /api/v1/tables/{tableId}/applicable-metric-types:
+    get:
+      operationId: TableService_TableLevelApplicableMetricTypes
+      parameters:
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetDeltaApplicableMetricTypesResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: 'Get list of metrics applicable to an entire table,
+
+        filtered for only the ones that are valid for that table''s warehouse'
+      tags:
+      - TableService
+  /api/v1/tables/{tableId}/required-partition-column:
+    delete:
+      operationId: TableService_UnsetRequiredPartitionColumn
+      parameters:
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Remove the configured required partition column for a table
+      tags:
+      - TableService
+    put:
+      operationId: TableService_SetRequiredPartitionColumn
+      parameters:
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedSetRequiredPartitionColumnRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedSetRequiredPartitionColumnResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Set the required partition column for a table
+      tags:
+      - TableService
+  /api/v1/tables/{tableId}/unsnooze:
+    post:
+      operationId: TableService_UnsnoozeTable
+      parameters:
+      - in: path
+        name: tableId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedUnSnoozeTableRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedUnSnoozeTableResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Unsnooze table
+      tags:
+      - TableService
+components:
+  schemas:
+    generatedEmpty:
+      type: object
+    generatedSnoozeTableRequest:
+      properties:
+        includeDescendants:
+          type: boolean
+        minutes:
+          format: int32
+          type: integer
+      type: object
+    generatedTag:
+      properties:
+        colorHex:
+          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+          type: string
+        createdAt:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        updatedAt:
+          format: int64
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      title: Tags
+      type: object
+    generatedMetricType:
+      properties:
+        customRuleType:
+          $ref: '#/components/schemas/generatedCustomRuleType'
+        externalMonitor:
+          $ref: '#/components/schemas/generatedExternalMonitor'
+        isMetadataMetric:
+          type: boolean
+        isTableMetric:
+          type: boolean
+        predefinedMetric:
+          $ref: '#/components/schemas/generatedPredefinedMetric'
+        templateMetric:
+          $ref: '#/components/schemas/generatedTemplateMetric'
+      type: object
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
+    generatedColumnMetricProfile:
+      properties:
+        columnId:
+          format: int32
+          type: integer
+        id:
+          format: int32
+          type: integer
+        max:
+          format: double
+          type: number
+        mean:
+          format: double
+          type: number
+        metricName:
+          type: string
+        min:
+          format: double
+          type: number
+        p25:
+          format: double
+          type: number
+        p75:
+          format: double
+          type: number
+        standardDeviation:
+          format: double
+          type: number
+      type: object
+    generatedSchema:
+      description: '*
+
+        Representation of a schema in a warehouse.'
+      properties:
+        dataNodeId:
+          format: int32
+          type: integer
+        databaseType:
+          $ref: '#/components/schemas/generatedWarehouseType'
+        id:
+          format: int32
+          type: integer
+        indexByTable:
+          type: boolean
+        isFavorite:
+          type: boolean
+        isVirtual:
+          type: boolean
+        latestMetricTimeValue:
+          format: int64
+          type: string
+        logicalSizeBytes:
+          format: int64
+          type: string
+        name:
+          type: string
+        numQueriesLatestPeriod:
+          format: int32
+          type: integer
+        popularityScore:
+          format: double
+          type: number
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        sizeLastUpdatedAtMillis:
+          format: int64
+          type: string
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        warehouseId:
+          format: int32
+          type: integer
+        warehouseName:
+          type: string
+      type: object
+    generatedTableApplicableMetricTypes:
+      properties:
+        applicableMetricTypes:
+          items:
+            $ref: '#/components/schemas/generatedColumnApplicableMetricTypes'
+          type: array
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedDbtJob:
+      properties:
+        dbtJobExtId:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        mostRecentJobRuns:
+          items:
+            $ref: '#/components/schemas/generatedDbtJobRun'
+          type: array
+        name:
+          type: string
+        projectId:
+          format: int32
+          type: integer
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        url:
+          type: string
+      type: object
+    generatedSnoozeTableResponse:
+      properties:
+        metricIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    generatedTable:
+      description: '*
+
+        Representation of a table in a warehouse.'
+      properties:
+        columns:
+          items:
+            $ref: '#/components/schemas/generatedTableColumn'
+          type: array
+        dataNodeId:
+          format: int32
+          type: integer
+        databaseName:
+          type: string
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        latestMetricTimeValue:
+          format: int64
+          type: string
+        logicalSizeBytes:
+          format: int64
+          type: string
+        metricTimeColumn:
+          $ref: '#/components/schemas/generatedTableColumn'
+        name:
+          type: string
+        numQueriesLatestPeriod:
+          format: int32
+          type: integer
+        popularityScore:
+          format: double
+          type: number
+        requiresPartitionFilter:
+          type: boolean
+        schema:
+          $ref: '#/components/schemas/generatedSchema'
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        schemaId:
+          format: int32
+          type: integer
+        schemaName:
+          type: string
+        sizeLastUpdatedAtMillis:
+          format: int64
+          type: string
+        tableType:
+          $ref: '#/components/schemas/generatedTableType'
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        usesAgent:
+          type: boolean
+        warehouseId:
+          format: int32
+          type: integer
+        warehouseName:
+          type: string
+        warehouseVendor:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedSourceConnectionType:
+      default: SOURCE_CONNECTION_TYPE_UNSPECIFIED
+      enum:
+      - SOURCE_CONNECTION_TYPE_UNSPECIFIED
+      - SOURCE_CONNECTION_TYPE_DIRECT_CONNECT
+      - SOURCE_CONNECTION_TYPE_AGENT
+      type: string
+    generatedTableInfoWithColumns:
+      properties:
+        columns:
+          items:
+            $ref: '#/components/schemas/generatedDateColumn'
+          type: array
+        hasUserSelectedNoneRct:
+          type: boolean
+        id:
+          format: int32
+          type: integer
+        schemaName:
+          type: string
+        tableName:
+          type: string
+        warehouseId:
+          format: int32
+          type: integer
+        warehouseName:
+          type: string
+        warehouseType:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedPredefinedMetric:
+      properties:
+        metricName:
+          $ref: '#/components/schemas/generatedPredefinedMetricName'
+      type: object
+    generatedSetDateColumnRequest:
+      properties:
+        columnIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        tableIdsWithNoneRct:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    generatedDbtJobRun:
+      properties:
+        completedAt:
+          format: int64
+          type: string
+        dbtJobRunExtId:
+          format: int64
+          type: string
+        gitSha:
+          type: string
+        id:
+          format: int64
+          type: string
+        jobId:
+          format: int32
+          type: integer
+        startedAt:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedDbtJobRunStatus'
+        url:
+          type: string
+      type: object
+    generatedDateColumn:
+      properties:
+        id:
+          format: int32
+          type: integer
+        isCurrentMetricTime:
+          type: boolean
+        isRecommendedMetricTime:
+          type: boolean
+        name:
+          type: string
+      type: object
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    generatedTableInfoWithColumnsResponse:
+      properties:
+        failures:
+          items:
+            $ref: '#/components/schemas/generatedRowCreationTimeFailure'
+          type: array
+        info:
+          items:
+            $ref: '#/components/schemas/generatedTableInfoWithColumns'
+          type: array
+      type: object
+    generatedTableColumn:
+      description: '*
+
+        Representation of a column in a table.'
+      properties:
+        canBeMetricTime:
+          type: boolean
+        dataNodeId:
+          format: int32
+          type: integer
+        extendedType:
+          type: string
+        fullType:
+          type: string
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        isKeyInJoin:
+          type: boolean
+        isMetricTime:
+          type: boolean
+        isNullable:
+          type: boolean
+        isPartitionField:
+          type: boolean
+        name:
+          type: string
+        parentColumnId:
+          format: int32
+          type: integer
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        type:
+          type: string
+      type: object
+    generatedSetRequiredPartitionColumnResponse:
+      properties:
+        datasetId:
+          format: int32
+          type: integer
+        requiredPartitionColumnId:
+          format: int32
+          type: integer
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedGetDeltaApplicableMetricTypesResponse:
+      properties:
+        metricTypes:
+          $ref: '#/components/schemas/generatedTableApplicableMetricTypes'
+      type: object
+    generatedTableSortField:
+      default: TABLE_SORT_FIELD_UNSPECIFIED
+      enum:
+      - TABLE_SORT_FIELD_UNSPECIFIED
+      - TABLE_SORT_FIELD_NAME
+      - TABLE_SORT_FIELD_LAST_SCHEMA_CHANGE
+      - TABLE_SORT_FIELD_FAVORITE
+      - TABLE_SORT_FIELD_LAST_UPDATED
+      - TABLE_SORT_FIELD_POPULARITY
+      - TABLE_SORT_FIELD_NAME_LENGTH
+      type: string
+    generatedGetTableListResponse:
+      properties:
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+        tables:
+          items:
+            $ref: '#/components/schemas/generatedTable'
+          type: array
+      type: object
+    generatedWorkflowResponse:
+      properties:
+        workflowId:
+          format: int64
+          type: string
+        workflowType:
+          $ref: '#/components/schemas/generatedWorkflowProcessingType'
+      type: object
+    generatedTableList:
+      properties:
+        tables:
+          items:
+            $ref: '#/components/schemas/generatedTable'
+          type: array
+      title: '*
+
+        Representation of a list of tables for API purposes'
+      type: object
+    generatedColumnMetricProfileList:
+      properties:
+        profiles:
+          items:
+            $ref: '#/components/schemas/generatedColumnMetricProfile'
+          type: array
+      type: object
+    generatedAggregationType:
+      default: UNDEFINED_AGGREGATION_TYPE
+      enum:
+      - UNDEFINED_AGGREGATION_TYPE
+      - COUNT_AGGREGATION_TYPE
+      - PERCENT_AGGREGATION_TYPE
+      - MIN_AGGREGATION_TYPE
+      - MAX_AGGREGATION_TYPE
+      - AVG_AGGREGATION_TYPE
+      - SUM_AGGREGATION_TYPE
+      type: string
+    generatedWorkflowStatusResponse:
+      properties:
+        completedAt:
+          format: int64
+          type: string
+        completedOps:
+          format: int32
+          type: integer
+        startedAt:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedWorkflowProcessingStatus'
+        totalOps:
+          format: int32
+          type: integer
+        workflowId:
+          format: int64
+          type: string
+        workflowType:
+          $ref: '#/components/schemas/generatedWorkflowProcessingType'
+      type: object
+    generatedTemplateMetric:
+      properties:
+        aggregationType:
+          $ref: '#/components/schemas/generatedAggregationType'
+        templateId:
+          format: int32
+          type: integer
+        templateName:
+          type: string
+      type: object
+    generatedSchemaChangeInfo:
+      properties:
+        initialSchemaScanAt:
+          format: int64
+          type: string
+        lastSchemaChangeAt:
+          format: int64
+          type: string
+        mostRecentSchemaScanAt:
+          format: int64
+          type: string
+      type: object
+    generatedUnSnoozeTableResponse:
+      properties:
+        metricIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    generatedSetRequiredPartitionColumnRequest:
+      properties:
+        columnId:
+          format: int32
+          type: integer
+      type: object
+    generatedGetDbtJobsResponse:
+      properties:
+        dbtJobs:
+          items:
+            $ref: '#/components/schemas/generatedDbtJob'
+          type: array
+      type: object
+    generatedRowCreationTimeFailure:
+      properties:
+        failedColumns:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        message:
+          type: string
+      type: object
+    generatedPredefinedMetricName:
+      default: UNDEFINED_PREDEFINED_METRIC_NAME
+      enum:
+      - UNDEFINED_PREDEFINED_METRIC_NAME
+      - PERCENT_NULL
+      - COUNT_NULL
+      - PERCENT_EMPTY_STRING
+      - COUNT_EMPTY_STRING
+      - PERCENT_UNIQUE
+      - PERCENT_VALUE_IN_LIST
+      - AVERAGE
+      - MIN
+      - MAX
+      - SUM
+      - COUNT_ROWS
+      - COUNT_DISTINCT
+      - HOURS_SINCE_MAX_DATE
+      - HOURS_SINCE_MAX_TIMESTAMP
+      - COUNT_TRUE
+      - PERCENT_TRUE
+      - COUNT_FALSE
+      - PERCENT_FALSE
+      - COUNT_USA_PHONE
+      - PERCENT_USA_PHONE
+      - COUNT_USA_ZIP_CODE
+      - PERCENT_USA_ZIP_CODE
+      - PERCENT_UUID
+      - COUNT_TIMESTAMP_STRING
+      - PERCENT_TIMESTAMP_STRING
+      - COUNT_DUPLICATES
+      - COUNT_USA_STATE_CODE
+      - PERCENT_USA_STATE_CODE
+      - VARIANCE
+      - SKEW
+      - KURTOSIS
+      - GEOMETRIC_MEAN
+      - HARMONIC_MEAN
+      - COUNT_UUID
+      - COUNT_CUSIP
+      - PERCENT_CUSIP
+      - COUNT_SEDOL
+      - PERCENT_SEDOL
+      - COUNT_ISIN
+      - PERCENT_ISIN
+      - COUNT_LEI
+      - PERCENT_LEI
+      - COUNT_FIGI
+      - PERCENT_FIGI
+      - COUNT_PERM_ID
+      - PERCENT_PERM_ID
+      - COUNT_NAN
+      - PERCENT_NAN
+      - COUNT_LONGITUDE
+      - PERCENT_LONGITUDE
+      - COUNT_LATITUDE
+      - PERCENT_LATITUDE
+      - COUNT_NOT_IN_FUTURE
+      - PERCENT_NOT_IN_FUTURE
+      - COUNT_DATE_NOT_IN_FUTURE
+      - PERCENT_DATE_NOT_IN_FUTURE
+      - MEDIAN
+      - PERCENTILE
+      - COUNT_NOT_NULL
+      - STRING_LENGTH_AVERAGE
+      - STRING_LENGTH_MIN
+      - STRING_LENGTH_MAX
+      - COUNT_SSN
+      - PERCENT_SSN
+      - COUNT_EMAIL
+      - PERCENT_EMAIL
+      - ROWS_INSERTED
+      - HOURS_SINCE_LAST_LOAD
+      - COUNT_READ_QUERIES
+      - PERCENT_NOT_NULL
+      - FRESHNESS
+      - VOLUME
+      - FRESHNESS_DATA
+      - VOLUME_DATA
+      - COUNT_VALUE_IN_LIST
+      - PERCENT_DISTINCT
+      - PERCENT_DUPLICATES
+      - HOURS_SINCE_MAX_STRING
+      type: string
+    generatedColumnApplicableMetricTypes:
+      properties:
+        applicableMetricTypes:
+          items:
+            $ref: '#/components/schemas/generatedMetricType'
+          type: array
+        column:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        schema:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        source:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        table:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+      type: object
+    generatedExternalMonitorType:
+      default: EXTERNAL_MONITOR_TYPE_UNDEFINED
+      enum:
+      - EXTERNAL_MONITOR_TYPE_UNDEFINED
+      - EXTERNAL_MONITOR_TYPE_DBT_TEST
+      type: string
+    generatedDbtJobRunStatus:
+      default: DBT_JOB_RUN_STATUS_UNSPECIFIED
+      enum:
+      - DBT_JOB_RUN_STATUS_UNSPECIFIED
+      - DBT_JOB_RUN_STATUS_SUCCESS
+      - DBT_JOB_RUN_STATUS_ERROR
+      - DBT_JOB_RUN_STATUS_QUEUED
+      - DBT_JOB_RUN_STATUS_STARTING
+      - DBT_JOB_RUN_STATUS_RUNNING
+      - DBT_JOB_RUN_STATUS_CANCELLED
+      type: string
+    generatedGetTableListRequest:
+      properties:
+        ignoreFields:
+          type: boolean
+        includeDataNodeIds:
+          type: boolean
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        schemaIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        search:
+          type: string
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedTableSortField'
+        sourceConnectionTypes:
+          items:
+            $ref: '#/components/schemas/generatedSourceConnectionType'
+          type: array
+        sourceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        tableIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        tagIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedUnSnoozeTableRequest:
+      properties:
+        includeDescendants:
+          type: boolean
+      type: object
+    generatedExternalMonitor:
+      properties:
+        type:
+          $ref: '#/components/schemas/generatedExternalMonitorType'
+      type: object
+    generatedWorkflowProcessingStatus:
+      default: WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      enum:
+      - WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      - WORKFLOW_PROCESSING_STATUS_QUEUED
+      - WORKFLOW_PROCESSING_STATUS_IN_PROGRESS
+      - WORKFLOW_PROCESSING_STATUS_COMPLETED
+      - WORKFLOW_PROCESSING_STATUS_PARTIAL_FAILURE
+      - WORKFLOW_PROCESSING_STATUS_FAILED
+      - WORKFLOW_PROCESSING_STATUS_TIMED_OUT
+      type: string
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedWorkflowProcessingType:
+      default: WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
+      enum:
+      - WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SOURCE
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SCHEMA
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_DATASET
+      - WORKFLOW_PROCESSING_TYPE_LINEAGE
+      - WORKFLOW_PROCESSING_TYPE_METADATA_METRICS
+      - WORKFLOW_PROCESSING_TYPE_GENERATE_POP_SCORES
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION
+      - WORKFLOW_PROCESSING_TYPE_APPLY_BIGCONFIG
+      - WORKFLOW_PROCESSING_TYPE_RUN_DELTA
+      - WORKFLOW_PROCESSING_TYPE_RUN_COMPARISON_TABLE
+      - WORKFLOW_PROCESSING_TYPE_RUN_METRIC_BATCH
+      - WORKFLOW_PROCESSING_TYPE_PLAN_BIGCONFIG
+      - WORKFLOW_PROCESSING_TYPE_METRIC_DEPLOY
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION_ENTITY
+      type: string
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedCustomRuleType:
+      default: CUSTOM_RULE_TYPE_UNSPECIFIED
+      enum:
+      - CUSTOM_RULE_TYPE_UNSPECIFIED
+      - CUSTOM_RULE_TYPE_SQL_RULE
+      - CUSTOM_RULE_TYPE_JOIN_RULE
+      type: string
+    generatedTableType:
+      default: TABLE_TYPE_UNSPECIFIED
+      enum:
+      - TABLE_TYPE_UNSPECIFIED
+      - TABLE_TYPE_TABLE
+      - TABLE_TYPE_VIEW
+      - TABLE_TYPE_VIRTUAL
+      - TABLE_TYPE_CUSTOM_RULE
+      type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

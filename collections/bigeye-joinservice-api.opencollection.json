@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Observability Join Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "JoinService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create join",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/joins",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create join"
+        },
+        {
+          "info": {
+            "name": "Get join",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/joins/:joinId",
+            "params": [
+              {
+                "name": "joinId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get join"
+        },
+        {
+          "info": {
+            "name": "Update join",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/joins/:joinId",
+            "params": [
+              {
+                "name": "joinId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update join"
+        },
+        {
+          "info": {
+            "name": "Delete join",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/joins/:joinId",
+            "params": [
+              {
+                "name": "joinId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete join"
+        },
+        {
+          "info": {
+            "name": "Get joins",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/joins/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get joins"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

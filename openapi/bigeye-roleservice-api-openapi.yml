@@ -1,0 +1,347 @@
+openapi: 3.2.0
+info:
+  title: Metadata Role Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: RoleService
+paths:
+  /api/v1/roles:
+    get:
+      operationId: RoleService_GetAllRoles
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedRoleV2ListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get all roles
+      tags:
+      - RoleService
+    post:
+      operationId: RoleService_CreateRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedCreateOrUpdateRoleRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedRoleV2'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create a role
+      tags:
+      - RoleService
+  /api/v1/roles/{roleId}:
+    delete:
+      operationId: RoleService_DeleteRole
+      parameters:
+      - in: path
+        name: roleId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete a role
+      tags:
+      - RoleService
+    get:
+      operationId: RoleService_GetRole
+      parameters:
+      - in: path
+        name: roleId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedRoleV2'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get a role
+      tags:
+      - RoleService
+  /api/v1/roles/{roleId}/accessors:
+    get:
+      operationId: RoleService_GetRoleAccessors
+      parameters:
+      - in: path
+        name: roleId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetRoleAccessorsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: List the groups and users who have been granted a role
+      tags:
+      - RoleService
+  /api/v1/roles/{id}:
+    put:
+      operationId: RoleService_UpdateRole
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedUpdateRoleRequestWrapper'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedRoleV2'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Update a role
+      tags:
+      - RoleService
+components:
+  schemas:
+    generatedEmpty:
+      type: object
+    generatedPermissionDomain:
+      default: PERMISSION_DOMAIN_UNSPECIFIED
+      enum:
+      - PERMISSION_DOMAIN_UNSPECIFIED
+      - PERMISSION_DOMAIN_ALL
+      - PERMISSION_DOMAIN_TABLE
+      - PERMISSION_DOMAIN_CUSTOM_RULE
+      - PERMISSION_DOMAIN_COLLECTION
+      - PERMISSION_DOMAIN_WORKSPACE_TAG
+      - PERMISSION_DOMAIN_WORKSPACE_TAG_ENTITY
+      - PERMISSION_DOMAIN_PROFILE
+      - PERMISSION_DOMAIN_SCAN_JOB
+      - PERMISSION_DOMAIN_DATA_CLASS
+      - PERMISSION_DOMAIN_CLASSIFIER
+      type: string
+    generatedCreateOrUpdateRoleRequest:
+      properties:
+        baseRole:
+          $ref: '#/components/schemas/generatedRoleType'
+        description:
+          type: string
+        name:
+          type: string
+        rolePermissions:
+          items:
+            $ref: '#/components/schemas/generatedRolePermission'
+          type: array
+      type: object
+    generatedPermissionAction:
+      default: PERMISSION_ACTION_UNSPECIFIED
+      enum:
+      - PERMISSION_ACTION_UNSPECIFIED
+      - PERMISSION_ACTION_ALL
+      - PERMISSION_ACTION_PREVIEW
+      - PERMISSION_ACTION_WRITE
+      - PERMISSION_ACTION_EXECUTE
+      - PERMISSION_ACTION_READ
+      type: string
+    generatedRoleType:
+      default: ROLE_TYPE_UNSPECIFIED
+      enum:
+      - ROLE_TYPE_UNSPECIFIED
+      - ROLE_TYPE_ADMIN
+      - ROLE_TYPE_MANAGE
+      - ROLE_TYPE_EDIT
+      - ROLE_TYPE_VIEW
+      - ROLE_TYPE_CUSTOM
+      type: string
+    generatedUserRoleAccessor:
+      properties:
+        email:
+          type: string
+        groupIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        workspaces:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedUpdateRoleRequestWrapper:
+      properties:
+        id:
+          format: int32
+          type: integer
+        request:
+          $ref: '#/components/schemas/generatedCreateOrUpdateRoleRequest'
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedRoleV2ListResponse:
+      properties:
+        roles:
+          items:
+            $ref: '#/components/schemas/generatedRoleV2'
+          type: array
+      type: object
+    generatedRolePermission:
+      properties:
+        actions:
+          items:
+            $ref: '#/components/schemas/generatedPermissionAction'
+          type: array
+        domains:
+          items:
+            $ref: '#/components/schemas/generatedPermissionDomain'
+          type: array
+      type: object
+    generatedRoleV2:
+      properties:
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        rolePermissions:
+          items:
+            $ref: '#/components/schemas/generatedRolePermission'
+          type: array
+        roleType:
+          $ref: '#/components/schemas/generatedRoleType'
+      type: object
+    generatedGroupRoleAccessor:
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        userCount:
+          format: int32
+          type: integer
+        workspaces:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+      type: object
+    generatedGetRoleAccessorsResponse:
+      properties:
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedGroupRoleAccessor'
+          type: array
+        users:
+          items:
+            $ref: '#/components/schemas/generatedUserRoleAccessor'
+          type: array
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

@@ -1,0 +1,317 @@
+openapi: 3.2.0
+info:
+  title: Observability Collection V2 Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: CollectionV2Service
+paths:
+  /api/v2/collections/info/fetch:
+    post:
+      operationId: CollectionV2Service_FetchCollectionInfosV2
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetPaginatedCollectionInfosResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Fetch paginated collection information
+      tags:
+      - CollectionV2Service
+  /api/v2/collections/info/{collectionId}:
+    get:
+      operationId: CollectionV2Service_GetCollectionInfoV2
+      parameters:
+      - in: path
+        name: collectionId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetCollectionInfoResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get collection information
+      tags:
+      - CollectionV2Service
+  /api/v2/collections/info:
+    get:
+      operationId: CollectionV2Service_GetCollectionInfosV2
+      parameters:
+      - in: query
+        name: workspaceId
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetAllCollectionInfosResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get all collection information
+      tags:
+      - CollectionV2Service
+components:
+  schemas:
+    generatedSlackChannelInfo:
+      properties:
+        channelId:
+          type: string
+        channelName:
+          type: string
+        issueThreadPermalink:
+          type: string
+        threadTs:
+          type: string
+      type: object
+    generatedTag:
+      properties:
+        colorHex:
+          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+          type: string
+        createdAt:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        updatedAt:
+          format: int64
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      title: Tags
+      type: object
+    generatedExternalTicketProvider:
+      default: EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
+      enum:
+      - EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
+      - EXTERNAL_TICKET_PROVIDER_JIRA
+      - EXTERNAL_TICKET_PROVIDER_SERVICENOW
+      type: string
+    generatedGetPaginatedCollectionInfosResponse:
+      properties:
+        collectionInfos:
+          items:
+            $ref: '#/components/schemas/generatedCollectionInfo'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    generatedWebhook:
+      properties:
+        webhookHeaders:
+          items:
+            $ref: '#/components/schemas/generatedWebhookHeader'
+          type: array
+        webhookUrl:
+          type: string
+      type: object
+    generatedGetCollectionInfoResponse:
+      properties:
+        collectionInfo:
+          $ref: '#/components/schemas/generatedCollectionInfo'
+      type: object
+    generatedCollectionMetricStatus:
+      properties:
+        acknowledgeIssuesCount:
+          format: int32
+          type: integer
+        alertingMetricsCount:
+          format: int32
+          type: integer
+        earliestUpdatedMetricSeconds:
+          format: int64
+          type: string
+        latestUpdatedMetricSeconds:
+          format: int64
+          type: string
+        metricsCount:
+          format: int32
+          type: integer
+        monitoringIssuesCount:
+          format: int32
+          type: integer
+        openIssuesCount:
+          format: int32
+          type: integer
+        triageIssuesCount:
+          format: int32
+          type: integer
+      type: object
+    generatedCollection:
+      properties:
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        metricIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        mutedUntilTimestamp:
+          format: int32
+          type: integer
+        name:
+          type: string
+        notificationChannels:
+          items:
+            $ref: '#/components/schemas/generatedNotificationChannel'
+          type: array
+        owner:
+          format: int32
+          type: integer
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedCollectionInfo:
+      properties:
+        collectionConfiguration:
+          $ref: '#/components/schemas/generatedCollection'
+        collectionMetricStatus:
+          $ref: '#/components/schemas/generatedCollectionMetricStatus'
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedGetAllCollectionInfosResponse:
+      properties:
+        collectionInfos:
+          items:
+            $ref: '#/components/schemas/generatedCollectionInfo'
+          type: array
+      type: object
+    generatedIssueExternalTicketInfo:
+      properties:
+        externalTicketId:
+          type: string
+        externalTicketProvider:
+          $ref: '#/components/schemas/generatedExternalTicketProvider'
+        externalTicketUrl:
+          type: string
+        issueId:
+          format: int32
+          type: integer
+      type: object
+    generatedNotificationChannel:
+      properties:
+        email:
+          type: string
+        externalTicketInfo:
+          $ref: '#/components/schemas/generatedIssueExternalTicketInfo'
+        slackChannelInfo:
+          $ref: '#/components/schemas/generatedSlackChannelInfo'
+        webhook:
+          $ref: '#/components/schemas/generatedWebhook'
+      type: object
+    generatedWebhookHeader:
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

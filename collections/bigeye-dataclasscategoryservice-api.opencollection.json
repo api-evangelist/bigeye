@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sensitivity Data Class Category Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DataClassCategoryService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch data class categories for a workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/sds/data-class-category/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch data class categories for a workspace"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

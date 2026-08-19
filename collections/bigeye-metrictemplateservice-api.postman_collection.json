@@ -1,0 +1,656 @@
+{
+  "item": [
+    {
+      "id": "120015e8-9edf-4854-9f10-8494f707c30a",
+      "name": "MetricTemplateService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f7f0f771-a194-4667-8191-eb31f566272b",
+          "name": "Create or update a metric template",
+          "request": {
+            "name": "Create or update a metric template",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "metric-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metricTemplate\": {\n    \"dimension\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"entityInfo\": {\n      \"createdBy\": \"<integer>\",\n      \"createdEpochSeconds\": \"<int64>\",\n      \"updatedBy\": \"<integer>\",\n      \"updatedEpochSeconds\": \"<int64>\"\n    },\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"parameters\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n      }\n    ],\n    \"returnType\": \"FIELD_TYPE_UNSPECIFIED\",\n    \"source\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    \"template\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "126dda20-6869-439d-99dc-2331a249a164",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "metric-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metricTemplate\": {\n    \"dimension\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"entityInfo\": {\n      \"createdBy\": \"<integer>\",\n      \"createdEpochSeconds\": \"<int64>\",\n      \"updatedBy\": \"<integer>\",\n      \"updatedEpochSeconds\": \"<int64>\"\n    },\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"parameters\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n      }\n    ],\n    \"returnType\": \"FIELD_TYPE_UNSPECIFIED\",\n    \"source\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    \"template\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metricTemplate\": {\n    \"dimension\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"entityInfo\": {\n      \"createdBy\": \"<integer>\",\n      \"createdEpochSeconds\": \"<int64>\",\n      \"updatedBy\": \"<integer>\",\n      \"updatedEpochSeconds\": \"<int64>\"\n    },\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"parameters\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n      }\n    ],\n    \"returnType\": \"FIELD_TYPE_UNSPECIFIED\",\n    \"source\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    \"template\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "903d61fa-1684-46b2-9377-94f55323d02e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "metric-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metricTemplate\": {\n    \"dimension\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"entityInfo\": {\n      \"createdBy\": \"<integer>\",\n      \"createdEpochSeconds\": \"<int64>\",\n      \"updatedBy\": \"<integer>\",\n      \"updatedEpochSeconds\": \"<int64>\"\n    },\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"parameters\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n      }\n    ],\n    \"returnType\": \"FIELD_TYPE_UNSPECIFIED\",\n    \"source\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    \"template\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6077,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6726f3ea-f5bd-42e9-923f-a0468b93a20f",
+          "name": "Delete a metric template",
+          "request": {
+            "name": "Delete a metric template",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "metric-templates",
+                ":metricTemplateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "metricTemplateId",
+                  "description": "(Required) The ID of the metric template"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "195b37be-d8f1-4e7f-bb28-26fe5b4e99fb",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "metric-templates",
+                    ":metricTemplateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "metricTemplateId",
+                      "description": "(Required) The ID of the metric template"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd23cec0-c3b7-4edd-b390-53297d26eaf0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "metric-templates",
+                    ":metricTemplateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "metricTemplateId",
+                      "description": "(Required) The ID of the metric template"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "818246fe-f572-4c96-9690-fd1dc229d88b",
+          "name": "Get single metric template",
+          "request": {
+            "name": "Get single metric template",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "metric-templates",
+                ":metricTemplateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "metricTemplateId",
+                  "description": "(Required) The ID of the metric template"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed497904-f201-4358-9215-7c488feed986",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "metric-templates",
+                    ":metricTemplateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "metricTemplateId",
+                      "description": "(Required) The ID of the metric template"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metricTemplate\": {\n    \"dimension\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"entityInfo\": {\n      \"createdBy\": \"<integer>\",\n      \"createdEpochSeconds\": \"<int64>\",\n      \"updatedBy\": \"<integer>\",\n      \"updatedEpochSeconds\": \"<int64>\"\n    },\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"parameters\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n      }\n    ],\n    \"returnType\": \"FIELD_TYPE_UNSPECIFIED\",\n    \"source\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    \"template\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0efb99c-ebea-42d3-86e3-8729135fbcbc",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "metric-templates",
+                    ":metricTemplateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "metricTemplateId",
+                      "description": "(Required) The ID of the metric template"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65450ff6-4508-46cc-947d-6eccc4de0513",
+          "name": "Get all metric templates",
+          "request": {
+            "name": "Get all metric templates",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "metric-templates",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"METRIC_TEMPLATE_SORT_UNSPECIFIED\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "29dd0151-6f37-40dd-b7bb-400c1e6c5b36",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "metric-templates",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"METRIC_TEMPLATE_SORT_UNSPECIFIED\",\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metricTemplates\": [\n    {\n      \"dimension\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"parameters\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n        }\n      ],\n      \"returnType\": \"FIELD_TYPE_UNSPECIFIED\",\n      \"source\": {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"template\": \"<string>\"\n    },\n    {\n      \"dimension\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"parameters\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED\"\n        }\n      ],\n      \"returnType\": \"FIELD_TYPE_UNSPECIFIED\",\n      \"source\": {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"warehouseVendor\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"template\": \"<string>\"\n    }\n  ],\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": true,\n    \"numRecords\": 7308,\n    \"prevCursor\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5849267-f6dd-4426-a3be-7178b5e69165",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "metric-templates",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"METRIC_TEMPLATE_SORT_UNSPECIFIED\",\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7820,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4f579b6d-dd6e-4182-8596-b7b9c7f21918",
+    "name": "Observability Metric Template Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

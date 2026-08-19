@@ -1,0 +1,1294 @@
+{
+  "item": [
+    {
+      "id": "12e12e79-8fd2-4707-be51-ee4e8c4118df",
+      "name": "ClassifierService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8e0a7101-74e5-486f-84c6-9b25ca0445fa",
+          "name": "Create a classifier",
+          "request": {
+            "name": "Create a classifier",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "classifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dataClassId\": \"<int64>\",\n  \"description\": \"<string>\",\n  \"detector\": {\n    \"compoundDetector\": {\n      \"combinator\": \"DETECTOR_COMBINATOR_UNSPECIFIED\",\n      \"detectors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n        }\n      ]\n    },\n    \"simpleDetector\": {\n      \"machineLearningDetector\": {\n        \"detector\": \"DETECTOR_UNSPECIFIED\",\n        \"displayName\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n        \"threshold\": \"<double>\"\n      },\n      \"regexDetector\": {\n        \"flagCaseInsensitive\": \"<boolean>\",\n        \"flagDotall\": \"<boolean>\",\n        \"regex\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n      }\n    }\n  },\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "73973f4a-dec3-434f-a0c9-0239d7ffa50e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canResetToDefault\": false,\n  \"createdBy\": {\n    \"email\": \"string\",\n    \"groups\": [\n      {\n        \"displayName\": \"string\",\n        \"id\": 3876\n      },\n      {\n        \"displayName\": \"string\",\n        \"id\": 6534\n      }\n    ],\n    \"id\": 7748,\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"isServiceAccount\": true,\n    \"lastLoginAt\": \"string\",\n    \"name\": \"string\",\n    \"pictureUrl\": \"string\"\n  },\n  \"dataClass\": {\n    \"canResetToDefault\": false,\n    \"categories\": [\n      {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"workspaceId\": 6882\n      },\n      {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"workspaceId\": 5718\n      }\n    ],\n    \"colorHex\": \"string\",\n    \"createdBy\": {\n      \"email\": \"string\",\n      \"groups\": [\n        {\n          \"displayName\": \"string\",\n          \"id\": 3009\n        },\n        {\n          \"displayName\": \"string\",\n          \"id\": 4011\n        }\n      ],\n      \"id\": 689,\n      \"idpGroups\": [\n        \"string\",\n        \"string\"\n      ],\n      \"isServiceAccount\": false,\n      \"lastLoginAt\": \"string\",\n      \"name\": \"string\",\n      \"pictureUrl\": \"string\"\n    },\n    \"description\": \"string\",\n    \"entityInfo\": {\n      \"createdBy\": 7414,\n      \"createdEpochSeconds\": \"string\",\n      \"updatedBy\": 7573,\n      \"updatedEpochSeconds\": \"string\"\n    },\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"numberOfClassifiers\": 5682,\n    \"providedByBigeye\": true,\n    \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n    \"workspaceId\": 9824\n  },\n  \"description\": \"string\",\n  \"detector\": {\n    \"compoundDetector\": {\n      \"combinator\": \"DETECTOR_COMBINATOR_UNSPECIFIED\",\n      \"detectors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n        }\n      ]\n    },\n    \"simpleDetector\": {\n      \"machineLearningDetector\": {\n        \"detector\": \"DETECTOR_UNSPECIFIED\",\n        \"displayName\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n        \"threshold\": \"<double>\"\n      },\n      \"regexDetector\": {\n        \"flagCaseInsensitive\": \"<boolean>\",\n        \"flagDotall\": \"<boolean>\",\n        \"regex\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n      }\n    }\n  },\n  \"entityInfo\": {\n    \"createdBy\": 4431,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 6512,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"numberOfScanJobs\": 8047,\n  \"providedByBigeye\": false,\n  \"workspaceId\": 6741\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e25213b0-ef1b-4202-9ee4-30bd28eca67f",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9287,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "203dca18-689c-495c-bc96-192d391a1af5",
+          "name": "Fetch classifiers with filters and pagination",
+          "request": {
+            "name": "Fetch classifiers with filters and pagination",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "classifier",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"creatorIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"dataClassCategoryIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"dataClassIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"detectorTypes\": [\n    {\n      \"machineLearningDetector\": {\n        \"detector\": \"DETECTOR_UNSPECIFIED\",\n        \"displayName\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n        \"threshold\": \"<double>\"\n      },\n      \"regexDetector\": {\n        \"flagCaseInsensitive\": \"<boolean>\",\n        \"flagDotall\": \"<boolean>\",\n        \"regex\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n      }\n    },\n    {\n      \"machineLearningDetector\": {\n        \"detector\": \"DETECTOR_UNSPECIFIED\",\n        \"displayName\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n        \"threshold\": \"<double>\"\n      },\n      \"regexDetector\": {\n        \"flagCaseInsensitive\": \"<boolean>\",\n        \"flagDotall\": \"<boolean>\",\n        \"regex\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n      }\n    }\n  ],\n  \"includeDetector\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"scanJobIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"search\": \"<string>\",\n  \"sensitivities\": [\n    \"DATA_SENSITIVITY_UNSPECIFIED\",\n    \"DATA_SENSITIVITY_UNSPECIFIED\"\n  ],\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"CLASSIFIER_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"CLASSIFIER_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ed6c0703-141b-4b5c-ad40-161890648746",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"creatorIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"dataClassCategoryIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"dataClassIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"detectorTypes\": [\n    {\n      \"machineLearningDetector\": {\n        \"detector\": \"DETECTOR_UNSPECIFIED\",\n        \"displayName\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n        \"threshold\": \"<double>\"\n      },\n      \"regexDetector\": {\n        \"flagCaseInsensitive\": \"<boolean>\",\n        \"flagDotall\": \"<boolean>\",\n        \"regex\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n      }\n    },\n    {\n      \"machineLearningDetector\": {\n        \"detector\": \"DETECTOR_UNSPECIFIED\",\n        \"displayName\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n        \"threshold\": \"<double>\"\n      },\n      \"regexDetector\": {\n        \"flagCaseInsensitive\": \"<boolean>\",\n        \"flagDotall\": \"<boolean>\",\n        \"regex\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n      }\n    }\n  ],\n  \"includeDetector\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"scanJobIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"search\": \"<string>\",\n  \"sensitivities\": [\n    \"DATA_SENSITIVITY_UNSPECIFIED\",\n    \"DATA_SENSITIVITY_UNSPECIFIED\"\n  ],\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"CLASSIFIER_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"CLASSIFIER_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classifiers\": [\n    {\n      \"canResetToDefault\": false,\n      \"createdBy\": {\n        \"email\": \"string\",\n        \"groups\": [\n          {\n            \"displayName\": \"string\",\n            \"id\": 829\n          },\n          {\n            \"displayName\": \"string\",\n            \"id\": 3343\n          }\n        ],\n        \"id\": 5623,\n        \"idpGroups\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isServiceAccount\": false,\n        \"lastLoginAt\": \"string\",\n        \"name\": \"string\",\n        \"pictureUrl\": \"string\"\n      },\n      \"dataClass\": {\n        \"canResetToDefault\": false,\n        \"categories\": [\n          {\n            \"description\": \"string\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"workspaceId\": 6393\n          },\n          {\n            \"description\": \"string\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"workspaceId\": 8737\n          }\n        ],\n        \"colorHex\": \"string\",\n        \"createdBy\": {\n          \"email\": \"string\",\n          \"groups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 6616,\n          \"idpGroups\": [\n            \"string\",\n            \"string\"\n          ],\n          \"isServiceAccount\": true,\n          \"lastLoginAt\": \"string\",\n          \"name\": \"string\",\n          \"pictureUrl\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entityInfo\": {\n          \"createdBy\": 5608,\n          \"createdEpochSeconds\": \"string\",\n          \"updatedBy\": 6526,\n          \"updatedEpochSeconds\": \"string\"\n        },\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"numberOfClassifiers\": 3589,\n        \"providedByBigeye\": false,\n        \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n        \"workspaceId\": 6154\n      },\n      \"description\": \"string\",\n      \"detector\": {\n        \"compoundDetector\": {\n          \"combinator\": \"DETECTOR_COMBINATOR_UNSPECIFIED\",\n          \"detectors\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n            }\n          ]\n        },\n        \"simpleDetector\": {\n          \"machineLearningDetector\": {\n            \"detector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"target\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"threshold\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"regexDetector\": {\n            \"flagCaseInsensitive\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"flagDotall\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"regex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"target\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"entityInfo\": {\n        \"createdBy\": 8470,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 1092,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"numberOfScanJobs\": 958,\n      \"providedByBigeye\": false,\n      \"workspaceId\": 2568\n    },\n    {\n      \"canResetToDefault\": false,\n      \"createdBy\": {\n        \"email\": \"string\",\n        \"groups\": [\n          {\n            \"displayName\": \"string\",\n            \"id\": 1499\n          },\n          {\n            \"displayName\": \"string\",\n            \"id\": 3108\n          }\n        ],\n        \"id\": 6315,\n        \"idpGroups\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isServiceAccount\": true,\n        \"lastLoginAt\": \"string\",\n        \"name\": \"string\",\n        \"pictureUrl\": \"string\"\n      },\n      \"dataClass\": {\n        \"canResetToDefault\": true,\n        \"categories\": [\n          {\n            \"description\": \"string\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"workspaceId\": 8112\n          },\n          {\n            \"description\": \"string\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"workspaceId\": 6580\n          }\n        ],\n        \"colorHex\": \"string\",\n        \"createdBy\": {\n          \"email\": \"string\",\n          \"groups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 62,\n          \"idpGroups\": [\n            \"string\",\n            \"string\"\n          ],\n          \"isServiceAccount\": false,\n          \"lastLoginAt\": \"string\",\n          \"name\": \"string\",\n          \"pictureUrl\": \"string\"\n        },\n        \"description\": \"string\",\n        \"entityInfo\": {\n          \"createdBy\": 2007,\n          \"createdEpochSeconds\": \"string\",\n          \"updatedBy\": 8186,\n          \"updatedEpochSeconds\": \"string\"\n        },\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"numberOfClassifiers\": 787,\n        \"providedByBigeye\": true,\n        \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n        \"workspaceId\": 1689\n      },\n      \"description\": \"string\",\n      \"detector\": {\n        \"compoundDetector\": {\n          \"combinator\": \"DETECTOR_COMBINATOR_UNSPECIFIED\",\n          \"detectors\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n            }\n          ]\n        },\n        \"simpleDetector\": {\n          \"machineLearningDetector\": {\n            \"detector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"target\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"threshold\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"regexDetector\": {\n            \"flagCaseInsensitive\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"flagDotall\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"regex\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"target\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"entityInfo\": {\n        \"createdBy\": 6932,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 4934,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"numberOfScanJobs\": 3258,\n      \"providedByBigeye\": true,\n      \"workspaceId\": 8135\n    }\n  ],\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": true,\n    \"numRecords\": 2444,\n    \"prevCursor\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "adad3a5a-3f5f-4bd5-9ba3-72c881b60386",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"creatorIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"dataClassCategoryIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"dataClassIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"detectorTypes\": [\n    {\n      \"machineLearningDetector\": {\n        \"detector\": \"DETECTOR_UNSPECIFIED\",\n        \"displayName\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n        \"threshold\": \"<double>\"\n      },\n      \"regexDetector\": {\n        \"flagCaseInsensitive\": \"<boolean>\",\n        \"flagDotall\": \"<boolean>\",\n        \"regex\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n      }\n    },\n    {\n      \"machineLearningDetector\": {\n        \"detector\": \"DETECTOR_UNSPECIFIED\",\n        \"displayName\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n        \"threshold\": \"<double>\"\n      },\n      \"regexDetector\": {\n        \"flagCaseInsensitive\": \"<boolean>\",\n        \"flagDotall\": \"<boolean>\",\n        \"regex\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n      }\n    }\n  ],\n  \"includeDetector\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"scanJobIds\": [\n    \"<int64>\",\n    \"<int64>\"\n  ],\n  \"search\": \"<string>\",\n  \"sensitivities\": [\n    \"DATA_SENSITIVITY_UNSPECIFIED\",\n    \"DATA_SENSITIVITY_UNSPECIFIED\"\n  ],\n  \"sortOptions\": [\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"CLASSIFIER_SORT_FIELD_UNSPECIFIED\"\n    },\n    {\n      \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n      \"sortField\": \"CLASSIFIER_SORT_FIELD_UNSPECIFIED\"\n    }\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8814,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6092ee24-b88f-4cb8-b028-08bdba210167",
+          "name": "Delete a classifier",
+          "request": {
+            "name": "Delete a classifier",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "classifier",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a660b49-002d-4514-8f92-80fcbcc33eb8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2bc2313-f758-4003-96d8-d6856e5f6695",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8814,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84cb590b-4a95-462b-88fe-40748c887220",
+          "name": "Get a classifier by ID",
+          "request": {
+            "name": "Get a classifier by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "classifier",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "efa9ae41-6017-406c-84e9-431b71f43ddc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canResetToDefault\": false,\n  \"createdBy\": {\n    \"email\": \"string\",\n    \"groups\": [\n      {\n        \"displayName\": \"string\",\n        \"id\": 7116\n      },\n      {\n        \"displayName\": \"string\",\n        \"id\": 9209\n      }\n    ],\n    \"id\": 346,\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"isServiceAccount\": false,\n    \"lastLoginAt\": \"string\",\n    \"name\": \"string\",\n    \"pictureUrl\": \"string\"\n  },\n  \"dataClass\": {\n    \"canResetToDefault\": true,\n    \"categories\": [\n      {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"workspaceId\": 2643\n      },\n      {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"workspaceId\": 4128\n      }\n    ],\n    \"colorHex\": \"string\",\n    \"createdBy\": {\n      \"email\": \"string\",\n      \"groups\": [\n        {\n          \"displayName\": \"string\",\n          \"id\": 9080\n        },\n        {\n          \"displayName\": \"string\",\n          \"id\": 7186\n        }\n      ],\n      \"id\": 3569,\n      \"idpGroups\": [\n        \"string\",\n        \"string\"\n      ],\n      \"isServiceAccount\": true,\n      \"lastLoginAt\": \"string\",\n      \"name\": \"string\",\n      \"pictureUrl\": \"string\"\n    },\n    \"description\": \"string\",\n    \"entityInfo\": {\n      \"createdBy\": 1025,\n      \"createdEpochSeconds\": \"string\",\n      \"updatedBy\": 6792,\n      \"updatedEpochSeconds\": \"string\"\n    },\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"numberOfClassifiers\": 7306,\n    \"providedByBigeye\": true,\n    \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n    \"workspaceId\": 6946\n  },\n  \"description\": \"string\",\n  \"detector\": {\n    \"compoundDetector\": {\n      \"combinator\": \"DETECTOR_COMBINATOR_UNSPECIFIED\",\n      \"detectors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n        }\n      ]\n    },\n    \"simpleDetector\": {\n      \"machineLearningDetector\": {\n        \"detector\": \"DETECTOR_UNSPECIFIED\",\n        \"displayName\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n        \"threshold\": \"<double>\"\n      },\n      \"regexDetector\": {\n        \"flagCaseInsensitive\": \"<boolean>\",\n        \"flagDotall\": \"<boolean>\",\n        \"regex\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n      }\n    }\n  },\n  \"entityInfo\": {\n    \"createdBy\": 7338,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 1011,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"numberOfScanJobs\": 38,\n  \"providedByBigeye\": false,\n  \"workspaceId\": 4889\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99deda53-cf13-47ee-ba04-ef47e7569a8b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8814,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fddd8599-0ded-4eff-ab17-5711e4b00f71",
+          "name": "Update a classifier",
+          "request": {
+            "name": "Update a classifier",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "classifier",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dataClassId\": \"<int64>\",\n  \"description\": \"<string>\",\n  \"detector\": {\n    \"compoundDetector\": {\n      \"combinator\": \"DETECTOR_COMBINATOR_UNSPECIFIED\",\n      \"detectors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n        }\n      ]\n    },\n    \"simpleDetector\": {\n      \"machineLearningDetector\": {\n        \"detector\": \"DETECTOR_UNSPECIFIED\",\n        \"displayName\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n        \"threshold\": \"<double>\"\n      },\n      \"regexDetector\": {\n        \"flagCaseInsensitive\": \"<boolean>\",\n        \"flagDotall\": \"<boolean>\",\n        \"regex\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n      }\n    }\n  },\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2bd96309-6eb3-473e-a9e2-ad26803ddc9b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canResetToDefault\": false,\n  \"createdBy\": {\n    \"email\": \"string\",\n    \"groups\": [\n      {\n        \"displayName\": \"string\",\n        \"id\": 7116\n      },\n      {\n        \"displayName\": \"string\",\n        \"id\": 9209\n      }\n    ],\n    \"id\": 346,\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"isServiceAccount\": false,\n    \"lastLoginAt\": \"string\",\n    \"name\": \"string\",\n    \"pictureUrl\": \"string\"\n  },\n  \"dataClass\": {\n    \"canResetToDefault\": true,\n    \"categories\": [\n      {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"workspaceId\": 2643\n      },\n      {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"workspaceId\": 4128\n      }\n    ],\n    \"colorHex\": \"string\",\n    \"createdBy\": {\n      \"email\": \"string\",\n      \"groups\": [\n        {\n          \"displayName\": \"string\",\n          \"id\": 9080\n        },\n        {\n          \"displayName\": \"string\",\n          \"id\": 7186\n        }\n      ],\n      \"id\": 3569,\n      \"idpGroups\": [\n        \"string\",\n        \"string\"\n      ],\n      \"isServiceAccount\": true,\n      \"lastLoginAt\": \"string\",\n      \"name\": \"string\",\n      \"pictureUrl\": \"string\"\n    },\n    \"description\": \"string\",\n    \"entityInfo\": {\n      \"createdBy\": 1025,\n      \"createdEpochSeconds\": \"string\",\n      \"updatedBy\": 6792,\n      \"updatedEpochSeconds\": \"string\"\n    },\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"numberOfClassifiers\": 7306,\n    \"providedByBigeye\": true,\n    \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n    \"workspaceId\": 6946\n  },\n  \"description\": \"string\",\n  \"detector\": {\n    \"compoundDetector\": {\n      \"combinator\": \"DETECTOR_COMBINATOR_UNSPECIFIED\",\n      \"detectors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n        }\n      ]\n    },\n    \"simpleDetector\": {\n      \"machineLearningDetector\": {\n        \"detector\": \"DETECTOR_UNSPECIFIED\",\n        \"displayName\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n        \"threshold\": \"<double>\"\n      },\n      \"regexDetector\": {\n        \"flagCaseInsensitive\": \"<boolean>\",\n        \"flagDotall\": \"<boolean>\",\n        \"regex\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n      }\n    }\n  },\n  \"entityInfo\": {\n    \"createdBy\": 7338,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 1011,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"numberOfScanJobs\": 38,\n  \"providedByBigeye\": false,\n  \"workspaceId\": 4889\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b573866-33ed-43b0-b801-e09ba463ef1e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8814,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c8fe798-b042-4fda-8fab-e84d4d28f8af",
+          "name": "Get available machine learning detectors",
+          "request": {
+            "name": "Get available machine learning detectors",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "classifier",
+                "machine-learning-detectors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e1ee6d05-7fad-48af-b106-f3f38342c139",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    "machine-learning-detectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detectors\": [\n    {\n      \"detector\": \"DETECTOR_UNSPECIFIED\",\n      \"displayName\": \"<string>\",\n      \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n      \"threshold\": \"<double>\"\n    },\n    {\n      \"detector\": \"DETECTOR_UNSPECIFIED\",\n      \"displayName\": \"<string>\",\n      \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n      \"threshold\": \"<double>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80abf55f-eada-4356-b314-4bc23368c93a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    "machine-learning-detectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8814,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d4f21e6-fbba-4c9f-bbae-acefe4db2c60",
+          "name": "Reset a Bigeye-provided classifier to its default state",
+          "request": {
+            "name": "Reset a Bigeye-provided classifier to its default state",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "classifier",
+                ":id",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71048a1b-d8bb-47fc-ab89-8f61eb39ccfa",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    ":id",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canResetToDefault\": false,\n  \"createdBy\": {\n    \"email\": \"string\",\n    \"groups\": [\n      {\n        \"displayName\": \"string\",\n        \"id\": 7116\n      },\n      {\n        \"displayName\": \"string\",\n        \"id\": 9209\n      }\n    ],\n    \"id\": 346,\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"isServiceAccount\": false,\n    \"lastLoginAt\": \"string\",\n    \"name\": \"string\",\n    \"pictureUrl\": \"string\"\n  },\n  \"dataClass\": {\n    \"canResetToDefault\": true,\n    \"categories\": [\n      {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"workspaceId\": 2643\n      },\n      {\n        \"description\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"workspaceId\": 4128\n      }\n    ],\n    \"colorHex\": \"string\",\n    \"createdBy\": {\n      \"email\": \"string\",\n      \"groups\": [\n        {\n          \"displayName\": \"string\",\n          \"id\": 9080\n        },\n        {\n          \"displayName\": \"string\",\n          \"id\": 7186\n        }\n      ],\n      \"id\": 3569,\n      \"idpGroups\": [\n        \"string\",\n        \"string\"\n      ],\n      \"isServiceAccount\": true,\n      \"lastLoginAt\": \"string\",\n      \"name\": \"string\",\n      \"pictureUrl\": \"string\"\n    },\n    \"description\": \"string\",\n    \"entityInfo\": {\n      \"createdBy\": 1025,\n      \"createdEpochSeconds\": \"string\",\n      \"updatedBy\": 6792,\n      \"updatedEpochSeconds\": \"string\"\n    },\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"numberOfClassifiers\": 7306,\n    \"providedByBigeye\": true,\n    \"sensitivity\": \"DATA_SENSITIVITY_UNSPECIFIED\",\n    \"workspaceId\": 6946\n  },\n  \"description\": \"string\",\n  \"detector\": {\n    \"compoundDetector\": {\n      \"combinator\": \"DETECTOR_COMBINATOR_UNSPECIFIED\",\n      \"detectors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/modelsgeneratedDetector detected>\"\n        }\n      ]\n    },\n    \"simpleDetector\": {\n      \"machineLearningDetector\": {\n        \"detector\": \"DETECTOR_UNSPECIFIED\",\n        \"displayName\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n        \"threshold\": \"<double>\"\n      },\n      \"regexDetector\": {\n        \"flagCaseInsensitive\": \"<boolean>\",\n        \"flagDotall\": \"<boolean>\",\n        \"regex\": \"<string>\",\n        \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n      }\n    }\n  },\n  \"entityInfo\": {\n    \"createdBy\": 7338,\n    \"createdEpochSeconds\": \"string\",\n    \"updatedBy\": 1011,\n    \"updatedEpochSeconds\": \"string\"\n  },\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"numberOfScanJobs\": 38,\n  \"providedByBigeye\": false,\n  \"workspaceId\": 4889\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "480e6dc1-b1ad-4bb0-8722-3ddfb88c3d81",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    ":id",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8814,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffe492fc-f053-4011-910b-4f06b009ad09",
+          "name": "Test a detector against a sample value",
+          "request": {
+            "name": "Test a detector against a sample value",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sds",
+                "classifier",
+                "test-detector"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"detector\": {\n    \"machineLearningDetector\": {\n      \"detector\": \"DETECTOR_UNSPECIFIED\",\n      \"displayName\": \"<string>\",\n      \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n      \"threshold\": \"<double>\"\n    },\n    \"regexDetector\": {\n      \"flagCaseInsensitive\": \"<boolean>\",\n      \"flagDotall\": \"<boolean>\",\n      \"regex\": \"<string>\",\n      \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n    }\n  },\n  \"value\": \"<string>\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ba05cd93-fe13-4a5c-b7d2-12886eb6ff6d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    "test-detector"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"detector\": {\n    \"machineLearningDetector\": {\n      \"detector\": \"DETECTOR_UNSPECIFIED\",\n      \"displayName\": \"<string>\",\n      \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n      \"threshold\": \"<double>\"\n    },\n    \"regexDetector\": {\n      \"flagCaseInsensitive\": \"<boolean>\",\n      \"flagDotall\": \"<boolean>\",\n      \"regex\": \"<string>\",\n      \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n    }\n  },\n  \"value\": \"<string>\",\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"responseType\": \"TEST_DETECTOR_RESPONSE_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90306008-4995-4f25-9e72-7a113c89e522",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sds",
+                    "classifier",
+                    "test-detector"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"detector\": {\n    \"machineLearningDetector\": {\n      \"detector\": \"DETECTOR_UNSPECIFIED\",\n      \"displayName\": \"<string>\",\n      \"target\": \"DETECTOR_TARGET_UNSPECIFIED\",\n      \"threshold\": \"<double>\"\n    },\n    \"regexDetector\": {\n      \"flagCaseInsensitive\": \"<boolean>\",\n      \"flagDotall\": \"<boolean>\",\n      \"regex\": \"<string>\",\n      \"target\": \"DETECTOR_TARGET_UNSPECIFIED\"\n    }\n  },\n  \"value\": \"<string>\",\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8814,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "18c4234a-3864-4a37-ac7c-6b32f9de8a0f",
+    "name": "Sensitivity Classifier Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

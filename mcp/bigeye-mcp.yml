@@ -565,3 +565,11 @@ tools:
   - table_ids
   required: []
 crosswalk: mcp/bigeye-tool-crosswalk.yml
+deployment:
+  mode: remote
+  endpoint: https://mcpgateway.bigeye.com/mcp
+  verified: probed
+  probe: live
+  tools: 56
+  checked: '2026-08-12'
+  source: catalog MCP census

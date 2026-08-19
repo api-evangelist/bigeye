@@ -1,0 +1,1055 @@
+{
+  "item": [
+    {
+      "id": "d23fa153-ac29-451b-a5ce-0a9e0c7c228a",
+      "name": "DeltaService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b550a37e-cd8e-4410-a730-20d2f18c94ff",
+          "name": "Perform bulk operations on deltas",
+          "request": {
+            "name": "Perform bulk operations on deltas",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "deltas",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"editRequest\": {\n    \"dimensionId\": \"<integer>\",\n    \"namedScheduleId\": \"<integer>\",\n    \"removeNamedSchedule\": \"<boolean>\",\n    \"tableComparisonIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"isDelete\": \"<boolean>\",\n  \"isRun\": \"<boolean>\",\n  \"where\": {\n    \"collectionIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"columnIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"customRuleIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"customRuleTypes\": [\n      \"CUSTOM_RULE_TYPE_UNSPECIFIED\",\n      \"CUSTOM_RULE_TYPE_UNSPECIFIED\"\n    ],\n    \"dimensionIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"metricTypes\": [\n      \"UNDEFINED_PREDEFINED_METRIC_NAME\",\n      \"UNDEFINED_PREDEFINED_METRIC_NAME\"\n    ],\n    \"monitorTypes\": [\n      \"MONITOR_TYPE_UNDEFINED\",\n      \"MONITOR_TYPE_UNDEFINED\"\n    ],\n    \"schemaIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"search\": \"<string>\",\n    \"searchAll\": \"<boolean>\",\n    \"sourceIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"statuses\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tableIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"templateIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"workspaceId\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3dfcc8b9-f10a-4767-aa7d-d21497093c1d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"failedUpdates\": [\n    {\n      \"id\": 9981,\n      \"reason\": \"string\"\n    },\n    {\n      \"id\": 7949,\n      \"reason\": \"string\"\n    }\n  ],\n  \"notRunIds\": [\n    9619,\n    8887\n  ],\n  \"successfulIds\": [\n    4803,\n    6011\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d63a49b9-f99b-4394-949f-b9d07b90ce01",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7271,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "254984f3-a548-4079-af8c-2806a1ffaaa0",
+          "name": "Create a delta",
+          "request": {
+            "name": "Create a delta",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "deltas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"delta\": {\n    \"alertingMetricCount\": \"<int64>\",\n    \"comparisonTableConfigurations\": [\n      {\n        \"columnMappings\": [\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          },\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          }\n        ],\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"groupBys\": [\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          },\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          }\n        ],\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"namedSchedule\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"sourceTableId\": \"<integer>\",\n        \"targetFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"targetSchema\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTable\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTableId\": \"<integer>\",\n        \"tolerance\": \"<double>\"\n      },\n      {\n        \"columnMappings\": [\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          },\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          }\n        ],\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"groupBys\": [\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          },\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          }\n        ],\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"namedSchedule\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"sourceTableId\": \"<integer>\",\n        \"targetFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"targetSchema\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTable\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTableId\": \"<integer>\",\n        \"tolerance\": \"<double>\"\n      }\n    ],\n    \"dimension\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"entityInfo\": {\n      \"createdBy\": \"<integer>\",\n      \"createdEpochSeconds\": \"<int64>\",\n      \"updatedBy\": \"<integer>\",\n      \"updatedEpochSeconds\": \"<int64>\"\n    },\n    \"failedMetricCount\": \"<int64>\",\n    \"id\": \"<integer>\",\n    \"isSourceTableDeleted\": \"<boolean>\",\n    \"lastRunAtEpochSeconds\": \"<int64>\",\n    \"name\": \"<string>\",\n    \"namedSchedule\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"notificationChannels\": [\n      {\n        \"email\": \"<string>\",\n        \"externalTicketInfo\": {\n          \"externalTicketId\": \"<string>\",\n          \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n          \"externalTicketUrl\": \"<string>\",\n          \"issueId\": \"<integer>\"\n        },\n        \"slackChannelInfo\": {\n          \"channelId\": \"<string>\",\n          \"channelName\": \"<string>\",\n          \"issueThreadPermalink\": \"<string>\",\n          \"threadTs\": \"<string>\"\n        },\n        \"webhook\": {\n          \"webhookHeaders\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"webhookUrl\": \"<string>\"\n        }\n      },\n      {\n        \"email\": \"<string>\",\n        \"externalTicketInfo\": {\n          \"externalTicketId\": \"<string>\",\n          \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n          \"externalTicketUrl\": \"<string>\",\n          \"issueId\": \"<integer>\"\n        },\n        \"slackChannelInfo\": {\n          \"channelId\": \"<string>\",\n          \"channelName\": \"<string>\",\n          \"issueThreadPermalink\": \"<string>\",\n          \"threadTs\": \"<string>\"\n        },\n        \"webhook\": {\n          \"webhookHeaders\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"webhookUrl\": \"<string>\"\n        }\n      }\n    ],\n    \"sourceSchema\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"sourceSource\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"sourceTable\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"sourceWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n    \"tags\": [\n      {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      },\n      {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      }\n    ],\n    \"totalMetricCount\": \"<int64>\"\n  },\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "adb50311-c1c8-48e5-9cab-898a43ddb1f8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"delta\": {\n    \"alertingMetricCount\": \"<int64>\",\n    \"comparisonTableConfigurations\": [\n      {\n        \"columnMappings\": [\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          },\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          }\n        ],\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"groupBys\": [\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          },\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          }\n        ],\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"namedSchedule\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"sourceTableId\": \"<integer>\",\n        \"targetFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"targetSchema\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTable\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTableId\": \"<integer>\",\n        \"tolerance\": \"<double>\"\n      },\n      {\n        \"columnMappings\": [\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          },\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          }\n        ],\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"groupBys\": [\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          },\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          }\n        ],\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"namedSchedule\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"sourceTableId\": \"<integer>\",\n        \"targetFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"targetSchema\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTable\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTableId\": \"<integer>\",\n        \"tolerance\": \"<double>\"\n      }\n    ],\n    \"dimension\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"entityInfo\": {\n      \"createdBy\": \"<integer>\",\n      \"createdEpochSeconds\": \"<int64>\",\n      \"updatedBy\": \"<integer>\",\n      \"updatedEpochSeconds\": \"<int64>\"\n    },\n    \"failedMetricCount\": \"<int64>\",\n    \"id\": \"<integer>\",\n    \"isSourceTableDeleted\": \"<boolean>\",\n    \"lastRunAtEpochSeconds\": \"<int64>\",\n    \"name\": \"<string>\",\n    \"namedSchedule\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"notificationChannels\": [\n      {\n        \"email\": \"<string>\",\n        \"externalTicketInfo\": {\n          \"externalTicketId\": \"<string>\",\n          \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n          \"externalTicketUrl\": \"<string>\",\n          \"issueId\": \"<integer>\"\n        },\n        \"slackChannelInfo\": {\n          \"channelId\": \"<string>\",\n          \"channelName\": \"<string>\",\n          \"issueThreadPermalink\": \"<string>\",\n          \"threadTs\": \"<string>\"\n        },\n        \"webhook\": {\n          \"webhookHeaders\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"webhookUrl\": \"<string>\"\n        }\n      },\n      {\n        \"email\": \"<string>\",\n        \"externalTicketInfo\": {\n          \"externalTicketId\": \"<string>\",\n          \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n          \"externalTicketUrl\": \"<string>\",\n          \"issueId\": \"<integer>\"\n        },\n        \"slackChannelInfo\": {\n          \"channelId\": \"<string>\",\n          \"channelName\": \"<string>\",\n          \"issueThreadPermalink\": \"<string>\",\n          \"threadTs\": \"<string>\"\n        },\n        \"webhook\": {\n          \"webhookHeaders\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"webhookUrl\": \"<string>\"\n        }\n      }\n    ],\n    \"sourceSchema\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"sourceSource\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"sourceTable\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"sourceWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n    \"tags\": [\n      {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      },\n      {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      }\n    ],\n    \"totalMetricCount\": \"<int64>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "933084df-9cb8-4b6d-9bd8-b72af791eb15",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2092,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4abd27cc-f43f-4456-b96c-4d0024b16d2b",
+          "name": "Update a delta",
+          "request": {
+            "name": "Update a delta",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "deltas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"delta\": {\n    \"alertingMetricCount\": \"<int64>\",\n    \"comparisonTableConfigurations\": [\n      {\n        \"columnMappings\": [\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          },\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          }\n        ],\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"groupBys\": [\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          },\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          }\n        ],\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"namedSchedule\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"sourceTableId\": \"<integer>\",\n        \"targetFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"targetSchema\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTable\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTableId\": \"<integer>\",\n        \"tolerance\": \"<double>\"\n      },\n      {\n        \"columnMappings\": [\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          },\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          }\n        ],\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"groupBys\": [\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          },\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          }\n        ],\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"namedSchedule\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"sourceTableId\": \"<integer>\",\n        \"targetFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"targetSchema\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTable\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTableId\": \"<integer>\",\n        \"tolerance\": \"<double>\"\n      }\n    ],\n    \"dimension\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"entityInfo\": {\n      \"createdBy\": \"<integer>\",\n      \"createdEpochSeconds\": \"<int64>\",\n      \"updatedBy\": \"<integer>\",\n      \"updatedEpochSeconds\": \"<int64>\"\n    },\n    \"failedMetricCount\": \"<int64>\",\n    \"id\": \"<integer>\",\n    \"isSourceTableDeleted\": \"<boolean>\",\n    \"lastRunAtEpochSeconds\": \"<int64>\",\n    \"name\": \"<string>\",\n    \"namedSchedule\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"notificationChannels\": [\n      {\n        \"email\": \"<string>\",\n        \"externalTicketInfo\": {\n          \"externalTicketId\": \"<string>\",\n          \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n          \"externalTicketUrl\": \"<string>\",\n          \"issueId\": \"<integer>\"\n        },\n        \"slackChannelInfo\": {\n          \"channelId\": \"<string>\",\n          \"channelName\": \"<string>\",\n          \"issueThreadPermalink\": \"<string>\",\n          \"threadTs\": \"<string>\"\n        },\n        \"webhook\": {\n          \"webhookHeaders\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"webhookUrl\": \"<string>\"\n        }\n      },\n      {\n        \"email\": \"<string>\",\n        \"externalTicketInfo\": {\n          \"externalTicketId\": \"<string>\",\n          \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n          \"externalTicketUrl\": \"<string>\",\n          \"issueId\": \"<integer>\"\n        },\n        \"slackChannelInfo\": {\n          \"channelId\": \"<string>\",\n          \"channelName\": \"<string>\",\n          \"issueThreadPermalink\": \"<string>\",\n          \"threadTs\": \"<string>\"\n        },\n        \"webhook\": {\n          \"webhookHeaders\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"webhookUrl\": \"<string>\"\n        }\n      }\n    ],\n    \"sourceSchema\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"sourceSource\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"sourceTable\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"sourceWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n    \"tags\": [\n      {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      },\n      {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      }\n    ],\n    \"totalMetricCount\": \"<int64>\"\n  },\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b18cd7ac-9c47-43c5-aed1-238827e51a9d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"delta\": {\n    \"alertingMetricCount\": \"<int64>\",\n    \"comparisonTableConfigurations\": [\n      {\n        \"columnMappings\": [\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          },\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          }\n        ],\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"groupBys\": [\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          },\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          }\n        ],\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"namedSchedule\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"sourceTableId\": \"<integer>\",\n        \"targetFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"targetSchema\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTable\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTableId\": \"<integer>\",\n        \"tolerance\": \"<double>\"\n      },\n      {\n        \"columnMappings\": [\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          },\n          {\n            \"isPartOfKey\": \"<boolean>\",\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userDefined\": \"<boolean>\"\n          }\n        ],\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"groupBys\": [\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          },\n          {\n            \"sourceColumnName\": \"<string>\",\n            \"targetColumnName\": \"<string>\"\n          }\n        ],\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"namedSchedule\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"sourceTableId\": \"<integer>\",\n        \"targetFilters\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"targetSchema\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTable\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTableId\": \"<integer>\",\n        \"tolerance\": \"<double>\"\n      }\n    ],\n    \"dimension\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"entityInfo\": {\n      \"createdBy\": \"<integer>\",\n      \"createdEpochSeconds\": \"<int64>\",\n      \"updatedBy\": \"<integer>\",\n      \"updatedEpochSeconds\": \"<int64>\"\n    },\n    \"failedMetricCount\": \"<int64>\",\n    \"id\": \"<integer>\",\n    \"isSourceTableDeleted\": \"<boolean>\",\n    \"lastRunAtEpochSeconds\": \"<int64>\",\n    \"name\": \"<string>\",\n    \"namedSchedule\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"notificationChannels\": [\n      {\n        \"email\": \"<string>\",\n        \"externalTicketInfo\": {\n          \"externalTicketId\": \"<string>\",\n          \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n          \"externalTicketUrl\": \"<string>\",\n          \"issueId\": \"<integer>\"\n        },\n        \"slackChannelInfo\": {\n          \"channelId\": \"<string>\",\n          \"channelName\": \"<string>\",\n          \"issueThreadPermalink\": \"<string>\",\n          \"threadTs\": \"<string>\"\n        },\n        \"webhook\": {\n          \"webhookHeaders\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"webhookUrl\": \"<string>\"\n        }\n      },\n      {\n        \"email\": \"<string>\",\n        \"externalTicketInfo\": {\n          \"externalTicketId\": \"<string>\",\n          \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n          \"externalTicketUrl\": \"<string>\",\n          \"issueId\": \"<integer>\"\n        },\n        \"slackChannelInfo\": {\n          \"channelId\": \"<string>\",\n          \"channelName\": \"<string>\",\n          \"issueThreadPermalink\": \"<string>\",\n          \"threadTs\": \"<string>\"\n        },\n        \"webhook\": {\n          \"webhookHeaders\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"webhookUrl\": \"<string>\"\n        }\n      }\n    ],\n    \"sourceSchema\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"sourceSource\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"sourceTable\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"sourceWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n    \"tags\": [\n      {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      },\n      {\n        \"colorHex\": \"<string>\",\n        \"createdAt\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"updatedAt\": \"<int64>\",\n        \"workspaceId\": \"<integer>\"\n      }\n    ],\n    \"totalMetricCount\": \"<int64>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21848c31-4d81-4861-a988-18771bc046ad",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2092,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93b118e9-8836-4f00-80bd-aca571a0d6af",
+          "name": "Fetch deltas with filters and pagination",
+          "request": {
+            "name": "Fetch deltas with filters and pagination",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "deltas",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comparisonTableIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"dimensionIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"excludeComparisonMetrics\": \"<boolean>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"COMPARISON_TABLE_SORT_FIELD_UNSPECIFIED\",\n  \"tagIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63b10996-e4e1-43e0-ba7c-eafa01cb86fd",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deltaInfos\": [\n    {\n      \"comparisonTargetInfos\": [\n        {\n          \"alertingGroupCount\": 8996,\n          \"alertingMetricCount\": \"string\",\n          \"comparisonColumnInfos\": [\n            {\n              \"alertingGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alertingMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isPartOfKey\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"userDefined\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"alertingGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alertingMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isPartOfKey\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"userDefined\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"comparisonMetricInfos\": [\n            {\n              \"comparisonMetricConfiguration\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"criticalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"difference\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionClass\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionMessage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"groupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"comparisonMetricConfiguration\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"criticalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"difference\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionClass\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionMessage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"groupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"failedGroupCount\": 9809,\n          \"failedMetricCount\": \"string\",\n          \"isTargetTableDeleted\": false,\n          \"keysInAllCount\": \"string\",\n          \"keysOnlyInSourceCount\": \"string\",\n          \"keysOnlyInTargetCount\": \"string\",\n          \"lastRunAtEpochSeconds\": \"string\",\n          \"metricCount\": \"string\",\n          \"schemaMatch\": true,\n          \"sourceRowCount\": \"string\",\n          \"targetRowCount\": \"string\",\n          \"targetSchema\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetSource\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetTable\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"totalGroupCount\": 2313\n        },\n        {\n          \"alertingGroupCount\": 9439,\n          \"alertingMetricCount\": \"string\",\n          \"comparisonColumnInfos\": [\n            {\n              \"alertingGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alertingMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isPartOfKey\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"userDefined\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"alertingGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alertingMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isPartOfKey\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"userDefined\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"comparisonMetricInfos\": [\n            {\n              \"comparisonMetricConfiguration\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"criticalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"difference\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionClass\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionMessage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"groupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"comparisonMetricConfiguration\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"criticalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"difference\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionClass\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionMessage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"groupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"failedGroupCount\": 7229,\n          \"failedMetricCount\": \"string\",\n          \"isTargetTableDeleted\": false,\n          \"keysInAllCount\": \"string\",\n          \"keysOnlyInSourceCount\": \"string\",\n          \"keysOnlyInTargetCount\": \"string\",\n          \"lastRunAtEpochSeconds\": \"string\",\n          \"metricCount\": \"string\",\n          \"schemaMatch\": false,\n          \"sourceRowCount\": \"string\",\n          \"targetRowCount\": \"string\",\n          \"targetSchema\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetSource\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetTable\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"totalGroupCount\": 2690\n        }\n      ],\n      \"delta\": {\n        \"alertingMetricCount\": \"<int64>\",\n        \"comparisonTableConfigurations\": [\n          {\n            \"columnMappings\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"groupBys\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"namedSchedule\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceTableId\": \"<integer>\",\n            \"targetFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"targetSchema\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetTable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetTableId\": \"<integer>\",\n            \"tolerance\": \"<double>\"\n          },\n          {\n            \"columnMappings\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"groupBys\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"namedSchedule\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceTableId\": \"<integer>\",\n            \"targetFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"targetSchema\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetTable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetTableId\": \"<integer>\",\n            \"tolerance\": \"<double>\"\n          }\n        ],\n        \"dimension\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"failedMetricCount\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"isSourceTableDeleted\": \"<boolean>\",\n        \"lastRunAtEpochSeconds\": \"<int64>\",\n        \"name\": \"<string>\",\n        \"namedSchedule\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"notificationChannels\": [\n          {\n            \"email\": \"<string>\",\n            \"externalTicketInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"slackChannelInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"email\": \"<string>\",\n            \"externalTicketInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"slackChannelInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"sourceSchema\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceSource\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceTable\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"tags\": [\n          {\n            \"colorHex\": \"<string>\",\n            \"createdAt\": \"<int64>\",\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"updatedAt\": \"<int64>\",\n            \"workspaceId\": \"<integer>\"\n          },\n          {\n            \"colorHex\": \"<string>\",\n            \"createdAt\": \"<int64>\",\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"updatedAt\": \"<int64>\",\n            \"workspaceId\": \"<integer>\"\n          }\n        ],\n        \"totalMetricCount\": \"<int64>\"\n      },\n      \"isFavorite\": false,\n      \"nextRunEpochSeconds\": \"string\"\n    },\n    {\n      \"comparisonTargetInfos\": [\n        {\n          \"alertingGroupCount\": 5143,\n          \"alertingMetricCount\": \"string\",\n          \"comparisonColumnInfos\": [\n            {\n              \"alertingGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alertingMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isPartOfKey\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"userDefined\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"alertingGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alertingMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isPartOfKey\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"userDefined\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"comparisonMetricInfos\": [\n            {\n              \"comparisonMetricConfiguration\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"criticalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"difference\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionClass\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionMessage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"groupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"comparisonMetricConfiguration\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"criticalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"difference\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionClass\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionMessage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"groupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"failedGroupCount\": 2909,\n          \"failedMetricCount\": \"string\",\n          \"isTargetTableDeleted\": true,\n          \"keysInAllCount\": \"string\",\n          \"keysOnlyInSourceCount\": \"string\",\n          \"keysOnlyInTargetCount\": \"string\",\n          \"lastRunAtEpochSeconds\": \"string\",\n          \"metricCount\": \"string\",\n          \"schemaMatch\": false,\n          \"sourceRowCount\": \"string\",\n          \"targetRowCount\": \"string\",\n          \"targetSchema\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetSource\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetTable\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"totalGroupCount\": 6793\n        },\n        {\n          \"alertingGroupCount\": 2857,\n          \"alertingMetricCount\": \"string\",\n          \"comparisonColumnInfos\": [\n            {\n              \"alertingGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alertingMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isPartOfKey\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"userDefined\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"alertingGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alertingMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isPartOfKey\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetColumn\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"totalMetricCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"userDefined\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"comparisonMetricInfos\": [\n            {\n              \"comparisonMetricConfiguration\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"criticalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"difference\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionClass\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionMessage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"groupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"comparisonMetricConfiguration\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"criticalGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"difference\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionClass\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"exceptionMessage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"failedGroupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"groupCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sourceValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetFailed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetMetricInfo\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"targetValue\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"failedGroupCount\": 3113,\n          \"failedMetricCount\": \"string\",\n          \"isTargetTableDeleted\": true,\n          \"keysInAllCount\": \"string\",\n          \"keysOnlyInSourceCount\": \"string\",\n          \"keysOnlyInTargetCount\": \"string\",\n          \"lastRunAtEpochSeconds\": \"string\",\n          \"metricCount\": \"string\",\n          \"schemaMatch\": true,\n          \"sourceRowCount\": \"string\",\n          \"targetRowCount\": \"string\",\n          \"targetSchema\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetSource\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetTable\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"totalGroupCount\": 9255\n        }\n      ],\n      \"delta\": {\n        \"alertingMetricCount\": \"<int64>\",\n        \"comparisonTableConfigurations\": [\n          {\n            \"columnMappings\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"groupBys\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"namedSchedule\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceTableId\": \"<integer>\",\n            \"targetFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"targetSchema\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetTable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetTableId\": \"<integer>\",\n            \"tolerance\": \"<double>\"\n          },\n          {\n            \"columnMappings\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"entityInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"groupBys\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"namedSchedule\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceTableId\": \"<integer>\",\n            \"targetFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"targetSchema\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetTable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetTableId\": \"<integer>\",\n            \"tolerance\": \"<double>\"\n          }\n        ],\n        \"dimension\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"entityInfo\": {\n          \"createdBy\": \"<integer>\",\n          \"createdEpochSeconds\": \"<int64>\",\n          \"updatedBy\": \"<integer>\",\n          \"updatedEpochSeconds\": \"<int64>\"\n        },\n        \"failedMetricCount\": \"<int64>\",\n        \"id\": \"<integer>\",\n        \"isSourceTableDeleted\": \"<boolean>\",\n        \"lastRunAtEpochSeconds\": \"<int64>\",\n        \"name\": \"<string>\",\n        \"namedSchedule\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"notificationChannels\": [\n          {\n            \"email\": \"<string>\",\n            \"externalTicketInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"slackChannelInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"email\": \"<string>\",\n            \"externalTicketInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"slackChannelInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"sourceSchema\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceSource\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceTable\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"sourceWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"tags\": [\n          {\n            \"colorHex\": \"<string>\",\n            \"createdAt\": \"<int64>\",\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"updatedAt\": \"<int64>\",\n            \"workspaceId\": \"<integer>\"\n          },\n          {\n            \"colorHex\": \"<string>\",\n            \"createdAt\": \"<int64>\",\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"updatedAt\": \"<int64>\",\n            \"workspaceId\": \"<integer>\"\n          }\n        ],\n        \"totalMetricCount\": \"<int64>\"\n      },\n      \"isFavorite\": true,\n      \"nextRunEpochSeconds\": \"string\"\n    }\n  ],\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": true,\n    \"numRecords\": 6065,\n    \"prevCursor\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d1fe035-a5ec-4890-bec5-1321e37ad545",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2092,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a73d1a28-dd11-42df-a2aa-7e936994abc4",
+          "name": "Delete a delta by ID",
+          "request": {
+            "name": "Delete a delta by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "deltas",
+                ":deltaId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deltaId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aaf74103-78a4-41c3-86d1-3e31a5392802",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas",
+                    ":deltaId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deltaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fce5b1ee-9db1-4e74-8aec-d68eafa6d52a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas",
+                    ":deltaId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deltaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2092,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2726ac31-909f-4f6a-b030-fa9ec2057b48",
+          "name": "Get a delta by ID",
+          "request": {
+            "name": "Get a delta by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "deltas",
+                ":deltaId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deltaId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "821d47c6-a981-48e2-a0f8-d46def8a7312",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas",
+                    ":deltaId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deltaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alertingMetricCount\": \"<int64>\",\n  \"comparisonTableConfigurations\": [\n    {\n      \"columnMappings\": [\n        {\n          \"isPartOfKey\": \"<boolean>\",\n          \"metrics\": [\n            {\n              \"customRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"externalMonitor\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isMetadataMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTableMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"predefinedMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"templateMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"customRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"externalMonitor\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isMetadataMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTableMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"predefinedMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"templateMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sourceColumn\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetColumn\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"userDefined\": \"<boolean>\"\n        },\n        {\n          \"isPartOfKey\": \"<boolean>\",\n          \"metrics\": [\n            {\n              \"customRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"externalMonitor\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isMetadataMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTableMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"predefinedMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"templateMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"customRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"externalMonitor\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isMetadataMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTableMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"predefinedMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"templateMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sourceColumn\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetColumn\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"userDefined\": \"<boolean>\"\n        }\n      ],\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"groupBys\": [\n        {\n          \"sourceColumnName\": \"<string>\",\n          \"targetColumnName\": \"<string>\"\n        },\n        {\n          \"sourceColumnName\": \"<string>\",\n          \"targetColumnName\": \"<string>\"\n        }\n      ],\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"namedSchedule\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"sourceFilters\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sourceTableId\": \"<integer>\",\n      \"targetFilters\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"targetSchema\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"targetTable\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"targetTableId\": \"<integer>\",\n      \"tolerance\": \"<double>\"\n    },\n    {\n      \"columnMappings\": [\n        {\n          \"isPartOfKey\": \"<boolean>\",\n          \"metrics\": [\n            {\n              \"customRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"externalMonitor\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isMetadataMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTableMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"predefinedMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"templateMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"customRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"externalMonitor\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isMetadataMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTableMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"predefinedMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"templateMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sourceColumn\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetColumn\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"userDefined\": \"<boolean>\"\n        },\n        {\n          \"isPartOfKey\": \"<boolean>\",\n          \"metrics\": [\n            {\n              \"customRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"externalMonitor\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isMetadataMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTableMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"predefinedMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"templateMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"customRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"externalMonitor\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isMetadataMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTableMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"predefinedMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"templateMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sourceColumn\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"targetColumn\": {\n            \"displayName\": \"<string>\",\n            \"id\": \"<integer>\"\n          },\n          \"userDefined\": \"<boolean>\"\n        }\n      ],\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"groupBys\": [\n        {\n          \"sourceColumnName\": \"<string>\",\n          \"targetColumnName\": \"<string>\"\n        },\n        {\n          \"sourceColumnName\": \"<string>\",\n          \"targetColumnName\": \"<string>\"\n        }\n      ],\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"namedSchedule\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"sourceFilters\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sourceTableId\": \"<integer>\",\n      \"targetFilters\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"targetSchema\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"targetTable\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"targetTableId\": \"<integer>\",\n      \"tolerance\": \"<double>\"\n    }\n  ],\n  \"dimension\": {\n    \"displayName\": \"<string>\",\n    \"id\": \"<integer>\"\n  },\n  \"entityInfo\": {\n    \"createdBy\": \"<integer>\",\n    \"createdEpochSeconds\": \"<int64>\",\n    \"updatedBy\": \"<integer>\",\n    \"updatedEpochSeconds\": \"<int64>\"\n  },\n  \"failedMetricCount\": \"<int64>\",\n  \"id\": \"<integer>\",\n  \"isSourceTableDeleted\": \"<boolean>\",\n  \"lastRunAtEpochSeconds\": \"<int64>\",\n  \"name\": \"<string>\",\n  \"namedSchedule\": {\n    \"displayName\": \"<string>\",\n    \"id\": \"<integer>\"\n  },\n  \"notificationChannels\": [\n    {\n      \"email\": \"<string>\",\n      \"externalTicketInfo\": {\n        \"externalTicketId\": \"<string>\",\n        \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n        \"externalTicketUrl\": \"<string>\",\n        \"issueId\": \"<integer>\"\n      },\n      \"slackChannelInfo\": {\n        \"channelId\": \"<string>\",\n        \"channelName\": \"<string>\",\n        \"issueThreadPermalink\": \"<string>\",\n        \"threadTs\": \"<string>\"\n      },\n      \"webhook\": {\n        \"webhookHeaders\": [\n          {\n            \"key\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"webhookUrl\": \"<string>\"\n      }\n    },\n    {\n      \"email\": \"<string>\",\n      \"externalTicketInfo\": {\n        \"externalTicketId\": \"<string>\",\n        \"externalTicketProvider\": \"EXTERNAL_TICKET_PROVIDER_UNSPECIFIED\",\n        \"externalTicketUrl\": \"<string>\",\n        \"issueId\": \"<integer>\"\n      },\n      \"slackChannelInfo\": {\n        \"channelId\": \"<string>\",\n        \"channelName\": \"<string>\",\n        \"issueThreadPermalink\": \"<string>\",\n        \"threadTs\": \"<string>\"\n      },\n      \"webhook\": {\n        \"webhookHeaders\": [\n          {\n            \"key\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"webhookUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"sourceSchema\": {\n    \"displayName\": \"<string>\",\n    \"id\": \"<integer>\"\n  },\n  \"sourceSource\": {\n    \"displayName\": \"<string>\",\n    \"id\": \"<integer>\"\n  },\n  \"sourceTable\": {\n    \"displayName\": \"<string>\",\n    \"id\": \"<integer>\"\n  },\n  \"sourceWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n  \"tags\": [\n    {\n      \"colorHex\": \"<string>\",\n      \"createdAt\": \"<int64>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"updatedAt\": \"<int64>\",\n      \"workspaceId\": \"<integer>\"\n    },\n    {\n      \"colorHex\": \"<string>\",\n      \"createdAt\": \"<int64>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"updatedAt\": \"<int64>\",\n      \"workspaceId\": \"<integer>\"\n    }\n  ],\n  \"totalMetricCount\": \"<int64>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36a4032b-59e9-4593-953c-7e5b94f2beb6",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas",
+                    ":deltaId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deltaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2092,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a138890-0fc2-4027-932b-480040a06a82",
+          "name": "Run a delta by ID",
+          "request": {
+            "name": "Run a delta by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "deltas",
+                "run",
+                ":deltaId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deltaId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b22d7e7-2d84-4ba6-9ffa-425afd6d0bff",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas",
+                    "run",
+                    ":deltaId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deltaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deltaInfo\": {\n    \"comparisonTargetInfos\": [\n      {\n        \"alertingGroupCount\": 9440,\n        \"alertingMetricCount\": \"string\",\n        \"comparisonColumnInfos\": [\n          {\n            \"alertingGroupCount\": 1553,\n            \"alertingMetricCount\": \"string\",\n            \"failedGroupCount\": 5585,\n            \"failedMetricCount\": 4394,\n            \"isPartOfKey\": false,\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"totalGroupCount\": 9576,\n            \"totalMetricCount\": \"string\",\n            \"userDefined\": false\n          },\n          {\n            \"alertingGroupCount\": 9766,\n            \"alertingMetricCount\": \"string\",\n            \"failedGroupCount\": 8051,\n            \"failedMetricCount\": 6499,\n            \"isPartOfKey\": false,\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"totalGroupCount\": 2089,\n            \"totalMetricCount\": \"string\",\n            \"userDefined\": false\n          }\n        ],\n        \"comparisonMetricInfos\": [\n          {\n            \"comparisonMetricConfiguration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"criticalGroupCount\": 1476,\n            \"difference\": 3436.207141988793,\n            \"exceptionClass\": \"string\",\n            \"exceptionMessage\": \"string\",\n            \"failedGroupCount\": 5987,\n            \"groupCount\": 9841,\n            \"sourceFailed\": true,\n            \"sourceMetricInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceValue\": 9968.251979589502,\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetFailed\": true,\n            \"targetMetricInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetValue\": 3712.2556409847584\n          },\n          {\n            \"comparisonMetricConfiguration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"criticalGroupCount\": 1918,\n            \"difference\": 4482.9073397335305,\n            \"exceptionClass\": \"string\",\n            \"exceptionMessage\": \"string\",\n            \"failedGroupCount\": 8558,\n            \"groupCount\": 666,\n            \"sourceFailed\": false,\n            \"sourceMetricInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceValue\": 8980.273643161745,\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetFailed\": false,\n            \"targetMetricInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetValue\": 9832.368920208724\n          }\n        ],\n        \"failedGroupCount\": 5833,\n        \"failedMetricCount\": \"string\",\n        \"isTargetTableDeleted\": true,\n        \"keysInAllCount\": \"string\",\n        \"keysOnlyInSourceCount\": \"string\",\n        \"keysOnlyInTargetCount\": \"string\",\n        \"lastRunAtEpochSeconds\": \"string\",\n        \"metricCount\": \"string\",\n        \"schemaMatch\": false,\n        \"sourceRowCount\": \"string\",\n        \"targetRowCount\": \"string\",\n        \"targetSchema\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetSource\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTable\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"totalGroupCount\": 7256\n      },\n      {\n        \"alertingGroupCount\": 9787,\n        \"alertingMetricCount\": \"string\",\n        \"comparisonColumnInfos\": [\n          {\n            \"alertingGroupCount\": 9273,\n            \"alertingMetricCount\": \"string\",\n            \"failedGroupCount\": 3382,\n            \"failedMetricCount\": 4932,\n            \"isPartOfKey\": true,\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"totalGroupCount\": 8040,\n            \"totalMetricCount\": \"string\",\n            \"userDefined\": true\n          },\n          {\n            \"alertingGroupCount\": 2678,\n            \"alertingMetricCount\": \"string\",\n            \"failedGroupCount\": 4027,\n            \"failedMetricCount\": 3960,\n            \"isPartOfKey\": false,\n            \"metrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"sourceColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetColumn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"totalGroupCount\": 1831,\n            \"totalMetricCount\": \"string\",\n            \"userDefined\": true\n          }\n        ],\n        \"comparisonMetricInfos\": [\n          {\n            \"comparisonMetricConfiguration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"criticalGroupCount\": 3931,\n            \"difference\": 1098.5276218961803,\n            \"exceptionClass\": \"string\",\n            \"exceptionMessage\": \"string\",\n            \"failedGroupCount\": 235,\n            \"groupCount\": 8488,\n            \"sourceFailed\": false,\n            \"sourceMetricInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceValue\": 7022.450591387228,\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetFailed\": false,\n            \"targetMetricInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetValue\": 4059.7601394529183\n          },\n          {\n            \"comparisonMetricConfiguration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"criticalGroupCount\": 6493,\n            \"difference\": 8688.820524324168,\n            \"exceptionClass\": \"string\",\n            \"exceptionMessage\": \"string\",\n            \"failedGroupCount\": 7792,\n            \"groupCount\": 9295,\n            \"sourceFailed\": false,\n            \"sourceMetricInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sourceValue\": 7920.730338128147,\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetFailed\": false,\n            \"targetMetricInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"targetValue\": 9690.484066855091\n          }\n        ],\n        \"failedGroupCount\": 1191,\n        \"failedMetricCount\": \"string\",\n        \"isTargetTableDeleted\": false,\n        \"keysInAllCount\": \"string\",\n        \"keysOnlyInSourceCount\": \"string\",\n        \"keysOnlyInTargetCount\": \"string\",\n        \"lastRunAtEpochSeconds\": \"string\",\n        \"metricCount\": \"string\",\n        \"schemaMatch\": false,\n        \"sourceRowCount\": \"string\",\n        \"targetRowCount\": \"string\",\n        \"targetSchema\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetSource\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetTable\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<integer>\"\n        },\n        \"targetWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n        \"totalGroupCount\": 1997\n      }\n    ],\n    \"delta\": {\n      \"alertingMetricCount\": \"<int64>\",\n      \"comparisonTableConfigurations\": [\n        {\n          \"columnMappings\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"groupBys\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"namedSchedule\": {\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sourceFilters\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sourceTableId\": \"<integer>\",\n          \"targetFilters\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"targetSchema\": {\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"targetTable\": {\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"targetTableId\": \"<integer>\",\n          \"tolerance\": \"<double>\"\n        },\n        {\n          \"columnMappings\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"entityInfo\": {\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"createdEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updatedEpochSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"groupBys\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"namedSchedule\": {\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"sourceFilters\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"sourceTableId\": \"<integer>\",\n          \"targetFilters\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"targetSchema\": {\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"targetTable\": {\n            \"displayName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"targetTableId\": \"<integer>\",\n          \"tolerance\": \"<double>\"\n        }\n      ],\n      \"dimension\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"failedMetricCount\": \"<int64>\",\n      \"id\": \"<integer>\",\n      \"isSourceTableDeleted\": \"<boolean>\",\n      \"lastRunAtEpochSeconds\": \"<int64>\",\n      \"name\": \"<string>\",\n      \"namedSchedule\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"notificationChannels\": [\n        {\n          \"email\": \"<string>\",\n          \"externalTicketInfo\": {\n            \"externalTicketId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalTicketProvider\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalTicketUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issueId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"slackChannelInfo\": {\n            \"channelId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"channelName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issueThreadPermalink\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"threadTs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"webhook\": {\n            \"webhookHeaders\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhookUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"email\": \"<string>\",\n          \"externalTicketInfo\": {\n            \"externalTicketId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalTicketProvider\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalTicketUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issueId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"slackChannelInfo\": {\n            \"channelId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"channelName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issueThreadPermalink\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"threadTs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"webhook\": {\n            \"webhookHeaders\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhookUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"sourceSchema\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"sourceSource\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"sourceTable\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      \"sourceWarehouseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"tags\": [\n        {\n          \"colorHex\": \"<string>\",\n          \"createdAt\": \"<int64>\",\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"updatedAt\": \"<int64>\",\n          \"workspaceId\": \"<integer>\"\n        },\n        {\n          \"colorHex\": \"<string>\",\n          \"createdAt\": \"<int64>\",\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"updatedAt\": \"<int64>\",\n          \"workspaceId\": \"<integer>\"\n        }\n      ],\n      \"totalMetricCount\": \"<int64>\"\n    },\n    \"isFavorite\": true,\n    \"nextRunEpochSeconds\": \"string\"\n  },\n  \"workflowInfo\": {\n    \"workflowId\": \"string\",\n    \"workflowType\": \"WORKFLOW_PROCESSING_TYPE_UNSPECIFIED\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae780b48-cde0-4e77-a8be-6fd246a786b2",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deltas",
+                    "run",
+                    ":deltaId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deltaId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2092,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c1374444-3707-414e-8b5e-7ec9230c840c",
+    "name": "Observability Delta Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

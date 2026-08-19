@@ -1,0 +1,416 @@
+openapi: 3.2.0
+info:
+  title: Sensitivity Data Class Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: DataClassService
+paths:
+  /api/v1/sds/data-class:
+    post:
+      operationId: DataClassService_CreateDataClass
+      requestBody:
+        $ref: '#/components/requestBodies/generatedCreateOrUpdateDataClassRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDataClass'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create a data class
+      tags:
+      - DataClassService
+  /api/v1/sds/data-class/fetch:
+    post:
+      operationId: DataClassService_FetchDataClasses
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedGetDataClassListRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetDataClassListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Fetch data classes with filters and pagination
+      tags:
+      - DataClassService
+  /api/v1/sds/data-class/{id}:
+    delete:
+      operationId: DataClassService_DeleteDataClass
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete a data class
+      tags:
+      - DataClassService
+    get:
+      operationId: DataClassService_GetDataClass
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDataClass'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get a data class by ID
+      tags:
+      - DataClassService
+    put:
+      operationId: DataClassService_UpdateDataClass
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/generatedCreateOrUpdateDataClassRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDataClass'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Update a data class
+      tags:
+      - DataClassService
+  /api/v1/sds/data-class/{id}/reset:
+    put:
+      operationId: DataClassService_ResetDataClass
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDataClass'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Reset a Bigeye-provided data class to its default state
+      tags:
+      - DataClassService
+components:
+  schemas:
+    generatedDataClassSortOption:
+      properties:
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedDataClassSortField'
+      type: object
+    generatedDataClassSortField:
+      default: DATA_CLASS_SORT_FIELD_UNSPECIFIED
+      enum:
+      - DATA_CLASS_SORT_FIELD_UNSPECIFIED
+      - DATA_CLASS_SORT_FIELD_NAME
+      - DATA_CLASS_SORT_FIELD_SENSITIVITY
+      - DATA_CLASS_SORT_FIELD_CREATOR
+      - DATA_CLASS_SORT_FIELD_NUMBER_OF_CLASSIFIERS
+      type: string
+    generatedGetDataClassListResponse:
+      properties:
+        dataClasses:
+          items:
+            $ref: '#/components/schemas/generatedDataClass'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedEmpty:
+      type: object
+    generatedGetDataClassListRequest:
+      properties:
+        classifierIds:
+          items:
+            format: int64
+            type: string
+          title: Filter to data classes used by these classifiers
+          type: array
+        creatorIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        dataClassCategoryIds:
+          items:
+            format: int64
+            type: string
+          type: array
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        scanJobIds:
+          items:
+            format: int64
+            type: string
+          title: Filter to data classes used by classifiers in these scan jobs
+          type: array
+        search:
+          type: string
+        sensitivities:
+          items:
+            $ref: '#/components/schemas/generatedDataSensitivity'
+          type: array
+        sortOptions:
+          items:
+            $ref: '#/components/schemas/generatedDataClassSortOption'
+          type: array
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
+    generatedDataClass:
+      properties:
+        canResetToDefault:
+          type: boolean
+        categories:
+          items:
+            $ref: '#/components/schemas/generatedDataClassCategory'
+          type: array
+        colorHex:
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        numberOfClassifiers:
+          format: int32
+          type: integer
+        providedByBigeye:
+          type: boolean
+        sensitivity:
+          $ref: '#/components/schemas/generatedDataSensitivity'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedUser:
+      properties:
+        email:
+          type: string
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        id:
+          format: int32
+          type: integer
+        idpGroups:
+          items:
+            type: string
+          type: array
+        isServiceAccount:
+          type: boolean
+        lastLoginAt:
+          format: int64
+          type: string
+        name:
+          type: string
+        pictureUrl:
+          type: string
+      type: object
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    generatedDataClassCategory:
+      properties:
+        description:
+          type: string
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedCreateOrUpdateDataClassRequest:
+      properties:
+        colorHex:
+          type: string
+        description:
+          type: string
+        name:
+          type: string
+        sensitivity:
+          $ref: '#/components/schemas/generatedDataSensitivity'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedDataSensitivity:
+      default: DATA_SENSITIVITY_UNSPECIFIED
+      enum:
+      - DATA_SENSITIVITY_UNSPECIFIED
+      - DATA_SENSITIVITY_PUBLIC
+      - DATA_SENSITIVITY_INTERNAL
+      - DATA_SENSITIVITY_CONFIDENTIAL
+      - DATA_SENSITIVITY_RESTRICTED
+      type: string
+  requestBodies:
+    generatedCreateOrUpdateDataClassRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedCreateOrUpdateDataClassRequest'
+      required: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

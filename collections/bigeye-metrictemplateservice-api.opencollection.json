@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Observability Metric Template Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MetricTemplateService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create or update a metric template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metric-templates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update a metric template"
+        },
+        {
+          "info": {
+            "name": "Get single metric template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metric-templates/:metricTemplateId",
+            "params": [
+              {
+                "name": "metricTemplateId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the metric template"
+              }
+            ]
+          },
+          "docs": "Get single metric template"
+        },
+        {
+          "info": {
+            "name": "Delete a metric template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/metric-templates/:metricTemplateId",
+            "params": [
+              {
+                "name": "metricTemplateId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the metric template"
+              }
+            ]
+          },
+          "docs": "Delete a metric template"
+        },
+        {
+          "info": {
+            "name": "Get all metric templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metric-templates/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get all metric templates"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,346 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metadata Table Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TableService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get dbt jobs for table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/tables/:tableId/dbt/jobs",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get dbt jobs for table"
+        },
+        {
+          "info": {
+            "name": "Get list of metrics applicable for deltas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/tables/:tableId/delta-applicable-metric-types",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get list of metrics applicable for deltas"
+        },
+        {
+          "info": {
+            "name": "Profile a column",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/tables/profile/:tableId/:columnId",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "columnId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Profile a column"
+        },
+        {
+          "info": {
+            "name": "Profile a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/tables/profile/:tableId",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Profile a table"
+        },
+        {
+          "info": {
+            "name": "Get the date column information for a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/tables/:tableId/date-columns",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the date column information for a table"
+        },
+        {
+          "info": {
+            "name": "Get workflow for table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/tables/:tableId/workflow",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get workflow for table"
+        },
+        {
+          "info": {
+            "name": "Get the current status for a workflow for a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/tables/:tableId/workflow/status",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the current status for a workflow for a table"
+        },
+        {
+          "info": {
+            "name": "Get tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/tables/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get tables"
+        },
+        {
+          "info": {
+            "name": "Search tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/tables",
+            "params": [
+              {
+                "name": "warehouseId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "schema",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "schemaId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeFavorites",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ignoreFields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeDataNodeIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search tables"
+        },
+        {
+          "info": {
+            "name": "Set the date columns for a list of tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/tables/date-columns/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the date columns for a list of tables"
+        },
+        {
+          "info": {
+            "name": "Snooze table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/tables/:tableId/snooze",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Snooze table"
+        },
+        {
+          "info": {
+            "name": "Get list of metrics applicable to an entire table,\nfiltered for only the ones that are valid for that table's warehouse",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/tables/:tableId/applicable-metric-types",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get list of metrics applicable to an entire table,\nfiltered for only the ones that are valid for that table's warehouse"
+        },
+        {
+          "info": {
+            "name": "Set the required partition column for a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/tables/:tableId/required-partition-column",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the required partition column for a table"
+        },
+        {
+          "info": {
+            "name": "Remove the configured required partition column for a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/tables/:tableId/required-partition-column",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove the configured required partition column for a table"
+        },
+        {
+          "info": {
+            "name": "Unsnooze table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/tables/:tableId/unsnooze",
+            "params": [
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Unsnooze table"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

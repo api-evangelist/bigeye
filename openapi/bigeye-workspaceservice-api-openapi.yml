@@ -1,0 +1,539 @@
+openapi: 3.2.0
+info:
+  title: Metadata Workspace Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: WorkspaceService
+paths:
+  /api/v1/workspaces:
+    get:
+      operationId: WorkspaceService_GetAllWorkspaces
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkspaceListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get all workspaces
+      tags:
+      - WorkspaceService
+    post:
+      operationId: WorkspaceService_CreateWorkspace
+      requestBody:
+        $ref: '#/components/requestBodies/generatedCreateOrUpdateWorkspaceRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkspace'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create a workspace
+      tags:
+      - WorkspaceService
+  /api/v1/workspaces/{workspaceId}:
+    delete:
+      operationId: WorkspaceService_DeleteWorkspace
+      parameters:
+      - in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete a workspace
+      tags:
+      - WorkspaceService
+    get:
+      operationId: WorkspaceService_GetWorkspace
+      parameters:
+      - in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkspace'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get a workspace
+      tags:
+      - WorkspaceService
+    put:
+      operationId: WorkspaceService_UpdateWorkspace
+      parameters:
+      - in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        $ref: '#/components/requestBodies/generatedCreateOrUpdateWorkspaceRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkspace'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Update a workspace
+      tags:
+      - WorkspaceService
+  /api/v1/workspaces/{workspaceId}/accessors:
+    get:
+      operationId: WorkspaceService_GetWorkspaceAccessors
+      parameters:
+      - in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetWorkspaceAccessorsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: List the groups and users who can access a workspace
+      tags:
+      - WorkspaceService
+  /api/v1/workspaces/default/{workspaceId}:
+    put:
+      operationId: WorkspaceService_SetDefaultWorkspace
+      parameters:
+      - in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedWorkspace'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Set the default workspace
+      tags:
+      - WorkspaceService
+components:
+  schemas:
+    generatedEmpty:
+      type: object
+    generatedUserWorkspaceAccessor:
+      properties:
+        email:
+          type: string
+        groupIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        highestRoleName:
+          type: string
+        highestRoleType:
+          $ref: '#/components/schemas/generatedRoleType'
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+      type: object
+    generatedTag:
+      properties:
+        colorHex:
+          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+          type: string
+        createdAt:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        updatedAt:
+          format: int64
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      title: Tags
+      type: object
+    generatedWorkspace:
+      properties:
+        id:
+          format: int32
+          type: integer
+        isDefault:
+          type: boolean
+        name:
+          type: string
+        sources:
+          items:
+            $ref: '#/components/schemas/generatedSource'
+          type: array
+      type: object
+    generatedCreateOrUpdateWorkspaceRequest:
+      properties:
+        name:
+          type: string
+      type: object
+    generatedSourceMetadataOverrides:
+      properties:
+        accessHistoryTableName:
+          type: string
+        aiObservabilityEventsTableName:
+          type: string
+        copyHistoryTableName:
+          type: string
+        dynamicTableRefreshHistoryTableName:
+          type: string
+        queryHistoryTableName:
+          type: string
+        tablesTableName:
+          type: string
+      type: object
+    generatedRoleType:
+      default: ROLE_TYPE_UNSPECIFIED
+      enum:
+      - ROLE_TYPE_UNSPECIFIED
+      - ROLE_TYPE_ADMIN
+      - ROLE_TYPE_MANAGE
+      - ROLE_TYPE_EDIT
+      - ROLE_TYPE_VIEW
+      - ROLE_TYPE_CUSTOM
+      type: string
+    generatedSource:
+      properties:
+        agentHealthStatus:
+          $ref: '#/components/schemas/generatedAgentHealthStatus'
+        alationSourceId:
+          format: int32
+          type: integer
+        atlanConnectionId:
+          type: string
+        authType:
+          $ref: '#/components/schemas/generatedAuthType'
+        bigqueryQueryProjectIds:
+          type: string
+        crossSourceAgentHealthStatus:
+          $ref: '#/components/schemas/generatedAgentHealthStatus'
+        dataSourceAgentVersion:
+          type: string
+        databaseName:
+          type: string
+        databaseType:
+          $ref: '#/components/schemas/generatedWarehouseType'
+        datadotworldConnectionId:
+          type: string
+        domain:
+          type: string
+        hostname:
+          type: string
+        id:
+          format: int32
+          type: integer
+        ignoreSchemasPrefix:
+          type: string
+        indexingSchedule:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        isFavorite:
+          type: boolean
+        maxPoolSize:
+          format: int32
+          type: integer
+        metricBatchSizeMetadata:
+          format: int32
+          type: integer
+        metricBatchSizeQuery:
+          format: int32
+          type: integer
+        metricRunNativeTemporalParallelism:
+          format: int32
+          type: integer
+        name:
+          type: string
+        port:
+          format: int32
+          type: integer
+        projectId:
+          type: string
+        queryTimeoutSeconds:
+          format: int32
+          type: integer
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        sensitiveDataAgentHealthStatus:
+          $ref: '#/components/schemas/generatedAgentHealthStatus'
+        serviceAccountEmail:
+          type: string
+        sourceMetadataOverrides:
+          $ref: '#/components/schemas/generatedSourceMetadataOverrides'
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        targetBigqueryProjectId:
+          type: string
+        temporalAgentUuid:
+          type: string
+        username:
+          type: string
+        usesAgent:
+          type: boolean
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedRolePermission:
+      properties:
+        actions:
+          items:
+            $ref: '#/components/schemas/generatedPermissionAction'
+          type: array
+        domains:
+          items:
+            $ref: '#/components/schemas/generatedPermissionDomain'
+          type: array
+      type: object
+    generatedPermissionAction:
+      default: PERMISSION_ACTION_UNSPECIFIED
+      enum:
+      - PERMISSION_ACTION_UNSPECIFIED
+      - PERMISSION_ACTION_ALL
+      - PERMISSION_ACTION_PREVIEW
+      - PERMISSION_ACTION_WRITE
+      - PERMISSION_ACTION_EXECUTE
+      - PERMISSION_ACTION_READ
+      type: string
+    generatedPermissionDomain:
+      default: PERMISSION_DOMAIN_UNSPECIFIED
+      enum:
+      - PERMISSION_DOMAIN_UNSPECIFIED
+      - PERMISSION_DOMAIN_ALL
+      - PERMISSION_DOMAIN_TABLE
+      - PERMISSION_DOMAIN_CUSTOM_RULE
+      - PERMISSION_DOMAIN_COLLECTION
+      - PERMISSION_DOMAIN_WORKSPACE_TAG
+      - PERMISSION_DOMAIN_WORKSPACE_TAG_ENTITY
+      - PERMISSION_DOMAIN_PROFILE
+      - PERMISSION_DOMAIN_SCAN_JOB
+      - PERMISSION_DOMAIN_DATA_CLASS
+      - PERMISSION_DOMAIN_CLASSIFIER
+      type: string
+    generatedAgentHealthStatus:
+      default: AGENT_HEALTH_STATUS_UNSPECIFIED
+      enum:
+      - AGENT_HEALTH_STATUS_UNSPECIFIED
+      - AGENT_HEALTH_STATUS_HEALTHY
+      - AGENT_HEALTH_STATUS_SLOW_BUT_UP
+      - AGENT_HEALTH_STATUS_DOWN
+      - AGENT_HEALTH_STATUS_NO_DATA
+      type: string
+    generatedWorkspaceListResponse:
+      properties:
+        workspaces:
+          items:
+            $ref: '#/components/schemas/generatedWorkspace'
+          type: array
+      type: object
+    generatedSchemaChangeInfo:
+      properties:
+        initialSchemaScanAt:
+          format: int64
+          type: string
+        lastSchemaChangeAt:
+          format: int64
+          type: string
+        mostRecentSchemaScanAt:
+          format: int64
+          type: string
+      type: object
+    generatedGetWorkspaceAccessorsResponse:
+      properties:
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedGroupWorkspaceAccessor'
+          type: array
+        users:
+          items:
+            $ref: '#/components/schemas/generatedUserWorkspaceAccessor'
+          type: array
+      type: object
+    generatedGroupWorkspaceAccessor:
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        roles:
+          items:
+            $ref: '#/components/schemas/generatedRoleV2'
+          type: array
+        userCount:
+          format: int32
+          type: integer
+      type: object
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedAuthType:
+      default: AUTH_TYPE_UNSPECIFIED
+      enum:
+      - AUTH_TYPE_UNSPECIFIED
+      - AUTH_TYPE_PAT
+      - AUTH_TYPE_OAUTH2_M2M
+      - AUTH_TYPE_KEYPAIR
+      - AUTH_TYPE_ACTIVE_DIR
+      - AUTH_TYPE_USER_PASSWORD
+      type: string
+    generatedRoleV2:
+      properties:
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        rolePermissions:
+          items:
+            $ref: '#/components/schemas/generatedRolePermission'
+          type: array
+        roleType:
+          $ref: '#/components/schemas/generatedRoleType'
+      type: object
+  requestBodies:
+    generatedCreateOrUpdateWorkspaceRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedCreateOrUpdateWorkspaceRequest'
+      required: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

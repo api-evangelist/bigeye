@@ -1,0 +1,1796 @@
+{
+  "item": [
+    {
+      "id": "2315a086-dc28-4ff7-9831-171be6dcc9dd",
+      "name": "LineageService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "99a01131-ec54-42ec-8803-91273a15d1e1",
+          "name": "Create a custom node",
+          "request": {
+            "name": "Create a custom node",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lineage",
+                "nodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nodeContainerEntityId\": \"<integer>\",\n  \"nodeContainerName\": \"<string>\",\n  \"nodeEntityId\": \"<integer>\",\n  \"nodeName\": \"<string>\",\n  \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n  \"rebuildGraph\": \"<boolean>\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6228fa9-6f6a-4031-8d26-566c49c7d355",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "nodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nodeContainerEntityId\": \"<integer>\",\n  \"nodeContainerName\": \"<string>\",\n  \"nodeEntityId\": \"<integer>\",\n  \"nodeName\": \"<string>\",\n  \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n  \"rebuildGraph\": \"<boolean>\",\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"companyId\": 4896,\n  \"createdAt\": \"string\",\n  \"customNodeTypeId\": \"string\",\n  \"externalId\": \"string\",\n  \"id\": 3778,\n  \"integrationId\": 9975,\n  \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n  \"nodeContainerEntityId\": 1980,\n  \"nodeContainerName\": \"string\",\n  \"nodeEntityId\": 4790,\n  \"nodeName\": \"string\",\n  \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n  \"updatedAt\": \"string\",\n  \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99b9b240-0375-4a18-9e46-8a88e892290e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "nodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nodeContainerEntityId\": \"<integer>\",\n  \"nodeContainerName\": \"<string>\",\n  \"nodeEntityId\": \"<integer>\",\n  \"nodeName\": \"<string>\",\n  \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n  \"rebuildGraph\": \"<boolean>\",\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1417,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "afef2b56-fb2f-4199-b1ce-112587e4e742",
+          "name": "Create a custom edge between two nodes",
+          "request": {
+            "name": "Create a custom edge between two nodes",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lineage",
+                "relationships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"downstreamDataNodeId\": \"<integer>\",\n  \"upstreamDataNodeId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2f55d74-e5dc-4aec-9a6f-be53cadb1d40",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "relationships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"downstreamDataNodeId\": \"<integer>\",\n  \"upstreamDataNodeId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"companyId\": 4706,\n  \"createdAt\": \"string\",\n  \"downstream\": {\n    \"companyId\": 6980,\n    \"createdAt\": \"string\",\n    \"customNodeTypeId\": \"string\",\n    \"externalId\": \"string\",\n    \"id\": 3081,\n    \"integrationId\": 6271,\n    \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n    \"nodeContainerEntityId\": 6256,\n    \"nodeContainerName\": \"string\",\n    \"nodeEntityId\": 3395,\n    \"nodeName\": \"string\",\n    \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n    \"updatedAt\": \"string\",\n    \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n  },\n  \"id\": 7766,\n  \"updatedAt\": \"string\",\n  \"upstream\": {\n    \"companyId\": 5398,\n    \"createdAt\": \"string\",\n    \"customNodeTypeId\": \"string\",\n    \"externalId\": \"string\",\n    \"id\": 2063,\n    \"integrationId\": 62,\n    \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n    \"nodeContainerEntityId\": 9990,\n    \"nodeContainerName\": \"string\",\n    \"nodeEntityId\": 2165,\n    \"nodeName\": \"string\",\n    \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n    \"updatedAt\": \"string\",\n    \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f33f4b2-1bf4-4747-abde-2a89651f49bd",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "relationships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"downstreamDataNodeId\": \"<integer>\",\n  \"upstreamDataNodeId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6923,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "720533f7-7eff-4968-8bab-5e2c85f905f5",
+          "name": "Delete a node by ID",
+          "request": {
+            "name": "Delete a node by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lineage",
+                "nodes",
+                ":dataNodeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dataNodeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "409ec5fe-396e-4f8a-bf68-359b2eb7befa",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "nodes",
+                    ":dataNodeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dataNodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01198c59-ca30-4fa4-9e7a-e7ceda3222b1",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "nodes",
+                    ":dataNodeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dataNodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6923,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6eade5b-d42d-4e99-94f2-4f4cef4ff82f",
+          "name": "Get a node by ID",
+          "request": {
+            "name": "Get a node by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lineage",
+                "nodes",
+                ":dataNodeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dataNodeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "661fb759-2e1e-41de-97fa-e5bcc56d4858",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "nodes",
+                    ":dataNodeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dataNodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"companyId\": 4896,\n  \"createdAt\": \"string\",\n  \"customNodeTypeId\": \"string\",\n  \"externalId\": \"string\",\n  \"id\": 3778,\n  \"integrationId\": 9975,\n  \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n  \"nodeContainerEntityId\": 1980,\n  \"nodeContainerName\": \"string\",\n  \"nodeEntityId\": 4790,\n  \"nodeName\": \"string\",\n  \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n  \"updatedAt\": \"string\",\n  \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eaaa1ec1-2cc7-4edf-922c-712c927bcc18",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "nodes",
+                    ":dataNodeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dataNodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6923,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51b764fe-a569-4e05-a646-13289a726bb1",
+          "name": "Get downstream nodes for a given node",
+          "request": {
+            "name": "Get downstream nodes for a given node",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lineage",
+                "nodes",
+                ":dataNodeId",
+                "downstream",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dataNodeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicableFilters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nodeIdFilters\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"nodeTypeFilters\": [\n    \"DATA_NODE_TYPE_UNSPECIFIED\",\n    \"DATA_NODE_TYPE_UNSPECIFIED\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d2fc27a-2452-4e31-96e4-26b1e601fc3c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "nodes",
+                    ":dataNodeId",
+                    "downstream",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dataNodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicableFilters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nodeIdFilters\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"nodeTypeFilters\": [\n    \"DATA_NODE_TYPE_UNSPECIFIED\",\n    \"DATA_NODE_TYPE_UNSPECIFIED\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nodes\": [\n    {\n      \"companyId\": 3758,\n      \"createdAt\": \"string\",\n      \"customNodeTypeId\": \"string\",\n      \"externalId\": \"string\",\n      \"id\": 6569,\n      \"integrationId\": 4466,\n      \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n      \"nodeContainerEntityId\": 7047,\n      \"nodeContainerName\": \"string\",\n      \"nodeEntityId\": 8952,\n      \"nodeName\": \"string\",\n      \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n      \"updatedAt\": \"string\",\n      \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"companyId\": 3490,\n      \"createdAt\": \"string\",\n      \"customNodeTypeId\": \"string\",\n      \"externalId\": \"string\",\n      \"id\": 340,\n      \"integrationId\": 4908,\n      \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n      \"nodeContainerEntityId\": 7763,\n      \"nodeContainerName\": \"string\",\n      \"nodeEntityId\": 8033,\n      \"nodeName\": \"string\",\n      \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n      \"updatedAt\": \"string\",\n      \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "602fd5bf-ddf5-4132-9c49-bb20691858b5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "nodes",
+                    ":dataNodeId",
+                    "downstream",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dataNodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicableFilters\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nodeIdFilters\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"nodeTypeFilters\": [\n    \"DATA_NODE_TYPE_UNSPECIFIED\",\n    \"DATA_NODE_TYPE_UNSPECIFIED\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6923,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aaa2b1d2-d271-47bc-a6f4-a40454bceb41",
+          "name": "Delete an edge by ID",
+          "request": {
+            "name": "Delete an edge by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lineage",
+                "relationships",
+                ":lineageRelationshipId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "lineageRelationshipId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed709d47-25f1-4e6a-bd2c-2ef8ad1a1143",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "relationships",
+                    ":lineageRelationshipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "lineageRelationshipId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d36f7cf-5475-45da-930a-f43cb170c60a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "relationships",
+                    ":lineageRelationshipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "lineageRelationshipId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6923,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39169ab9-d8a0-49e0-a82d-a9ab0bf7e80f",
+          "name": "Get an edge by ID",
+          "request": {
+            "name": "Get an edge by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lineage",
+                "relationships",
+                ":lineageRelationshipId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "lineageRelationshipId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4169612-1b82-489e-b038-2a4857233571",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "relationships",
+                    ":lineageRelationshipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "lineageRelationshipId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"companyId\": 4706,\n  \"createdAt\": \"string\",\n  \"downstream\": {\n    \"companyId\": 6980,\n    \"createdAt\": \"string\",\n    \"customNodeTypeId\": \"string\",\n    \"externalId\": \"string\",\n    \"id\": 3081,\n    \"integrationId\": 6271,\n    \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n    \"nodeContainerEntityId\": 6256,\n    \"nodeContainerName\": \"string\",\n    \"nodeEntityId\": 3395,\n    \"nodeName\": \"string\",\n    \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n    \"updatedAt\": \"string\",\n    \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n  },\n  \"id\": 7766,\n  \"updatedAt\": \"string\",\n  \"upstream\": {\n    \"companyId\": 5398,\n    \"createdAt\": \"string\",\n    \"customNodeTypeId\": \"string\",\n    \"externalId\": \"string\",\n    \"id\": 2063,\n    \"integrationId\": 62,\n    \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n    \"nodeContainerEntityId\": 9990,\n    \"nodeContainerName\": \"string\",\n    \"nodeEntityId\": 2165,\n    \"nodeName\": \"string\",\n    \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n    \"updatedAt\": \"string\",\n    \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d668fd47-c44a-45b9-a477-acc8ade67d32",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "relationships",
+                    ":lineageRelationshipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "lineageRelationshipId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6923,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db85642d-e786-49bc-9e2f-9a145d5190bc",
+          "name": "Delete all edges for a node",
+          "request": {
+            "name": "Delete all edges for a node",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lineage",
+                "nodes",
+                ":dataNodeId",
+                "relationships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dataNodeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4724ee7b-dd09-4d99-bd49-d54841147f68",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "nodes",
+                    ":dataNodeId",
+                    "relationships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dataNodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deleted\": [\n    {\n      \"companyId\": 6235,\n      \"createdAt\": \"string\",\n      \"downstream\": {\n        \"companyId\": 4664,\n        \"createdAt\": \"string\",\n        \"customNodeTypeId\": \"string\",\n        \"externalId\": \"string\",\n        \"id\": 7277,\n        \"integrationId\": 7419,\n        \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n        \"nodeContainerEntityId\": 1883,\n        \"nodeContainerName\": \"string\",\n        \"nodeEntityId\": 7219,\n        \"nodeName\": \"string\",\n        \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n        \"updatedAt\": \"string\",\n        \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"id\": 8605,\n      \"updatedAt\": \"string\",\n      \"upstream\": {\n        \"companyId\": 336,\n        \"createdAt\": \"string\",\n        \"customNodeTypeId\": \"string\",\n        \"externalId\": \"string\",\n        \"id\": 9766,\n        \"integrationId\": 6977,\n        \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n        \"nodeContainerEntityId\": 879,\n        \"nodeContainerName\": \"string\",\n        \"nodeEntityId\": 5492,\n        \"nodeName\": \"string\",\n        \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n        \"updatedAt\": \"string\",\n        \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n      }\n    },\n    {\n      \"companyId\": 3432,\n      \"createdAt\": \"string\",\n      \"downstream\": {\n        \"companyId\": 1285,\n        \"createdAt\": \"string\",\n        \"customNodeTypeId\": \"string\",\n        \"externalId\": \"string\",\n        \"id\": 2230,\n        \"integrationId\": 3357,\n        \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n        \"nodeContainerEntityId\": 5867,\n        \"nodeContainerName\": \"string\",\n        \"nodeEntityId\": 4260,\n        \"nodeName\": \"string\",\n        \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n        \"updatedAt\": \"string\",\n        \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"id\": 8923,\n      \"updatedAt\": \"string\",\n      \"upstream\": {\n        \"companyId\": 8962,\n        \"createdAt\": \"string\",\n        \"customNodeTypeId\": \"string\",\n        \"externalId\": \"string\",\n        \"id\": 2398,\n        \"integrationId\": 3916,\n        \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n        \"nodeContainerEntityId\": 6269,\n        \"nodeContainerName\": \"string\",\n        \"nodeEntityId\": 5526,\n        \"nodeName\": \"string\",\n        \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n        \"updatedAt\": \"string\",\n        \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f00ea3b-346e-46df-bcd4-7a87cd079632",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "nodes",
+                    ":dataNodeId",
+                    "relationships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dataNodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6923,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5171b5a1-fc47-4e6c-b009-bd7e10b1699a",
+          "name": "Get all edges for a node",
+          "request": {
+            "name": "Get all edges for a node",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lineage",
+                "nodes",
+                ":dataNodeId",
+                "relationships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dataNodeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2af8d8fd-57bd-49d0-afca-ea308b5e9e5d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "nodes",
+                    ":dataNodeId",
+                    "relationships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dataNodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"downstream\": [\n    {\n      \"companyId\": 721,\n      \"createdAt\": \"string\",\n      \"downstream\": {\n        \"companyId\": 6643,\n        \"createdAt\": \"string\",\n        \"customNodeTypeId\": \"string\",\n        \"externalId\": \"string\",\n        \"id\": 2100,\n        \"integrationId\": 2144,\n        \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n        \"nodeContainerEntityId\": 3843,\n        \"nodeContainerName\": \"string\",\n        \"nodeEntityId\": 7220,\n        \"nodeName\": \"string\",\n        \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n        \"updatedAt\": \"string\",\n        \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"id\": 7473,\n      \"updatedAt\": \"string\",\n      \"upstream\": {\n        \"companyId\": 6682,\n        \"createdAt\": \"string\",\n        \"customNodeTypeId\": \"string\",\n        \"externalId\": \"string\",\n        \"id\": 256,\n        \"integrationId\": 4160,\n        \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n        \"nodeContainerEntityId\": 3203,\n        \"nodeContainerName\": \"string\",\n        \"nodeEntityId\": 4839,\n        \"nodeName\": \"string\",\n        \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n        \"updatedAt\": \"string\",\n        \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n      }\n    },\n    {\n      \"companyId\": 2079,\n      \"createdAt\": \"string\",\n      \"downstream\": {\n        \"companyId\": 6476,\n        \"createdAt\": \"string\",\n        \"customNodeTypeId\": \"string\",\n        \"externalId\": \"string\",\n        \"id\": 7451,\n        \"integrationId\": 262,\n        \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n        \"nodeContainerEntityId\": 8926,\n        \"nodeContainerName\": \"string\",\n        \"nodeEntityId\": 2553,\n        \"nodeName\": \"string\",\n        \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n        \"updatedAt\": \"string\",\n        \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"id\": 2571,\n      \"updatedAt\": \"string\",\n      \"upstream\": {\n        \"companyId\": 2242,\n        \"createdAt\": \"string\",\n        \"customNodeTypeId\": \"string\",\n        \"externalId\": \"string\",\n        \"id\": 525,\n        \"integrationId\": 6877,\n        \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n        \"nodeContainerEntityId\": 5520,\n        \"nodeContainerName\": \"string\",\n        \"nodeEntityId\": 94,\n        \"nodeName\": \"string\",\n        \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n        \"updatedAt\": \"string\",\n        \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n      }\n    }\n  ],\n  \"upstream\": [\n    {\n      \"companyId\": 4401,\n      \"createdAt\": \"string\",\n      \"downstream\": {\n        \"companyId\": 4617,\n        \"createdAt\": \"string\",\n        \"customNodeTypeId\": \"string\",\n        \"externalId\": \"string\",\n        \"id\": 3580,\n        \"integrationId\": 2311,\n        \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n        \"nodeContainerEntityId\": 2547,\n        \"nodeContainerName\": \"string\",\n        \"nodeEntityId\": 6287,\n        \"nodeName\": \"string\",\n        \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n        \"updatedAt\": \"string\",\n        \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"id\": 532,\n      \"updatedAt\": \"string\",\n      \"upstream\": {\n        \"companyId\": 2462,\n        \"createdAt\": \"string\",\n        \"customNodeTypeId\": \"string\",\n        \"externalId\": \"string\",\n        \"id\": 1676,\n        \"integrationId\": 5473,\n        \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n        \"nodeContainerEntityId\": 5053,\n        \"nodeContainerName\": \"string\",\n        \"nodeEntityId\": 5562,\n        \"nodeName\": \"string\",\n        \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n        \"updatedAt\": \"string\",\n        \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n      }\n    },\n    {\n      \"companyId\": 117,\n      \"createdAt\": \"string\",\n      \"downstream\": {\n        \"companyId\": 8270,\n        \"createdAt\": \"string\",\n        \"customNodeTypeId\": \"string\",\n        \"externalId\": \"string\",\n        \"id\": 291,\n        \"integrationId\": 1276,\n        \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n        \"nodeContainerEntityId\": 2118,\n        \"nodeContainerName\": \"string\",\n        \"nodeEntityId\": 6754,\n        \"nodeName\": \"string\",\n        \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n        \"updatedAt\": \"string\",\n        \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n      },\n      \"id\": 3976,\n      \"updatedAt\": \"string\",\n      \"upstream\": {\n        \"companyId\": 6932,\n        \"createdAt\": \"string\",\n        \"customNodeTypeId\": \"string\",\n        \"externalId\": \"string\",\n        \"id\": 539,\n        \"integrationId\": 1643,\n        \"integrationType\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n        \"nodeContainerEntityId\": 7880,\n        \"nodeContainerName\": \"string\",\n        \"nodeEntityId\": 9501,\n        \"nodeName\": \"string\",\n        \"nodeType\": \"DATA_NODE_TYPE_UNSPECIFIED\",\n        \"updatedAt\": \"string\",\n        \"warehouseType\": \"DATABASE_TYPE_UNSPECIFIED\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15293d90-f7ca-41dc-afbb-1c3a61d595f0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "nodes",
+                    ":dataNodeId",
+                    "relationships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dataNodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6923,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93c4207f-2436-4da7-9e27-44e96d9d4ee9",
+          "name": "Queue a lineage collection workflow for an integration",
+          "request": {
+            "name": "Queue a lineage collection workflow for an integration",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lineage",
+                "integrations",
+                ":integrationId",
+                "lineage",
+                "workflow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integrationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f3ec696-ba71-419a-95c9-792842a2e6fd",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "integrations",
+                    ":integrationId",
+                    "lineage",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integrationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workflowId\": \"string\",\n  \"workflowType\": \"WORKFLOW_PROCESSING_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f911471d-7633-4d0e-8457-b13d9eb16627",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "integrations",
+                    ":integrationId",
+                    "lineage",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integrationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6923,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbaeb0de-d8aa-4c58-ba04-9a33c5afdefe",
+          "name": "Queue a lineage collection workflow for a source",
+          "request": {
+            "name": "Queue a lineage collection workflow for a source",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lineage",
+                "sources",
+                ":sourceId",
+                "lineage",
+                "workflow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "sourceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12086d3c-a2e4-4042-b06c-ff65a7405c59",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "sources",
+                    ":sourceId",
+                    "lineage",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workflowId\": \"string\",\n  \"workflowType\": \"WORKFLOW_PROCESSING_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb14af30-d8a0-41d4-91df-18fd53e1168f",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lineage",
+                    "sources",
+                    ":sourceId",
+                    "lineage",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6923,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "53264a82-4080-4412-a5e5-ca26cee1091c",
+    "name": "Metadata Lineage Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

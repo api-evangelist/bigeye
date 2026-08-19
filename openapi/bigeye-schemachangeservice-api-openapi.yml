@@ -1,0 +1,214 @@
+openapi: 3.2.0
+info:
+  title: Metadata Schema Change Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: SchemaChangeService
+paths:
+  /api/v1/schema-changes/fetch:
+    post:
+      operationId: SchemaChangeService_GetSchemaChanges
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedGetSchemaChangesRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetSchemaChangesResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Fetch schema changes with filters and pagination
+      tags:
+      - SchemaChangeService
+components:
+  schemas:
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
+    generatedSchemaChangeOperation:
+      default: SCHEMA_CHANGE_OPERATION_UNSPECIFIED
+      enum:
+      - SCHEMA_CHANGE_OPERATION_UNSPECIFIED
+      - SCHEMA_CHANGE_OPERATION_CREATED
+      - SCHEMA_CHANGE_OPERATION_DELETED
+      - SCHEMA_CHANGE_OPERATION_TYPE_CHANGED
+      type: string
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    generatedGetSchemaChangesResponse:
+      properties:
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+        schemaChanges:
+          items:
+            $ref: '#/components/schemas/generatedSchemaChange'
+          type: array
+      type: object
+    generatedSchemaChange:
+      properties:
+        changeType:
+          $ref: '#/components/schemas/generatedSchemaChangeOperation'
+        columnExistsInCatalog:
+          type: boolean
+        columnId:
+          format: int32
+          type: integer
+        columnName:
+          type: string
+        detectedAt:
+          format: int64
+          type: string
+        fullyQualifiedName:
+          type: string
+        id:
+          format: int64
+          type: string
+        isFirstIndexing:
+          type: boolean
+        newValue:
+          type: string
+        objectType:
+          $ref: '#/components/schemas/generatedCatalogEntityType'
+        oldValue:
+          type: string
+        schemaExistsInCatalog:
+          type: boolean
+        schemaId:
+          format: int32
+          type: integer
+        schemaName:
+          type: string
+        sourceId:
+          format: int32
+          type: integer
+        sourceName:
+          type: string
+        tableExistsInCatalog:
+          type: boolean
+        tableId:
+          format: int32
+          type: integer
+        tableName:
+          type: string
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedSchemaChangeSortField:
+      default: SCHEMA_CHANGE_SORT_FIELD_UNSPECIFIED
+      enum:
+      - SCHEMA_CHANGE_SORT_FIELD_UNSPECIFIED
+      - SCHEMA_CHANGE_SORT_FIELD_CHANGE_TYPE
+      - SCHEMA_CHANGE_SORT_FIELD_SCHEMA
+      - SCHEMA_CHANGE_SORT_FIELD_TABLE
+      - SCHEMA_CHANGE_SORT_FIELD_COLUMN
+      - SCHEMA_CHANGE_SORT_FIELD_NEW
+      - SCHEMA_CHANGE_SORT_FIELD_PREVIOUS
+      - SCHEMA_CHANGE_SORT_FIELD_DETECTED_TIME
+      type: string
+    generatedCatalogEntityType:
+      default: CATALOG_ENTITY_TYPE_UNSPECIFIED
+      enum:
+      - CATALOG_ENTITY_TYPE_UNSPECIFIED
+      - CATALOG_ENTITY_TYPE_SOURCE
+      - CATALOG_ENTITY_TYPE_SCHEMA
+      - CATALOG_ENTITY_TYPE_DATASET
+      - CATALOG_ENTITY_TYPE_FIELD
+      - CATALOG_ENTITY_TYPE_DATA_NODE_ENTITY
+      - CATALOG_ENTITY_TYPE_META_CENTER_ENTITY
+      type: string
+    generatedGetSchemaChangesRequest:
+      properties:
+        columnId:
+          format: int32
+          type: integer
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        schemaId:
+          format: int32
+          type: integer
+        search:
+          type: string
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedSchemaChangeSortField'
+        sourceId:
+          format: int32
+          type: integer
+        tableId:
+          format: int32
+          type: integer
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

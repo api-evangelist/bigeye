@@ -1,0 +1,201 @@
+{
+  "item": [
+    {
+      "id": "96af0a65-8c1c-4907-9684-4a79237814be",
+      "name": "SchemaChangeService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "74f76b7a-2158-4b12-bd71-1f978ff79cec",
+          "name": "Fetch schema changes with filters and pagination",
+          "request": {
+            "name": "Fetch schema changes with filters and pagination",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schema-changes",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"columnId\": \"<integer>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"schemaId\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"SCHEMA_CHANGE_SORT_FIELD_UNSPECIFIED\",\n  \"sourceId\": \"<integer>\",\n  \"tableId\": \"<integer>\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e006173-6d35-488f-bd4f-8e2a6cdd066b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schema-changes",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"columnId\": \"<integer>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"schemaId\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"SCHEMA_CHANGE_SORT_FIELD_UNSPECIFIED\",\n  \"sourceId\": \"<integer>\",\n  \"tableId\": \"<integer>\",\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": false,\n    \"numRecords\": 7292,\n    \"prevCursor\": \"string\"\n  },\n  \"schemaChanges\": [\n    {\n      \"changeType\": \"SCHEMA_CHANGE_OPERATION_UNSPECIFIED\",\n      \"columnExistsInCatalog\": false,\n      \"columnId\": 3387,\n      \"columnName\": \"string\",\n      \"detectedAt\": \"string\",\n      \"fullyQualifiedName\": \"string\",\n      \"id\": \"string\",\n      \"isFirstIndexing\": false,\n      \"newValue\": \"string\",\n      \"objectType\": \"CATALOG_ENTITY_TYPE_UNSPECIFIED\",\n      \"oldValue\": \"string\",\n      \"schemaExistsInCatalog\": true,\n      \"schemaId\": 5544,\n      \"schemaName\": \"string\",\n      \"sourceId\": 6939,\n      \"sourceName\": \"string\",\n      \"tableExistsInCatalog\": true,\n      \"tableId\": 6504,\n      \"tableName\": \"string\"\n    },\n    {\n      \"changeType\": \"SCHEMA_CHANGE_OPERATION_UNSPECIFIED\",\n      \"columnExistsInCatalog\": false,\n      \"columnId\": 9127,\n      \"columnName\": \"string\",\n      \"detectedAt\": \"string\",\n      \"fullyQualifiedName\": \"string\",\n      \"id\": \"string\",\n      \"isFirstIndexing\": false,\n      \"newValue\": \"string\",\n      \"objectType\": \"CATALOG_ENTITY_TYPE_UNSPECIFIED\",\n      \"oldValue\": \"string\",\n      \"schemaExistsInCatalog\": false,\n      \"schemaId\": 5298,\n      \"schemaName\": \"string\",\n      \"sourceId\": 1964,\n      \"sourceName\": \"string\",\n      \"tableExistsInCatalog\": true,\n      \"tableId\": 6595,\n      \"tableName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3efa350f-0f75-44ce-8e8b-71d8b0441034",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schema-changes",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"columnId\": \"<integer>\",\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"schemaId\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"SCHEMA_CHANGE_SORT_FIELD_UNSPECIFIED\",\n  \"sourceId\": \"<integer>\",\n  \"tableId\": \"<integer>\",\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2887,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2f259314-6725-4e02-a6dd-ef289ffed75a",
+    "name": "Metadata Schema Change Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

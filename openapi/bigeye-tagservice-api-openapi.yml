@@ -1,0 +1,500 @@
+openapi: 3.2.0
+info:
+  title: Metadata Tag Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: TagService
+paths:
+  /api/v1/tags/bulk:
+    post:
+      operationId: TagService_BulkTag
+      requestBody:
+        $ref: '#/components/requestBodies/generatedBulkTagRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedBulkTagResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Add tags to multiple entities
+      tags:
+      - TagService
+  /api/v1/tags/untag/bulk:
+    post:
+      operationId: TagService_BulkUntag
+      requestBody:
+        $ref: '#/components/requestBodies/generatedBulkTagRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedBulkTagResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Remove tags from multiple entities
+      tags:
+      - TagService
+  /api/v1/tags/{entityType}/{entityId}:
+    get:
+      operationId: TagService_GetTags
+      parameters:
+      - in: path
+        name: entityType
+        required: true
+        schema:
+          type: string
+          enum:
+          - TAGGABLE_ENTITY_TYPE_UNSPECIFIED
+          - TAGGABLE_ENTITY_TYPE_SOURCE
+          - TAGGABLE_ENTITY_TYPE_SCHEMA
+          - TAGGABLE_ENTITY_TYPE_DATASET
+          - TAGGABLE_ENTITY_TYPE_METRIC
+          - TAGGABLE_ENTITY_TYPE_DELTA
+          - TAGGABLE_ENTITY_TYPE_COLUMN
+          - TAGGABLE_ENTITY_TYPE_SLA
+          - TAGGABLE_ENTITY_TYPE_BI_TOOL
+          - TAGGABLE_ENTITY_TYPE_N_WAY_DELTA
+          - TAGGABLE_ENTITY_TYPE_VIRTUAL_TABLE
+          - TAGGABLE_ENTITY_TYPE_INTEGRATION
+          - TAGGABLE_ENTITY_TYPE_DBT_PROJECT
+          - TAGGABLE_ENTITY_TYPE_DBT_JOB
+          - TAGGABLE_ENTITY_TYPE_CUSTOM_RULE
+          - TAGGABLE_ENTITY_TYPE_META_CENTER_ENTITY
+          - TAGGABLE_ENTITY_TYPE_DATA_NODE_ENTITY
+          - TAGGABLE_ENTITY_TYPE_META_CENTER_REPOSITORY
+          - TAGGABLE_ENTITY_TYPE_CUSTOM_REPOSITORY
+      - in: path
+        name: entityId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedTagList'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get tags for an entity
+      tags:
+      - TagService
+  /api/v1/tags:
+    post:
+      operationId: TagService_Tag
+      requestBody:
+        $ref: '#/components/requestBodies/generatedTagRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Add a tag to an entity
+      tags:
+      - TagService
+  /api/v1/tags/untag:
+    post:
+      operationId: TagService_Untag
+      requestBody:
+        $ref: '#/components/requestBodies/generatedTagRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Remove a tag from an entity
+      tags:
+      - TagService
+components:
+  schemas:
+    generatedEmpty:
+      type: object
+    generatedTagRequest:
+      properties:
+        createTagIfDoesNotExist:
+          type: boolean
+        tag:
+          $ref: '#/components/schemas/generatedTagItem'
+      type: object
+    generatedTag:
+      properties:
+        colorHex:
+          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+          type: string
+        createdAt:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        updatedAt:
+          format: int64
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      title: Tags
+      type: object
+    generatedCustomNodeType:
+      properties:
+        allowedChildNodeTypes:
+          description: 'Allowed child types, which may be either custom node types or catalog node types
+
+            (e.g. DATA_NODE_TYPE_SCHEMA). Supersedes allowed_child_types.'
+          items:
+            $ref: '#/components/schemas/generatedNodeType'
+          type: array
+        allowedChildTypes:
+          description: 'Deprecated: custom-node-type-only allowed children. Use allowed_child_node_types, which
+
+            also supports catalog node types. Still populated with the custom-type subset for
+
+            backwards compatibility.'
+          items:
+            $ref: '#/components/schemas/generatedCustomNodeType'
+          type: array
+        allowedParentNodeTypes:
+          description: 'Allowed parent types, which may be either custom node types or catalog node types
+
+            (e.g. DATA_NODE_TYPE_TABLE). Supersedes allowed_parent_types.'
+          items:
+            $ref: '#/components/schemas/generatedNodeType'
+          type: array
+        allowedParentTypes:
+          description: 'Deprecated: custom-node-type-only allowed parents. Use allowed_parent_node_types, which
+
+            also supports catalog node types. Still populated with the custom-type subset for
+
+            backwards compatibility.'
+          items:
+            $ref: '#/components/schemas/generatedCustomNodeType'
+          type: array
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int64
+          type: string
+        integrationType:
+          $ref: '#/components/schemas/generatedCustomIntegrationType'
+        isColumnDisplay:
+          title: If true, this node type will be displayed as a column in lineage UIs
+          type: boolean
+        name:
+          type: string
+        namePlural:
+          type: string
+        showInImpactAnalysis:
+          description: 'If true, nodes of this type are surfaced as impacted entities in issue impact analysis (RCA)
+
+            when they lie downstream of an issue.'
+          type: boolean
+      type: object
+    generatedCustomIntegrationType:
+      properties:
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        iconUrl:
+          type: string
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedIntegrationType'
+      type: object
+    generatedBulkTagResponse:
+      properties:
+        failures:
+          items:
+            $ref: '#/components/schemas/generatedTagFailure'
+          type: array
+        successes:
+          items:
+            $ref: '#/components/schemas/generatedTagItem'
+          type: array
+      type: object
+    generatedTagFailure:
+      properties:
+        reason:
+          type: string
+        tag:
+          $ref: '#/components/schemas/generatedTagItem'
+      type: object
+    generatedTagItem:
+      properties:
+        catalogPath:
+          $ref: '#/components/schemas/generatedCatalogPath'
+        entityId:
+          format: int32
+          type: integer
+        entityName:
+          type: string
+        entityType:
+          $ref: '#/components/schemas/generatedTaggableEntityType'
+        nodeType:
+          $ref: '#/components/schemas/generatedNodeType'
+        tag:
+          type: string
+        workspaceTag:
+          $ref: '#/components/schemas/generatedTag'
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedNodeType:
+      properties:
+        customNodeType:
+          $ref: '#/components/schemas/generatedCustomNodeType'
+        dataNodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedCatalogPath:
+      properties:
+        columnName:
+          type: string
+        pathParts:
+          items:
+            type: string
+          type: array
+        schemaName:
+          type: string
+        sourceName:
+          type: string
+        tableName:
+          type: string
+      type: object
+    generatedIntegrationType:
+      default: INTEGRATION_TYPE_UNSPECIFIED
+      enum:
+      - INTEGRATION_TYPE_UNSPECIFIED
+      - INTEGRATION_TYPE_BI_TOOL
+      - INTEGRATION_TYPE_ETL_TOOL
+      - INTEGRATION_TYPE_DATABASE
+      type: string
+    generatedTagList:
+      properties:
+        entityId:
+          format: int32
+          type: integer
+        entityType:
+          $ref: '#/components/schemas/generatedTaggableEntityType'
+        tags:
+          items:
+            type: string
+          type: array
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedTaggableEntityType:
+      default: TAGGABLE_ENTITY_TYPE_UNSPECIFIED
+      enum:
+      - TAGGABLE_ENTITY_TYPE_UNSPECIFIED
+      - TAGGABLE_ENTITY_TYPE_SOURCE
+      - TAGGABLE_ENTITY_TYPE_SCHEMA
+      - TAGGABLE_ENTITY_TYPE_DATASET
+      - TAGGABLE_ENTITY_TYPE_METRIC
+      - TAGGABLE_ENTITY_TYPE_DELTA
+      - TAGGABLE_ENTITY_TYPE_COLUMN
+      - TAGGABLE_ENTITY_TYPE_SLA
+      - TAGGABLE_ENTITY_TYPE_BI_TOOL
+      - TAGGABLE_ENTITY_TYPE_N_WAY_DELTA
+      - TAGGABLE_ENTITY_TYPE_VIRTUAL_TABLE
+      - TAGGABLE_ENTITY_TYPE_INTEGRATION
+      - TAGGABLE_ENTITY_TYPE_DBT_PROJECT
+      - TAGGABLE_ENTITY_TYPE_DBT_JOB
+      - TAGGABLE_ENTITY_TYPE_CUSTOM_RULE
+      - TAGGABLE_ENTITY_TYPE_META_CENTER_ENTITY
+      - TAGGABLE_ENTITY_TYPE_DATA_NODE_ENTITY
+      - TAGGABLE_ENTITY_TYPE_META_CENTER_REPOSITORY
+      - TAGGABLE_ENTITY_TYPE_CUSTOM_REPOSITORY
+      type: string
+    generatedBulkTagRequest:
+      properties:
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTagItem'
+          type: array
+      type: object
+    generatedDataNodeType:
+      default: DATA_NODE_TYPE_UNSPECIFIED
+      description: " - DATA_NODE_TYPE_MC_STRATEGY_FOLDER: STRATEGY Formerly known as MicroStrategy\n - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE: AI_AGENT prefix: AI agents surfaced on the lineage graph.\nDeprecated: use the platform-agnostic DATA_NODE_TYPE_AI_AGENT instead."
+      enum:
+      - DATA_NODE_TYPE_UNSPECIFIED
+      - DATA_NODE_TYPE_TABLE
+      - DATA_NODE_TYPE_COLUMN
+      - DATA_NODE_TYPE_SCHEMA
+      - DATA_NODE_TYPE_MC_TABLEAU_PROJECT
+      - DATA_NODE_TYPE_MC_TABLEAU_WORKBOOK
+      - DATA_NODE_TYPE_MC_TABLEAU_STORY
+      - DATA_NODE_TYPE_MC_TABLEAU_SHEET
+      - DATA_NODE_TYPE_MC_TABLEAU_DASHBOARD
+      - DATA_NODE_TYPE_MC_POWERBI_WORKSPACE
+      - DATA_NODE_TYPE_MC_POWERBI_REPORT
+      - DATA_NODE_TYPE_MC_POWERBI_PAGE
+      - DATA_NODE_TYPE_MC_POWERBI_DASHBOARD
+      - DATA_NODE_TYPE_MC_POWERCENTER_WORKFLOW
+      - DATA_NODE_TYPE_MC_POWERCENTER_TARGET
+      - DATA_NODE_TYPE_MC_POWERCENTER_TARGET_FIELD
+      - DATA_NODE_TYPE_MC_SSIS_PACKAGE
+      - DATA_NODE_TYPE_MC_SSIS_DESTINATION
+      - DATA_NODE_TYPE_MC_SSIS_DESTINATION_FIELD
+      - DATA_NODE_TYPE_CUSTOM
+      - DATA_NODE_TYPE_CUSTOM_ENTRY
+      - DATA_NODE_TYPE_MC_COGNOS_FOLDER
+      - DATA_NODE_TYPE_MC_COGNOS_REPORT
+      - DATA_NODE_TYPE_MC_COGNOS_QUERY
+      - DATA_NODE_TYPE_MC_SAP_BO_FOLDER
+      - DATA_NODE_TYPE_MC_SAP_BO_REPORT
+      - DATA_NODE_TYPE_MC_FDS_FOLDER
+      - DATA_NODE_TYPE_MC_FDS_FILE
+      - DATA_NODE_TYPE_MC_FDS_FIELD
+      - DATA_NODE_TYPE_MC_QLIK_REPLICATE_SCHEMA
+      - DATA_NODE_TYPE_MC_QLIK_REPLICATE_TABLE
+      - DATA_NODE_TYPE_MC_QLIK_REPLICATE_COLUMN
+      - DATA_NODE_TYPE_MC_LOOKER_FOLDER
+      - DATA_NODE_TYPE_MC_LOOKER_BOARD
+      - DATA_NODE_TYPE_MC_LOOKER_LOOK
+      - DATA_NODE_TYPE_MC_LOOKER_DASHBOARD
+      - DATA_NODE_TYPE_MC_LOOKER_VISUALIZATION
+      - DATA_NODE_TYPE_MC_CDM_TARGET
+      - DATA_NODE_TYPE_MC_CDM_TARGET_FIELD
+      - DATA_NODE_TYPE_MC_CDM_TEMP_TABLE
+      - DATA_NODE_TYPE_MC_CDM_TEMP_FIELD
+      - DATA_NODE_TYPE_MC_CDM_TRANSFORM_FILE
+      - DATA_NODE_TYPE_MC_SNAPLOGIC_PIPELINE
+      - DATA_NODE_TYPE_MC_SNAPLOGIC_WRITE
+      - DATA_NODE_TYPE_MC_SNAPLOGIC_FIELD
+      - DATA_NODE_TYPE_MC_DATASTAGE_OUTPUT
+      - DATA_NODE_TYPE_MC_DATASTAGE_OUTPUT_FIELD
+      - DATA_NODE_TYPE_MC_SSRS_FOLDER
+      - DATA_NODE_TYPE_MC_SSRS_REPORT
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_VIS_DIMENSION
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_VIS_MEASURE
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_APPLICATION
+      - DATA_NODE_TYPE_MC_QLIK_SENSE_SHEET
+      - DATA_NODE_TYPE_MC_STRATEGY_FOLDER
+      - DATA_NODE_TYPE_MC_STRATEGY_DOSSIER
+      - DATA_NODE_TYPE_MC_STRATEGY_GRAPH
+      - DATA_NODE_TYPE_MC_STRATEGY_GRID
+      - DATA_NODE_TYPE_MC_STRATEGY_GRIDGRAPH
+      - DATA_NODE_TYPE_MC_ADF_STORED_PROC
+      - DATA_NODE_TYPE_MC_ADF_TARGET_TABLE
+      - DATA_NODE_TYPE_MC_ADF_COPY_SINK
+      - DATA_NODE_TYPE_MC_ADF_FIELD
+      - DATA_NODE_TYPE_MC_MATILLION_COMPONENT
+      - DATA_NODE_TYPE_MC_MATILLION_TARGET_TABLE
+      - DATA_NODE_TYPE_MC_MATILLION_TARGET_FIELD
+      - DATA_NODE_TYPE_SOURCE
+      - DATA_NODE_TYPE_DBT_CLOUD
+      - DATA_NODE_TYPE_DBT_CORE
+      - DATA_NODE_TYPE_MC_REPOSITORY
+      - DATA_NODE_TYPE_DBT_PROJECT
+      - DATA_NODE_TYPE_CUSTOM_REPOSITORY
+      - DATA_NODE_TYPE_MC_SSIS_DATA_FLOW
+      - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE
+      - DATA_NODE_TYPE_AI_AGENT
+      type: string
+  requestBodies:
+    generatedTagRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedTagRequest'
+      required: true
+    generatedBulkTagRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedBulkTagRequest'
+      required: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

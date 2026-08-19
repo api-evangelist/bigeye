@@ -1,0 +1,613 @@
+openapi: 3.2.0
+info:
+  title: Metadata Integration Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: IntegrationService
+paths:
+  /api/v1/integrations/dbt/jobs/{dbtJobId}:
+    get:
+      operationId: IntegrationService_GetDbtJob
+      parameters:
+      - in: path
+        name: dbtJobId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetDbtJobResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get single dbt job
+      tags:
+      - IntegrationService
+  /api/v1/integrations/dbt/jobs/runs/{dbtJobRunId}:
+    get:
+      operationId: IntegrationService_GetDbtJobRunResponse
+      parameters:
+      - in: path
+        name: dbtJobRunId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDbtJobRunResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get single dbt job run
+      tags:
+      - IntegrationService
+  /api/v1/integrations/dbt/projects/{dbtProjectId}/jobs:
+    get:
+      operationId: IntegrationService_GetDbtJobsForProject
+      parameters:
+      - in: path
+        name: dbtProjectId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetDbtJobsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get dbt jobs for project
+      tags:
+      - IntegrationService
+  /api/v1/integrations/dbt/projects/{dbtProjectId}:
+    get:
+      operationId: IntegrationService_GetDbtProject
+      parameters:
+      - in: path
+        name: dbtProjectId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDbtProject'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get single dbt project
+      tags:
+      - IntegrationService
+  /api/v1/integrations/{integrationId}/entities:
+    get:
+      operationId: IntegrationService_GetEntitiesForIntegration
+      parameters:
+      - in: path
+        name: integrationId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetIntegrationEntitiesResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get entities for integration
+      tags:
+      - IntegrationService
+  /api/v1/integrations/{integrationId}:
+    delete:
+      operationId: IntegrationService_DeleteIntegration
+      parameters:
+      - in: path
+        name: integrationId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete integration
+      tags:
+      - IntegrationService
+    get:
+      operationId: IntegrationService_GetIntegration
+      parameters:
+      - in: path
+        name: integrationId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedIntegration'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get single integration
+      tags:
+      - IntegrationService
+    put:
+      operationId: IntegrationService_UpdateIntegration
+      parameters:
+      - in: path
+        name: integrationId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        $ref: '#/components/requestBodies/generatedCreateOrUpdateIntegrationRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedIntegration'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Update integration
+      tags:
+      - IntegrationService
+  /api/v1/integrations:
+    get:
+      operationId: IntegrationService_GetIntegrations
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedIntegrationsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get integrations
+      tags:
+      - IntegrationService
+    post:
+      operationId: IntegrationService_CreateIntegration
+      requestBody:
+        $ref: '#/components/requestBodies/generatedCreateOrUpdateIntegrationRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedIntegration'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create integration
+      tags:
+      - IntegrationService
+components:
+  schemas:
+    generatedEmpty:
+      type: object
+    generatedTag:
+      properties:
+        colorHex:
+          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+          type: string
+        createdAt:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        updatedAt:
+          format: int64
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      title: Tags
+      type: object
+    generatedCreateOrUpdateIntegrationRequest:
+      properties:
+        apiBaseUri:
+          type: string
+        apiPort:
+          format: int32
+          type: integer
+        credentialsPrivate:
+          type: string
+        credentialsPublic:
+          type: string
+        integrationPartner:
+          $ref: '#/components/schemas/generatedIntegrationPartner'
+        name:
+          type: string
+        namespace:
+          type: string
+        timeout:
+          format: int32
+          type: integer
+        webBaseUri:
+          type: string
+        webPort:
+          format: int32
+          type: integer
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedGetIntegrationEntitiesResponse:
+      properties:
+        dbtProjects:
+          items:
+            $ref: '#/components/schemas/generatedDbtProject'
+          type: array
+        integrationPartner:
+          $ref: '#/components/schemas/generatedIntegrationPartner'
+        metacenterRepositories:
+          items:
+            $ref: '#/components/schemas/generatedMetaCenterRepository'
+          type: array
+      type: object
+    generatedDbtJobRunResponse:
+      properties:
+        dbtJobRun:
+          $ref: '#/components/schemas/generatedDbtJobRun'
+      type: object
+    generatedDbtJob:
+      properties:
+        dbtJobExtId:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        mostRecentJobRuns:
+          items:
+            $ref: '#/components/schemas/generatedDbtJobRun'
+          type: array
+        name:
+          type: string
+        projectId:
+          format: int32
+          type: integer
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        url:
+          type: string
+      type: object
+    generatedDbtJobRun:
+      properties:
+        completedAt:
+          format: int64
+          type: string
+        dbtJobRunExtId:
+          format: int64
+          type: string
+        gitSha:
+          type: string
+        id:
+          format: int64
+          type: string
+        jobId:
+          format: int32
+          type: integer
+        startedAt:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedDbtJobRunStatus'
+        url:
+          type: string
+      type: object
+    generatedDbtProject:
+      properties:
+        accountId:
+          format: int32
+          type: integer
+        companyId:
+          format: int32
+          type: integer
+        createdAt:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        integrationEntityId:
+          type: string
+        integrationId:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        jobCount:
+          format: int32
+          type: integer
+        name:
+          type: string
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        updatedAt:
+          format: int64
+          type: string
+        url:
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedIntegrationsResponse:
+      properties:
+        integrations:
+          items:
+            $ref: '#/components/schemas/generatedIntegration'
+          type: array
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedGetDbtJobResponse:
+      properties:
+        dbtJob:
+          $ref: '#/components/schemas/generatedDbtJob'
+      type: object
+    generatedMetaCenterRepository:
+      properties:
+        copyDisabled:
+          type: boolean
+        id:
+          format: int32
+          type: integer
+        integrationEntityId:
+          type: string
+        integrationPartner:
+          $ref: '#/components/schemas/generatedIntegrationPartner'
+        matchingSourceIds:
+          description: 'Warehouse (source) ids whose objects this repository''s synced objects are
+
+            matched against when resolving lineage. Empty means object resolution falls
+
+            back to workspace-wide matching.'
+          items:
+            format: int32
+            type: integer
+          type: array
+        name:
+          type: string
+        type:
+          type: string
+      type: object
+    generatedGetDbtJobsResponse:
+      properties:
+        dbtJobs:
+          items:
+            $ref: '#/components/schemas/generatedDbtJob'
+          type: array
+      type: object
+    generatedIntegrationType:
+      default: INTEGRATION_TYPE_UNSPECIFIED
+      enum:
+      - INTEGRATION_TYPE_UNSPECIFIED
+      - INTEGRATION_TYPE_BI_TOOL
+      - INTEGRATION_TYPE_ETL_TOOL
+      - INTEGRATION_TYPE_DATABASE
+      type: string
+    generatedDbtJobRunStatus:
+      default: DBT_JOB_RUN_STATUS_UNSPECIFIED
+      enum:
+      - DBT_JOB_RUN_STATUS_UNSPECIFIED
+      - DBT_JOB_RUN_STATUS_SUCCESS
+      - DBT_JOB_RUN_STATUS_ERROR
+      - DBT_JOB_RUN_STATUS_QUEUED
+      - DBT_JOB_RUN_STATUS_STARTING
+      - DBT_JOB_RUN_STATUS_RUNNING
+      - DBT_JOB_RUN_STATUS_CANCELLED
+      type: string
+    generatedIntegrationPartner:
+      default: INTEGRATION_PARTNER_UNSPECIFIED
+      enum:
+      - INTEGRATION_PARTNER_UNSPECIFIED
+      - INTEGRATION_PARTNER_TABLEAU
+      - INTEGRATION_PARTNER_DBT_CLOUD
+      - INTEGRATION_PARTNER_METACENTER
+      - INTEGRATION_PARTNER_DBT_CORE
+      - INTEGRATION_PARTNER_POWERBI
+      - INTEGRATION_PARTNER_POWERCENTER
+      - INTEGRATION_PARTNER_SSIS
+      - INTEGRATION_PARTNER_COGNOS
+      - INTEGRATION_PARTNER_SAP_BUSINESS_OBJECTS
+      - INTEGRATION_PARTNER_FDS
+      - INTEGRATION_PARTNER_QLIK_REPLICATE
+      - INTEGRATION_PARTNER_LOOKER
+      - INTEGRATION_PARTNER_CDM
+      - INTEGRATION_PARTNER_SNAPLOGIC
+      - INTEGRATION_PARTNER_DATASTAGE
+      - INTEGRATION_PARTNER_SSRS
+      - INTEGRATION_PARTNER_QLIK_SENSE
+      - INTEGRATION_PARTNER_STRATEGY
+      - INTEGRATION_PARTNER_ADF
+      - INTEGRATION_PARTNER_MATILLION
+      - INTEGRATION_PARTNER_ANTHROPIC
+      type: string
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedIntegration:
+      properties:
+        apiBaseUri:
+          type: string
+        apiPort:
+          format: int32
+          type: integer
+        companyId:
+          format: int32
+          type: integer
+        createdAt:
+          format: int64
+          type: string
+        createdById:
+          format: int32
+          type: integer
+        credentialsPrivate:
+          type: string
+        credentialsPublic:
+          type: string
+        exceptionMessage:
+          type: string
+        id:
+          format: int32
+          type: integer
+        integrationEntitiesCount:
+          format: int32
+          type: integer
+        integrationPartner:
+          $ref: '#/components/schemas/generatedIntegrationPartner'
+        integrationType:
+          $ref: '#/components/schemas/generatedIntegrationType'
+        isFavorite:
+          type: boolean
+        mostRecentScanAt:
+          format: int64
+          type: string
+        name:
+          type: string
+        namespace:
+          type: string
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        timeout:
+          format: int32
+          type: integer
+        updatedAt:
+          format: int64
+          type: string
+        updatedById:
+          format: int32
+          type: integer
+        webBaseUri:
+          type: string
+        webPort:
+          format: int32
+          type: integer
+      type: object
+  requestBodies:
+    generatedCreateOrUpdateIntegrationRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedCreateOrUpdateIntegrationRequest'
+      required: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

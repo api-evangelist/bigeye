@@ -1,0 +1,476 @@
+openapi: 3.2.0
+info:
+  title: Metadata Group Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: GroupService
+paths:
+  /api/v1/groups/grants:
+    put:
+      operationId: GroupService_BulkChangeGroupGrants
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedBulkChangeGroupGrantsRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedBulkChangeGroupGrantsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Change a group's access to workspaces
+      tags:
+      - GroupService
+  /api/v1/groups/users:
+    put:
+      operationId: GroupService_BulkChangeGroupUsers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedBulkChangeGroupUsersRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedBulkChangeGroupUsersResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Add or remove users to a group
+      tags:
+      - GroupService
+  /api/v1/groups:
+    get:
+      operationId: GroupService_GetAllGroups
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGroupListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get all groups
+      tags:
+      - GroupService
+    post:
+      operationId: GroupService_CreateGroup
+      requestBody:
+        $ref: '#/components/requestBodies/generatedCreateOrUpdateGroupRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGroup'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create a group
+      tags:
+      - GroupService
+  /api/v1/groups/{groupId}:
+    delete:
+      operationId: GroupService_DeleteGroup
+      parameters:
+      - in: path
+        name: groupId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete a group
+      tags:
+      - GroupService
+    get:
+      operationId: GroupService_GetGroup
+      parameters:
+      - in: path
+        name: groupId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGroup'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get a group
+      tags:
+      - GroupService
+    put:
+      operationId: GroupService_UpdateGroup
+      parameters:
+      - in: path
+        name: groupId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        $ref: '#/components/requestBodies/generatedCreateOrUpdateGroupRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGroup'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Update a group
+      tags:
+      - GroupService
+components:
+  schemas:
+    generatedEmpty:
+      type: object
+    generatedUser:
+      properties:
+        email:
+          type: string
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        id:
+          format: int32
+          type: integer
+        idpGroups:
+          items:
+            type: string
+          type: array
+        isServiceAccount:
+          type: boolean
+        lastLoginAt:
+          format: int64
+          type: string
+        name:
+          type: string
+        pictureUrl:
+          type: string
+      type: object
+    generatedGrant:
+      properties:
+        group:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        id:
+          format: int32
+          type: integer
+        role:
+          $ref: '#/components/schemas/generatedRoleV2'
+        workspace:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+      type: object
+    generatedFailedGroupRoleUpdate:
+      properties:
+        reason:
+          type: string
+        request:
+          $ref: '#/components/schemas/generatedGrant'
+      type: object
+    generatedRoleType:
+      default: ROLE_TYPE_UNSPECIFIED
+      enum:
+      - ROLE_TYPE_UNSPECIFIED
+      - ROLE_TYPE_ADMIN
+      - ROLE_TYPE_MANAGE
+      - ROLE_TYPE_EDIT
+      - ROLE_TYPE_VIEW
+      - ROLE_TYPE_CUSTOM
+      type: string
+    generatedGroupListResponse:
+      properties:
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedGroup'
+          type: array
+      type: object
+    generatedCreateOrUpdateGroupRequest:
+      properties:
+        idpGroups:
+          items:
+            type: string
+          type: array
+        name:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedRolePermission:
+      properties:
+        actions:
+          items:
+            $ref: '#/components/schemas/generatedPermissionAction'
+          type: array
+        domains:
+          items:
+            $ref: '#/components/schemas/generatedPermissionDomain'
+          type: array
+      type: object
+    generatedGroup:
+      properties:
+        grants:
+          items:
+            $ref: '#/components/schemas/generatedGrant'
+          type: array
+        id:
+          format: int32
+          type: integer
+        idpGroups:
+          items:
+            type: string
+          type: array
+        memberships:
+          items:
+            $ref: '#/components/schemas/generatedUserGroupMembership'
+          type: array
+        name:
+          type: string
+        users:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+      type: object
+    generatedPermissionAction:
+      default: PERMISSION_ACTION_UNSPECIFIED
+      enum:
+      - PERMISSION_ACTION_UNSPECIFIED
+      - PERMISSION_ACTION_ALL
+      - PERMISSION_ACTION_PREVIEW
+      - PERMISSION_ACTION_WRITE
+      - PERMISSION_ACTION_EXECUTE
+      - PERMISSION_ACTION_READ
+      type: string
+    generatedRoleOperation:
+      default: ROLE_OPERATION_UNSPECIFIED
+      enum:
+      - ROLE_OPERATION_UNSPECIFIED
+      - ROLE_OPERATION_GRANT
+      - ROLE_OPERATION_REVOKE
+      type: string
+    generatedGroupUserOperation:
+      default: GROUP_USER_OPERATION_UNSPECIFIED
+      enum:
+      - GROUP_USER_OPERATION_UNSPECIFIED
+      - GROUP_USER_OPERATION_ADD
+      - GROUP_USER_OPERATION_REMOVE
+      type: string
+    generatedBulkChangeGroupGrantsResponse:
+      properties:
+        failedUpdates:
+          items:
+            $ref: '#/components/schemas/generatedFailedGroupRoleUpdate'
+          type: array
+        successfulRequests:
+          items:
+            $ref: '#/components/schemas/generatedGrant'
+          type: array
+      type: object
+    generatedPermissionDomain:
+      default: PERMISSION_DOMAIN_UNSPECIFIED
+      enum:
+      - PERMISSION_DOMAIN_UNSPECIFIED
+      - PERMISSION_DOMAIN_ALL
+      - PERMISSION_DOMAIN_TABLE
+      - PERMISSION_DOMAIN_CUSTOM_RULE
+      - PERMISSION_DOMAIN_COLLECTION
+      - PERMISSION_DOMAIN_WORKSPACE_TAG
+      - PERMISSION_DOMAIN_WORKSPACE_TAG_ENTITY
+      - PERMISSION_DOMAIN_PROFILE
+      - PERMISSION_DOMAIN_SCAN_JOB
+      - PERMISSION_DOMAIN_DATA_CLASS
+      - PERMISSION_DOMAIN_CLASSIFIER
+      type: string
+    generatedBulkChangeGroupUsersResponse:
+      properties:
+        failedUpdates:
+          items:
+            $ref: '#/components/schemas/generatedFailedGroupUserUpdate'
+          type: array
+        successfulIds:
+          items:
+            $ref: '#/components/schemas/generatedGroupUserPair'
+          type: array
+      type: object
+    generatedBulkChangeGroupGrantsRequest:
+      properties:
+        operation:
+          $ref: '#/components/schemas/generatedRoleOperation'
+        requests:
+          items:
+            $ref: '#/components/schemas/generatedGrant'
+          type: array
+      type: object
+    generatedFailedGroupUserUpdate:
+      properties:
+        groupId:
+          format: int32
+          type: integer
+        reason:
+          type: string
+        userId:
+          format: int32
+          type: integer
+      type: object
+    generatedGroupMembershipVia:
+      default: GROUP_MEMBERSHIP_VIA_UNSPECIFIED
+      enum:
+      - GROUP_MEMBERSHIP_VIA_UNSPECIFIED
+      - GROUP_MEMBERSHIP_VIA_MANUAL_ASSIGNMENT
+      - GROUP_MEMBERSHIP_VIA_IDP_GROUPS
+      type: string
+    generatedBulkChangeGroupUsersRequest:
+      properties:
+        groupIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        operation:
+          $ref: '#/components/schemas/generatedGroupUserOperation'
+        userIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    generatedUserGroupMembership:
+      properties:
+        membershipPaths:
+          items:
+            $ref: '#/components/schemas/generatedGroupMembershipVia'
+          type: array
+        user:
+          $ref: '#/components/schemas/generatedUser'
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedGroupUserPair:
+      properties:
+        groupId:
+          format: int32
+          type: integer
+        userId:
+          format: int32
+          type: integer
+      type: object
+    generatedRoleV2:
+      properties:
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        rolePermissions:
+          items:
+            $ref: '#/components/schemas/generatedRolePermission'
+          type: array
+        roleType:
+          $ref: '#/components/schemas/generatedRoleType'
+      type: object
+  requestBodies:
+    generatedCreateOrUpdateGroupRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedCreateOrUpdateGroupRequest'
+      required: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

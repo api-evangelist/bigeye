@@ -1,0 +1,1080 @@
+{
+  "item": [
+    {
+      "id": "480eacc5-bb48-45c0-9fe8-5e3d4c351662",
+      "name": "WorkspaceService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cd3bf32e-8091-45ec-98f9-df0da387dd50",
+          "name": "Get all workspaces",
+          "request": {
+            "name": "Get all workspaces",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspaces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54301a00-a7fd-4a21-adaa-35e1e8b30ee9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workspaces\": [\n    {\n      \"id\": 835,\n      \"isDefault\": false,\n      \"name\": \"string\",\n      \"sources\": [\n        {\n          \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n          \"alationSourceId\": 8486,\n          \"atlanConnectionId\": \"string\",\n          \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n          \"bigqueryQueryProjectIds\": \"string\",\n          \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n          \"dataSourceAgentVersion\": \"string\",\n          \"databaseName\": \"string\",\n          \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"datadotworldConnectionId\": \"string\",\n          \"domain\": \"string\",\n          \"hostname\": \"string\",\n          \"id\": 4405,\n          \"ignoreSchemasPrefix\": \"string\",\n          \"indexingSchedule\": {\n            \"displayName\": \"string\",\n            \"id\": 240\n          },\n          \"isFavorite\": false,\n          \"maxPoolSize\": 3241,\n          \"metricBatchSizeMetadata\": 3074,\n          \"metricBatchSizeQuery\": 1375,\n          \"metricRunNativeTemporalParallelism\": 9288,\n          \"name\": \"string\",\n          \"port\": 1711,\n          \"projectId\": \"string\",\n          \"queryTimeoutSeconds\": 6170,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": \"string\",\n            \"lastSchemaChangeAt\": \"string\",\n            \"mostRecentSchemaScanAt\": \"string\"\n          },\n          \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n          \"serviceAccountEmail\": \"string\",\n          \"sourceMetadataOverrides\": {\n            \"accessHistoryTableName\": \"string\",\n            \"aiObservabilityEventsTableName\": \"string\",\n            \"copyHistoryTableName\": \"string\",\n            \"dynamicTableRefreshHistoryTableName\": \"string\",\n            \"queryHistoryTableName\": \"string\",\n            \"tablesTableName\": \"string\"\n          },\n          \"tags\": [\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"targetBigqueryProjectId\": \"string\",\n          \"temporalAgentUuid\": \"string\",\n          \"username\": \"string\",\n          \"usesAgent\": false\n        },\n        {\n          \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n          \"alationSourceId\": 1193,\n          \"atlanConnectionId\": \"string\",\n          \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n          \"bigqueryQueryProjectIds\": \"string\",\n          \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n          \"dataSourceAgentVersion\": \"string\",\n          \"databaseName\": \"string\",\n          \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"datadotworldConnectionId\": \"string\",\n          \"domain\": \"string\",\n          \"hostname\": \"string\",\n          \"id\": 4890,\n          \"ignoreSchemasPrefix\": \"string\",\n          \"indexingSchedule\": {\n            \"displayName\": \"string\",\n            \"id\": 3918\n          },\n          \"isFavorite\": false,\n          \"maxPoolSize\": 8625,\n          \"metricBatchSizeMetadata\": 6682,\n          \"metricBatchSizeQuery\": 9617,\n          \"metricRunNativeTemporalParallelism\": 6588,\n          \"name\": \"string\",\n          \"port\": 789,\n          \"projectId\": \"string\",\n          \"queryTimeoutSeconds\": 8486,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": \"string\",\n            \"lastSchemaChangeAt\": \"string\",\n            \"mostRecentSchemaScanAt\": \"string\"\n          },\n          \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n          \"serviceAccountEmail\": \"string\",\n          \"sourceMetadataOverrides\": {\n            \"accessHistoryTableName\": \"string\",\n            \"aiObservabilityEventsTableName\": \"string\",\n            \"copyHistoryTableName\": \"string\",\n            \"dynamicTableRefreshHistoryTableName\": \"string\",\n            \"queryHistoryTableName\": \"string\",\n            \"tablesTableName\": \"string\"\n          },\n          \"tags\": [\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"targetBigqueryProjectId\": \"string\",\n          \"temporalAgentUuid\": \"string\",\n          \"username\": \"string\",\n          \"usesAgent\": false\n        }\n      ]\n    },\n    {\n      \"id\": 8561,\n      \"isDefault\": true,\n      \"name\": \"string\",\n      \"sources\": [\n        {\n          \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n          \"alationSourceId\": 8812,\n          \"atlanConnectionId\": \"string\",\n          \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n          \"bigqueryQueryProjectIds\": \"string\",\n          \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n          \"dataSourceAgentVersion\": \"string\",\n          \"databaseName\": \"string\",\n          \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"datadotworldConnectionId\": \"string\",\n          \"domain\": \"string\",\n          \"hostname\": \"string\",\n          \"id\": 7623,\n          \"ignoreSchemasPrefix\": \"string\",\n          \"indexingSchedule\": {\n            \"displayName\": \"string\",\n            \"id\": 6663\n          },\n          \"isFavorite\": false,\n          \"maxPoolSize\": 8886,\n          \"metricBatchSizeMetadata\": 216,\n          \"metricBatchSizeQuery\": 8190,\n          \"metricRunNativeTemporalParallelism\": 2151,\n          \"name\": \"string\",\n          \"port\": 7672,\n          \"projectId\": \"string\",\n          \"queryTimeoutSeconds\": 3247,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": \"string\",\n            \"lastSchemaChangeAt\": \"string\",\n            \"mostRecentSchemaScanAt\": \"string\"\n          },\n          \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n          \"serviceAccountEmail\": \"string\",\n          \"sourceMetadataOverrides\": {\n            \"accessHistoryTableName\": \"string\",\n            \"aiObservabilityEventsTableName\": \"string\",\n            \"copyHistoryTableName\": \"string\",\n            \"dynamicTableRefreshHistoryTableName\": \"string\",\n            \"queryHistoryTableName\": \"string\",\n            \"tablesTableName\": \"string\"\n          },\n          \"tags\": [\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"targetBigqueryProjectId\": \"string\",\n          \"temporalAgentUuid\": \"string\",\n          \"username\": \"string\",\n          \"usesAgent\": true\n        },\n        {\n          \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n          \"alationSourceId\": 5741,\n          \"atlanConnectionId\": \"string\",\n          \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n          \"bigqueryQueryProjectIds\": \"string\",\n          \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n          \"dataSourceAgentVersion\": \"string\",\n          \"databaseName\": \"string\",\n          \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n          \"datadotworldConnectionId\": \"string\",\n          \"domain\": \"string\",\n          \"hostname\": \"string\",\n          \"id\": 873,\n          \"ignoreSchemasPrefix\": \"string\",\n          \"indexingSchedule\": {\n            \"displayName\": \"string\",\n            \"id\": 2406\n          },\n          \"isFavorite\": true,\n          \"maxPoolSize\": 9152,\n          \"metricBatchSizeMetadata\": 3039,\n          \"metricBatchSizeQuery\": 8211,\n          \"metricRunNativeTemporalParallelism\": 5225,\n          \"name\": \"string\",\n          \"port\": 170,\n          \"projectId\": \"string\",\n          \"queryTimeoutSeconds\": 6100,\n          \"schemaChangeInfo\": {\n            \"initialSchemaScanAt\": \"string\",\n            \"lastSchemaChangeAt\": \"string\",\n            \"mostRecentSchemaScanAt\": \"string\"\n          },\n          \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n          \"serviceAccountEmail\": \"string\",\n          \"sourceMetadataOverrides\": {\n            \"accessHistoryTableName\": \"string\",\n            \"aiObservabilityEventsTableName\": \"string\",\n            \"copyHistoryTableName\": \"string\",\n            \"dynamicTableRefreshHistoryTableName\": \"string\",\n            \"queryHistoryTableName\": \"string\",\n            \"tablesTableName\": \"string\"\n          },\n          \"tags\": [\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"colorHex\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"createdAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"updatedAt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"workspaceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"targetBigqueryProjectId\": \"string\",\n          \"temporalAgentUuid\": \"string\",\n          \"username\": \"string\",\n          \"usesAgent\": true\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "488ef4cd-8f3b-4a62-ba47-41e81d86767a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5978,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1679f182-099a-4583-bf4e-a64a5aafecdd",
+          "name": "Create a workspace",
+          "request": {
+            "name": "Create a workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspaces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a063d03a-ccca-4739-a8ce-c0b27bb3c8ec",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5562,\n  \"isDefault\": true,\n  \"name\": \"string\",\n  \"sources\": [\n    {\n      \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"alationSourceId\": 684,\n      \"atlanConnectionId\": \"string\",\n      \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n      \"bigqueryQueryProjectIds\": \"string\",\n      \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"dataSourceAgentVersion\": \"string\",\n      \"databaseName\": \"string\",\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"datadotworldConnectionId\": \"string\",\n      \"domain\": \"string\",\n      \"hostname\": \"string\",\n      \"id\": 6421,\n      \"ignoreSchemasPrefix\": \"string\",\n      \"indexingSchedule\": {\n        \"displayName\": \"string\",\n        \"id\": 3198\n      },\n      \"isFavorite\": true,\n      \"maxPoolSize\": 9671,\n      \"metricBatchSizeMetadata\": 1467,\n      \"metricBatchSizeQuery\": 9356,\n      \"metricRunNativeTemporalParallelism\": 437,\n      \"name\": \"string\",\n      \"port\": 9556,\n      \"projectId\": \"string\",\n      \"queryTimeoutSeconds\": 4986,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"serviceAccountEmail\": \"string\",\n      \"sourceMetadataOverrides\": {\n        \"accessHistoryTableName\": \"string\",\n        \"aiObservabilityEventsTableName\": \"string\",\n        \"copyHistoryTableName\": \"string\",\n        \"dynamicTableRefreshHistoryTableName\": \"string\",\n        \"queryHistoryTableName\": \"string\",\n        \"tablesTableName\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1115,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9478\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 4123,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5145\n        }\n      ],\n      \"targetBigqueryProjectId\": \"string\",\n      \"temporalAgentUuid\": \"string\",\n      \"username\": \"string\",\n      \"usesAgent\": true\n    },\n    {\n      \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"alationSourceId\": 8909,\n      \"atlanConnectionId\": \"string\",\n      \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n      \"bigqueryQueryProjectIds\": \"string\",\n      \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"dataSourceAgentVersion\": \"string\",\n      \"databaseName\": \"string\",\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"datadotworldConnectionId\": \"string\",\n      \"domain\": \"string\",\n      \"hostname\": \"string\",\n      \"id\": 1008,\n      \"ignoreSchemasPrefix\": \"string\",\n      \"indexingSchedule\": {\n        \"displayName\": \"string\",\n        \"id\": 614\n      },\n      \"isFavorite\": true,\n      \"maxPoolSize\": 7506,\n      \"metricBatchSizeMetadata\": 4067,\n      \"metricBatchSizeQuery\": 4473,\n      \"metricRunNativeTemporalParallelism\": 6782,\n      \"name\": \"string\",\n      \"port\": 4997,\n      \"projectId\": \"string\",\n      \"queryTimeoutSeconds\": 6357,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"serviceAccountEmail\": \"string\",\n      \"sourceMetadataOverrides\": {\n        \"accessHistoryTableName\": \"string\",\n        \"aiObservabilityEventsTableName\": \"string\",\n        \"copyHistoryTableName\": \"string\",\n        \"dynamicTableRefreshHistoryTableName\": \"string\",\n        \"queryHistoryTableName\": \"string\",\n        \"tablesTableName\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1122,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7672\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 3039,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5507\n        }\n      ],\n      \"targetBigqueryProjectId\": \"string\",\n      \"temporalAgentUuid\": \"string\",\n      \"username\": \"string\",\n      \"usesAgent\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a82b9538-028c-4f4f-ac9f-2af3450a23af",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2407,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09de2c3b-e32b-40bf-a776-696ca3458d89",
+          "name": "Delete a workspace",
+          "request": {
+            "name": "Delete a workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspaces",
+                ":workspaceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "workspaceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23ec116a-88d6-494b-ba5e-24e28b9fbd6e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a097352-6e36-46ac-96b9-557bc00a2f7b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2407,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fcbf8ed-e75e-471b-824d-a49cfbb545db",
+          "name": "Get a workspace",
+          "request": {
+            "name": "Get a workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspaces",
+                ":workspaceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "workspaceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bcbe4a2c-ce4e-4132-bde3-2e46c00d8237",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5562,\n  \"isDefault\": true,\n  \"name\": \"string\",\n  \"sources\": [\n    {\n      \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"alationSourceId\": 684,\n      \"atlanConnectionId\": \"string\",\n      \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n      \"bigqueryQueryProjectIds\": \"string\",\n      \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"dataSourceAgentVersion\": \"string\",\n      \"databaseName\": \"string\",\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"datadotworldConnectionId\": \"string\",\n      \"domain\": \"string\",\n      \"hostname\": \"string\",\n      \"id\": 6421,\n      \"ignoreSchemasPrefix\": \"string\",\n      \"indexingSchedule\": {\n        \"displayName\": \"string\",\n        \"id\": 3198\n      },\n      \"isFavorite\": true,\n      \"maxPoolSize\": 9671,\n      \"metricBatchSizeMetadata\": 1467,\n      \"metricBatchSizeQuery\": 9356,\n      \"metricRunNativeTemporalParallelism\": 437,\n      \"name\": \"string\",\n      \"port\": 9556,\n      \"projectId\": \"string\",\n      \"queryTimeoutSeconds\": 4986,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"serviceAccountEmail\": \"string\",\n      \"sourceMetadataOverrides\": {\n        \"accessHistoryTableName\": \"string\",\n        \"aiObservabilityEventsTableName\": \"string\",\n        \"copyHistoryTableName\": \"string\",\n        \"dynamicTableRefreshHistoryTableName\": \"string\",\n        \"queryHistoryTableName\": \"string\",\n        \"tablesTableName\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1115,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9478\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 4123,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5145\n        }\n      ],\n      \"targetBigqueryProjectId\": \"string\",\n      \"temporalAgentUuid\": \"string\",\n      \"username\": \"string\",\n      \"usesAgent\": true\n    },\n    {\n      \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"alationSourceId\": 8909,\n      \"atlanConnectionId\": \"string\",\n      \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n      \"bigqueryQueryProjectIds\": \"string\",\n      \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"dataSourceAgentVersion\": \"string\",\n      \"databaseName\": \"string\",\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"datadotworldConnectionId\": \"string\",\n      \"domain\": \"string\",\n      \"hostname\": \"string\",\n      \"id\": 1008,\n      \"ignoreSchemasPrefix\": \"string\",\n      \"indexingSchedule\": {\n        \"displayName\": \"string\",\n        \"id\": 614\n      },\n      \"isFavorite\": true,\n      \"maxPoolSize\": 7506,\n      \"metricBatchSizeMetadata\": 4067,\n      \"metricBatchSizeQuery\": 4473,\n      \"metricRunNativeTemporalParallelism\": 6782,\n      \"name\": \"string\",\n      \"port\": 4997,\n      \"projectId\": \"string\",\n      \"queryTimeoutSeconds\": 6357,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"serviceAccountEmail\": \"string\",\n      \"sourceMetadataOverrides\": {\n        \"accessHistoryTableName\": \"string\",\n        \"aiObservabilityEventsTableName\": \"string\",\n        \"copyHistoryTableName\": \"string\",\n        \"dynamicTableRefreshHistoryTableName\": \"string\",\n        \"queryHistoryTableName\": \"string\",\n        \"tablesTableName\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1122,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7672\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 3039,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5507\n        }\n      ],\n      \"targetBigqueryProjectId\": \"string\",\n      \"temporalAgentUuid\": \"string\",\n      \"username\": \"string\",\n      \"usesAgent\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "607f76bc-dab8-48f6-9c41-75cdec946047",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2407,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5144f52-b967-48cf-b827-2df693cbf7ec",
+          "name": "Update a workspace",
+          "request": {
+            "name": "Update a workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspaces",
+                ":workspaceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "workspaceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ce83b89-a592-48c8-8b7f-af1616ca15e0",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5562,\n  \"isDefault\": true,\n  \"name\": \"string\",\n  \"sources\": [\n    {\n      \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"alationSourceId\": 684,\n      \"atlanConnectionId\": \"string\",\n      \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n      \"bigqueryQueryProjectIds\": \"string\",\n      \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"dataSourceAgentVersion\": \"string\",\n      \"databaseName\": \"string\",\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"datadotworldConnectionId\": \"string\",\n      \"domain\": \"string\",\n      \"hostname\": \"string\",\n      \"id\": 6421,\n      \"ignoreSchemasPrefix\": \"string\",\n      \"indexingSchedule\": {\n        \"displayName\": \"string\",\n        \"id\": 3198\n      },\n      \"isFavorite\": true,\n      \"maxPoolSize\": 9671,\n      \"metricBatchSizeMetadata\": 1467,\n      \"metricBatchSizeQuery\": 9356,\n      \"metricRunNativeTemporalParallelism\": 437,\n      \"name\": \"string\",\n      \"port\": 9556,\n      \"projectId\": \"string\",\n      \"queryTimeoutSeconds\": 4986,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"serviceAccountEmail\": \"string\",\n      \"sourceMetadataOverrides\": {\n        \"accessHistoryTableName\": \"string\",\n        \"aiObservabilityEventsTableName\": \"string\",\n        \"copyHistoryTableName\": \"string\",\n        \"dynamicTableRefreshHistoryTableName\": \"string\",\n        \"queryHistoryTableName\": \"string\",\n        \"tablesTableName\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1115,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9478\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 4123,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5145\n        }\n      ],\n      \"targetBigqueryProjectId\": \"string\",\n      \"temporalAgentUuid\": \"string\",\n      \"username\": \"string\",\n      \"usesAgent\": true\n    },\n    {\n      \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"alationSourceId\": 8909,\n      \"atlanConnectionId\": \"string\",\n      \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n      \"bigqueryQueryProjectIds\": \"string\",\n      \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"dataSourceAgentVersion\": \"string\",\n      \"databaseName\": \"string\",\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"datadotworldConnectionId\": \"string\",\n      \"domain\": \"string\",\n      \"hostname\": \"string\",\n      \"id\": 1008,\n      \"ignoreSchemasPrefix\": \"string\",\n      \"indexingSchedule\": {\n        \"displayName\": \"string\",\n        \"id\": 614\n      },\n      \"isFavorite\": true,\n      \"maxPoolSize\": 7506,\n      \"metricBatchSizeMetadata\": 4067,\n      \"metricBatchSizeQuery\": 4473,\n      \"metricRunNativeTemporalParallelism\": 6782,\n      \"name\": \"string\",\n      \"port\": 4997,\n      \"projectId\": \"string\",\n      \"queryTimeoutSeconds\": 6357,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"serviceAccountEmail\": \"string\",\n      \"sourceMetadataOverrides\": {\n        \"accessHistoryTableName\": \"string\",\n        \"aiObservabilityEventsTableName\": \"string\",\n        \"copyHistoryTableName\": \"string\",\n        \"dynamicTableRefreshHistoryTableName\": \"string\",\n        \"queryHistoryTableName\": \"string\",\n        \"tablesTableName\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1122,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7672\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 3039,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5507\n        }\n      ],\n      \"targetBigqueryProjectId\": \"string\",\n      \"temporalAgentUuid\": \"string\",\n      \"username\": \"string\",\n      \"usesAgent\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49ede502-eb71-4ce0-8ba7-0b9b15c1ec08",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2407,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45c608ce-1085-4703-8a58-1a40d233386e",
+          "name": "List the groups and users who can access a workspace",
+          "request": {
+            "name": "List the groups and users who can access a workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspaces",
+                ":workspaceId",
+                "accessors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "workspaceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02525a3e-10ad-41d2-9685-934f09928c32",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces",
+                    ":workspaceId",
+                    "accessors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"groups\": [\n    {\n      \"id\": 8857,\n      \"name\": \"string\",\n      \"roles\": [\n        {\n          \"description\": \"string\",\n          \"id\": 2110,\n          \"name\": \"string\",\n          \"rolePermissions\": [\n            {\n              \"actions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"domains\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"actions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"domains\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n        },\n        {\n          \"description\": \"string\",\n          \"id\": 539,\n          \"name\": \"string\",\n          \"rolePermissions\": [\n            {\n              \"actions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"domains\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"actions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"domains\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n        }\n      ],\n      \"userCount\": 4416\n    },\n    {\n      \"id\": 734,\n      \"name\": \"string\",\n      \"roles\": [\n        {\n          \"description\": \"string\",\n          \"id\": 8452,\n          \"name\": \"string\",\n          \"rolePermissions\": [\n            {\n              \"actions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"domains\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"actions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"domains\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n        },\n        {\n          \"description\": \"string\",\n          \"id\": 4099,\n          \"name\": \"string\",\n          \"rolePermissions\": [\n            {\n              \"actions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"domains\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"actions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"domains\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n        }\n      ],\n      \"userCount\": 5005\n    }\n  ],\n  \"users\": [\n    {\n      \"email\": \"string\",\n      \"groupIds\": [\n        7648,\n        9159\n      ],\n      \"highestRoleName\": \"string\",\n      \"highestRoleType\": \"ROLE_TYPE_UNSPECIFIED\",\n      \"id\": 9211,\n      \"name\": \"string\"\n    },\n    {\n      \"email\": \"string\",\n      \"groupIds\": [\n        8929,\n        4862\n      ],\n      \"highestRoleName\": \"string\",\n      \"highestRoleType\": \"ROLE_TYPE_UNSPECIFIED\",\n      \"id\": 9262,\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "749174a1-cd20-4d02-b2af-d16d5717c877",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces",
+                    ":workspaceId",
+                    "accessors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2407,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfd32f5b-be06-4848-9553-a040104e218b",
+          "name": "Set the default workspace",
+          "request": {
+            "name": "Set the default workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workspaces",
+                "default",
+                ":workspaceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "workspaceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "adf43d1e-71b2-4d0c-bca4-d524cf33201d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces",
+                    "default",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5562,\n  \"isDefault\": true,\n  \"name\": \"string\",\n  \"sources\": [\n    {\n      \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"alationSourceId\": 684,\n      \"atlanConnectionId\": \"string\",\n      \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n      \"bigqueryQueryProjectIds\": \"string\",\n      \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"dataSourceAgentVersion\": \"string\",\n      \"databaseName\": \"string\",\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"datadotworldConnectionId\": \"string\",\n      \"domain\": \"string\",\n      \"hostname\": \"string\",\n      \"id\": 6421,\n      \"ignoreSchemasPrefix\": \"string\",\n      \"indexingSchedule\": {\n        \"displayName\": \"string\",\n        \"id\": 3198\n      },\n      \"isFavorite\": true,\n      \"maxPoolSize\": 9671,\n      \"metricBatchSizeMetadata\": 1467,\n      \"metricBatchSizeQuery\": 9356,\n      \"metricRunNativeTemporalParallelism\": 437,\n      \"name\": \"string\",\n      \"port\": 9556,\n      \"projectId\": \"string\",\n      \"queryTimeoutSeconds\": 4986,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"serviceAccountEmail\": \"string\",\n      \"sourceMetadataOverrides\": {\n        \"accessHistoryTableName\": \"string\",\n        \"aiObservabilityEventsTableName\": \"string\",\n        \"copyHistoryTableName\": \"string\",\n        \"dynamicTableRefreshHistoryTableName\": \"string\",\n        \"queryHistoryTableName\": \"string\",\n        \"tablesTableName\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1115,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9478\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 4123,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5145\n        }\n      ],\n      \"targetBigqueryProjectId\": \"string\",\n      \"temporalAgentUuid\": \"string\",\n      \"username\": \"string\",\n      \"usesAgent\": true\n    },\n    {\n      \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"alationSourceId\": 8909,\n      \"atlanConnectionId\": \"string\",\n      \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n      \"bigqueryQueryProjectIds\": \"string\",\n      \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"dataSourceAgentVersion\": \"string\",\n      \"databaseName\": \"string\",\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"datadotworldConnectionId\": \"string\",\n      \"domain\": \"string\",\n      \"hostname\": \"string\",\n      \"id\": 1008,\n      \"ignoreSchemasPrefix\": \"string\",\n      \"indexingSchedule\": {\n        \"displayName\": \"string\",\n        \"id\": 614\n      },\n      \"isFavorite\": true,\n      \"maxPoolSize\": 7506,\n      \"metricBatchSizeMetadata\": 4067,\n      \"metricBatchSizeQuery\": 4473,\n      \"metricRunNativeTemporalParallelism\": 6782,\n      \"name\": \"string\",\n      \"port\": 4997,\n      \"projectId\": \"string\",\n      \"queryTimeoutSeconds\": 6357,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"serviceAccountEmail\": \"string\",\n      \"sourceMetadataOverrides\": {\n        \"accessHistoryTableName\": \"string\",\n        \"aiObservabilityEventsTableName\": \"string\",\n        \"copyHistoryTableName\": \"string\",\n        \"dynamicTableRefreshHistoryTableName\": \"string\",\n        \"queryHistoryTableName\": \"string\",\n        \"tablesTableName\": \"string\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1122,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7672\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 3039,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5507\n        }\n      ],\n      \"targetBigqueryProjectId\": \"string\",\n      \"temporalAgentUuid\": \"string\",\n      \"username\": \"string\",\n      \"usesAgent\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cdcf75a1-c2c3-45c3-971b-421e69d55f71",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workspaces",
+                    "default",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2407,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3b668276-7c76-4d6b-bcaf-3918233e78d3",
+    "name": "Metadata Workspace Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

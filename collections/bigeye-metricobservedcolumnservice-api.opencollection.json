@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Observability Metric Observed Column Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MetricObservedColumnService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Backfill metric observed columns for a specific metric\nThis endpoint automatically sets default observed columns for a metric based on its configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metric-observed-column/metric/:metricId/backfill",
+            "params": [
+              {
+                "name": "metricId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the metric"
+              }
+            ]
+          },
+          "docs": "Backfill metric observed columns for a specific metric\nThis endpoint automatically sets default observed columns for a metric based on its configuration"
+        },
+        {
+          "info": {
+            "name": "Create a metric observed column relationship\nThis endpoint creates a relationship between a metric and a column that the metric observes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metric-observed-column",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a metric observed column relationship\nThis endpoint creates a relationship between a metric and a column that the metric observes"
+        },
+        {
+          "info": {
+            "name": "Delete a metric observed column relationship\nThis endpoint removes the relationship between a metric and a column",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metric-observed-column/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete a metric observed column relationship\nThis endpoint removes the relationship between a metric and a column"
+        },
+        {
+          "info": {
+            "name": "Get metric observed columns in bulk\nThis endpoint allows fetching multiple metric observed column relationships based on various filters\nsuch as metric IDs, column IDs, table IDs, schema IDs, source IDs, and tag IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/metric-observed-column/bulk-list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get metric observed columns in bulk\nThis endpoint allows fetching multiple metric observed column relationships based on various filters\nsuch as metric IDs, column IDs, table IDs, schema IDs, source IDs, and tag IDs"
+        },
+        {
+          "info": {
+            "name": "Get metric observed columns for a specific column\nReturns all metrics that observe the specified column",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metric-observed-column/column/:columnId",
+            "params": [
+              {
+                "name": "columnId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get metric observed columns for a specific column\nReturns all metrics that observe the specified column"
+        },
+        {
+          "info": {
+            "name": "Get metric observed columns for a specific metric\nReturns all columns that are observed by the specified metric, along with suggested columns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metric-observed-column/metric/:metricId",
+            "params": [
+              {
+                "name": "metricId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the metric"
+              }
+            ]
+          },
+          "docs": "Get metric observed columns for a specific metric\nReturns all columns that are observed by the specified metric, along with suggested columns"
+        },
+        {
+          "info": {
+            "name": "Get suggested columns for a metric\nReturns columns that are suggested to be observed by the specified metric based on its configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/metric-observed-column/metric/:metricId/suggested",
+            "params": [
+              {
+                "name": "metricId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the metric"
+              }
+            ]
+          },
+          "docs": "Get suggested columns for a metric\nReturns columns that are suggested to be observed by the specified metric based on its configuration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

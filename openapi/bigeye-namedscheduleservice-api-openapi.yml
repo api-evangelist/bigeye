@@ -1,0 +1,281 @@
+openapi: 3.2.0
+info:
+  title: Metadata Named Schedule Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: NamedScheduleService
+paths:
+  /api/v1/schedules/{scheduleId}:
+    delete:
+      operationId: NamedScheduleService_DeleteNamedSchedule
+      parameters:
+      - in: path
+        name: scheduleId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Deleted a named schedule
+      tags:
+      - NamedScheduleService
+  /api/v1/schedules:
+    get:
+      operationId: NamedScheduleService_GetNamedSchedule
+      parameters:
+      - in: query
+        name: ids
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            format: int32
+            type: integer
+      - in: query
+        name: pageSize
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: pageCursor
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: sortField
+        required: false
+        schema:
+          type: string
+          enum:
+          - NAMED_SCHEDULE_SORT_UNSPECIFIED
+          - NAMED_SCHEDULE_SORT_NAME
+          default: NAMED_SCHEDULE_SORT_UNSPECIFIED
+      - in: query
+        name: sortDirection
+        required: false
+        schema:
+          type: string
+          enum:
+          - SORT_DIRECTION_UNSPECIFIED
+          - SORT_DIRECTION_ASCENDING
+          - SORT_DIRECTION_DESCENDING
+          default: SORT_DIRECTION_UNSPECIFIED
+      - in: query
+        name: search
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetNamedSchedulesResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get named schedules
+      tags:
+      - NamedScheduleService
+    post:
+      operationId: NamedScheduleService_CreateNamedSchedule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedCreateNamedScheduleRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedNamedSchedule'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create a named schedule
+      tags:
+      - NamedScheduleService
+  /api/v1/schedules/{scheduleId}/entities:
+    get:
+      operationId: NamedScheduleService_GetNamedScheduleEntities
+      parameters:
+      - in: path
+        name: scheduleId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetNamedScheduleEntitiesResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get all entities using a given named schedule
+      tags:
+      - NamedScheduleService
+components:
+  schemas:
+    generatedEmpty:
+      type: object
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    generatedGetNamedScheduleEntitiesResponse:
+      properties:
+        metrics:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        tableComparisons:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedCreateNamedScheduleRequest:
+      properties:
+        cron:
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        timezone:
+          description: IANA timezone id (e.g. "America/New_York") used to interpret the cron. Defaults to UTC when unset.
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedGetNamedSchedulesResponse:
+      properties:
+        namedSchedules:
+          items:
+            $ref: '#/components/schemas/generatedNamedSchedule'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedNamedSchedule:
+      properties:
+        cron:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        timezone:
+          description: IANA timezone id (e.g. "America/New_York") used to interpret the cron. Defaults to UTC when unset.
+          type: string
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

@@ -1,0 +1,185 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metadata Lineage V2 Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "LineageV2Service",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bulk create custom lineage nodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v2/lineage/nodes/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk create custom lineage nodes"
+        },
+        {
+          "info": {
+            "name": "Bulk create custom lineage edges",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v2/lineage/edges/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk create custom lineage edges"
+        },
+        {
+          "info": {
+            "name": "Create custom lineage node",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v2/lineage/nodes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create custom lineage node"
+        },
+        {
+          "info": {
+            "name": "Create custom lineage edge between two nodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v2/lineage/edges",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create custom lineage edge between two nodes"
+        },
+        {
+          "info": {
+            "name": "Get edge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v2/lineage/edges/:edgeId",
+            "params": [
+              {
+                "name": "edgeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get edge"
+        },
+        {
+          "info": {
+            "name": "Delete custom lineage edge",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v2/lineage/edges/:edgeId",
+            "params": [
+              {
+                "name": "edgeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete custom lineage edge"
+        },
+        {
+          "info": {
+            "name": "Get lineage graph from a data node",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v2/lineage/nodes/:dataNodeId/graph",
+            "params": [
+              {
+                "name": "dataNodeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get lineage graph from a data node"
+        },
+        {
+          "info": {
+            "name": "Get lineage node by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v2/lineage/nodes/:dataNodeId",
+            "params": [
+              {
+                "name": "dataNodeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get lineage node by id"
+        },
+        {
+          "info": {
+            "name": "Delete custom lineage node",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v2/lineage/nodes/:dataNodeId",
+            "params": [
+              {
+                "name": "dataNodeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete custom lineage node"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

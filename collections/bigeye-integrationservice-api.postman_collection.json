@@ -1,0 +1,1560 @@
+{
+  "item": [
+    {
+      "id": "02ce09da-e1c2-4216-b53f-7676cbea2f28",
+      "name": "IntegrationService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ff638b01-f3bf-4d5c-bf75-2e1de6a50271",
+          "name": "Get single dbt job",
+          "request": {
+            "name": "Get single dbt job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "integrations",
+                "dbt",
+                "jobs",
+                ":dbtJobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dbtJobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b32093c-b210-4740-8937-369c4f24878d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    "dbt",
+                    "jobs",
+                    ":dbtJobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dbtJobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dbtJob\": {\n    \"dbtJobExtId\": \"string\",\n    \"id\": 9414,\n    \"isFavorite\": true,\n    \"mostRecentJobRuns\": [\n      {\n        \"completedAt\": \"string\",\n        \"dbtJobRunExtId\": \"string\",\n        \"gitSha\": \"string\",\n        \"id\": \"string\",\n        \"jobId\": 3273,\n        \"startedAt\": \"string\",\n        \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n        \"url\": \"string\"\n      },\n      {\n        \"completedAt\": \"string\",\n        \"dbtJobRunExtId\": \"string\",\n        \"gitSha\": \"string\",\n        \"id\": \"string\",\n        \"jobId\": 869,\n        \"startedAt\": \"string\",\n        \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n        \"url\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"projectId\": 283,\n    \"tags\": [\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 2177,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 361\n      },\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 5523,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 2280\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31b1835b-7e41-44de-b301-c3002135a1fb",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    "dbt",
+                    "jobs",
+                    ":dbtJobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dbtJobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 83,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "570cf9e5-0cb7-43e8-99ec-9194e17ba0b6",
+          "name": "Get single dbt job run",
+          "request": {
+            "name": "Get single dbt job run",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "integrations",
+                "dbt",
+                "jobs",
+                "runs",
+                ":dbtJobRunId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dbtJobRunId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "defeadce-684b-4730-9adc-e5a815e56e0f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    "dbt",
+                    "jobs",
+                    "runs",
+                    ":dbtJobRunId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dbtJobRunId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dbtJobRun\": {\n    \"completedAt\": \"string\",\n    \"dbtJobRunExtId\": \"string\",\n    \"gitSha\": \"string\",\n    \"id\": \"string\",\n    \"jobId\": 311,\n    \"startedAt\": \"string\",\n    \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cea27fa7-7302-4e6f-bde8-57f94ec8b410",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    "dbt",
+                    "jobs",
+                    "runs",
+                    ":dbtJobRunId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dbtJobRunId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1845,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40dc510c-7479-474c-bc92-9c3d526529dc",
+          "name": "Get dbt jobs for project",
+          "request": {
+            "name": "Get dbt jobs for project",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "integrations",
+                "dbt",
+                "projects",
+                ":dbtProjectId",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dbtProjectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18913acd-abd9-4b7a-8135-3b7dd3e327ff",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    "dbt",
+                    "projects",
+                    ":dbtProjectId",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dbtProjectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dbtJobs\": [\n    {\n      \"dbtJobExtId\": \"string\",\n      \"id\": 1038,\n      \"isFavorite\": true,\n      \"mostRecentJobRuns\": [\n        {\n          \"completedAt\": \"string\",\n          \"dbtJobRunExtId\": \"string\",\n          \"gitSha\": \"string\",\n          \"id\": \"string\",\n          \"jobId\": 3763,\n          \"startedAt\": \"string\",\n          \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n          \"url\": \"string\"\n        },\n        {\n          \"completedAt\": \"string\",\n          \"dbtJobRunExtId\": \"string\",\n          \"gitSha\": \"string\",\n          \"id\": \"string\",\n          \"jobId\": 9701,\n          \"startedAt\": \"string\",\n          \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n          \"url\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"projectId\": 9225,\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 378,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 2425\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 8132,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 6269\n        }\n      ],\n      \"url\": \"string\"\n    },\n    {\n      \"dbtJobExtId\": \"string\",\n      \"id\": 7877,\n      \"isFavorite\": true,\n      \"mostRecentJobRuns\": [\n        {\n          \"completedAt\": \"string\",\n          \"dbtJobRunExtId\": \"string\",\n          \"gitSha\": \"string\",\n          \"id\": \"string\",\n          \"jobId\": 7759,\n          \"startedAt\": \"string\",\n          \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n          \"url\": \"string\"\n        },\n        {\n          \"completedAt\": \"string\",\n          \"dbtJobRunExtId\": \"string\",\n          \"gitSha\": \"string\",\n          \"id\": \"string\",\n          \"jobId\": 1779,\n          \"startedAt\": \"string\",\n          \"status\": \"DBT_JOB_RUN_STATUS_UNSPECIFIED\",\n          \"url\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"projectId\": 1825,\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 735,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 431\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 9140,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 2805\n        }\n      ],\n      \"url\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2d58e17-a4ee-4add-bc3a-adc17bd45c01",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    "dbt",
+                    "projects",
+                    ":dbtProjectId",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dbtProjectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1845,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eec84c9c-955b-447b-9892-b45658afde92",
+          "name": "Get single dbt project",
+          "request": {
+            "name": "Get single dbt project",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "integrations",
+                "dbt",
+                "projects",
+                ":dbtProjectId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "dbtProjectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dcdf922e-4860-455d-a0ad-04e209d5fd63",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    "dbt",
+                    "projects",
+                    ":dbtProjectId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dbtProjectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accountId\": 9473,\n  \"companyId\": 514,\n  \"createdAt\": \"string\",\n  \"id\": 6705,\n  \"integrationEntityId\": \"string\",\n  \"integrationId\": 7959,\n  \"isFavorite\": true,\n  \"jobCount\": 475,\n  \"name\": \"string\",\n  \"tags\": [\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 6573,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 1555\n    },\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 2510,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 9072\n    }\n  ],\n  \"updatedAt\": \"string\",\n  \"url\": \"string\",\n  \"workspaceId\": 2710\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2b079ac-1271-4854-97eb-fc73c44f68a7",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    "dbt",
+                    "projects",
+                    ":dbtProjectId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "dbtProjectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1845,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b105e62-30fb-4d29-bc72-fdfd7ce1fec3",
+          "name": "Get entities for integration",
+          "request": {
+            "name": "Get entities for integration",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "integrations",
+                ":integrationId",
+                "entities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integrationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c689c768-d1ec-4136-9e9a-54234e8a5c3c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    ":integrationId",
+                    "entities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integrationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dbtProjects\": [\n    {\n      \"accountId\": 8192,\n      \"companyId\": 7830,\n      \"createdAt\": \"string\",\n      \"id\": 3022,\n      \"integrationEntityId\": \"string\",\n      \"integrationId\": 9432,\n      \"isFavorite\": true,\n      \"jobCount\": 3869,\n      \"name\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7580,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 1292\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1955,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 1819\n        }\n      ],\n      \"updatedAt\": \"string\",\n      \"url\": \"string\",\n      \"workspaceId\": 3786\n    },\n    {\n      \"accountId\": 9263,\n      \"companyId\": 6008,\n      \"createdAt\": \"string\",\n      \"id\": 2438,\n      \"integrationEntityId\": \"string\",\n      \"integrationId\": 516,\n      \"isFavorite\": false,\n      \"jobCount\": 8232,\n      \"name\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 282,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9129\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 5736,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 407\n        }\n      ],\n      \"updatedAt\": \"string\",\n      \"url\": \"string\",\n      \"workspaceId\": 7069\n    }\n  ],\n  \"integrationPartner\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n  \"metacenterRepositories\": [\n    {\n      \"copyDisabled\": true,\n      \"id\": 1647,\n      \"integrationEntityId\": \"string\",\n      \"integrationPartner\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n      \"matchingSourceIds\": [\n        1540,\n        6348\n      ],\n      \"name\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"copyDisabled\": true,\n      \"id\": 3288,\n      \"integrationEntityId\": \"string\",\n      \"integrationPartner\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n      \"matchingSourceIds\": [\n        2824,\n        9728\n      ],\n      \"name\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c0e9bd9-0a5a-4092-8d23-8d35d3b610bd",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    ":integrationId",
+                    "entities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integrationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1845,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a6e877d-af52-46eb-ad49-384fc79a311f",
+          "name": "Delete integration",
+          "request": {
+            "name": "Delete integration",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "integrations",
+                ":integrationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integrationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be372788-cebc-4402-bff1-dfb2d5c320ff",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    ":integrationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integrationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa080027-b9bf-4cbb-8260-833ba3bc4017",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    ":integrationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integrationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1845,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91dd9353-c95e-490b-9cef-3ff867fddcbf",
+          "name": "Get single integration",
+          "request": {
+            "name": "Get single integration",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "integrations",
+                ":integrationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integrationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b434bf6-4110-4165-b7bf-2b4ba00be876",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    ":integrationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integrationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiBaseUri\": \"string\",\n  \"apiPort\": 1422,\n  \"companyId\": 2835,\n  \"createdAt\": \"string\",\n  \"createdById\": 778,\n  \"credentialsPrivate\": \"string\",\n  \"credentialsPublic\": \"string\",\n  \"exceptionMessage\": \"string\",\n  \"id\": 2759,\n  \"integrationEntitiesCount\": 2937,\n  \"integrationPartner\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n  \"integrationType\": \"INTEGRATION_TYPE_UNSPECIFIED\",\n  \"isFavorite\": false,\n  \"mostRecentScanAt\": \"string\",\n  \"name\": \"string\",\n  \"namespace\": \"string\",\n  \"tags\": [\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 1981,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 1155\n    },\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 7379,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 8971\n    }\n  ],\n  \"timeout\": 3193,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 4468,\n  \"webBaseUri\": \"string\",\n  \"webPort\": 6768\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de909baf-3af8-4959-82f2-e07f559e258b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    ":integrationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integrationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1845,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4a40535-86bf-4487-8c4a-0b7016ebf26f",
+          "name": "Update integration",
+          "request": {
+            "name": "Update integration",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "integrations",
+                ":integrationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integrationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiBaseUri\": \"<string>\",\n  \"apiPort\": \"<integer>\",\n  \"credentialsPrivate\": \"<string>\",\n  \"credentialsPublic\": \"<string>\",\n  \"integrationPartner\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n  \"name\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"webBaseUri\": \"<string>\",\n  \"webPort\": \"<integer>\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "08f8e956-727f-48b4-8e0c-e2b57031da24",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    ":integrationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integrationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiBaseUri\": \"string\",\n  \"apiPort\": 5418,\n  \"companyId\": 1169,\n  \"createdAt\": \"string\",\n  \"createdById\": 3412,\n  \"credentialsPrivate\": \"string\",\n  \"credentialsPublic\": \"string\",\n  \"exceptionMessage\": \"string\",\n  \"id\": 8454,\n  \"integrationEntitiesCount\": 6311,\n  \"integrationPartner\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n  \"integrationType\": \"INTEGRATION_TYPE_UNSPECIFIED\",\n  \"isFavorite\": false,\n  \"mostRecentScanAt\": \"string\",\n  \"name\": \"string\",\n  \"namespace\": \"string\",\n  \"tags\": [\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 6348,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 6015\n    },\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 8201,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 6205\n    }\n  ],\n  \"timeout\": 9628,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 332,\n  \"webBaseUri\": \"string\",\n  \"webPort\": 4663\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fbd913d-81a1-4323-9276-7a5064904dac",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations",
+                    ":integrationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integrationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1845,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f419fad-944b-4e0c-802a-38096449e187",
+          "name": "Get integrations",
+          "request": {
+            "name": "Get integrations",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "integrations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eefc70af-7c97-4956-89f9-0c2b2ff36e19",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integrations\": [\n    {\n      \"apiBaseUri\": \"string\",\n      \"apiPort\": 844,\n      \"companyId\": 625,\n      \"createdAt\": \"string\",\n      \"createdById\": 8015,\n      \"credentialsPrivate\": \"string\",\n      \"credentialsPublic\": \"string\",\n      \"exceptionMessage\": \"string\",\n      \"id\": 5775,\n      \"integrationEntitiesCount\": 869,\n      \"integrationPartner\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n      \"integrationType\": \"INTEGRATION_TYPE_UNSPECIFIED\",\n      \"isFavorite\": true,\n      \"mostRecentScanAt\": \"string\",\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 3021,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 5312\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 6222,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 9667\n        }\n      ],\n      \"timeout\": 4330,\n      \"updatedAt\": \"string\",\n      \"updatedById\": 3683,\n      \"webBaseUri\": \"string\",\n      \"webPort\": 2491\n    },\n    {\n      \"apiBaseUri\": \"string\",\n      \"apiPort\": 1508,\n      \"companyId\": 9077,\n      \"createdAt\": \"string\",\n      \"createdById\": 282,\n      \"credentialsPrivate\": \"string\",\n      \"credentialsPublic\": \"string\",\n      \"exceptionMessage\": \"string\",\n      \"id\": 880,\n      \"integrationEntitiesCount\": 2050,\n      \"integrationPartner\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n      \"integrationType\": \"INTEGRATION_TYPE_UNSPECIFIED\",\n      \"isFavorite\": false,\n      \"mostRecentScanAt\": \"string\",\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 3526,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7570\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7179,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 6790\n        }\n      ],\n      \"timeout\": 6384,\n      \"updatedAt\": \"string\",\n      \"updatedById\": 2997,\n      \"webBaseUri\": \"string\",\n      \"webPort\": 794\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9156e92b-ac6b-4f2c-a491-4a4f26fdfe4f",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1845,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5824ee02-da56-4f25-b4df-9a02e85fcaca",
+          "name": "Create integration",
+          "request": {
+            "name": "Create integration",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "integrations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiBaseUri\": \"<string>\",\n  \"apiPort\": \"<integer>\",\n  \"credentialsPrivate\": \"<string>\",\n  \"credentialsPublic\": \"<string>\",\n  \"integrationPartner\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n  \"name\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"webBaseUri\": \"<string>\",\n  \"webPort\": \"<integer>\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6ff26a1-8fca-436b-901c-da74d2076a4c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiBaseUri\": \"string\",\n  \"apiPort\": 5418,\n  \"companyId\": 1169,\n  \"createdAt\": \"string\",\n  \"createdById\": 3412,\n  \"credentialsPrivate\": \"string\",\n  \"credentialsPublic\": \"string\",\n  \"exceptionMessage\": \"string\",\n  \"id\": 8454,\n  \"integrationEntitiesCount\": 6311,\n  \"integrationPartner\": \"INTEGRATION_PARTNER_UNSPECIFIED\",\n  \"integrationType\": \"INTEGRATION_TYPE_UNSPECIFIED\",\n  \"isFavorite\": false,\n  \"mostRecentScanAt\": \"string\",\n  \"name\": \"string\",\n  \"namespace\": \"string\",\n  \"tags\": [\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 6348,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 6015\n    },\n    {\n      \"colorHex\": \"string\",\n      \"createdAt\": \"string\",\n      \"id\": 8201,\n      \"name\": \"string\",\n      \"updatedAt\": \"string\",\n      \"workspaceId\": 6205\n    }\n  ],\n  \"timeout\": 9628,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 332,\n  \"webBaseUri\": \"string\",\n  \"webPort\": 4663\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b3af4ba-7224-420b-9952-e2a88f3666b0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "integrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1845,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a684a97c-7f9c-43c2-8dd3-aa2a6649aac5",
+    "name": "Metadata Integration Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metadata Integration Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "IntegrationService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get single dbt job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/integrations/dbt/jobs/:dbtJobId",
+            "params": [
+              {
+                "name": "dbtJobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get single dbt job"
+        },
+        {
+          "info": {
+            "name": "Get single dbt job run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/integrations/dbt/jobs/runs/:dbtJobRunId",
+            "params": [
+              {
+                "name": "dbtJobRunId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get single dbt job run"
+        },
+        {
+          "info": {
+            "name": "Get dbt jobs for project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/integrations/dbt/projects/:dbtProjectId/jobs",
+            "params": [
+              {
+                "name": "dbtProjectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get dbt jobs for project"
+        },
+        {
+          "info": {
+            "name": "Get single dbt project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/integrations/dbt/projects/:dbtProjectId",
+            "params": [
+              {
+                "name": "dbtProjectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get single dbt project"
+        },
+        {
+          "info": {
+            "name": "Get entities for integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/integrations/:integrationId/entities",
+            "params": [
+              {
+                "name": "integrationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get entities for integration"
+        },
+        {
+          "info": {
+            "name": "Get single integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/integrations/:integrationId",
+            "params": [
+              {
+                "name": "integrationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get single integration"
+        },
+        {
+          "info": {
+            "name": "Update integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.bigeye.com/api/v1/integrations/:integrationId",
+            "params": [
+              {
+                "name": "integrationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update integration"
+        },
+        {
+          "info": {
+            "name": "Delete integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/integrations/:integrationId",
+            "params": [
+              {
+                "name": "integrationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete integration"
+        },
+        {
+          "info": {
+            "name": "Get integrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/integrations"
+          },
+          "docs": "Get integrations"
+        },
+        {
+          "info": {
+            "name": "Create integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/integrations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create integration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

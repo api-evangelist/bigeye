@@ -1,0 +1,462 @@
+openapi: 3.2.0
+info:
+  title: Observability Collection Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: CollectionService
+paths:
+  /api/v1/collections/{collectionId}:
+    delete:
+      operationId: CollectionService_DeleteCollection
+      parameters:
+      - in: path
+        name: collectionId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEmpty'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Delete collection
+      tags:
+      - CollectionService
+    get:
+      operationId: CollectionService_GetCollection
+      parameters:
+      - in: path
+        name: collectionId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetCollectionsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get specific collection
+      tags:
+      - CollectionService
+    put:
+      operationId: CollectionService_EditCollection
+      parameters:
+      - in: path
+        name: collectionId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        $ref: '#/components/requestBodies/generatedEditCollectionRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedEditCollectionResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Edit collection
+      tags:
+      - CollectionService
+  /api/v1/collections/info/{collectionId}:
+    get:
+      operationId: CollectionService_GetCollectionInfo
+      parameters:
+      - in: path
+        name: collectionId
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetCollectionInfoResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get collection information
+      tags:
+      - CollectionService
+  /api/v1/collections/info:
+    get:
+      operationId: CollectionService_GetCollectionInfos
+      parameters:
+      - in: query
+        name: workspaceId
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetAllCollectionInfosResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get all collection information
+      tags:
+      - CollectionService
+  /api/v1/collections:
+    get:
+      operationId: CollectionService_GetCollections
+      parameters:
+      - in: query
+        name: workspaceId
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetCollectionsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get all collections
+      tags:
+      - CollectionService
+    post:
+      operationId: CollectionService_CreateCollection
+      requestBody:
+        $ref: '#/components/requestBodies/generatedEditCollectionRequest'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedCreateCollectionResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Create collection
+      tags:
+      - CollectionService
+components:
+  schemas:
+    generatedSlackChannelInfo:
+      properties:
+        channelId:
+          type: string
+        channelName:
+          type: string
+        issueThreadPermalink:
+          type: string
+        threadTs:
+          type: string
+      type: object
+    generatedEmpty:
+      type: object
+    generatedTag:
+      properties:
+        colorHex:
+          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+          type: string
+        createdAt:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        updatedAt:
+          format: int64
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      title: Tags
+      type: object
+    generatedExternalTicketProvider:
+      default: EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
+      enum:
+      - EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
+      - EXTERNAL_TICKET_PROVIDER_JIRA
+      - EXTERNAL_TICKET_PROVIDER_SERVICENOW
+      type: string
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedWebhookHeader:
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      type: object
+    generatedCreateCollectionResponse:
+      properties:
+        collection:
+          $ref: '#/components/schemas/generatedCollection'
+        failedMetricEdits:
+          items:
+            $ref: '#/components/schemas/generatedFailedMetricEdit'
+          type: array
+      type: object
+    generatedEditCollectionRequest:
+      properties:
+        collectionName:
+          type: string
+        description:
+          type: string
+        metricIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        mutedUntilTimestamp:
+          format: int32
+          type: integer
+        notificationChannels:
+          items:
+            $ref: '#/components/schemas/generatedNotificationChannel'
+          type: array
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedCollectionInfo:
+      properties:
+        collectionConfiguration:
+          $ref: '#/components/schemas/generatedCollection'
+        collectionMetricStatus:
+          $ref: '#/components/schemas/generatedCollectionMetricStatus'
+      type: object
+    generatedFailedMetricEdit:
+      properties:
+        metricId:
+          format: int32
+          type: integer
+        reason:
+          type: string
+      type: object
+    generatedIssueExternalTicketInfo:
+      properties:
+        externalTicketId:
+          type: string
+        externalTicketProvider:
+          $ref: '#/components/schemas/generatedExternalTicketProvider'
+        externalTicketUrl:
+          type: string
+        issueId:
+          format: int32
+          type: integer
+      type: object
+    generatedWebhook:
+      properties:
+        webhookHeaders:
+          items:
+            $ref: '#/components/schemas/generatedWebhookHeader'
+          type: array
+        webhookUrl:
+          type: string
+      type: object
+    generatedEditCollectionResponse:
+      properties:
+        collection:
+          $ref: '#/components/schemas/generatedCollection'
+        failedMetricEdits:
+          items:
+            $ref: '#/components/schemas/generatedFailedMetricEdit'
+          type: array
+      type: object
+    generatedGetCollectionInfoResponse:
+      properties:
+        collectionInfo:
+          $ref: '#/components/schemas/generatedCollectionInfo'
+      type: object
+    generatedCollectionMetricStatus:
+      properties:
+        acknowledgeIssuesCount:
+          format: int32
+          type: integer
+        alertingMetricsCount:
+          format: int32
+          type: integer
+        earliestUpdatedMetricSeconds:
+          format: int64
+          type: string
+        latestUpdatedMetricSeconds:
+          format: int64
+          type: string
+        metricsCount:
+          format: int32
+          type: integer
+        monitoringIssuesCount:
+          format: int32
+          type: integer
+        openIssuesCount:
+          format: int32
+          type: integer
+        triageIssuesCount:
+          format: int32
+          type: integer
+      type: object
+    generatedCollection:
+      properties:
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        metricIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        mutedUntilTimestamp:
+          format: int32
+          type: integer
+        name:
+          type: string
+        notificationChannels:
+          items:
+            $ref: '#/components/schemas/generatedNotificationChannel'
+          type: array
+        owner:
+          format: int32
+          type: integer
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedGetCollectionsResponse:
+      properties:
+        collections:
+          items:
+            $ref: '#/components/schemas/generatedCollection'
+          type: array
+      type: object
+    generatedGetAllCollectionInfosResponse:
+      properties:
+        collectionInfos:
+          items:
+            $ref: '#/components/schemas/generatedCollectionInfo'
+          type: array
+      type: object
+    generatedNotificationChannel:
+      properties:
+        email:
+          type: string
+        externalTicketInfo:
+          $ref: '#/components/schemas/generatedIssueExternalTicketInfo'
+        slackChannelInfo:
+          $ref: '#/components/schemas/generatedSlackChannelInfo'
+        webhook:
+          $ref: '#/components/schemas/generatedWebhook'
+      type: object
+  requestBodies:
+    generatedEditCollectionRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedEditCollectionRequest'
+      required: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

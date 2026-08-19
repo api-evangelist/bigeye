@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metadata API Key Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiKeyService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete an Agent API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/agent-api-keys/:apiKeyId",
+            "params": [
+              {
+                "name": "apiKeyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an Agent API Key"
+        },
+        {
+          "info": {
+            "name": "Delete a Personal API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/personal-api-keys/:apiKeyId",
+            "params": [
+              {
+                "name": "apiKeyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a Personal API Key"
+        },
+        {
+          "info": {
+            "name": "Get all Agent API Keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/agent-api-keys"
+          },
+          "docs": "Get all Agent API Keys"
+        },
+        {
+          "info": {
+            "name": "Create an Agent API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/agent-api-keys",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an Agent API Key"
+        },
+        {
+          "info": {
+            "name": "Get all Personal API Keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/personal-api-keys"
+          },
+          "docs": "Get all Personal API Keys"
+        },
+        {
+          "info": {
+            "name": "Verify an Agent API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/agent-api-keys/verify",
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Verify an Agent API Key"
+        },
+        {
+          "info": {
+            "name": "Verify a Personal API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/personal-api-keys/verify",
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Verify a Personal API Key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

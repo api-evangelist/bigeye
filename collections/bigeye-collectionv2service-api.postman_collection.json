@@ -1,0 +1,472 @@
+{
+  "item": [
+    {
+      "id": "0fdf5a0b-29d4-494a-a007-010269d23020",
+      "name": "CollectionV2Service",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2f8db3f2-2ec9-4b7d-be51-671acf7000e3",
+          "name": "Fetch paginated collection information",
+          "request": {
+            "name": "Fetch paginated collection information",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "collections",
+                "info",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fee2565f-681c-450d-9077-5cfc7f24894b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "collections",
+                    "info",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"collectionInfos\": [\n    {\n      \"collectionConfiguration\": {\n        \"description\": \"string\",\n        \"entityInfo\": {\n          \"createdBy\": 8790,\n          \"createdEpochSeconds\": \"string\",\n          \"updatedBy\": 4729,\n          \"updatedEpochSeconds\": \"string\"\n        },\n        \"id\": 4591,\n        \"isFavorite\": false,\n        \"metricIds\": [\n          483,\n          7553\n        ],\n        \"mutedUntilTimestamp\": 9654,\n        \"name\": \"string\",\n        \"notificationChannels\": [\n          {\n            \"email\": \"string\",\n            \"externalTicketInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"slackChannelInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"email\": \"string\",\n            \"externalTicketInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"slackChannelInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"owner\": 6841,\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 6439,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 5528\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 8867,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 813\n          }\n        ]\n      },\n      \"collectionMetricStatus\": {\n        \"acknowledgeIssuesCount\": 1982,\n        \"alertingMetricsCount\": 6371,\n        \"earliestUpdatedMetricSeconds\": \"string\",\n        \"latestUpdatedMetricSeconds\": \"string\",\n        \"metricsCount\": 7187,\n        \"monitoringIssuesCount\": 2488,\n        \"openIssuesCount\": 7447,\n        \"triageIssuesCount\": 1499\n      }\n    },\n    {\n      \"collectionConfiguration\": {\n        \"description\": \"string\",\n        \"entityInfo\": {\n          \"createdBy\": 7122,\n          \"createdEpochSeconds\": \"string\",\n          \"updatedBy\": 5245,\n          \"updatedEpochSeconds\": \"string\"\n        },\n        \"id\": 6627,\n        \"isFavorite\": false,\n        \"metricIds\": [\n          4458,\n          7362\n        ],\n        \"mutedUntilTimestamp\": 6217,\n        \"name\": \"string\",\n        \"notificationChannels\": [\n          {\n            \"email\": \"string\",\n            \"externalTicketInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"slackChannelInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"email\": \"string\",\n            \"externalTicketInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"slackChannelInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"owner\": 4882,\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 5501,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 5141\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 5635,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 510\n          }\n        ]\n      },\n      \"collectionMetricStatus\": {\n        \"acknowledgeIssuesCount\": 4182,\n        \"alertingMetricsCount\": 4358,\n        \"earliestUpdatedMetricSeconds\": \"string\",\n        \"latestUpdatedMetricSeconds\": \"string\",\n        \"metricsCount\": 3074,\n        \"monitoringIssuesCount\": 7583,\n        \"openIssuesCount\": 8664,\n        \"triageIssuesCount\": 8386\n      }\n    }\n  ],\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": true,\n    \"numRecords\": 632,\n    \"prevCursor\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b50de18e-9089-4164-9515-48d4e46c195c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "collections",
+                    "info",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8056,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "785942b4-bd72-43e4-af9e-1343e3a57d99",
+          "name": "Get collection information",
+          "request": {
+            "name": "Get collection information",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "collections",
+                "info",
+                ":collectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "collectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82cdcb25-defd-4d76-9c1b-4841ac937e7c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "collections",
+                    "info",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"collectionInfo\": {\n    \"collectionConfiguration\": {\n      \"description\": \"string\",\n      \"entityInfo\": {\n        \"createdBy\": 9716,\n        \"createdEpochSeconds\": \"string\",\n        \"updatedBy\": 6809,\n        \"updatedEpochSeconds\": \"string\"\n      },\n      \"id\": 5373,\n      \"isFavorite\": false,\n      \"metricIds\": [\n        8164,\n        6639\n      ],\n      \"mutedUntilTimestamp\": 722,\n      \"name\": \"string\",\n      \"notificationChannels\": [\n        {\n          \"email\": \"string\",\n          \"externalTicketInfo\": {\n            \"externalTicketId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalTicketProvider\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalTicketUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issueId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"slackChannelInfo\": {\n            \"channelId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"channelName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issueThreadPermalink\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"threadTs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"webhook\": {\n            \"webhookHeaders\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhookUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"email\": \"string\",\n          \"externalTicketInfo\": {\n            \"externalTicketId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalTicketProvider\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"externalTicketUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issueId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"slackChannelInfo\": {\n            \"channelId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"channelName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issueThreadPermalink\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"threadTs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"webhook\": {\n            \"webhookHeaders\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhookUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"owner\": 9453,\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 4319,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 4779\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 1077,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 6987\n        }\n      ]\n    },\n    \"collectionMetricStatus\": {\n      \"acknowledgeIssuesCount\": 7534,\n      \"alertingMetricsCount\": 1187,\n      \"earliestUpdatedMetricSeconds\": \"string\",\n      \"latestUpdatedMetricSeconds\": \"string\",\n      \"metricsCount\": 1680,\n      \"monitoringIssuesCount\": 5731,\n      \"openIssuesCount\": 9846,\n      \"triageIssuesCount\": 5360\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "545f4304-9459-4a0d-8d45-71bc01140a4e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "collections",
+                    "info",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1341,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98fc4bd7-23aa-4349-91ff-31a936f1b0ed",
+          "name": "Get all collection information",
+          "request": {
+            "name": "Get all collection information",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "collections",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "workspaceId",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e87c8026-a9bc-46f7-8205-a2ff469f86c6",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "collections",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"collectionInfos\": [\n    {\n      \"collectionConfiguration\": {\n        \"description\": \"string\",\n        \"entityInfo\": {\n          \"createdBy\": 3386,\n          \"createdEpochSeconds\": \"string\",\n          \"updatedBy\": 6937,\n          \"updatedEpochSeconds\": \"string\"\n        },\n        \"id\": 4507,\n        \"isFavorite\": false,\n        \"metricIds\": [\n          5180,\n          1521\n        ],\n        \"mutedUntilTimestamp\": 1971,\n        \"name\": \"string\",\n        \"notificationChannels\": [\n          {\n            \"email\": \"string\",\n            \"externalTicketInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"slackChannelInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"email\": \"string\",\n            \"externalTicketInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"slackChannelInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"owner\": 7453,\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 8046,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 8442\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 6254,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 1579\n          }\n        ]\n      },\n      \"collectionMetricStatus\": {\n        \"acknowledgeIssuesCount\": 3366,\n        \"alertingMetricsCount\": 2395,\n        \"earliestUpdatedMetricSeconds\": \"string\",\n        \"latestUpdatedMetricSeconds\": \"string\",\n        \"metricsCount\": 1745,\n        \"monitoringIssuesCount\": 2674,\n        \"openIssuesCount\": 9320,\n        \"triageIssuesCount\": 1875\n      }\n    },\n    {\n      \"collectionConfiguration\": {\n        \"description\": \"string\",\n        \"entityInfo\": {\n          \"createdBy\": 266,\n          \"createdEpochSeconds\": \"string\",\n          \"updatedBy\": 4641,\n          \"updatedEpochSeconds\": \"string\"\n        },\n        \"id\": 2471,\n        \"isFavorite\": true,\n        \"metricIds\": [\n          375,\n          9364\n        ],\n        \"mutedUntilTimestamp\": 84,\n        \"name\": \"string\",\n        \"notificationChannels\": [\n          {\n            \"email\": \"string\",\n            \"externalTicketInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"slackChannelInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"email\": \"string\",\n            \"externalTicketInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"slackChannelInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"webhook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"owner\": 3215,\n        \"tags\": [\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 1261,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 5224\n          },\n          {\n            \"colorHex\": \"string\",\n            \"createdAt\": \"string\",\n            \"id\": 8977,\n            \"name\": \"string\",\n            \"updatedAt\": \"string\",\n            \"workspaceId\": 342\n          }\n        ]\n      },\n      \"collectionMetricStatus\": {\n        \"acknowledgeIssuesCount\": 4219,\n        \"alertingMetricsCount\": 6300,\n        \"earliestUpdatedMetricSeconds\": \"string\",\n        \"latestUpdatedMetricSeconds\": \"string\",\n        \"metricsCount\": 1293,\n        \"monitoringIssuesCount\": 5496,\n        \"openIssuesCount\": 9166,\n        \"triageIssuesCount\": 450\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "086ece5b-ef7a-4b28-ad8c-cb6743387b71",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "collections",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1341,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c8e06a43-9655-4beb-944c-b21df53abc29",
+    "name": "Observability Collection V2 Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

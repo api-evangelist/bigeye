@@ -1,0 +1,350 @@
+openapi: 3.2.0
+info:
+  title: Sensitivity Scan Run Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: ScanRunService
+paths:
+  /api/v1/sds/scan-run/fetch:
+    post:
+      operationId: ScanRunService_FetchScanRuns
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedGetScanRunListRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedGetScanRunListResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Fetch scan runs with filters and pagination
+      tags:
+      - ScanRunService
+  /api/v1/sds/scan-run/{id}:
+    get:
+      operationId: ScanRunService_GetScanRun
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedScanRun'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get a scan run by ID
+      tags:
+      - ScanRunService
+components:
+  schemas:
+    generatedScanJobStatus:
+      default: SCAN_JOB_STATUS_UNSPECIFIED
+      enum:
+      - SCAN_JOB_STATUS_UNSPECIFIED
+      - SCAN_JOB_STATUS_SCANNED
+      - SCAN_JOB_STATUS_SCANNING
+      - SCAN_JOB_STATUS_NO_RUNS
+      - SCAN_JOB_STATUS_CANCELLED
+      - SCAN_JOB_STATUS_FAILED
+      type: string
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
+    generatedTimeIntervalType:
+      default: UNDEFINED_TIME_INTERVAL_TYPE
+      enum:
+      - UNDEFINED_TIME_INTERVAL_TYPE
+      - HOURS_TIME_INTERVAL_TYPE
+      - MINUTES_TIME_INTERVAL_TYPE
+      - SECONDS_TIME_INTERVAL_TYPE
+      - DAYS_TIME_INTERVAL_TYPE
+      - WEEKDAYS_TIME_INTERVAL_TYPE
+      - MARKET_DAYS_TIME_INTERVAL_TYPE
+      - MONTHS_TIME_INTERVAL_TYPE
+      - WEEKS_TIME_INTERVAL_TYPE
+      - YEARS_TIME_INTERVAL_TYPE
+      type: string
+    generatedTimeInterval:
+      properties:
+        intervalType:
+          $ref: '#/components/schemas/generatedTimeIntervalType'
+        intervalValue:
+          format: int32
+          type: integer
+      type: object
+    generatedScanType:
+      default: SCAN_TYPE_UNSPECIFIED
+      enum:
+      - SCAN_TYPE_UNSPECIFIED
+      - SCAN_TYPE_AUTO
+      - SCAN_TYPE_FULL
+      - SCAN_TYPE_INCREMENTAL
+      - SCAN_TYPE_SAMPLED
+      type: string
+    generatedScanRun:
+      properties:
+        completedAt:
+          format: int64
+          type: string
+        displayName:
+          type: string
+        errorMessage:
+          type: string
+        id:
+          format: int64
+          type: string
+        nextRunAt:
+          format: int64
+          type: string
+        numberOfClassifiers:
+          format: int32
+          type: integer
+        rowsScanned:
+          format: int64
+          type: string
+        scanJob:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        scanType:
+          $ref: '#/components/schemas/generatedScanType'
+        schedule:
+          $ref: '#/components/schemas/generatedScanSchedule'
+        splitFailures:
+          items:
+            $ref: '#/components/schemas/generatedSplitFailure'
+          type: array
+        startedAt:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedScanJobStatus'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedScanRunSortOption:
+      properties:
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedScanRunSortField'
+      type: object
+    generatedScanScheduleFrequency:
+      properties:
+        cronString:
+          type: string
+        displayName:
+          type: string
+        startTimeEpochSeconds:
+          format: int64
+          type: string
+        timeInterval:
+          $ref: '#/components/schemas/generatedTimeInterval'
+      type: object
+    generatedNamedSchedule:
+      properties:
+        cron:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        timezone:
+          description: IANA timezone id (e.g. "America/New_York") used to interpret the cron. Defaults to UTC when unset.
+          type: string
+      type: object
+    generatedScanSchedule:
+      properties:
+        namedSchedule:
+          $ref: '#/components/schemas/generatedNamedSchedule'
+        scheduleFrequency:
+          $ref: '#/components/schemas/generatedScanScheduleFrequency'
+      type: object
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedScanRunSortField:
+      default: SCAN_RUN_SORT_FIELD_UNSPECIFIED
+      enum:
+      - SCAN_RUN_SORT_FIELD_UNSPECIFIED
+      - SCAN_RUN_SORT_FIELD_DISPLAY_NAME
+      - SCAN_RUN_SORT_FIELD_SCAN_JOB_NAME
+      - SCAN_RUN_SORT_FIELD_STATUS
+      - SCAN_RUN_SORT_FIELD_STARTED_AT
+      - SCAN_RUN_SORT_FIELD_COMPLETED_AT
+      - SCAN_RUN_SORT_FIELD_DURATION
+      - SCAN_RUN_SORT_FIELD_ROWS_SCANNED
+      - SCAN_RUN_SORT_FIELD_SCAN_TYPE
+      - SCAN_RUN_SORT_FIELD_SCHEDULE
+      type: string
+    generatedSplitFailure:
+      properties:
+        message:
+          type: string
+        tableId:
+          format: int32
+          type: integer
+      type: object
+    generatedGetScanRunListResponse:
+      properties:
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+        scanRuns:
+          items:
+            $ref: '#/components/schemas/generatedScanRun'
+          type: array
+      type: object
+    generatedGetScanRunListRequest:
+      properties:
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        returnJobsWithNoSchedule:
+          type: boolean
+        scanJobIds:
+          items:
+            format: int64
+            type: string
+          type: array
+        scanTypes:
+          items:
+            $ref: '#/components/schemas/generatedScanType'
+          type: array
+        scheduleFrequencies:
+          items:
+            $ref: '#/components/schemas/generatedTimeInterval'
+          type: array
+        scheduleFrequencyCronStrings:
+          items:
+            type: string
+          type: array
+        scheduleIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        search:
+          type: string
+        sortOptions:
+          items:
+            $ref: '#/components/schemas/generatedScanRunSortOption'
+          type: array
+        statuses:
+          items:
+            $ref: '#/components/schemas/generatedScanJobStatus'
+          type: array
+        warehouseIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

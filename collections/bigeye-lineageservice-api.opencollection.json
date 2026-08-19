@@ -1,0 +1,221 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metadata Lineage Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "LineageService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a custom node",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/lineage/nodes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a custom node"
+        },
+        {
+          "info": {
+            "name": "Create a custom edge between two nodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/lineage/relationships",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a custom edge between two nodes"
+        },
+        {
+          "info": {
+            "name": "Get a node by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/lineage/nodes/:dataNodeId",
+            "params": [
+              {
+                "name": "dataNodeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a node by ID"
+        },
+        {
+          "info": {
+            "name": "Delete a node by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/lineage/nodes/:dataNodeId",
+            "params": [
+              {
+                "name": "dataNodeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a node by ID"
+        },
+        {
+          "info": {
+            "name": "Get downstream nodes for a given node",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/lineage/nodes/:dataNodeId/downstream/fetch",
+            "params": [
+              {
+                "name": "dataNodeId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get downstream nodes for a given node"
+        },
+        {
+          "info": {
+            "name": "Get an edge by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/lineage/relationships/:lineageRelationshipId",
+            "params": [
+              {
+                "name": "lineageRelationshipId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an edge by ID"
+        },
+        {
+          "info": {
+            "name": "Delete an edge by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/lineage/relationships/:lineageRelationshipId",
+            "params": [
+              {
+                "name": "lineageRelationshipId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an edge by ID"
+        },
+        {
+          "info": {
+            "name": "Get all edges for a node",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v1/lineage/nodes/:dataNodeId/relationships",
+            "params": [
+              {
+                "name": "dataNodeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get all edges for a node"
+        },
+        {
+          "info": {
+            "name": "Delete all edges for a node",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.bigeye.com/api/v1/lineage/nodes/:dataNodeId/relationships",
+            "params": [
+              {
+                "name": "dataNodeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete all edges for a node"
+        },
+        {
+          "info": {
+            "name": "Queue a lineage collection workflow for an integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/lineage/integrations/:integrationId/lineage/workflow",
+            "params": [
+              {
+                "name": "integrationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Queue a lineage collection workflow for an integration"
+        },
+        {
+          "info": {
+            "name": "Queue a lineage collection workflow for a source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v1/lineage/sources/:sourceId/lineage/workflow",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Queue a lineage collection workflow for a source"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

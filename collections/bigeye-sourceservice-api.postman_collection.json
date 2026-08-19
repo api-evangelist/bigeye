@@ -1,0 +1,1247 @@
+{
+  "item": [
+    {
+      "id": "9cb6b587-469e-49a6-8d08-a7401da9179b",
+      "name": "SourceService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34d728e4-a5a6-404c-840b-7b3a603dd541",
+          "name": "Create or update source",
+          "request": {
+            "name": "Create or update source",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"alationSourceId\": \"<integer>\",\n  \"atlanConnectionId\": \"<string>\",\n  \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n  \"bigqueryQueryProjectIds\": \"<string>\",\n  \"databaseName\": \"<string>\",\n  \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n  \"datadotworldConnectionId\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"hostname\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"ignoreSchemasPrefix\": \"<string>\",\n  \"indexingSchedule\": {\n    \"namedSchedule\": {\n      \"cron\": \"<string>\",\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"scheduleFrequency\": {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    }\n  },\n  \"maxPoolSize\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"privateKeyFile\": \"<string>\",\n  \"queryTimeoutSeconds\": \"<integer>\",\n  \"skipIndexing\": \"<boolean>\",\n  \"sourceMetadataOverrides\": {\n    \"accessHistoryTableName\": \"<string>\",\n    \"aiObservabilityEventsTableName\": \"<string>\",\n    \"copyHistoryTableName\": \"<string>\",\n    \"dynamicTableRefreshHistoryTableName\": \"<string>\",\n    \"queryHistoryTableName\": \"<string>\",\n    \"tablesTableName\": \"<string>\"\n  },\n  \"targetBigqueryProjectId\": \"<string>\",\n  \"temporalAgentSecret\": \"<string>\",\n  \"username\": \"<string>\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "921722b1-18e1-4c27-a24d-a6f0286fcb54",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"schemaNames\": [\n    \"string\",\n    \"string\"\n  ],\n  \"source\": {\n    \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n    \"alationSourceId\": 4717,\n    \"atlanConnectionId\": \"string\",\n    \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n    \"bigqueryQueryProjectIds\": \"string\",\n    \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n    \"dataSourceAgentVersion\": \"string\",\n    \"databaseName\": \"string\",\n    \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n    \"datadotworldConnectionId\": \"string\",\n    \"domain\": \"string\",\n    \"hostname\": \"string\",\n    \"id\": 5808,\n    \"ignoreSchemasPrefix\": \"string\",\n    \"indexingSchedule\": {\n      \"displayName\": \"string\",\n      \"id\": 4695\n    },\n    \"isFavorite\": false,\n    \"maxPoolSize\": 8721,\n    \"metricBatchSizeMetadata\": 3209,\n    \"metricBatchSizeQuery\": 5843,\n    \"metricRunNativeTemporalParallelism\": 410,\n    \"name\": \"string\",\n    \"port\": 7934,\n    \"projectId\": \"string\",\n    \"queryTimeoutSeconds\": 4648,\n    \"schemaChangeInfo\": {\n      \"initialSchemaScanAt\": \"string\",\n      \"lastSchemaChangeAt\": \"string\",\n      \"mostRecentSchemaScanAt\": \"string\"\n    },\n    \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n    \"serviceAccountEmail\": \"string\",\n    \"sourceMetadataOverrides\": {\n      \"accessHistoryTableName\": \"<string>\",\n      \"aiObservabilityEventsTableName\": \"<string>\",\n      \"copyHistoryTableName\": \"<string>\",\n      \"dynamicTableRefreshHistoryTableName\": \"<string>\",\n      \"queryHistoryTableName\": \"<string>\",\n      \"tablesTableName\": \"<string>\"\n    },\n    \"tags\": [\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 1165,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 1406\n      },\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 2716,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 8897\n      }\n    ],\n    \"targetBigqueryProjectId\": \"string\",\n    \"temporalAgentUuid\": \"string\",\n    \"username\": \"string\",\n    \"usesAgent\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "414b7b3c-9e8a-49fb-8351-d3f6d5f86274",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3783,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac047218-324d-41a0-9c65-683c3220a96b",
+          "name": "Delete source",
+          "request": {
+            "name": "Delete source",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sources",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "sourceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d8a6c0d-fdc9-4edc-b0f5-440647484f77",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea9846ef-0336-4d08-aa5b-b816c5a20fea",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6257,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd4de318-db50-4bab-9a14-65f63a1755c3",
+          "name": "Get single source",
+          "request": {
+            "name": "Get single source",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sources",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "sourceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0bf83805-b1e9-41f7-9db1-37ae6e463de0",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"source\": {\n    \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n    \"alationSourceId\": 2029,\n    \"atlanConnectionId\": \"string\",\n    \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n    \"bigqueryQueryProjectIds\": \"string\",\n    \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n    \"dataSourceAgentVersion\": \"string\",\n    \"databaseName\": \"string\",\n    \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n    \"datadotworldConnectionId\": \"string\",\n    \"domain\": \"string\",\n    \"hostname\": \"string\",\n    \"id\": 8701,\n    \"ignoreSchemasPrefix\": \"string\",\n    \"indexingSchedule\": {\n      \"displayName\": \"string\",\n      \"id\": 756\n    },\n    \"isFavorite\": false,\n    \"maxPoolSize\": 6652,\n    \"metricBatchSizeMetadata\": 3438,\n    \"metricBatchSizeQuery\": 5389,\n    \"metricRunNativeTemporalParallelism\": 7535,\n    \"name\": \"string\",\n    \"port\": 7713,\n    \"projectId\": \"string\",\n    \"queryTimeoutSeconds\": 259,\n    \"schemaChangeInfo\": {\n      \"initialSchemaScanAt\": \"string\",\n      \"lastSchemaChangeAt\": \"string\",\n      \"mostRecentSchemaScanAt\": \"string\"\n    },\n    \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n    \"serviceAccountEmail\": \"string\",\n    \"sourceMetadataOverrides\": {\n      \"accessHistoryTableName\": \"<string>\",\n      \"aiObservabilityEventsTableName\": \"<string>\",\n      \"copyHistoryTableName\": \"<string>\",\n      \"dynamicTableRefreshHistoryTableName\": \"<string>\",\n      \"queryHistoryTableName\": \"<string>\",\n      \"tablesTableName\": \"<string>\"\n    },\n    \"tags\": [\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 9188,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 4471\n      },\n      {\n        \"colorHex\": \"string\",\n        \"createdAt\": \"string\",\n        \"id\": 9590,\n        \"name\": \"string\",\n        \"updatedAt\": \"string\",\n        \"workspaceId\": 2960\n      }\n    ],\n    \"targetBigqueryProjectId\": \"string\",\n    \"temporalAgentUuid\": \"string\",\n    \"username\": \"string\",\n    \"usesAgent\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67115abf-9e60-4a60-8057-7b008755d547",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6257,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3efb89e-0df1-491a-948b-eee33443a519",
+          "name": "Get workflow for source",
+          "request": {
+            "name": "Get workflow for source",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sources",
+                ":sourceId",
+                "workflow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "sourceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5436a2a8-4cc0-4ef9-815b-c0ad01ea7c1a",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    ":sourceId",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workflowId\": \"string\",\n  \"workflowType\": \"WORKFLOW_PROCESSING_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0894ad1-815d-4786-910c-d361a34d5a98",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    ":sourceId",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6257,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "019de40b-c357-4999-aea6-70c44c7c6196",
+          "name": "Get the current status for a workflow for a source",
+          "request": {
+            "name": "Get the current status for a workflow for a source",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sources",
+                ":sourceId",
+                "workflow",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "sourceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e3d76ca-02e7-49bd-952f-4dba4a61197f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    ":sourceId",
+                    "workflow",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"completedAt\": \"string\",\n  \"completedOps\": 1851,\n  \"startedAt\": \"string\",\n  \"status\": \"WORKFLOW_PROCESSING_STATUS_UNSPECIFIED\",\n  \"totalOps\": 5648,\n  \"workflowId\": \"string\",\n  \"workflowType\": \"WORKFLOW_PROCESSING_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a69ccec9-3c0d-43b1-a35a-dd74ca32a609",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    ":sourceId",
+                    "workflow",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6257,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce0898ab-30a9-4131-b46e-df16ec6ca95a",
+          "name": "Get sources",
+          "request": {
+            "name": "Get sources",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sources",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"SOURCE_SORT_FIELD_UNSPECIFIED\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0e6826d3-4089-4945-b728-fd9d9153976c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"SOURCE_SORT_FIELD_UNSPECIFIED\",\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paginationInfo\": {\n    \"firstSortDistinctValues\": \"string\",\n    \"nextCursor\": \"string\",\n    \"noNumRecords\": false,\n    \"numRecords\": 6803,\n    \"prevCursor\": \"string\"\n  },\n  \"sources\": [\n    {\n      \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"alationSourceId\": 3144,\n      \"atlanConnectionId\": \"string\",\n      \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n      \"bigqueryQueryProjectIds\": \"string\",\n      \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"dataSourceAgentVersion\": \"string\",\n      \"databaseName\": \"string\",\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"datadotworldConnectionId\": \"string\",\n      \"domain\": \"string\",\n      \"hostname\": \"string\",\n      \"id\": 103,\n      \"ignoreSchemasPrefix\": \"string\",\n      \"indexingSchedule\": {\n        \"displayName\": \"string\",\n        \"id\": 7492\n      },\n      \"isFavorite\": false,\n      \"maxPoolSize\": 7496,\n      \"metricBatchSizeMetadata\": 1612,\n      \"metricBatchSizeQuery\": 1377,\n      \"metricRunNativeTemporalParallelism\": 511,\n      \"name\": \"string\",\n      \"port\": 5891,\n      \"projectId\": \"string\",\n      \"queryTimeoutSeconds\": 5978,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"serviceAccountEmail\": \"string\",\n      \"sourceMetadataOverrides\": {\n        \"accessHistoryTableName\": \"<string>\",\n        \"aiObservabilityEventsTableName\": \"<string>\",\n        \"copyHistoryTableName\": \"<string>\",\n        \"dynamicTableRefreshHistoryTableName\": \"<string>\",\n        \"queryHistoryTableName\": \"<string>\",\n        \"tablesTableName\": \"<string>\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 3229,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 7863\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 6524,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 1199\n        }\n      ],\n      \"targetBigqueryProjectId\": \"string\",\n      \"temporalAgentUuid\": \"string\",\n      \"username\": \"string\",\n      \"usesAgent\": false\n    },\n    {\n      \"agentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"alationSourceId\": 7459,\n      \"atlanConnectionId\": \"string\",\n      \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n      \"bigqueryQueryProjectIds\": \"string\",\n      \"crossSourceAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"dataSourceAgentVersion\": \"string\",\n      \"databaseName\": \"string\",\n      \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"datadotworldConnectionId\": \"string\",\n      \"domain\": \"string\",\n      \"hostname\": \"string\",\n      \"id\": 242,\n      \"ignoreSchemasPrefix\": \"string\",\n      \"indexingSchedule\": {\n        \"displayName\": \"string\",\n        \"id\": 1082\n      },\n      \"isFavorite\": false,\n      \"maxPoolSize\": 2689,\n      \"metricBatchSizeMetadata\": 4320,\n      \"metricBatchSizeQuery\": 1639,\n      \"metricRunNativeTemporalParallelism\": 2238,\n      \"name\": \"string\",\n      \"port\": 6158,\n      \"projectId\": \"string\",\n      \"queryTimeoutSeconds\": 9759,\n      \"schemaChangeInfo\": {\n        \"initialSchemaScanAt\": \"string\",\n        \"lastSchemaChangeAt\": \"string\",\n        \"mostRecentSchemaScanAt\": \"string\"\n      },\n      \"sensitiveDataAgentHealthStatus\": \"AGENT_HEALTH_STATUS_UNSPECIFIED\",\n      \"serviceAccountEmail\": \"string\",\n      \"sourceMetadataOverrides\": {\n        \"accessHistoryTableName\": \"<string>\",\n        \"aiObservabilityEventsTableName\": \"<string>\",\n        \"copyHistoryTableName\": \"<string>\",\n        \"dynamicTableRefreshHistoryTableName\": \"<string>\",\n        \"queryHistoryTableName\": \"<string>\",\n        \"tablesTableName\": \"<string>\"\n      },\n      \"tags\": [\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 7240,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 3891\n        },\n        {\n          \"colorHex\": \"string\",\n          \"createdAt\": \"string\",\n          \"id\": 9194,\n          \"name\": \"string\",\n          \"updatedAt\": \"string\",\n          \"workspaceId\": 3772\n        }\n      ],\n      \"targetBigqueryProjectId\": \"string\",\n      \"temporalAgentUuid\": \"string\",\n      \"username\": \"string\",\n      \"usesAgent\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96b2c94e-8112-4614-9ecd-5272a55ad178",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pageCursor\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"search\": \"<string>\",\n  \"sortDirection\": \"SORT_DIRECTION_UNSPECIFIED\",\n  \"sortField\": \"SOURCE_SORT_FIELD_UNSPECIFIED\",\n  \"workspaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6257,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93cdbf94-2991-42fb-861b-5fc701fedbfc",
+          "name": "Set the schemas that automatically get metadata metrics",
+          "request": {
+            "name": "Set the schemas that automatically get metadata metrics",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sources",
+                "metadata-schemas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"schemaName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sourceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "49e79db3-4510-4b18-8266-c4f45f876250",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    "metadata-schemas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemaName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sourceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e85c971b-bd51-436c-970f-c567f067afb2",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    "metadata-schemas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemaName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sourceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6257,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3dd159d4-9671-49b6-852e-eb433dbe54bf",
+          "name": "Validate source",
+          "request": {
+            "name": "Validate source",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sources",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"alationSourceId\": \"<integer>\",\n  \"atlanConnectionId\": \"<string>\",\n  \"authType\": \"AUTH_TYPE_UNSPECIFIED\",\n  \"bigqueryQueryProjectIds\": \"<string>\",\n  \"databaseName\": \"<string>\",\n  \"databaseType\": \"DATABASE_TYPE_UNSPECIFIED\",\n  \"datadotworldConnectionId\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"hostname\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"ignoreSchemasPrefix\": \"<string>\",\n  \"indexingSchedule\": {\n    \"namedSchedule\": {\n      \"cron\": \"<string>\",\n      \"entityInfo\": {\n        \"createdBy\": \"<integer>\",\n        \"createdEpochSeconds\": \"<int64>\",\n        \"updatedBy\": \"<integer>\",\n        \"updatedEpochSeconds\": \"<int64>\"\n      },\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"timezone\": \"<string>\"\n    },\n    \"scheduleFrequency\": {\n      \"intervalType\": \"UNDEFINED_TIME_INTERVAL_TYPE\",\n      \"intervalValue\": \"<integer>\"\n    }\n  },\n  \"maxPoolSize\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"privateKeyFile\": \"<string>\",\n  \"queryTimeoutSeconds\": \"<integer>\",\n  \"skipIndexing\": \"<boolean>\",\n  \"sourceMetadataOverrides\": {\n    \"accessHistoryTableName\": \"<string>\",\n    \"aiObservabilityEventsTableName\": \"<string>\",\n    \"copyHistoryTableName\": \"<string>\",\n    \"dynamicTableRefreshHistoryTableName\": \"<string>\",\n    \"queryHistoryTableName\": \"<string>\",\n    \"tablesTableName\": \"<string>\"\n  },\n  \"targetBigqueryProjectId\": \"<string>\",\n  \"temporalAgentSecret\": \"<string>\",\n  \"username\": \"<string>\",\n  \"workspaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d43726d5-0b1b-4916-9e0d-b35116587679",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"isValid\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6059fe5b-df51-4221-b545-12c55c339496",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sources",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6257,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e32d423e-b0d3-4b9f-8bd4-b85797e37e24",
+    "name": "Metadata Source Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

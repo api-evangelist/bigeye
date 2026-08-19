@@ -1,0 +1,294 @@
+openapi: 3.2.0
+info:
+  title: Metadata Dashboard Service API
+  version: version not set
+servers:
+- url: https://app.bigeye.com
+security:
+- basicAuth: []
+- Personal_API_Key: []
+tags:
+- name: DashboardService
+paths:
+  /api/v1/dashboard/refresh-info:
+    post:
+      operationId: DashboardService_GetDashboardDataRefreshInfo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedDashboardRefreshInfoRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDashboardRefreshInfoResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Gets last updated date for dashboard data series
+      tags:
+      - DashboardService
+  /api/v1/dashboard/calculate-data-points-request:
+    post:
+      operationId: DashboardService_GetDashboardDataSeries
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/generatedDashboardDataPointsRequest'
+        required: true
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedDashboardDataPointsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+      summary: Get dashboard data series for requested types
+      tags:
+      - DashboardService
+components:
+  schemas:
+    generatedDashboardDataPointSeries:
+      properties:
+        companyId:
+          format: int32
+          type: integer
+        dataPointType:
+          $ref: '#/components/schemas/generatedDashboardDataPointType'
+        dataPoints:
+          items:
+            $ref: '#/components/schemas/generatedDashboardDataPoint'
+          type: array
+        endingTimestamp:
+          format: int64
+          type: string
+        key:
+          type: string
+        keyInfo:
+          type: string
+        sourceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        startingTimestamp:
+          format: int64
+          type: string
+        workspaceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    generatedDashboardRefreshInfoResponse:
+      properties:
+        lastUpdatedAt:
+          format: int64
+          type: string
+        nextUpdatedAt:
+          format: int64
+          type: string
+      type: object
+    generatedDashboardDataPoint:
+      properties:
+        collectedTimestamp:
+          format: int64
+          type: string
+        companyId:
+          format: int32
+          type: integer
+        dataPointType:
+          $ref: '#/components/schemas/generatedDashboardDataPointType'
+        dataTimestamp:
+          format: int64
+          type: string
+        key:
+          type: string
+        sourceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        value:
+          format: double
+          type: number
+        workspaceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    generatedDashboardRefreshInfoRequest:
+      properties:
+        companyId:
+          format: int32
+          type: integer
+        endingTimestamp:
+          format: int64
+          type: string
+        sourceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        startingTimestamp:
+          format: int64
+          type: string
+        workspaceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    generatedDashboardDataPointType:
+      default: DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED
+      enum:
+      - DASHBOARD_DATA_POINT_TYPE_UNSPECIFIED
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_OPEN_ISSUES
+      - DASHBOARD_DATA_POINT_TYPE_AVERAGE_ISSUE_TIME_TO_ACTION
+      - DASHBOARD_DATA_POINT_TYPE_AVERAGE_ISSUE_TIME_TO_CLOSE
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_OPEN_ISSUES_BY_COLLECTION
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_METRICS_BY_COLLECTION
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_ISSUES_CLOSED_BY_USER
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_BILLABLE_TABLES
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_ISSUES_CLOSED
+      - DASHBOARD_DATA_POINT_TYPE_TOTAL_HOURS_TO_CLOSE
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_METRICS_WITH_ISSUE_BY_CATEGORY
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_METRICS_BY_CATEGORY
+      - DASHBOARD_DATA_POINT_TYPE_PCT_METRICS_WO_ISSUE_BY_CATEGORY
+      - DASHBOARD_DATA_POINT_TYPE_TOTAL_TABLES
+      - DASHBOARD_DATA_POINT_TYPE_TOTAL_TABLES_WITH_METRICS
+      - DASHBOARD_DATA_POINT_TYPE_PCT_TABLES_WITH_METRICS
+      - DASHBOARD_DATA_POINT_TYPE_TOTAL_TABLES_WITH_METRICS_BY_CATEGORY
+      - DASHBOARD_DATA_POINT_TYPE_PCT_TABLES_WITH_METRICS_BY_CATEGORY
+      - DASHBOARD_DATA_POINT_TYPE_TOTAL_TABLES_WITH_ISSUE_BY_CATEGORY
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_ISSUES_INTERACTED
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_ISSUES_OPENED
+      - DASHBOARD_DATA_POINT_TYPE_PCT_ISSUES_INTERACTED
+      - DASHBOARD_DATA_POINT_TYPE_PCT_TABLES_WITHOUT_ISSUE_BY_CATEGORY
+      - DASHBOARD_DATA_POINT_TYPE_TOTAL_TABLES_WITHOUT_ISSUE_BY_CATEGORY
+      - DASHBOARD_DATA_POINT_TYPE_PCT_METRICS_WO_ISSUE_BY_DIMENSION
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_METRICS_WITH_ISSUE_BY_DIMENSION
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_METRICS_BY_DIMENSION
+      - DASHBOARD_DATA_POINT_TYPE_PCT_TABLES_WITH_METRICS_BY_DIMENSION
+      - DASHBOARD_DATA_POINT_TYPE_TOTAL_TABLES_WITH_METRICS_BY_DIMENSION
+      - DASHBOARD_DATA_POINT_TYPE_PCT_TABLES_WO_ISSUE_BY_DIMENSION
+      - DASHBOARD_DATA_POINT_TYPE_TOTAL_TABLES_WITH_ISSUE_BY_DIMENSION
+      - DASHBOARD_DATA_POINT_TYPE_TOTAL_TABLES_WITHOUT_ISSUE_BY_DIMENSION
+      - DASHBOARD_DATA_POINT_TYPE_NUMBER_BILLABLE_UNIQUE_TABLE_NAMES
+      type: string
+    generatedDashboardDateAggregationType:
+      default: DASHBOARD_DATE_AGGREGATION_TYPE_DAY
+      enum:
+      - DASHBOARD_DATE_AGGREGATION_TYPE_DAY
+      - DASHBOARD_DATE_AGGREGATION_TYPE_WEEK
+      - DASHBOARD_DATE_AGGREGATION_TYPE_MONTH
+      type: string
+    generatedDashboardDataPointsResponse:
+      properties:
+        companyId:
+          format: int32
+          type: integer
+        dataPointSeries:
+          items:
+            $ref: '#/components/schemas/generatedDashboardDataPointSeries'
+          type: array
+        dataPointTypes:
+          items:
+            $ref: '#/components/schemas/generatedDashboardDataPointType'
+          type: array
+        endingTimestamp:
+          format: int64
+          type: string
+        sourceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        startingTimestamp:
+          format: int64
+          type: string
+        workspaceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedDashboardDataPointsRequest:
+      properties:
+        aggregationType:
+          $ref: '#/components/schemas/generatedDashboardDateAggregationType'
+        companyId:
+          format: int32
+          type: integer
+        dataPointTypes:
+          items:
+            $ref: '#/components/schemas/generatedDashboardDataPointType'
+          type: array
+        endingTimestamp:
+          format: int64
+          type: string
+        sourceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        startingTimestamp:
+          format: int64
+          type: string
+        workspaceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    Agent_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey
+    Personal_API_Key:
+      description: Add 'apikey ' to the beginning of your api key
+      in: header
+      name: Authorization
+      type: apiKey

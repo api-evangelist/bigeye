@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Observability Collection V2 Service API",
+    "version": "version not set"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CollectionV2Service",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch paginated collection information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.bigeye.com/api/v2/collections/info/fetch"
+          },
+          "docs": "Fetch paginated collection information"
+        },
+        {
+          "info": {
+            "name": "Get collection information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v2/collections/info/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get collection information"
+        },
+        {
+          "info": {
+            "name": "Get all collection information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.bigeye.com/api/v2/collections/info",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get all collection information"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,354 @@
+{
+  "item": [
+    {
+      "id": "2521abec-4403-412e-852d-a47cc4c96e6a",
+      "name": "ConfigService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a72d264-c85a-410f-9522-6bbcacead0df",
+          "name": "Get configs",
+          "request": {
+            "name": "Get configs",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "configs",
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6b32ba82-015b-4334-bdcf-e556a1527d85",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "configs",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"advancedConfigs\": [\n    {\n      \"booleanValue\": false,\n      \"key\": \"string\",\n      \"numberValue\": 2884.710212768562,\n      \"stringValue\": \"string\",\n      \"type\": \"VALUE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"booleanValue\": false,\n      \"key\": \"string\",\n      \"numberValue\": 9526.845087886202,\n      \"stringValue\": \"string\",\n      \"type\": \"VALUE_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3882be4b-85ca-4e29-b03e-3a3cda35d0fc",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "configs",
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3566,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cca7a478-2ec8-4c33-bc5a-b05a353f7cd1",
+          "name": "Update configs",
+          "request": {
+            "name": "Update configs",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "configs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"advancedConfigs\": [\n    {\n      \"booleanValue\": \"<boolean>\",\n      \"key\": \"<string>\",\n      \"numberValue\": \"<double>\",\n      \"stringValue\": \"<string>\",\n      \"type\": \"VALUE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"booleanValue\": \"<boolean>\",\n      \"key\": \"<string>\",\n      \"numberValue\": \"<double>\",\n      \"stringValue\": \"<string>\",\n      \"type\": \"VALUE_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "315ff4fd-ae97-447c-b7f8-6fe6cd1de5bc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "configs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"advancedConfigs\": [\n    {\n      \"booleanValue\": \"<boolean>\",\n      \"key\": \"<string>\",\n      \"numberValue\": \"<double>\",\n      \"stringValue\": \"<string>\",\n      \"type\": \"VALUE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"booleanValue\": \"<boolean>\",\n      \"key\": \"<string>\",\n      \"numberValue\": \"<double>\",\n      \"stringValue\": \"<string>\",\n      \"type\": \"VALUE_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"advancedConfigs\": [\n    {\n      \"booleanValue\": \"<boolean>\",\n      \"key\": \"<string>\",\n      \"numberValue\": \"<double>\",\n      \"stringValue\": \"<string>\",\n      \"type\": \"VALUE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"booleanValue\": \"<boolean>\",\n      \"key\": \"<string>\",\n      \"numberValue\": \"<double>\",\n      \"stringValue\": \"<string>\",\n      \"type\": \"VALUE_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06071575-c034-4b9d-bb9a-bedc6a19a59b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "configs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"advancedConfigs\": [\n    {\n      \"booleanValue\": \"<boolean>\",\n      \"key\": \"<string>\",\n      \"numberValue\": \"<double>\",\n      \"stringValue\": \"<string>\",\n      \"type\": \"VALUE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"booleanValue\": \"<boolean>\",\n      \"key\": \"<string>\",\n      \"numberValue\": \"<double>\",\n      \"stringValue\": \"<string>\",\n      \"type\": \"VALUE_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8471,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a31f00bf-1395-4963-8b34-3e0527cb65b4",
+    "name": "Metadata Config Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

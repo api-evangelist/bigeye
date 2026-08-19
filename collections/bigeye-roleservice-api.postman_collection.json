@@ -1,0 +1,958 @@
+{
+  "item": [
+    {
+      "id": "f8141b16-563e-4495-b888-269c824e9a0c",
+      "name": "RoleService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b838818c-8155-44bf-9de6-0ab43afb3916",
+          "name": "Get all roles",
+          "request": {
+            "name": "Get all roles",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c1cfb23-adf6-4e27-80e9-33922dbcb46e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roles\": [\n    {\n      \"description\": \"string\",\n      \"id\": 1620,\n      \"name\": \"string\",\n      \"rolePermissions\": [\n        {\n          \"actions\": [\n            \"PERMISSION_ACTION_UNSPECIFIED\",\n            \"PERMISSION_ACTION_UNSPECIFIED\"\n          ],\n          \"domains\": [\n            \"PERMISSION_DOMAIN_UNSPECIFIED\",\n            \"PERMISSION_DOMAIN_UNSPECIFIED\"\n          ]\n        },\n        {\n          \"actions\": [\n            \"PERMISSION_ACTION_UNSPECIFIED\",\n            \"PERMISSION_ACTION_UNSPECIFIED\"\n          ],\n          \"domains\": [\n            \"PERMISSION_DOMAIN_UNSPECIFIED\",\n            \"PERMISSION_DOMAIN_UNSPECIFIED\"\n          ]\n        }\n      ],\n      \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n    },\n    {\n      \"description\": \"string\",\n      \"id\": 2274,\n      \"name\": \"string\",\n      \"rolePermissions\": [\n        {\n          \"actions\": [\n            \"PERMISSION_ACTION_UNSPECIFIED\",\n            \"PERMISSION_ACTION_UNSPECIFIED\"\n          ],\n          \"domains\": [\n            \"PERMISSION_DOMAIN_UNSPECIFIED\",\n            \"PERMISSION_DOMAIN_UNSPECIFIED\"\n          ]\n        },\n        {\n          \"actions\": [\n            \"PERMISSION_ACTION_UNSPECIFIED\",\n            \"PERMISSION_ACTION_UNSPECIFIED\"\n          ],\n          \"domains\": [\n            \"PERMISSION_DOMAIN_UNSPECIFIED\",\n            \"PERMISSION_DOMAIN_UNSPECIFIED\"\n          ]\n        }\n      ],\n      \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8785caf7-fe66-4a54-a4a7-daf871cd1441",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3687,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ba77e78-bf2e-44e4-9bb0-e969107d6982",
+          "name": "Create a role",
+          "request": {
+            "name": "Create a role",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"baseRole\": \"ROLE_TYPE_UNSPECIFIED\",\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rolePermissions\": [\n    {\n      \"actions\": [\n        \"PERMISSION_ACTION_UNSPECIFIED\",\n        \"PERMISSION_ACTION_UNSPECIFIED\"\n      ],\n      \"domains\": [\n        \"PERMISSION_DOMAIN_UNSPECIFIED\",\n        \"PERMISSION_DOMAIN_UNSPECIFIED\"\n      ]\n    },\n    {\n      \"actions\": [\n        \"PERMISSION_ACTION_UNSPECIFIED\",\n        \"PERMISSION_ACTION_UNSPECIFIED\"\n      ],\n      \"domains\": [\n        \"PERMISSION_DOMAIN_UNSPECIFIED\",\n        \"PERMISSION_DOMAIN_UNSPECIFIED\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c6bee83c-9b1f-45d2-ab95-34e02eb4f2b7",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"baseRole\": \"ROLE_TYPE_UNSPECIFIED\",\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rolePermissions\": [\n    {\n      \"actions\": [\n        \"PERMISSION_ACTION_UNSPECIFIED\",\n        \"PERMISSION_ACTION_UNSPECIFIED\"\n      ],\n      \"domains\": [\n        \"PERMISSION_DOMAIN_UNSPECIFIED\",\n        \"PERMISSION_DOMAIN_UNSPECIFIED\"\n      ]\n    },\n    {\n      \"actions\": [\n        \"PERMISSION_ACTION_UNSPECIFIED\",\n        \"PERMISSION_ACTION_UNSPECIFIED\"\n      ],\n      \"domains\": [\n        \"PERMISSION_DOMAIN_UNSPECIFIED\",\n        \"PERMISSION_DOMAIN_UNSPECIFIED\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"id\": 4658,\n  \"name\": \"string\",\n  \"rolePermissions\": [\n    {\n      \"actions\": [\n        \"PERMISSION_ACTION_UNSPECIFIED\",\n        \"PERMISSION_ACTION_UNSPECIFIED\"\n      ],\n      \"domains\": [\n        \"PERMISSION_DOMAIN_UNSPECIFIED\",\n        \"PERMISSION_DOMAIN_UNSPECIFIED\"\n      ]\n    },\n    {\n      \"actions\": [\n        \"PERMISSION_ACTION_UNSPECIFIED\",\n        \"PERMISSION_ACTION_UNSPECIFIED\"\n      ],\n      \"domains\": [\n        \"PERMISSION_DOMAIN_UNSPECIFIED\",\n        \"PERMISSION_DOMAIN_UNSPECIFIED\"\n      ]\n    }\n  ],\n  \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17a7d7eb-8b2e-4b14-8227-ad417f99a2d8",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"baseRole\": \"ROLE_TYPE_UNSPECIFIED\",\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rolePermissions\": [\n    {\n      \"actions\": [\n        \"PERMISSION_ACTION_UNSPECIFIED\",\n        \"PERMISSION_ACTION_UNSPECIFIED\"\n      ],\n      \"domains\": [\n        \"PERMISSION_DOMAIN_UNSPECIFIED\",\n        \"PERMISSION_DOMAIN_UNSPECIFIED\"\n      ]\n    },\n    {\n      \"actions\": [\n        \"PERMISSION_ACTION_UNSPECIFIED\",\n        \"PERMISSION_ACTION_UNSPECIFIED\"\n      ],\n      \"domains\": [\n        \"PERMISSION_DOMAIN_UNSPECIFIED\",\n        \"PERMISSION_DOMAIN_UNSPECIFIED\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7111,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88891449-8bb4-4faa-967c-352821d43d0c",
+          "name": "Delete a role",
+          "request": {
+            "name": "Delete a role",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "roles",
+                ":roleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "roleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ddb32363-ec41-44e7-a449-118c08a21a3a",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles",
+                    ":roleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "roleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ae15285-8f00-4575-b32d-5f3804444d86",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles",
+                    ":roleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "roleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7111,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8dc5ccff-2172-4af9-a014-5d32b72661e6",
+          "name": "Get a role",
+          "request": {
+            "name": "Get a role",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "roles",
+                ":roleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "roleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00b93e30-0f12-4f92-b8b9-75b88c01d5ad",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles",
+                    ":roleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "roleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"id\": 4658,\n  \"name\": \"string\",\n  \"rolePermissions\": [\n    {\n      \"actions\": [\n        \"PERMISSION_ACTION_UNSPECIFIED\",\n        \"PERMISSION_ACTION_UNSPECIFIED\"\n      ],\n      \"domains\": [\n        \"PERMISSION_DOMAIN_UNSPECIFIED\",\n        \"PERMISSION_DOMAIN_UNSPECIFIED\"\n      ]\n    },\n    {\n      \"actions\": [\n        \"PERMISSION_ACTION_UNSPECIFIED\",\n        \"PERMISSION_ACTION_UNSPECIFIED\"\n      ],\n      \"domains\": [\n        \"PERMISSION_DOMAIN_UNSPECIFIED\",\n        \"PERMISSION_DOMAIN_UNSPECIFIED\"\n      ]\n    }\n  ],\n  \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72b8a9aa-b224-4f70-87b5-70eaa6e32c27",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles",
+                    ":roleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "roleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7111,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae7eb089-4d23-4677-ba44-7f05ba2d75f7",
+          "name": "List the groups and users who have been granted a role",
+          "request": {
+            "name": "List the groups and users who have been granted a role",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "roles",
+                ":roleId",
+                "accessors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "roleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d70cdcf-af24-47da-a617-8006a8a52632",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles",
+                    ":roleId",
+                    "accessors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "roleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"groups\": [\n    {\n      \"id\": 9816,\n      \"name\": \"string\",\n      \"userCount\": 8124,\n      \"workspaces\": [\n        {\n          \"displayName\": \"string\",\n          \"id\": 6771\n        },\n        {\n          \"displayName\": \"string\",\n          \"id\": 1970\n        }\n      ]\n    },\n    {\n      \"id\": 7313,\n      \"name\": \"string\",\n      \"userCount\": 1173,\n      \"workspaces\": [\n        {\n          \"displayName\": \"string\",\n          \"id\": 6768\n        },\n        {\n          \"displayName\": \"string\",\n          \"id\": 5655\n        }\n      ]\n    }\n  ],\n  \"users\": [\n    {\n      \"email\": \"string\",\n      \"groupIds\": [\n        3364,\n        5578\n      ],\n      \"id\": 8537,\n      \"name\": \"string\",\n      \"workspaces\": [\n        {\n          \"displayName\": \"string\",\n          \"id\": 9545\n        },\n        {\n          \"displayName\": \"string\",\n          \"id\": 2012\n        }\n      ]\n    },\n    {\n      \"email\": \"string\",\n      \"groupIds\": [\n        3058,\n        6913\n      ],\n      \"id\": 1728,\n      \"name\": \"string\",\n      \"workspaces\": [\n        {\n          \"displayName\": \"string\",\n          \"id\": 2701\n        },\n        {\n          \"displayName\": \"string\",\n          \"id\": 1215\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa6418ff-3932-45ca-82ac-f973457318f7",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles",
+                    ":roleId",
+                    "accessors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "roleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7111,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "343cf154-f535-4ff1-8fea-24c9003ffb4f",
+          "name": "Update a role",
+          "request": {
+            "name": "Update a role",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "roles",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"request\": {\n    \"baseRole\": \"ROLE_TYPE_UNSPECIFIED\",\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"rolePermissions\": [\n      {\n        \"actions\": [\n          \"PERMISSION_ACTION_UNSPECIFIED\",\n          \"PERMISSION_ACTION_UNSPECIFIED\"\n        ],\n        \"domains\": [\n          \"PERMISSION_DOMAIN_UNSPECIFIED\",\n          \"PERMISSION_DOMAIN_UNSPECIFIED\"\n        ]\n      },\n      {\n        \"actions\": [\n          \"PERMISSION_ACTION_UNSPECIFIED\",\n          \"PERMISSION_ACTION_UNSPECIFIED\"\n        ],\n        \"domains\": [\n          \"PERMISSION_DOMAIN_UNSPECIFIED\",\n          \"PERMISSION_DOMAIN_UNSPECIFIED\"\n        ]\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98b2ceb4-84b1-40b9-987a-35b360642650",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"request\": {\n    \"baseRole\": \"ROLE_TYPE_UNSPECIFIED\",\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"rolePermissions\": [\n      {\n        \"actions\": [\n          \"PERMISSION_ACTION_UNSPECIFIED\",\n          \"PERMISSION_ACTION_UNSPECIFIED\"\n        ],\n        \"domains\": [\n          \"PERMISSION_DOMAIN_UNSPECIFIED\",\n          \"PERMISSION_DOMAIN_UNSPECIFIED\"\n        ]\n      },\n      {\n        \"actions\": [\n          \"PERMISSION_ACTION_UNSPECIFIED\",\n          \"PERMISSION_ACTION_UNSPECIFIED\"\n        ],\n        \"domains\": [\n          \"PERMISSION_DOMAIN_UNSPECIFIED\",\n          \"PERMISSION_DOMAIN_UNSPECIFIED\"\n        ]\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"id\": 4658,\n  \"name\": \"string\",\n  \"rolePermissions\": [\n    {\n      \"actions\": [\n        \"PERMISSION_ACTION_UNSPECIFIED\",\n        \"PERMISSION_ACTION_UNSPECIFIED\"\n      ],\n      \"domains\": [\n        \"PERMISSION_DOMAIN_UNSPECIFIED\",\n        \"PERMISSION_DOMAIN_UNSPECIFIED\"\n      ]\n    },\n    {\n      \"actions\": [\n        \"PERMISSION_ACTION_UNSPECIFIED\",\n        \"PERMISSION_ACTION_UNSPECIFIED\"\n      ],\n      \"domains\": [\n        \"PERMISSION_DOMAIN_UNSPECIFIED\",\n        \"PERMISSION_DOMAIN_UNSPECIFIED\"\n      ]\n    }\n  ],\n  \"roleType\": \"ROLE_TYPE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "024de5e5-500f-42e5-a857-4059b7323268",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "roles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"request\": {\n    \"baseRole\": \"ROLE_TYPE_UNSPECIFIED\",\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"rolePermissions\": [\n      {\n        \"actions\": [\n          \"PERMISSION_ACTION_UNSPECIFIED\",\n          \"PERMISSION_ACTION_UNSPECIFIED\"\n        ],\n        \"domains\": [\n          \"PERMISSION_DOMAIN_UNSPECIFIED\",\n          \"PERMISSION_DOMAIN_UNSPECIFIED\"\n        ]\n      },\n      {\n        \"actions\": [\n          \"PERMISSION_ACTION_UNSPECIFIED\",\n          \"PERMISSION_ACTION_UNSPECIFIED\"\n        ],\n        \"domains\": [\n          \"PERMISSION_DOMAIN_UNSPECIFIED\",\n          \"PERMISSION_DOMAIN_UNSPECIFIED\"\n        ]\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7111,\n  \"details\": [\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"typeUrl\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.bigeye.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "21aebb48-51a9-4439-94af-cdf5497799ef",
+    "name": "Metadata Role Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}
