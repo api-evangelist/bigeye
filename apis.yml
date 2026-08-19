@@ -15,7 +15,7 @@ url: https://raw.githubusercontent.com/api-evangelist/bigeye/refs/heads/main/api
 image: https://cdn.prod.website-files.com/64b205c9041f2a26ac7cb23f/69135c34ecede8d3fb8c6be8_bigeye-logo-1200x1200.jpg
 x-type: company
 x-source: harvest:secondary-market
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-02'
 modified: '2026-08-02'
 tags:
