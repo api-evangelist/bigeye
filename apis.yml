@@ -47,6 +47,10 @@ apis:
   tags:
   - MCP
   - Agents
+  - Artificial Intelligence
+  tags_raw:
+  - MCP
+  - Agents
   - AI
   properties:
   - type: MCPServer
@@ -81,6 +85,8 @@ apis:
   humanURL: https://docs.bigeye.com/reference
   baseURL: https://app.bigeye.com
   tags:
+  - APIKeyService
+  tags_raw:
   - ApiKeyService
   properties:
   - type: OpenAPI
@@ -677,6 +683,8 @@ apis:
   humanURL: https://docs.bigeye.com/reference
   baseURL: https://app.bigeye.com
   tags:
+  - Search Service
+  tags_raw:
   - SearchService
   properties:
   - type: OpenAPI
