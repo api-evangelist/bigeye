@@ -879,6 +879,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/bigeye-capability-edges.yml
+  name: Bigeye Business Capability Map
 - type: IssueTracker
   url: https://github.com/bigeyedata/bigeye-mcp-server/issues
 - type: AgenticAccess

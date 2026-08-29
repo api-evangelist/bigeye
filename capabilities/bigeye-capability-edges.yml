@@ -1,0 +1,158 @@
+slug: bigeye
+provider: Bigeye
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 14
+edges:
+- tag: CustomRuleService
+  spec_file: bigeye-customruleservice-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.8
+  evidence: CustomRuleService_CreateCustomRule  Create a custom rule; CustomRuleService_RunCustomRule  Run
+    a custom rule
+  reason: Lifecycle and execution of user-defined data quality rules against warehouses, with metric configuration
+    and thresholds — squarely data quality monitoring and remediation.
+- tag: MetricService
+  spec_file: bigeye-metricservice-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.8
+  evidence: MetricService_GetMetricConfiguration "Get metric configuration", "Get metric runs", schemas
+    generatedFreshnessScheduleThreshold, generatedForecastModelType — data-quality monitoring metrics
+    on warehouse tables/columns
+  reason: Bigeye metrics are data-quality monitors (freshness thresholds, forecast models, table columns)
+    whose configuration and runs this service manages; that is data quality monitoring, not enterprise
+    KPI reporting.
+- tag: RoleService
+  spec_file: bigeye-roleservice-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: '"List the groups and users who have been granted a role", schemas generatedRolePermission,
+    generatedPermissionDomain, generatedPermissionAction'
+  reason: Role definition and grant of roles to users and groups with permission domains/actions is access
+    management within the platform.
+- tag: GroupService
+  spec_file: bigeye-groupservice-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: '''Change a group''s access to workspaces'', ''Add or remove users to a group''; schemas generatedRolePermission,
+    generatedGrant, generatedPermissionAction'
+  reason: Group, grant, role and permission administration is identity and access management for the platform's
+    users.
+- tag: LineageService
+  spec_file: bigeye-lineageservice-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.75
+  evidence: '''Create a custom edge between two nodes'', ''Get downstream nodes for a given node'', ''Queue
+    a lineage collection workflow for a source'''
+  reason: Data lineage graph construction and traversal is metadata/data management; evidence does not
+    clearly single out governance vs data architecture, so L1 only.
+- tag: LineageV2Service
+  spec_file: bigeye-lineagev2service-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.75
+  evidence: '''Get lineage graph from a data node'', ''Bulk create custom lineage edges''; schemas generatedLineageNodeV2,
+    generatedLineageRelationshipSimple'
+  reason: Same lineage graph capability at v2 — data lineage/metadata management within Information &
+    Data Management; sub-capability not clearly named by the evidence.
+- tag: UserService
+  spec_file: bigeye-userservice-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: '"Invite a new user", "Create a Service Account", "Update user name and/or groups", "Delete
+    users"'
+  reason: User provisioning, group assignment and service-account issuance for the platform — identity
+    and access administration, not HR employee records.
+- tag: DataClassService
+  spec_file: bigeye-dataclassservice-api-openapi.yml
+  capability_id: BC-610.10
+  capability_id_l1: BC-610
+  capability_name: Data Governance Management
+  confidence: 0.72
+  evidence: '''Create a data class'', ''Reset a Bigeye-provided data class to its default state''; schemas
+    generatedDataSensitivity, generatedDataClassCategory'
+  reason: CRUD over sensitivity data classes used to classify columns — classification standards and stewardship
+    are core data governance. Privacy compliance is a downstream use, not what the operations do.
+- tag: IssueService
+  spec_file: bigeye-issueservice-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.72
+  evidence: '''Get issues summary by table'', ''Batch update issues''; schemas generatedIssueStatusUpdate,
+    generatedMetricConfiguration, generatedIssueMergeUpdate'
+  reason: Issues are data quality anomalies raised by monitoring metrics against tables/columns, with
+    status workflow for remediation — data quality monitoring and remediation, not IT incident management
+    or customer complaints.
+- tag: TableService
+  spec_file: bigeye-tableservice-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.72
+  evidence: '"Profile a table", "Profile a column", "Get list of metrics applicable to an entire table",
+    generatedColumnMetricProfile'
+  reason: Operations profile tables and columns and enumerate applicable data-quality metric types, i.e.
+    data quality profiling and monitoring rather than any business-domain table concept.
+- tag: ComparisonTableService
+  spec_file: bigeye-comparisontableservice-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.7
+  evidence: ComparisonTableService_CreateComparisonTable  Create a comparison table; GetDeltaApplicableMetricTypes  Get
+    list of metrics applicable for comparison tables and deltas
+  reason: Configures and runs table-to-table comparison (delta) metrics to detect data discrepancies —
+    a data quality monitoring/reconciliation capability.
+- tag: DeltaService
+  spec_file: bigeye-deltaservice-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.7
+  evidence: '''Create a delta'', ''Run a delta by ID''; schemas generatedComparisonMetricStatus, generatedTableComparisonBatchEditRequest,
+    generatedColumnNamePair'
+  reason: A 'delta' here is a configured table-to-table comparison producing comparison metric statuses
+    — i.e. data quality checking between datasets, not a financial or product delta.
+- tag: MetricObservedColumnService
+  spec_file: bigeye-metricobservedcolumnservice-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.7
+  evidence: '''Create a metric observed column relationship ... between a metric and a column that the
+    metric observes''; ''Get suggested columns for a metric'''
+  reason: Binds data quality monitoring metrics to the warehouse columns they observe — configuration
+    of data quality monitoring coverage.
+- tag: MetricTemplateService
+  spec_file: bigeye-metrictemplateservice-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.7
+  evidence: '"Create or update a metric template", schemas generatedMetricTemplate, generatedWarehouseType,
+    generatedMetricTemplateParameterType'
+  reason: Templates for reusable data-quality metrics against warehouses; supports the data quality monitoring
+    capability. Slightly thinner evidence than the metric service itself.
