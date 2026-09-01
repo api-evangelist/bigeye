@@ -98,7 +98,7 @@ apis:
   humanURL: https://docs.bigeye.com/reference
   baseURL: https://app.bigeye.com
   tags:
-  - APIKeyService
+  - ApiKeyService
   tags_raw:
   - ApiKeyService
   properties:
