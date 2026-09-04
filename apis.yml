@@ -25,6 +25,19 @@ deliveryModel:
   - repository-unlicensed
   generated: '2026-08-28'
   method: derived
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  - security
+  generated: '2026-09-03'
+  method: derived
 image: https://cdn.prod.website-files.com/64b205c9041f2a26ac7cb23f/69135c34ecede8d3fb8c6be8_bigeye-logo-1200x1200.jpg
 x-type: company
 x-source: harvest:secondary-market
