@@ -105,26 +105,6 @@ apis:
     url: https://docs.bigeye.com/docs/monitoring
   - type: Documentation
     url: https://docs.bigeye.com/docs/getting-started-scanning
-- aid: bigeye:bigeye-apikeyservice-api
-  name: Bigeye API Key Service API
-  description: The ApiKeyService API from Bigeye — 6 operation(s) for apikeyservice.
-  humanURL: https://docs.bigeye.com/reference
-  baseURL: https://app.bigeye.com
-  tags:
-  - ApiKeyService
-  tags_raw:
-  - ApiKeyService
-  properties:
-  - type: OpenAPI
-    url: openapi/bigeye-apikeyservice-api-openapi.yml
-  - type: Documentation
-    url: https://docs.bigeye.com/docs/api-user-guide
-  - type: APIReference
-    url: https://docs.bigeye.com/reference
-  - type: Documentation
-    url: https://docs.bigeye.com/docs/monitoring
-  - type: Documentation
-    url: https://docs.bigeye.com/docs/getting-started-scanning
 - aid: bigeye:bigeye-catalogrebuildsservice-api
   name: Bigeye Catalog Rebuilds Service API
   description: The CatalogRebuildsService API from Bigeye — 3 operation(s) for catalogrebuildsservice.
@@ -595,24 +575,6 @@ apis:
     url: https://docs.bigeye.com/docs/monitoring
   - type: Documentation
     url: https://docs.bigeye.com/docs/getting-started-scanning
-- aid: bigeye:bigeye-queryservice-api
-  name: Bigeye Query Service API
-  description: The QueryService API from Bigeye — 1 operation(s) for queryservice.
-  humanURL: https://docs.bigeye.com/reference
-  baseURL: https://app.bigeye.com
-  tags:
-  - QueryService
-  properties:
-  - type: OpenAPI
-    url: openapi/bigeye-queryservice-api-openapi.yml
-  - type: Documentation
-    url: https://docs.bigeye.com/docs/api-user-guide
-  - type: APIReference
-    url: https://docs.bigeye.com/reference
-  - type: Documentation
-    url: https://docs.bigeye.com/docs/monitoring
-  - type: Documentation
-    url: https://docs.bigeye.com/docs/getting-started-scanning
 - aid: bigeye:bigeye-roleservice-api
   name: Bigeye Role Service API
   description: The RoleService API from Bigeye — 4 operation(s) for roleservice.
@@ -695,26 +657,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/bigeye-schemaservice-api-openapi.yml
-  - type: Documentation
-    url: https://docs.bigeye.com/docs/api-user-guide
-  - type: APIReference
-    url: https://docs.bigeye.com/reference
-  - type: Documentation
-    url: https://docs.bigeye.com/docs/monitoring
-  - type: Documentation
-    url: https://docs.bigeye.com/docs/getting-started-scanning
-- aid: bigeye:bigeye-searchservice-api
-  name: Bigeye Search Service API
-  description: The SearchService API from Bigeye — 1 operation(s) for searchservice.
-  humanURL: https://docs.bigeye.com/reference
-  baseURL: https://app.bigeye.com
-  tags:
-  - Search Service
-  tags_raw:
-  - SearchService
-  properties:
-  - type: OpenAPI
-    url: openapi/bigeye-searchservice-api-openapi.yml
   - type: Documentation
     url: https://docs.bigeye.com/docs/api-user-guide
   - type: APIReference
@@ -878,6 +820,60 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/bigeye-workspaceservice-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-api-key-service-api
+  name: Bigeye Api Key Service API
+  description: The Api Key Service API from Bigeye — 6 operation(s) for api key service.
+  humanURL: https://docs.bigeye.com/docs/bigeye-mcp-server
+  baseURL: https://mcpgateway.bigeye.com/mcp
+  tags:
+  - Api Key Service
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-api-key-service-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-query-service-api
+  name: Bigeye Query Service API
+  description: The Query Service API from Bigeye — 1 operation(s) for query service.
+  humanURL: https://docs.bigeye.com/docs/bigeye-mcp-server
+  baseURL: https://mcpgateway.bigeye.com/mcp
+  tags:
+  - Query Service
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-query-service-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/api-user-guide
+  - type: APIReference
+    url: https://docs.bigeye.com/reference
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/monitoring
+  - type: Documentation
+    url: https://docs.bigeye.com/docs/getting-started-scanning
+- aid: bigeye:bigeye-search-service-api
+  name: Bigeye Search Service API
+  description: The Search Service API from Bigeye — 1 operation(s) for search service.
+  humanURL: https://docs.bigeye.com/docs/bigeye-mcp-server
+  baseURL: https://mcpgateway.bigeye.com/mcp
+  tags:
+  - Search Service
+  properties:
+  - type: OpenAPI
+    url: openapi/bigeye-search-service-api-openapi.yml
   - type: Documentation
     url: https://docs.bigeye.com/docs/api-user-guide
   - type: APIReference
