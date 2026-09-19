@@ -852,6 +852,8 @@ apis:
   humanURL: https://docs.bigeye.com/docs/bigeye-mcp-server
   baseURL: https://mcpgateway.bigeye.com/mcp
   tags:
+  - QueryService
+  tags_raw:
   - Query Service
   properties:
   - type: OpenAPI
