@@ -147,35 +147,65 @@ paths:
       - TagService
 components:
   schemas:
-    generatedEmpty:
-      type: object
-    generatedTagRequest:
+    generatedIntegrationType:
+      default: INTEGRATION_TYPE_UNSPECIFIED
+      enum:
+      - INTEGRATION_TYPE_UNSPECIFIED
+      - INTEGRATION_TYPE_BI_TOOL
+      - INTEGRATION_TYPE_ETL_TOOL
+      - INTEGRATION_TYPE_DATABASE
+      type: string
+    generatedTagList:
       properties:
-        createTagIfDoesNotExist:
-          type: boolean
+        entityId:
+          format: int32
+          type: integer
+        entityType:
+          $ref: '#/components/schemas/generatedTaggableEntityType'
+        tags:
+          items:
+            type: string
+          type: array
+      type: object
+    generatedTagFailure:
+      properties:
+        reason:
+          type: string
         tag:
           $ref: '#/components/schemas/generatedTagItem'
       type: object
-    generatedTag:
+    generatedNodeType:
       properties:
-        colorHex:
-          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+        customNodeType:
+          $ref: '#/components/schemas/generatedCustomNodeType'
+        dataNodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+      type: object
+    generatedBulkTagResponse:
+      properties:
+        failures:
+          items:
+            $ref: '#/components/schemas/generatedTagFailure'
+          type: array
+        successes:
+          items:
+            $ref: '#/components/schemas/generatedTagItem'
+          type: array
+      type: object
+    generatedCatalogPath:
+      properties:
+        columnName:
           type: string
-        createdAt:
-          format: int64
+        pathParts:
+          items:
+            type: string
+          type: array
+        schemaName:
           type: string
-        id:
-          format: int32
-          type: integer
-        name:
+        sourceName:
           type: string
-        updatedAt:
-          format: int64
+        tableName:
           type: string
-        workspaceId:
-          format: int32
-          type: integer
-      title: Tags
       type: object
     generatedCustomNodeType:
       properties:
@@ -231,40 +261,6 @@ components:
             when they lie downstream of an issue.'
           type: boolean
       type: object
-    generatedCustomIntegrationType:
-      properties:
-        description:
-          type: string
-        entityInfo:
-          $ref: '#/components/schemas/generatedEntityInfo'
-        iconUrl:
-          type: string
-        id:
-          format: int64
-          type: string
-        name:
-          type: string
-        type:
-          $ref: '#/components/schemas/generatedIntegrationType'
-      type: object
-    generatedBulkTagResponse:
-      properties:
-        failures:
-          items:
-            $ref: '#/components/schemas/generatedTagFailure'
-          type: array
-        successes:
-          items:
-            $ref: '#/components/schemas/generatedTagItem'
-          type: array
-      type: object
-    generatedTagFailure:
-      properties:
-        reason:
-          type: string
-        tag:
-          $ref: '#/components/schemas/generatedTagItem'
-      type: object
     generatedTagItem:
       properties:
         catalogPath:
@@ -283,21 +279,6 @@ components:
         workspaceTag:
           $ref: '#/components/schemas/generatedTag'
       type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedNodeType:
-      properties:
-        customNodeType:
-          $ref: '#/components/schemas/generatedCustomNodeType'
-        dataNodeType:
-          $ref: '#/components/schemas/generatedDataNodeType'
-      type: object
     generatedEntityInfo:
       properties:
         createdBy:
@@ -313,84 +294,43 @@ components:
           format: int64
           type: string
       type: object
-    generatedCatalogPath:
+    generatedTagRequest:
       properties:
-        columnName:
-          type: string
-        pathParts:
-          items:
-            type: string
-          type: array
-        schemaName:
-          type: string
-        sourceName:
-          type: string
-        tableName:
-          type: string
+        createTagIfDoesNotExist:
+          type: boolean
+        tag:
+          $ref: '#/components/schemas/generatedTagItem'
       type: object
-    generatedIntegrationType:
-      default: INTEGRATION_TYPE_UNSPECIFIED
-      enum:
-      - INTEGRATION_TYPE_UNSPECIFIED
-      - INTEGRATION_TYPE_BI_TOOL
-      - INTEGRATION_TYPE_ETL_TOOL
-      - INTEGRATION_TYPE_DATABASE
-      type: string
-    generatedTagList:
+    generatedEmpty:
+      type: object
+    generatedTag:
       properties:
-        entityId:
+        colorHex:
+          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+          type: string
+        createdAt:
+          format: int64
+          type: string
+        id:
           format: int32
           type: integer
-        entityType:
-          $ref: '#/components/schemas/generatedTaggableEntityType'
-        tags:
-          items:
-            type: string
-          type: array
-      type: object
-    runtimeError:
-      properties:
-        code:
+        name:
+          type: string
+        updatedAt:
+          format: int64
+          type: string
+        workspaceId:
           format: int32
           type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
+      title: Tags
       type: object
-    generatedTaggableEntityType:
-      default: TAGGABLE_ENTITY_TYPE_UNSPECIFIED
-      enum:
-      - TAGGABLE_ENTITY_TYPE_UNSPECIFIED
-      - TAGGABLE_ENTITY_TYPE_SOURCE
-      - TAGGABLE_ENTITY_TYPE_SCHEMA
-      - TAGGABLE_ENTITY_TYPE_DATASET
-      - TAGGABLE_ENTITY_TYPE_METRIC
-      - TAGGABLE_ENTITY_TYPE_DELTA
-      - TAGGABLE_ENTITY_TYPE_COLUMN
-      - TAGGABLE_ENTITY_TYPE_SLA
-      - TAGGABLE_ENTITY_TYPE_BI_TOOL
-      - TAGGABLE_ENTITY_TYPE_N_WAY_DELTA
-      - TAGGABLE_ENTITY_TYPE_VIRTUAL_TABLE
-      - TAGGABLE_ENTITY_TYPE_INTEGRATION
-      - TAGGABLE_ENTITY_TYPE_DBT_PROJECT
-      - TAGGABLE_ENTITY_TYPE_DBT_JOB
-      - TAGGABLE_ENTITY_TYPE_CUSTOM_RULE
-      - TAGGABLE_ENTITY_TYPE_META_CENTER_ENTITY
-      - TAGGABLE_ENTITY_TYPE_DATA_NODE_ENTITY
-      - TAGGABLE_ENTITY_TYPE_META_CENTER_REPOSITORY
-      - TAGGABLE_ENTITY_TYPE_CUSTOM_REPOSITORY
-      type: string
-    generatedBulkTagRequest:
+    protobufAny:
       properties:
-        tags:
-          items:
-            $ref: '#/components/schemas/generatedTagItem'
-          type: array
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
       type: object
     generatedDataNodeType:
       default: DATA_NODE_TYPE_UNSPECIFIED
@@ -471,18 +411,78 @@ components:
       - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE
       - DATA_NODE_TYPE_AI_AGENT
       type: string
+    generatedBulkTagRequest:
+      properties:
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTagItem'
+          type: array
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedTaggableEntityType:
+      default: TAGGABLE_ENTITY_TYPE_UNSPECIFIED
+      enum:
+      - TAGGABLE_ENTITY_TYPE_UNSPECIFIED
+      - TAGGABLE_ENTITY_TYPE_SOURCE
+      - TAGGABLE_ENTITY_TYPE_SCHEMA
+      - TAGGABLE_ENTITY_TYPE_DATASET
+      - TAGGABLE_ENTITY_TYPE_METRIC
+      - TAGGABLE_ENTITY_TYPE_DELTA
+      - TAGGABLE_ENTITY_TYPE_COLUMN
+      - TAGGABLE_ENTITY_TYPE_SLA
+      - TAGGABLE_ENTITY_TYPE_BI_TOOL
+      - TAGGABLE_ENTITY_TYPE_N_WAY_DELTA
+      - TAGGABLE_ENTITY_TYPE_VIRTUAL_TABLE
+      - TAGGABLE_ENTITY_TYPE_INTEGRATION
+      - TAGGABLE_ENTITY_TYPE_DBT_PROJECT
+      - TAGGABLE_ENTITY_TYPE_DBT_JOB
+      - TAGGABLE_ENTITY_TYPE_CUSTOM_RULE
+      - TAGGABLE_ENTITY_TYPE_META_CENTER_ENTITY
+      - TAGGABLE_ENTITY_TYPE_DATA_NODE_ENTITY
+      - TAGGABLE_ENTITY_TYPE_META_CENTER_REPOSITORY
+      - TAGGABLE_ENTITY_TYPE_CUSTOM_REPOSITORY
+      type: string
+    generatedCustomIntegrationType:
+      properties:
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        iconUrl:
+          type: string
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedIntegrationType'
+      type: object
   requestBodies:
-    generatedTagRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/generatedTagRequest'
-      required: true
     generatedBulkTagRequest:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/generatedBulkTagRequest'
+      required: true
+    generatedTagRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedTagRequest'
       required: true
   securitySchemes:
     basicAuth:

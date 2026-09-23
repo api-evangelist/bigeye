@@ -256,36 +256,187 @@ paths:
       - LineageV2Service
 components:
   schemas:
-    generatedEmpty:
-      type: object
-    generatedDataClass:
+    generatedIntegrationType:
+      default: INTEGRATION_TYPE_UNSPECIFIED
+      enum:
+      - INTEGRATION_TYPE_UNSPECIFIED
+      - INTEGRATION_TYPE_BI_TOOL
+      - INTEGRATION_TYPE_ETL_TOOL
+      - INTEGRATION_TYPE_DATABASE
+      type: string
+    generatedFailedUpdate:
       properties:
-        canResetToDefault:
-          type: boolean
-        categories:
-          items:
-            $ref: '#/components/schemas/generatedDataClassCategory'
-          type: array
-        colorHex:
+        id:
+          format: int32
+          type: integer
+        reason:
           type: string
-        createdBy:
-          $ref: '#/components/schemas/generatedUser'
+      type: object
+    generatedCustomCatalogSource:
+      properties:
+        iconUrl:
+          type: string
+        name:
+          type: string
+      type: object
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedLineageEdgeV2:
+      properties:
+        createdAt:
+          format: int64
+          type: string
+        downstream:
+          $ref: '#/components/schemas/generatedLineageNodeV2'
+        id:
+          format: int32
+          type: integer
+        relationshipType:
+          $ref: '#/components/schemas/generatedRelationshipType'
+        updatedAt:
+          format: int64
+          type: string
+        upstream:
+          $ref: '#/components/schemas/generatedLineageNodeV2'
+      type: object
+    generatedCatalogSource:
+      properties:
+        customCatalogSource:
+          $ref: '#/components/schemas/generatedCustomCatalogSource'
+        customRepository:
+          $ref: '#/components/schemas/generatedCustomRepository'
+        id:
+          format: int32
+          type: integer
+        integrationPartner:
+          $ref: '#/components/schemas/generatedIntegrationPartner'
+        name:
+          type: string
+        usesAgent:
+          type: boolean
+        warehouseVendor:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedNodeType:
+      properties:
+        customNodeType:
+          $ref: '#/components/schemas/generatedCustomNodeType'
+        dataNodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+      type: object
+    generatedLineageNavigationNodeV2Response:
+      properties:
+        applicableFilters:
+          items:
+            type: string
+          type: array
+        downstreamEdges:
+          items:
+            $ref: '#/components/schemas/generatedLineageRelationshipSimple'
+          type: array
+        findingState:
+          $ref: '#/components/schemas/generatedFindingState'
+        isDownstream:
+          type: boolean
+        isUpstream:
+          type: boolean
+        issueCount:
+          format: int32
+          type: integer
+        lineageNode:
+          $ref: '#/components/schemas/generatedLineageNodeV2'
+        maxSensitivity:
+          $ref: '#/components/schemas/generatedDataSensitivity'
+        metricCount:
+          format: int32
+          type: integer
+        positiveDataClasses:
+          items:
+            $ref: '#/components/schemas/generatedDataClass'
+          type: array
+        priorityScore:
+          format: int32
+          type: integer
+        sampledScanNegativeDataClasses:
+          items:
+            $ref: '#/components/schemas/generatedDataClass'
+          type: array
+        upstreamEdges:
+          items:
+            $ref: '#/components/schemas/generatedLineageRelationshipSimple'
+          type: array
+      type: object
+    generatedUser:
+      properties:
+        email:
+          type: string
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        id:
+          format: int32
+          type: integer
+        idpGroups:
+          items:
+            type: string
+          type: array
+        isServiceAccount:
+          type: boolean
+        lastLoginAt:
+          format: int64
+          type: string
+        name:
+          type: string
+        pictureUrl:
+          type: string
+      type: object
+    generatedCatalogPath:
+      properties:
+        columnName:
+          type: string
+        pathParts:
+          items:
+            type: string
+          type: array
+        schemaName:
+          type: string
+        sourceName:
+          type: string
+        tableName:
+          type: string
+      type: object
+    generatedDataClassCategory:
+      properties:
         description:
           type: string
-        entityInfo:
-          $ref: '#/components/schemas/generatedEntityInfo'
         id:
           format: int64
           type: string
         name:
           type: string
-        numberOfClassifiers:
-          format: int32
-          type: integer
-        providedByBigeye:
-          type: boolean
-        sensitivity:
-          $ref: '#/components/schemas/generatedDataSensitivity'
         workspaceId:
           format: int32
           type: integer
@@ -344,31 +495,6 @@ components:
             when they lie downstream of an issue.'
           type: boolean
       type: object
-    generatedUser:
-      properties:
-        email:
-          type: string
-        groups:
-          items:
-            $ref: '#/components/schemas/generatedIdAndDisplayName'
-          type: array
-        id:
-          format: int32
-          type: integer
-        idpGroups:
-          items:
-            type: string
-          type: array
-        isServiceAccount:
-          type: boolean
-        lastLoginAt:
-          format: int64
-          type: string
-        name:
-          type: string
-        pictureUrl:
-          type: string
-      type: object
     generatedLineageRelationshipSimple:
       properties:
         downstreamId:
@@ -377,100 +503,6 @@ components:
         relationshipType:
           $ref: '#/components/schemas/generatedRelationshipType'
         upstreamId:
-          format: int32
-          type: integer
-      type: object
-    generatedCustomIntegrationType:
-      properties:
-        description:
-          type: string
-        entityInfo:
-          $ref: '#/components/schemas/generatedEntityInfo'
-        iconUrl:
-          type: string
-        id:
-          format: int64
-          type: string
-        name:
-          type: string
-        type:
-          $ref: '#/components/schemas/generatedIntegrationType'
-      type: object
-    generatedCustomRepository:
-      properties:
-        entityInfo:
-          $ref: '#/components/schemas/generatedEntityInfo'
-        id:
-          format: int32
-          type: integer
-        integrationType:
-          $ref: '#/components/schemas/generatedCustomIntegrationType'
-        name:
-          type: string
-        workspaceId:
-          format: int64
-          type: string
-      type: object
-    generatedDataSensitivity:
-      default: DATA_SENSITIVITY_UNSPECIFIED
-      enum:
-      - DATA_SENSITIVITY_UNSPECIFIED
-      - DATA_SENSITIVITY_PUBLIC
-      - DATA_SENSITIVITY_INTERNAL
-      - DATA_SENSITIVITY_CONFIDENTIAL
-      - DATA_SENSITIVITY_RESTRICTED
-      type: string
-    generatedTableLineageV2Response:
-      properties:
-        nodes:
-          additionalProperties:
-            $ref: '#/components/schemas/generatedLineageNavigationNodeV2Response'
-          type: object
-        partialResponse:
-          type: boolean
-      type: object
-    generatedBulkResponse:
-      properties:
-        failedUpdates:
-          items:
-            $ref: '#/components/schemas/generatedFailedUpdate'
-          type: array
-        notRunIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        successfulIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-      type: object
-    generatedNodeType:
-      properties:
-        customNodeType:
-          $ref: '#/components/schemas/generatedCustomNodeType'
-        dataNodeType:
-          $ref: '#/components/schemas/generatedDataNodeType'
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedCreateLineageEdgeV2Request:
-      properties:
-        downstreamDataNodeId:
-          format: int32
-          type: integer
-        rebuildGraph:
-          type: boolean
-        relationshipType:
-          $ref: '#/components/schemas/generatedRelationshipType'
-        upstreamDataNodeId:
           format: int32
           type: integer
       type: object
@@ -489,23 +521,22 @@ components:
           format: int64
           type: string
       type: object
-    generatedCatalogSource:
+    generatedCustomRepository:
       properties:
-        customCatalogSource:
-          $ref: '#/components/schemas/generatedCustomCatalogSource'
-        customRepository:
-          $ref: '#/components/schemas/generatedCustomRepository'
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
         id:
           format: int32
           type: integer
-        integrationPartner:
-          $ref: '#/components/schemas/generatedIntegrationPartner'
+        integrationType:
+          $ref: '#/components/schemas/generatedCustomIntegrationType'
         name:
           type: string
-        usesAgent:
-          type: boolean
-        warehouseVendor:
-          $ref: '#/components/schemas/generatedWarehouseType'
+        workspaceId:
+          format: int64
+          type: string
+      type: object
+    generatedEmpty:
       type: object
     generatedCreateLineageEdgeV2BulkRequest:
       properties:
@@ -514,200 +545,57 @@ components:
             $ref: '#/components/schemas/generatedCreateLineageEdgeV2Request'
           type: array
       type: object
+    generatedCreateLineageEdgeV2Request:
+      properties:
+        downstreamDataNodeId:
+          format: int32
+          type: integer
+        rebuildGraph:
+          type: boolean
+        relationshipType:
+          $ref: '#/components/schemas/generatedRelationshipType'
+        upstreamDataNodeId:
+          format: int32
+          type: integer
+      type: object
+    generatedDataClass:
+      properties:
+        canResetToDefault:
+          type: boolean
+        categories:
+          items:
+            $ref: '#/components/schemas/generatedDataClassCategory'
+          type: array
+        colorHex:
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        numberOfClassifiers:
+          format: int32
+          type: integer
+        providedByBigeye:
+          type: boolean
+        sensitivity:
+          $ref: '#/components/schemas/generatedDataSensitivity'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
     generatedRelationshipType:
       default: RELATIONSHIP_TYPE_UNSPECIFIED
       enum:
       - RELATIONSHIP_TYPE_UNSPECIFIED
       - RELATIONSHIP_TYPE_LINEAGE
       - RELATIONSHIP_TYPE_CONTAINMENT
-      type: string
-    generatedFailedUpdate:
-      properties:
-        id:
-          format: int32
-          type: integer
-        reason:
-          type: string
-      type: object
-    generatedCatalogPath:
-      properties:
-        columnName:
-          type: string
-        pathParts:
-          items:
-            type: string
-          type: array
-        schemaName:
-          type: string
-        sourceName:
-          type: string
-        tableName:
-          type: string
-      type: object
-    generatedFindingState:
-      default: FINDING_STATE_UNSPECIFIED
-      enum:
-      - FINDING_STATE_UNSPECIFIED
-      - FINDING_STATE_POSITIVE_FINDINGS
-      - FINDING_STATE_NEGATIVE_FINDINGS_ONLY
-      - FINDING_STATE_NEVER_BEEN_SCANNED
-      type: string
-    generatedCreateLineageNodeV2BulkRequest:
-      properties:
-        nodes:
-          items:
-            $ref: '#/components/schemas/generatedCreateLineageNodeV2Request'
-          type: array
-      type: object
-    generatedLineageNavigationNodeV2Response:
-      properties:
-        applicableFilters:
-          items:
-            type: string
-          type: array
-        downstreamEdges:
-          items:
-            $ref: '#/components/schemas/generatedLineageRelationshipSimple'
-          type: array
-        findingState:
-          $ref: '#/components/schemas/generatedFindingState'
-        isDownstream:
-          type: boolean
-        isUpstream:
-          type: boolean
-        issueCount:
-          format: int32
-          type: integer
-        lineageNode:
-          $ref: '#/components/schemas/generatedLineageNodeV2'
-        maxSensitivity:
-          $ref: '#/components/schemas/generatedDataSensitivity'
-        metricCount:
-          format: int32
-          type: integer
-        positiveDataClasses:
-          items:
-            $ref: '#/components/schemas/generatedDataClass'
-          type: array
-        priorityScore:
-          format: int32
-          type: integer
-        sampledScanNegativeDataClasses:
-          items:
-            $ref: '#/components/schemas/generatedDataClass'
-          type: array
-        upstreamEdges:
-          items:
-            $ref: '#/components/schemas/generatedLineageRelationshipSimple'
-          type: array
-      type: object
-    generatedCustomCatalogSource:
-      properties:
-        iconUrl:
-          type: string
-        name:
-          type: string
-      type: object
-    generatedDataClassCategory:
-      properties:
-        description:
-          type: string
-        id:
-          format: int64
-          type: string
-        name:
-          type: string
-        workspaceId:
-          format: int32
-          type: integer
-      type: object
-    generatedCreateLineageNodeV2Request:
-      properties:
-        customNodeTypeId:
-          format: int64
-          type: string
-        customRepositoryId:
-          format: int32
-          type: integer
-        externalId:
-          type: string
-        iconUrl:
-          type: string
-        nodeContainerEntityId:
-          format: int32
-          type: integer
-        nodeContainerName:
-          type: string
-        nodeEntityId:
-          format: int32
-          type: integer
-        nodeName:
-          type: string
-        nodeType:
-          $ref: '#/components/schemas/generatedDataNodeType'
-        rebuildGraph:
-          type: boolean
-        workspaceId:
-          format: int32
-          type: integer
-      type: object
-    generatedIntegrationType:
-      default: INTEGRATION_TYPE_UNSPECIFIED
-      enum:
-      - INTEGRATION_TYPE_UNSPECIFIED
-      - INTEGRATION_TYPE_BI_TOOL
-      - INTEGRATION_TYPE_ETL_TOOL
-      - INTEGRATION_TYPE_DATABASE
-      type: string
-    generatedIntegrationPartner:
-      default: INTEGRATION_PARTNER_UNSPECIFIED
-      enum:
-      - INTEGRATION_PARTNER_UNSPECIFIED
-      - INTEGRATION_PARTNER_TABLEAU
-      - INTEGRATION_PARTNER_DBT_CLOUD
-      - INTEGRATION_PARTNER_METACENTER
-      - INTEGRATION_PARTNER_DBT_CORE
-      - INTEGRATION_PARTNER_POWERBI
-      - INTEGRATION_PARTNER_POWERCENTER
-      - INTEGRATION_PARTNER_SSIS
-      - INTEGRATION_PARTNER_COGNOS
-      - INTEGRATION_PARTNER_SAP_BUSINESS_OBJECTS
-      - INTEGRATION_PARTNER_FDS
-      - INTEGRATION_PARTNER_QLIK_REPLICATE
-      - INTEGRATION_PARTNER_LOOKER
-      - INTEGRATION_PARTNER_CDM
-      - INTEGRATION_PARTNER_SNAPLOGIC
-      - INTEGRATION_PARTNER_DATASTAGE
-      - INTEGRATION_PARTNER_SSRS
-      - INTEGRATION_PARTNER_QLIK_SENSE
-      - INTEGRATION_PARTNER_STRATEGY
-      - INTEGRATION_PARTNER_ADF
-      - INTEGRATION_PARTNER_MATILLION
-      - INTEGRATION_PARTNER_ANTHROPIC
-      type: string
-    generatedWarehouseType:
-      default: DATABASE_TYPE_UNSPECIFIED
-      enum:
-      - DATABASE_TYPE_UNSPECIFIED
-      - DATABASE_TYPE_AWS_ATHENA
-      - DATABASE_TYPE_BIGQUERY
-      - DATABASE_TYPE_DATABRICKS
-      - DATABASE_TYPE_MYSQL
-      - DATABASE_TYPE_ORACLE
-      - DATABASE_TYPE_POSTGRES
-      - DATABASE_TYPE_PRESTO
-      - DATABASE_TYPE_REDSHIFT
-      - DATABASE_TYPE_SAP_HANA
-      - DATABASE_TYPE_SNOWFLAKE
-      - DATABASE_TYPE_SQL_SERVER
-      - DATABASE_TYPE_SYNAPSE
-      - DATABASE_TYPE_ROCKSET
-      - DATABASE_TYPE_VERTICA
-      - DATABASE_TYPE_AVATICA
-      - DATABASE_TYPE_DB2
-      - DATABASE_TYPE_TERADATA
-      - DATABASE_TYPE_NETEZZA
-      - DATABASE_TYPE_SALESFORCE
       type: string
     generatedIdAndDisplayName:
       properties:
@@ -717,37 +605,30 @@ components:
           format: int32
           type: integer
       type: object
-    runtimeError:
+    generatedFindingState:
+      default: FINDING_STATE_UNSPECIFIED
+      enum:
+      - FINDING_STATE_UNSPECIFIED
+      - FINDING_STATE_POSITIVE_FINDINGS
+      - FINDING_STATE_NEGATIVE_FINDINGS_ONLY
+      - FINDING_STATE_NEVER_BEEN_SCANNED
+      type: string
+    generatedTableLineageV2Response:
       properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
+        nodes:
+          additionalProperties:
+            $ref: '#/components/schemas/generatedLineageNavigationNodeV2Response'
+          type: object
+        partialResponse:
+          type: boolean
       type: object
-    generatedLineageEdgeV2:
+    protobufAny:
       properties:
-        createdAt:
-          format: int64
+        typeUrl:
           type: string
-        downstream:
-          $ref: '#/components/schemas/generatedLineageNodeV2'
-        id:
-          format: int32
-          type: integer
-        relationshipType:
-          $ref: '#/components/schemas/generatedRelationshipType'
-        updatedAt:
-          format: int64
+        value:
+          format: byte
           type: string
-        upstream:
-          $ref: '#/components/schemas/generatedLineageNodeV2'
       type: object
     generatedLineageNodeV2:
       properties:
@@ -855,6 +736,125 @@ components:
       - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE
       - DATA_NODE_TYPE_AI_AGENT
       type: string
+    generatedDataSensitivity:
+      default: DATA_SENSITIVITY_UNSPECIFIED
+      enum:
+      - DATA_SENSITIVITY_UNSPECIFIED
+      - DATA_SENSITIVITY_PUBLIC
+      - DATA_SENSITIVITY_INTERNAL
+      - DATA_SENSITIVITY_CONFIDENTIAL
+      - DATA_SENSITIVITY_RESTRICTED
+      type: string
+    generatedCreateLineageNodeV2Request:
+      properties:
+        customNodeTypeId:
+          format: int64
+          type: string
+        customRepositoryId:
+          format: int32
+          type: integer
+        externalId:
+          type: string
+        iconUrl:
+          type: string
+        nodeContainerEntityId:
+          format: int32
+          type: integer
+        nodeContainerName:
+          type: string
+        nodeEntityId:
+          format: int32
+          type: integer
+        nodeName:
+          type: string
+        nodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+        rebuildGraph:
+          type: boolean
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedIntegrationPartner:
+      default: INTEGRATION_PARTNER_UNSPECIFIED
+      enum:
+      - INTEGRATION_PARTNER_UNSPECIFIED
+      - INTEGRATION_PARTNER_TABLEAU
+      - INTEGRATION_PARTNER_DBT_CLOUD
+      - INTEGRATION_PARTNER_METACENTER
+      - INTEGRATION_PARTNER_DBT_CORE
+      - INTEGRATION_PARTNER_POWERBI
+      - INTEGRATION_PARTNER_POWERCENTER
+      - INTEGRATION_PARTNER_SSIS
+      - INTEGRATION_PARTNER_COGNOS
+      - INTEGRATION_PARTNER_SAP_BUSINESS_OBJECTS
+      - INTEGRATION_PARTNER_FDS
+      - INTEGRATION_PARTNER_QLIK_REPLICATE
+      - INTEGRATION_PARTNER_LOOKER
+      - INTEGRATION_PARTNER_CDM
+      - INTEGRATION_PARTNER_SNAPLOGIC
+      - INTEGRATION_PARTNER_DATASTAGE
+      - INTEGRATION_PARTNER_SSRS
+      - INTEGRATION_PARTNER_QLIK_SENSE
+      - INTEGRATION_PARTNER_STRATEGY
+      - INTEGRATION_PARTNER_ADF
+      - INTEGRATION_PARTNER_MATILLION
+      - INTEGRATION_PARTNER_ANTHROPIC
+      type: string
+    generatedCreateLineageNodeV2BulkRequest:
+      properties:
+        nodes:
+          items:
+            $ref: '#/components/schemas/generatedCreateLineageNodeV2Request'
+          type: array
+      type: object
+    generatedBulkResponse:
+      properties:
+        failedUpdates:
+          items:
+            $ref: '#/components/schemas/generatedFailedUpdate'
+          type: array
+        notRunIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        successfulIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    generatedCustomIntegrationType:
+      properties:
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        iconUrl:
+          type: string
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedIntegrationType'
+      type: object
   securitySchemes:
     basicAuth:
       type: http

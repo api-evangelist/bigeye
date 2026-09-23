@@ -179,7 +179,53 @@ paths:
       - GroupService
 components:
   schemas:
-    generatedEmpty:
+    generatedRolePermission:
+      properties:
+        actions:
+          items:
+            $ref: '#/components/schemas/generatedPermissionAction'
+          type: array
+        domains:
+          items:
+            $ref: '#/components/schemas/generatedPermissionDomain'
+          type: array
+      type: object
+    generatedBulkChangeGroupUsersResponse:
+      properties:
+        failedUpdates:
+          items:
+            $ref: '#/components/schemas/generatedFailedGroupUserUpdate'
+          type: array
+        successfulIds:
+          items:
+            $ref: '#/components/schemas/generatedGroupUserPair'
+          type: array
+      type: object
+    generatedBulkChangeGroupUsersRequest:
+      properties:
+        groupIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        operation:
+          $ref: '#/components/schemas/generatedGroupUserOperation'
+        userIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    generatedFailedGroupUserUpdate:
+      properties:
+        groupId:
+          format: int32
+          type: integer
+        reason:
+          type: string
+        userId:
+          format: int32
+          type: integer
       type: object
     generatedUser:
       properties:
@@ -206,6 +252,22 @@ components:
         pictureUrl:
           type: string
       type: object
+    generatedRoleV2:
+      properties:
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        rolePermissions:
+          items:
+            $ref: '#/components/schemas/generatedRolePermission'
+          type: array
+        roleType:
+          $ref: '#/components/schemas/generatedRoleType'
+      type: object
     generatedGrant:
       properties:
         group:
@@ -225,22 +287,40 @@ components:
         request:
           $ref: '#/components/schemas/generatedGrant'
       type: object
-    generatedRoleType:
-      default: ROLE_TYPE_UNSPECIFIED
-      enum:
-      - ROLE_TYPE_UNSPECIFIED
-      - ROLE_TYPE_ADMIN
-      - ROLE_TYPE_MANAGE
-      - ROLE_TYPE_EDIT
-      - ROLE_TYPE_VIEW
-      - ROLE_TYPE_CUSTOM
-      type: string
-    generatedGroupListResponse:
+    generatedUserGroupMembership:
       properties:
-        groups:
+        membershipPaths:
           items:
-            $ref: '#/components/schemas/generatedGroup'
+            $ref: '#/components/schemas/generatedGroupMembershipVia'
           type: array
+        user:
+          $ref: '#/components/schemas/generatedUser'
+      type: object
+    generatedRoleOperation:
+      default: ROLE_OPERATION_UNSPECIFIED
+      enum:
+      - ROLE_OPERATION_UNSPECIFIED
+      - ROLE_OPERATION_GRANT
+      - ROLE_OPERATION_REVOKE
+      type: string
+    generatedEmpty:
+      type: object
+    generatedBulkChangeGroupGrantsRequest:
+      properties:
+        operation:
+          $ref: '#/components/schemas/generatedRoleOperation'
+        requests:
+          items:
+            $ref: '#/components/schemas/generatedGrant'
+          type: array
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
       type: object
     generatedCreateOrUpdateGroupRequest:
       properties:
@@ -251,6 +331,23 @@ components:
         name:
           type: string
       type: object
+    generatedPermissionAction:
+      default: PERMISSION_ACTION_UNSPECIFIED
+      enum:
+      - PERMISSION_ACTION_UNSPECIFIED
+      - PERMISSION_ACTION_ALL
+      - PERMISSION_ACTION_PREVIEW
+      - PERMISSION_ACTION_WRITE
+      - PERMISSION_ACTION_EXECUTE
+      - PERMISSION_ACTION_READ
+      type: string
+    generatedGroupListResponse:
+      properties:
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedGroup'
+          type: array
+      type: object
     protobufAny:
       properties:
         typeUrl:
@@ -259,17 +356,46 @@ components:
           format: byte
           type: string
       type: object
-    generatedRolePermission:
+    generatedPermissionDomain:
+      default: PERMISSION_DOMAIN_UNSPECIFIED
+      enum:
+      - PERMISSION_DOMAIN_UNSPECIFIED
+      - PERMISSION_DOMAIN_ALL
+      - PERMISSION_DOMAIN_TABLE
+      - PERMISSION_DOMAIN_CUSTOM_RULE
+      - PERMISSION_DOMAIN_COLLECTION
+      - PERMISSION_DOMAIN_WORKSPACE_TAG
+      - PERMISSION_DOMAIN_WORKSPACE_TAG_ENTITY
+      - PERMISSION_DOMAIN_PROFILE
+      - PERMISSION_DOMAIN_SCAN_JOB
+      - PERMISSION_DOMAIN_DATA_CLASS
+      - PERMISSION_DOMAIN_CLASSIFIER
+      type: string
+    generatedGroupUserOperation:
+      default: GROUP_USER_OPERATION_UNSPECIFIED
+      enum:
+      - GROUP_USER_OPERATION_UNSPECIFIED
+      - GROUP_USER_OPERATION_ADD
+      - GROUP_USER_OPERATION_REMOVE
+      type: string
+    generatedBulkChangeGroupGrantsResponse:
       properties:
-        actions:
+        failedUpdates:
           items:
-            $ref: '#/components/schemas/generatedPermissionAction'
+            $ref: '#/components/schemas/generatedFailedGroupRoleUpdate'
           type: array
-        domains:
+        successfulRequests:
           items:
-            $ref: '#/components/schemas/generatedPermissionDomain'
+            $ref: '#/components/schemas/generatedGrant'
           type: array
       type: object
+    generatedGroupMembershipVia:
+      default: GROUP_MEMBERSHIP_VIA_UNSPECIFIED
+      enum:
+      - GROUP_MEMBERSHIP_VIA_UNSPECIFIED
+      - GROUP_MEMBERSHIP_VIA_MANUAL_ASSIGNMENT
+      - GROUP_MEMBERSHIP_VIA_IDP_GROUPS
+      type: string
     generatedGroup:
       properties:
         grants:
@@ -294,126 +420,6 @@ components:
             $ref: '#/components/schemas/generatedIdAndDisplayName'
           type: array
       type: object
-    generatedPermissionAction:
-      default: PERMISSION_ACTION_UNSPECIFIED
-      enum:
-      - PERMISSION_ACTION_UNSPECIFIED
-      - PERMISSION_ACTION_ALL
-      - PERMISSION_ACTION_PREVIEW
-      - PERMISSION_ACTION_WRITE
-      - PERMISSION_ACTION_EXECUTE
-      - PERMISSION_ACTION_READ
-      type: string
-    generatedRoleOperation:
-      default: ROLE_OPERATION_UNSPECIFIED
-      enum:
-      - ROLE_OPERATION_UNSPECIFIED
-      - ROLE_OPERATION_GRANT
-      - ROLE_OPERATION_REVOKE
-      type: string
-    generatedGroupUserOperation:
-      default: GROUP_USER_OPERATION_UNSPECIFIED
-      enum:
-      - GROUP_USER_OPERATION_UNSPECIFIED
-      - GROUP_USER_OPERATION_ADD
-      - GROUP_USER_OPERATION_REMOVE
-      type: string
-    generatedBulkChangeGroupGrantsResponse:
-      properties:
-        failedUpdates:
-          items:
-            $ref: '#/components/schemas/generatedFailedGroupRoleUpdate'
-          type: array
-        successfulRequests:
-          items:
-            $ref: '#/components/schemas/generatedGrant'
-          type: array
-      type: object
-    generatedPermissionDomain:
-      default: PERMISSION_DOMAIN_UNSPECIFIED
-      enum:
-      - PERMISSION_DOMAIN_UNSPECIFIED
-      - PERMISSION_DOMAIN_ALL
-      - PERMISSION_DOMAIN_TABLE
-      - PERMISSION_DOMAIN_CUSTOM_RULE
-      - PERMISSION_DOMAIN_COLLECTION
-      - PERMISSION_DOMAIN_WORKSPACE_TAG
-      - PERMISSION_DOMAIN_WORKSPACE_TAG_ENTITY
-      - PERMISSION_DOMAIN_PROFILE
-      - PERMISSION_DOMAIN_SCAN_JOB
-      - PERMISSION_DOMAIN_DATA_CLASS
-      - PERMISSION_DOMAIN_CLASSIFIER
-      type: string
-    generatedBulkChangeGroupUsersResponse:
-      properties:
-        failedUpdates:
-          items:
-            $ref: '#/components/schemas/generatedFailedGroupUserUpdate'
-          type: array
-        successfulIds:
-          items:
-            $ref: '#/components/schemas/generatedGroupUserPair'
-          type: array
-      type: object
-    generatedBulkChangeGroupGrantsRequest:
-      properties:
-        operation:
-          $ref: '#/components/schemas/generatedRoleOperation'
-        requests:
-          items:
-            $ref: '#/components/schemas/generatedGrant'
-          type: array
-      type: object
-    generatedFailedGroupUserUpdate:
-      properties:
-        groupId:
-          format: int32
-          type: integer
-        reason:
-          type: string
-        userId:
-          format: int32
-          type: integer
-      type: object
-    generatedGroupMembershipVia:
-      default: GROUP_MEMBERSHIP_VIA_UNSPECIFIED
-      enum:
-      - GROUP_MEMBERSHIP_VIA_UNSPECIFIED
-      - GROUP_MEMBERSHIP_VIA_MANUAL_ASSIGNMENT
-      - GROUP_MEMBERSHIP_VIA_IDP_GROUPS
-      type: string
-    generatedBulkChangeGroupUsersRequest:
-      properties:
-        groupIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        operation:
-          $ref: '#/components/schemas/generatedGroupUserOperation'
-        userIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-      type: object
-    generatedUserGroupMembership:
-      properties:
-        membershipPaths:
-          items:
-            $ref: '#/components/schemas/generatedGroupMembershipVia'
-          type: array
-        user:
-          $ref: '#/components/schemas/generatedUser'
-      type: object
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
-          type: string
-        id:
-          format: int32
-          type: integer
-      type: object
     runtimeError:
       properties:
         code:
@@ -437,22 +443,16 @@ components:
           format: int32
           type: integer
       type: object
-    generatedRoleV2:
-      properties:
-        description:
-          type: string
-        id:
-          format: int32
-          type: integer
-        name:
-          type: string
-        rolePermissions:
-          items:
-            $ref: '#/components/schemas/generatedRolePermission'
-          type: array
-        roleType:
-          $ref: '#/components/schemas/generatedRoleType'
-      type: object
+    generatedRoleType:
+      default: ROLE_TYPE_UNSPECIFIED
+      enum:
+      - ROLE_TYPE_UNSPECIFIED
+      - ROLE_TYPE_ADMIN
+      - ROLE_TYPE_MANAGE
+      - ROLE_TYPE_EDIT
+      - ROLE_TYPE_VIEW
+      - ROLE_TYPE_CUSTOM
+      type: string
   requestBodies:
     generatedCreateOrUpdateGroupRequest:
       content:

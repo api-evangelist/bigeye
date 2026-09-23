@@ -37,31 +37,12 @@ paths:
       - DataClassCategoryService
 components:
   schemas:
-    generatedGetDataClassCategoryListRequest:
-      properties:
-        workspaceId:
-          format: int32
-          type: integer
-      type: object
     generatedGetDataClassCategoryListResponse:
       properties:
         categories:
           items:
             $ref: '#/components/schemas/generatedDataClassCategory'
           type: array
-      type: object
-    generatedDataClassCategory:
-      properties:
-        description:
-          type: string
-        id:
-          format: int64
-          type: string
-        name:
-          type: string
-        workspaceId:
-          format: int32
-          type: integer
       type: object
     runtimeError:
       properties:
@@ -84,6 +65,25 @@ components:
         value:
           format: byte
           type: string
+      type: object
+    generatedGetDataClassCategoryListRequest:
+      properties:
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedDataClassCategory:
+      properties:
+        description:
+          type: string
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
       type: object
   securitySchemes:
     basicAuth:

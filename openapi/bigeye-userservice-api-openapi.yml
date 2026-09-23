@@ -162,15 +162,88 @@ paths:
       - UserService
 components:
   schemas:
+    generatedBulkDeleteUsersRequest:
+      properties:
+        userIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedUserInviteRequest:
+      properties:
+        email:
+          type: string
+        groupIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        name:
+          type: string
+      type: object
+    generatedCreateServiceAccountRequest:
+      properties:
+        groupIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        name:
+          type: string
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedFailedUpdate:
+      properties:
+        id:
+          format: int32
+          type: integer
+        reason:
+          type: string
+      type: object
     generatedCreateServiceAccountResponse:
       properties:
         user:
           $ref: '#/components/schemas/generatedUser'
       type: object
-    generatedUpdateUserResponse:
+    generatedUpdateUserRequest:
       properties:
-        user:
-          $ref: '#/components/schemas/generatedUser'
+        groupIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        name:
+          type: string
       type: object
     generatedGetUserListResponse:
       properties:
@@ -221,83 +294,10 @@ components:
             type: integer
           type: array
       type: object
-    generatedUserInviteRequest:
+    generatedUpdateUserResponse:
       properties:
-        email:
-          type: string
-        groupIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        name:
-          type: string
-      type: object
-    generatedCreateServiceAccountRequest:
-      properties:
-        groupIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        name:
-          type: string
-      type: object
-    generatedUpdateUserRequest:
-      properties:
-        groupIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        name:
-          type: string
-      type: object
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
-          type: string
-        id:
-          format: int32
-          type: integer
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedBulkDeleteUsersRequest:
-      properties:
-        userIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-      type: object
-    generatedFailedUpdate:
-      properties:
-        id:
-          format: int32
-          type: integer
-        reason:
-          type: string
+        user:
+          $ref: '#/components/schemas/generatedUser'
       type: object
   securitySchemes:
     basicAuth:

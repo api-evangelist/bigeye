@@ -259,28 +259,10 @@ paths:
       - IntegrationService
 components:
   schemas:
-    generatedEmpty:
-      type: object
-    generatedTag:
+    generatedDbtJobRunResponse:
       properties:
-        colorHex:
-          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
-          type: string
-        createdAt:
-          format: int64
-          type: string
-        id:
-          format: int32
-          type: integer
-        name:
-          type: string
-        updatedAt:
-          format: int64
-          type: string
-        workspaceId:
-          format: int32
-          type: integer
-      title: Tags
+        dbtJobRun:
+          $ref: '#/components/schemas/generatedDbtJobRun'
       type: object
     generatedCreateOrUpdateIntegrationRequest:
       properties:
@@ -311,24 +293,14 @@ components:
           format: int32
           type: integer
       type: object
-    generatedGetIntegrationEntitiesResponse:
-      properties:
-        dbtProjects:
-          items:
-            $ref: '#/components/schemas/generatedDbtProject'
-          type: array
-        integrationPartner:
-          $ref: '#/components/schemas/generatedIntegrationPartner'
-        metacenterRepositories:
-          items:
-            $ref: '#/components/schemas/generatedMetaCenterRepository'
-          type: array
-      type: object
-    generatedDbtJobRunResponse:
-      properties:
-        dbtJobRun:
-          $ref: '#/components/schemas/generatedDbtJobRun'
-      type: object
+    generatedIntegrationType:
+      default: INTEGRATION_TYPE_UNSPECIFIED
+      enum:
+      - INTEGRATION_TYPE_UNSPECIFIED
+      - INTEGRATION_TYPE_BI_TOOL
+      - INTEGRATION_TYPE_ETL_TOOL
+      - INTEGRATION_TYPE_DATABASE
+      type: string
     generatedDbtJob:
       properties:
         dbtJobExtId:
@@ -355,29 +327,81 @@ components:
         url:
           type: string
       type: object
-    generatedDbtJobRun:
+    generatedMetaCenterRepository:
       properties:
-        completedAt:
-          format: int64
-          type: string
-        dbtJobRunExtId:
-          format: int64
-          type: string
-        gitSha:
-          type: string
+        copyDisabled:
+          type: boolean
         id:
-          format: int64
-          type: string
-        jobId:
           format: int32
           type: integer
-        startedAt:
+        integrationEntityId:
+          type: string
+        integrationPartner:
+          $ref: '#/components/schemas/generatedIntegrationPartner'
+        matchingSourceIds:
+          description: 'Warehouse (source) ids whose objects this repository''s synced objects are
+
+            matched against when resolving lineage. Empty means object resolution falls
+
+            back to workspace-wide matching.'
+          items:
+            format: int32
+            type: integer
+          type: array
+        name:
+          type: string
+        type:
+          type: string
+      type: object
+    generatedGetDbtJobsResponse:
+      properties:
+        dbtJobs:
+          items:
+            $ref: '#/components/schemas/generatedDbtJob'
+          type: array
+      type: object
+    generatedGetIntegrationEntitiesResponse:
+      properties:
+        dbtProjects:
+          items:
+            $ref: '#/components/schemas/generatedDbtProject'
+          type: array
+        integrationPartner:
+          $ref: '#/components/schemas/generatedIntegrationPartner'
+        metacenterRepositories:
+          items:
+            $ref: '#/components/schemas/generatedMetaCenterRepository'
+          type: array
+      type: object
+    generatedEmpty:
+      type: object
+    generatedTag:
+      properties:
+        colorHex:
+          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+          type: string
+        createdAt:
           format: int64
           type: string
-        status:
-          $ref: '#/components/schemas/generatedDbtJobRunStatus'
-        url:
+        id:
+          format: int32
+          type: integer
+        name:
           type: string
+        updatedAt:
+          format: int64
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      title: Tags
+      type: object
+    generatedIntegrationsResponse:
+      properties:
+        integrations:
+          items:
+            $ref: '#/components/schemas/generatedIntegration'
+          type: array
       type: object
     generatedDbtProject:
       properties:
@@ -418,13 +442,6 @@ components:
           format: int32
           type: integer
       type: object
-    generatedIntegrationsResponse:
-      properties:
-        integrations:
-          items:
-            $ref: '#/components/schemas/generatedIntegration'
-          type: array
-      type: object
     protobufAny:
       properties:
         typeUrl:
@@ -433,63 +450,44 @@ components:
           format: byte
           type: string
       type: object
-    generatedGetDbtJobResponse:
+    generatedDbtJobRun:
       properties:
-        dbtJob:
-          $ref: '#/components/schemas/generatedDbtJob'
-      type: object
-    generatedMetaCenterRepository:
-      properties:
-        copyDisabled:
-          type: boolean
+        completedAt:
+          format: int64
+          type: string
+        dbtJobRunExtId:
+          format: int64
+          type: string
+        gitSha:
+          type: string
         id:
+          format: int64
+          type: string
+        jobId:
           format: int32
           type: integer
-        integrationEntityId:
+        startedAt:
+          format: int64
           type: string
-        integrationPartner:
-          $ref: '#/components/schemas/generatedIntegrationPartner'
-        matchingSourceIds:
-          description: 'Warehouse (source) ids whose objects this repository''s synced objects are
-
-            matched against when resolving lineage. Empty means object resolution falls
-
-            back to workspace-wide matching.'
-          items:
-            format: int32
-            type: integer
-          type: array
-        name:
-          type: string
-        type:
+        status:
+          $ref: '#/components/schemas/generatedDbtJobRunStatus'
+        url:
           type: string
       type: object
-    generatedGetDbtJobsResponse:
+    runtimeError:
       properties:
-        dbtJobs:
+        code:
+          format: int32
+          type: integer
+        details:
           items:
-            $ref: '#/components/schemas/generatedDbtJob'
+            $ref: '#/components/schemas/protobufAny'
           type: array
+        error:
+          type: string
+        message:
+          type: string
       type: object
-    generatedIntegrationType:
-      default: INTEGRATION_TYPE_UNSPECIFIED
-      enum:
-      - INTEGRATION_TYPE_UNSPECIFIED
-      - INTEGRATION_TYPE_BI_TOOL
-      - INTEGRATION_TYPE_ETL_TOOL
-      - INTEGRATION_TYPE_DATABASE
-      type: string
-    generatedDbtJobRunStatus:
-      default: DBT_JOB_RUN_STATUS_UNSPECIFIED
-      enum:
-      - DBT_JOB_RUN_STATUS_UNSPECIFIED
-      - DBT_JOB_RUN_STATUS_SUCCESS
-      - DBT_JOB_RUN_STATUS_ERROR
-      - DBT_JOB_RUN_STATUS_QUEUED
-      - DBT_JOB_RUN_STATUS_STARTING
-      - DBT_JOB_RUN_STATUS_RUNNING
-      - DBT_JOB_RUN_STATUS_CANCELLED
-      type: string
     generatedIntegrationPartner:
       default: INTEGRATION_PARTNER_UNSPECIFIED
       enum:
@@ -516,20 +514,6 @@ components:
       - INTEGRATION_PARTNER_MATILLION
       - INTEGRATION_PARTNER_ANTHROPIC
       type: string
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
     generatedIntegration:
       properties:
         apiBaseUri:
@@ -590,6 +574,22 @@ components:
           format: int32
           type: integer
       type: object
+    generatedGetDbtJobResponse:
+      properties:
+        dbtJob:
+          $ref: '#/components/schemas/generatedDbtJob'
+      type: object
+    generatedDbtJobRunStatus:
+      default: DBT_JOB_RUN_STATUS_UNSPECIFIED
+      enum:
+      - DBT_JOB_RUN_STATUS_UNSPECIFIED
+      - DBT_JOB_RUN_STATUS_SUCCESS
+      - DBT_JOB_RUN_STATUS_ERROR
+      - DBT_JOB_RUN_STATUS_QUEUED
+      - DBT_JOB_RUN_STATUS_STARTING
+      - DBT_JOB_RUN_STATUS_RUNNING
+      - DBT_JOB_RUN_STATUS_CANCELLED
+      type: string
   requestBodies:
     generatedCreateOrUpdateIntegrationRequest:
       content:

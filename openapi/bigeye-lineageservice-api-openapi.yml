@@ -299,29 +299,103 @@ paths:
       - LineageService
 components:
   schemas:
-    generatedEmpty:
-      type: object
-    generatedLineageRelationship:
+    generatedWorkflowProcessingType:
+      default: WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
+      enum:
+      - WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SOURCE
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SCHEMA
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_DATASET
+      - WORKFLOW_PROCESSING_TYPE_LINEAGE
+      - WORKFLOW_PROCESSING_TYPE_METADATA_METRICS
+      - WORKFLOW_PROCESSING_TYPE_GENERATE_POP_SCORES
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION
+      - WORKFLOW_PROCESSING_TYPE_APPLY_BIGCONFIG
+      - WORKFLOW_PROCESSING_TYPE_RUN_DELTA
+      - WORKFLOW_PROCESSING_TYPE_RUN_COMPARISON_TABLE
+      - WORKFLOW_PROCESSING_TYPE_RUN_METRIC_BATCH
+      - WORKFLOW_PROCESSING_TYPE_PLAN_BIGCONFIG
+      - WORKFLOW_PROCESSING_TYPE_METRIC_DEPLOY
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION_ENTITY
+      type: string
+    generatedGetDownstreamDataNodesResponse:
       properties:
-        companyId:
+        nodes:
+          items:
+            $ref: '#/components/schemas/generatedDataNode'
+          type: array
+      type: object
+    generatedGetDownstreamDataNodesRequest:
+      properties:
+        applicableFilters:
+          items:
+            type: string
+          type: array
+        nodeIdFilters:
+          items:
+            format: int32
+            type: integer
+          type: array
+        nodeTypeFilters:
+          items:
+            $ref: '#/components/schemas/generatedDataNodeType'
+          type: array
+      type: object
+    generatedCreateLineageRelationshipRequest:
+      properties:
+        downstreamDataNodeId:
           format: int32
           type: integer
-        createdAt:
-          format: int64
-          type: string
-        downstream:
-          $ref: '#/components/schemas/generatedDataNode'
-        id:
+        upstreamDataNodeId:
           format: int32
           type: integer
-        updatedAt:
-          format: int64
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
           type: string
-        upstream:
-          $ref: '#/components/schemas/generatedDataNode'
-      title: '*
-
-        represents relationships between DataNodes'
+        message:
+          type: string
+      type: object
+    generatedIntegrationPartner:
+      default: INTEGRATION_PARTNER_UNSPECIFIED
+      enum:
+      - INTEGRATION_PARTNER_UNSPECIFIED
+      - INTEGRATION_PARTNER_TABLEAU
+      - INTEGRATION_PARTNER_DBT_CLOUD
+      - INTEGRATION_PARTNER_METACENTER
+      - INTEGRATION_PARTNER_DBT_CORE
+      - INTEGRATION_PARTNER_POWERBI
+      - INTEGRATION_PARTNER_POWERCENTER
+      - INTEGRATION_PARTNER_SSIS
+      - INTEGRATION_PARTNER_COGNOS
+      - INTEGRATION_PARTNER_SAP_BUSINESS_OBJECTS
+      - INTEGRATION_PARTNER_FDS
+      - INTEGRATION_PARTNER_QLIK_REPLICATE
+      - INTEGRATION_PARTNER_LOOKER
+      - INTEGRATION_PARTNER_CDM
+      - INTEGRATION_PARTNER_SNAPLOGIC
+      - INTEGRATION_PARTNER_DATASTAGE
+      - INTEGRATION_PARTNER_SSRS
+      - INTEGRATION_PARTNER_QLIK_SENSE
+      - INTEGRATION_PARTNER_STRATEGY
+      - INTEGRATION_PARTNER_ADF
+      - INTEGRATION_PARTNER_MATILLION
+      - INTEGRATION_PARTNER_ANTHROPIC
+      type: string
+    generatedDeleteLineageRelationshipsForNodeResponse:
+      properties:
+        deleted:
+          items:
+            $ref: '#/components/schemas/generatedLineageRelationship'
+          type: array
       type: object
     generatedGetLineageRelationshipsForNodeResponse:
       properties:
@@ -354,118 +428,12 @@ components:
           format: int32
           type: integer
       type: object
-    generatedIntegrationPartner:
-      default: INTEGRATION_PARTNER_UNSPECIFIED
-      enum:
-      - INTEGRATION_PARTNER_UNSPECIFIED
-      - INTEGRATION_PARTNER_TABLEAU
-      - INTEGRATION_PARTNER_DBT_CLOUD
-      - INTEGRATION_PARTNER_METACENTER
-      - INTEGRATION_PARTNER_DBT_CORE
-      - INTEGRATION_PARTNER_POWERBI
-      - INTEGRATION_PARTNER_POWERCENTER
-      - INTEGRATION_PARTNER_SSIS
-      - INTEGRATION_PARTNER_COGNOS
-      - INTEGRATION_PARTNER_SAP_BUSINESS_OBJECTS
-      - INTEGRATION_PARTNER_FDS
-      - INTEGRATION_PARTNER_QLIK_REPLICATE
-      - INTEGRATION_PARTNER_LOOKER
-      - INTEGRATION_PARTNER_CDM
-      - INTEGRATION_PARTNER_SNAPLOGIC
-      - INTEGRATION_PARTNER_DATASTAGE
-      - INTEGRATION_PARTNER_SSRS
-      - INTEGRATION_PARTNER_QLIK_SENSE
-      - INTEGRATION_PARTNER_STRATEGY
-      - INTEGRATION_PARTNER_ADF
-      - INTEGRATION_PARTNER_MATILLION
-      - INTEGRATION_PARTNER_ANTHROPIC
-      type: string
-    generatedWarehouseType:
-      default: DATABASE_TYPE_UNSPECIFIED
-      enum:
-      - DATABASE_TYPE_UNSPECIFIED
-      - DATABASE_TYPE_AWS_ATHENA
-      - DATABASE_TYPE_BIGQUERY
-      - DATABASE_TYPE_DATABRICKS
-      - DATABASE_TYPE_MYSQL
-      - DATABASE_TYPE_ORACLE
-      - DATABASE_TYPE_POSTGRES
-      - DATABASE_TYPE_PRESTO
-      - DATABASE_TYPE_REDSHIFT
-      - DATABASE_TYPE_SAP_HANA
-      - DATABASE_TYPE_SNOWFLAKE
-      - DATABASE_TYPE_SQL_SERVER
-      - DATABASE_TYPE_SYNAPSE
-      - DATABASE_TYPE_ROCKSET
-      - DATABASE_TYPE_VERTICA
-      - DATABASE_TYPE_AVATICA
-      - DATABASE_TYPE_DB2
-      - DATABASE_TYPE_TERADATA
-      - DATABASE_TYPE_NETEZZA
-      - DATABASE_TYPE_SALESFORCE
-      type: string
     protobufAny:
       properties:
         typeUrl:
           type: string
         value:
           format: byte
-          type: string
-      type: object
-    generatedGetDownstreamDataNodesRequest:
-      properties:
-        applicableFilters:
-          items:
-            type: string
-          type: array
-        nodeIdFilters:
-          items:
-            format: int32
-            type: integer
-          type: array
-        nodeTypeFilters:
-          items:
-            $ref: '#/components/schemas/generatedDataNodeType'
-          type: array
-      type: object
-    generatedDeleteLineageRelationshipsForNodeResponse:
-      properties:
-        deleted:
-          items:
-            $ref: '#/components/schemas/generatedLineageRelationship'
-          type: array
-      type: object
-    generatedWorkflowProcessingType:
-      default: WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
-      enum:
-      - WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SOURCE
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SCHEMA
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_DATASET
-      - WORKFLOW_PROCESSING_TYPE_LINEAGE
-      - WORKFLOW_PROCESSING_TYPE_METADATA_METRICS
-      - WORKFLOW_PROCESSING_TYPE_GENERATE_POP_SCORES
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION
-      - WORKFLOW_PROCESSING_TYPE_APPLY_BIGCONFIG
-      - WORKFLOW_PROCESSING_TYPE_RUN_DELTA
-      - WORKFLOW_PROCESSING_TYPE_RUN_COMPARISON_TABLE
-      - WORKFLOW_PROCESSING_TYPE_RUN_METRIC_BATCH
-      - WORKFLOW_PROCESSING_TYPE_PLAN_BIGCONFIG
-      - WORKFLOW_PROCESSING_TYPE_METRIC_DEPLOY
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION_ENTITY
-      type: string
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
           type: string
       type: object
     generatedDataNode:
@@ -507,21 +475,61 @@ components:
         warehouseType:
           $ref: '#/components/schemas/generatedWarehouseType'
       type: object
-    generatedCreateLineageRelationshipRequest:
+    generatedWorkflowResponse:
       properties:
-        downstreamDataNodeId:
-          format: int32
-          type: integer
-        upstreamDataNodeId:
-          format: int32
-          type: integer
+        workflowId:
+          format: int64
+          type: string
+        workflowType:
+          $ref: '#/components/schemas/generatedWorkflowProcessingType'
       type: object
-    generatedGetDownstreamDataNodesResponse:
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedLineageRelationship:
       properties:
-        nodes:
-          items:
-            $ref: '#/components/schemas/generatedDataNode'
-          type: array
+        companyId:
+          format: int32
+          type: integer
+        createdAt:
+          format: int64
+          type: string
+        downstream:
+          $ref: '#/components/schemas/generatedDataNode'
+        id:
+          format: int32
+          type: integer
+        updatedAt:
+          format: int64
+          type: string
+        upstream:
+          $ref: '#/components/schemas/generatedDataNode'
+      title: '*
+
+        represents relationships between DataNodes'
+      type: object
+    generatedEmpty:
       type: object
     generatedDataNodeType:
       default: DATA_NODE_TYPE_UNSPECIFIED
@@ -602,14 +610,6 @@ components:
       - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE
       - DATA_NODE_TYPE_AI_AGENT
       type: string
-    generatedWorkflowResponse:
-      properties:
-        workflowId:
-          format: int64
-          type: string
-        workflowType:
-          $ref: '#/components/schemas/generatedWorkflowProcessingType'
-      type: object
   securitySchemes:
     basicAuth:
       type: http

@@ -33,7 +33,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/runtimeError'
-      summary: Remove the manual override of a region for a BigQuery schema (called dataset in BigQuery)
+      summary: Remove the manual override of a region for a BigQuery schema (called dataset in…
       tags:
       - SchemaService
     get:
@@ -249,6 +249,119 @@ paths:
       - SchemaService
 components:
   schemas:
+    generatedSchemaChangeInfo:
+      properties:
+        initialSchemaScanAt:
+          format: int64
+          type: string
+        lastSchemaChangeAt:
+          format: int64
+          type: string
+        mostRecentSchemaScanAt:
+          format: int64
+          type: string
+      type: object
+    generatedWorkflowProcessingType:
+      default: WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
+      enum:
+      - WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SOURCE
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SCHEMA
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_DATASET
+      - WORKFLOW_PROCESSING_TYPE_LINEAGE
+      - WORKFLOW_PROCESSING_TYPE_METADATA_METRICS
+      - WORKFLOW_PROCESSING_TYPE_GENERATE_POP_SCORES
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION
+      - WORKFLOW_PROCESSING_TYPE_APPLY_BIGCONFIG
+      - WORKFLOW_PROCESSING_TYPE_RUN_DELTA
+      - WORKFLOW_PROCESSING_TYPE_RUN_COMPARISON_TABLE
+      - WORKFLOW_PROCESSING_TYPE_RUN_METRIC_BATCH
+      - WORKFLOW_PROCESSING_TYPE_PLAN_BIGCONFIG
+      - WORKFLOW_PROCESSING_TYPE_METRIC_DEPLOY
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION_ENTITY
+      type: string
+    generatedGetBigQueryRegionResponse:
+      properties:
+        manuallySet:
+          type: boolean
+        region:
+          type: string
+      type: object
+    generatedDbtJob:
+      properties:
+        dbtJobExtId:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        mostRecentJobRuns:
+          items:
+            $ref: '#/components/schemas/generatedDbtJobRun'
+          type: array
+        name:
+          type: string
+        projectId:
+          format: int32
+          type: integer
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        url:
+          type: string
+      type: object
+    generatedWorkflowResponse:
+      properties:
+        workflowId:
+          format: int64
+          type: string
+        workflowType:
+          $ref: '#/components/schemas/generatedWorkflowProcessingType'
+      type: object
+    generatedSchemaList:
+      properties:
+        schemas:
+          items:
+            $ref: '#/components/schemas/generatedSchema'
+          type: array
+      title: '*
+
+        Representation of a list of tables for API purposes'
+      type: object
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedGetDbtJobsResponse:
+      properties:
+        dbtJobs:
+          items:
+            $ref: '#/components/schemas/generatedDbtJob'
+          type: array
+      type: object
     generatedEmpty:
       type: object
     generatedTag:
@@ -272,6 +385,86 @@ components:
           type: integer
       title: Tags
       type: object
+    generatedSchemaSortField:
+      default: SCHEMA_SORT_FIELD_UNSPECIFIED
+      enum:
+      - SCHEMA_SORT_FIELD_UNSPECIFIED
+      - SCHEMA_SORT_FIELD_NAME
+      - SCHEMA_SORT_FIELD_LAST_SCHEMA_CHANGE
+      - SCHEMA_SORT_FIELD_FAVORITE
+      - SCHEMA_SORT_FIELD_LAST_UPDATED
+      - SCHEMA_SORT_FIELD_POPULARITY
+      type: string
+    generatedGetSchemaListResponse:
+      properties:
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+        schemas:
+          items:
+            $ref: '#/components/schemas/generatedSchema'
+          type: array
+      type: object
+    generatedGetSchemaListRequest:
+      properties:
+        hidden:
+          type: boolean
+        includeVirtual:
+          type: boolean
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        search:
+          type: string
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedSchemaSortField'
+        sourceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        tagIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedWorkflowStatusResponse:
+      properties:
+        completedAt:
+          format: int64
+          type: string
+        completedOps:
+          format: int32
+          type: integer
+        startedAt:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedWorkflowProcessingStatus'
+        totalOps:
+          format: int32
+          type: integer
+        workflowId:
+          format: int64
+          type: string
+        workflowType:
+          $ref: '#/components/schemas/generatedWorkflowProcessingType'
+      type: object
     generatedSortDirection:
       default: SORT_DIRECTION_UNSPECIFIED
       enum:
@@ -279,6 +472,71 @@ components:
       - SORT_DIRECTION_ASCENDING
       - SORT_DIRECTION_DESCENDING
       title: Unspecified will default to ASCENDING
+      type: string
+    generatedWorkflowProcessingStatus:
+      default: WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      enum:
+      - WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      - WORKFLOW_PROCESSING_STATUS_QUEUED
+      - WORKFLOW_PROCESSING_STATUS_IN_PROGRESS
+      - WORKFLOW_PROCESSING_STATUS_COMPLETED
+      - WORKFLOW_PROCESSING_STATUS_PARTIAL_FAILURE
+      - WORKFLOW_PROCESSING_STATUS_FAILED
+      - WORKFLOW_PROCESSING_STATUS_TIMED_OUT
+      type: string
+    generatedSetBigQueryRegionRequest:
+      properties:
+        region:
+          type: string
+      type: object
+    generatedDbtJobRun:
+      properties:
+        completedAt:
+          format: int64
+          type: string
+        dbtJobRunExtId:
+          format: int64
+          type: string
+        gitSha:
+          type: string
+        id:
+          format: int64
+          type: string
+        jobId:
+          format: int32
+          type: integer
+        startedAt:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedDbtJobRunStatus'
+        url:
+          type: string
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedDbtJobRunStatus:
+      default: DBT_JOB_RUN_STATUS_UNSPECIFIED
+      enum:
+      - DBT_JOB_RUN_STATUS_UNSPECIFIED
+      - DBT_JOB_RUN_STATUS_SUCCESS
+      - DBT_JOB_RUN_STATUS_ERROR
+      - DBT_JOB_RUN_STATUS_QUEUED
+      - DBT_JOB_RUN_STATUS_STARTING
+      - DBT_JOB_RUN_STATUS_RUNNING
+      - DBT_JOB_RUN_STATUS_CANCELLED
       type: string
     generatedSchema:
       description: '*
@@ -328,63 +586,6 @@ components:
         warehouseName:
           type: string
       type: object
-    generatedDbtJob:
-      properties:
-        dbtJobExtId:
-          format: int64
-          type: string
-        id:
-          format: int32
-          type: integer
-        isFavorite:
-          type: boolean
-        mostRecentJobRuns:
-          items:
-            $ref: '#/components/schemas/generatedDbtJobRun'
-          type: array
-        name:
-          type: string
-        projectId:
-          format: int32
-          type: integer
-        tags:
-          items:
-            $ref: '#/components/schemas/generatedTag'
-          type: array
-        url:
-          type: string
-      type: object
-    generatedGetBigQueryRegionResponse:
-      properties:
-        manuallySet:
-          type: boolean
-        region:
-          type: string
-      type: object
-    generatedDbtJobRun:
-      properties:
-        completedAt:
-          format: int64
-          type: string
-        dbtJobRunExtId:
-          format: int64
-          type: string
-        gitSha:
-          type: string
-        id:
-          format: int64
-          type: string
-        jobId:
-          format: int32
-          type: integer
-        startedAt:
-          format: int64
-          type: string
-        status:
-          $ref: '#/components/schemas/generatedDbtJobRunStatus'
-        url:
-          type: string
-      type: object
     generatedPaginationInfo:
       properties:
         firstSortDistinctValues:
@@ -398,207 +599,6 @@ components:
           format: int32
           type: integer
         prevCursor:
-          type: string
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedGetSchemaListRequest:
-      properties:
-        hidden:
-          type: boolean
-        includeVirtual:
-          type: boolean
-        pageCursor:
-          type: string
-        pageSize:
-          format: int32
-          type: integer
-        search:
-          type: string
-        sortDirection:
-          $ref: '#/components/schemas/generatedSortDirection'
-        sortField:
-          $ref: '#/components/schemas/generatedSchemaSortField'
-        sourceIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        tagIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        workspaceId:
-          format: int32
-          type: integer
-      type: object
-    generatedWorkflowResponse:
-      properties:
-        workflowId:
-          format: int64
-          type: string
-        workflowType:
-          $ref: '#/components/schemas/generatedWorkflowProcessingType'
-      type: object
-    generatedGetSchemaListResponse:
-      properties:
-        paginationInfo:
-          $ref: '#/components/schemas/generatedPaginationInfo'
-        schemas:
-          items:
-            $ref: '#/components/schemas/generatedSchema'
-          type: array
-      type: object
-    generatedSchemaSortField:
-      default: SCHEMA_SORT_FIELD_UNSPECIFIED
-      enum:
-      - SCHEMA_SORT_FIELD_UNSPECIFIED
-      - SCHEMA_SORT_FIELD_NAME
-      - SCHEMA_SORT_FIELD_LAST_SCHEMA_CHANGE
-      - SCHEMA_SORT_FIELD_FAVORITE
-      - SCHEMA_SORT_FIELD_LAST_UPDATED
-      - SCHEMA_SORT_FIELD_POPULARITY
-      type: string
-    generatedWorkflowStatusResponse:
-      properties:
-        completedAt:
-          format: int64
-          type: string
-        completedOps:
-          format: int32
-          type: integer
-        startedAt:
-          format: int64
-          type: string
-        status:
-          $ref: '#/components/schemas/generatedWorkflowProcessingStatus'
-        totalOps:
-          format: int32
-          type: integer
-        workflowId:
-          format: int64
-          type: string
-        workflowType:
-          $ref: '#/components/schemas/generatedWorkflowProcessingType'
-      type: object
-    generatedSchemaChangeInfo:
-      properties:
-        initialSchemaScanAt:
-          format: int64
-          type: string
-        lastSchemaChangeAt:
-          format: int64
-          type: string
-        mostRecentSchemaScanAt:
-          format: int64
-          type: string
-      type: object
-    generatedGetDbtJobsResponse:
-      properties:
-        dbtJobs:
-          items:
-            $ref: '#/components/schemas/generatedDbtJob'
-          type: array
-      type: object
-    generatedDbtJobRunStatus:
-      default: DBT_JOB_RUN_STATUS_UNSPECIFIED
-      enum:
-      - DBT_JOB_RUN_STATUS_UNSPECIFIED
-      - DBT_JOB_RUN_STATUS_SUCCESS
-      - DBT_JOB_RUN_STATUS_ERROR
-      - DBT_JOB_RUN_STATUS_QUEUED
-      - DBT_JOB_RUN_STATUS_STARTING
-      - DBT_JOB_RUN_STATUS_RUNNING
-      - DBT_JOB_RUN_STATUS_CANCELLED
-      type: string
-    generatedWarehouseType:
-      default: DATABASE_TYPE_UNSPECIFIED
-      enum:
-      - DATABASE_TYPE_UNSPECIFIED
-      - DATABASE_TYPE_AWS_ATHENA
-      - DATABASE_TYPE_BIGQUERY
-      - DATABASE_TYPE_DATABRICKS
-      - DATABASE_TYPE_MYSQL
-      - DATABASE_TYPE_ORACLE
-      - DATABASE_TYPE_POSTGRES
-      - DATABASE_TYPE_PRESTO
-      - DATABASE_TYPE_REDSHIFT
-      - DATABASE_TYPE_SAP_HANA
-      - DATABASE_TYPE_SNOWFLAKE
-      - DATABASE_TYPE_SQL_SERVER
-      - DATABASE_TYPE_SYNAPSE
-      - DATABASE_TYPE_ROCKSET
-      - DATABASE_TYPE_VERTICA
-      - DATABASE_TYPE_AVATICA
-      - DATABASE_TYPE_DB2
-      - DATABASE_TYPE_TERADATA
-      - DATABASE_TYPE_NETEZZA
-      - DATABASE_TYPE_SALESFORCE
-      type: string
-    generatedSchemaList:
-      properties:
-        schemas:
-          items:
-            $ref: '#/components/schemas/generatedSchema'
-          type: array
-      title: '*
-
-        Representation of a list of tables for API purposes'
-      type: object
-    generatedWorkflowProcessingStatus:
-      default: WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
-      enum:
-      - WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
-      - WORKFLOW_PROCESSING_STATUS_QUEUED
-      - WORKFLOW_PROCESSING_STATUS_IN_PROGRESS
-      - WORKFLOW_PROCESSING_STATUS_COMPLETED
-      - WORKFLOW_PROCESSING_STATUS_PARTIAL_FAILURE
-      - WORKFLOW_PROCESSING_STATUS_FAILED
-      - WORKFLOW_PROCESSING_STATUS_TIMED_OUT
-      type: string
-    generatedWorkflowProcessingType:
-      default: WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
-      enum:
-      - WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SOURCE
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SCHEMA
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_DATASET
-      - WORKFLOW_PROCESSING_TYPE_LINEAGE
-      - WORKFLOW_PROCESSING_TYPE_METADATA_METRICS
-      - WORKFLOW_PROCESSING_TYPE_GENERATE_POP_SCORES
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION
-      - WORKFLOW_PROCESSING_TYPE_APPLY_BIGCONFIG
-      - WORKFLOW_PROCESSING_TYPE_RUN_DELTA
-      - WORKFLOW_PROCESSING_TYPE_RUN_COMPARISON_TABLE
-      - WORKFLOW_PROCESSING_TYPE_RUN_METRIC_BATCH
-      - WORKFLOW_PROCESSING_TYPE_PLAN_BIGCONFIG
-      - WORKFLOW_PROCESSING_TYPE_METRIC_DEPLOY
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION_ENTITY
-      type: string
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
-    generatedSetBigQueryRegionRequest:
-      properties:
-        region:
           type: string
       type: object
   securitySchemes:

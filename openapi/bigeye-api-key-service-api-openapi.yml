@@ -8,7 +8,7 @@ security:
 - basicAuth: []
 - Personal_API_Key: []
 tags:
-- name: ApiKeyService
+- name: Api Key Service
 paths:
   /api/v1/agent-api-keys/{apiKeyId}:
     delete:
@@ -35,7 +35,7 @@ paths:
                 $ref: '#/components/schemas/runtimeError'
       summary: Delete an Agent API Key
       tags:
-      - ApiKeyService
+      - Api Key Service
   /api/v1/personal-api-keys/{apiKeyId}:
     delete:
       operationId: ApiKeyService_DeletePersonalApiKey
@@ -61,7 +61,7 @@ paths:
                 $ref: '#/components/schemas/runtimeError'
       summary: Delete a Personal API Key
       tags:
-      - ApiKeyService
+      - Api Key Service
   /api/v1/agent-api-keys:
     get:
       operationId: ApiKeyService_GetAllAgentApiKeys
@@ -80,7 +80,7 @@ paths:
                 $ref: '#/components/schemas/runtimeError'
       summary: Get all Agent API Keys
       tags:
-      - ApiKeyService
+      - Api Key Service
     post:
       operationId: ApiKeyService_CreateAgentApiKey
       requestBody:
@@ -104,7 +104,7 @@ paths:
                 $ref: '#/components/schemas/runtimeError'
       summary: Create an Agent API Key
       tags:
-      - ApiKeyService
+      - Api Key Service
   /api/v1/personal-api-keys:
     get:
       operationId: ApiKeyService_GetAllPersonalApiKeys
@@ -123,7 +123,7 @@ paths:
                 $ref: '#/components/schemas/runtimeError'
       summary: Get all Personal API Keys
       tags:
-      - ApiKeyService
+      - Api Key Service
   /api/v1/agent-api-keys/verify:
     get:
       operationId: ApiKeyService_VerifyAgentApiKey
@@ -144,7 +144,7 @@ paths:
       - Agent_API_Key: []
       summary: Verify an Agent API Key
       tags:
-      - ApiKeyService
+      - Api Key Service
   /api/v1/personal-api-keys/verify:
     get:
       operationId: ApiKeyService_VerifyPersonalApiKey
@@ -165,17 +165,17 @@ paths:
       - Personal_API_Key: []
       summary: Verify a Personal API Key
       tags:
-      - ApiKeyService
+      - Api Key Service
 components:
   schemas:
-    generatedListAgentApiKeyResponse:
+    generatedCreateAgentApiKeyRequest:
       properties:
-        keys:
-          items:
-            $ref: '#/components/schemas/generatedAgentApiKeyInfo'
-          type: array
-      type: object
-    generatedEmpty:
+        description:
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedAgentApiKeyType'
       type: object
     generatedAgentApiKeyInfo:
       properties:
@@ -197,45 +197,13 @@ components:
         type:
           $ref: '#/components/schemas/generatedAgentApiKeyType'
       type: object
-    generatedUser:
-      properties:
-        email:
-          type: string
-        groups:
-          items:
-            $ref: '#/components/schemas/generatedIdAndDisplayName'
-          type: array
-        id:
-          format: int32
-          type: integer
-        idpGroups:
-          items:
-            type: string
-          type: array
-        isServiceAccount:
-          type: boolean
-        lastLoginAt:
-          format: int64
-          type: string
-        name:
-          type: string
-        pictureUrl:
-          type: string
-      type: object
-    generatedListPersonalApiKeyResponse:
-      properties:
-        keys:
-          items:
-            $ref: '#/components/schemas/generatedPersonalApiKeyInfo'
-          type: array
-      type: object
-    generatedCreateAgentApiKeyResponse:
-      properties:
-        apiKey:
-          type: string
-        info:
-          $ref: '#/components/schemas/generatedAgentApiKeyInfo'
-      type: object
+    generatedAgentApiKeyType:
+      default: AGENT_API_KEY_TYPE_UNSPECIFIED
+      enum:
+      - AGENT_API_KEY_TYPE_UNSPECIFIED
+      - AGENT_API_KEY_TYPE_AGENT
+      - AGENT_API_KEY_TYPE_INTEGRATION
+      type: string
     generatedPersonalApiKeyInfo:
       properties:
         createdAt:
@@ -280,6 +248,13 @@ components:
         message:
           type: string
       type: object
+    generatedCreateAgentApiKeyResponse:
+      properties:
+        apiKey:
+          type: string
+        info:
+          $ref: '#/components/schemas/generatedAgentApiKeyInfo'
+      type: object
     protobufAny:
       properties:
         typeUrl:
@@ -288,21 +263,46 @@ components:
           format: byte
           type: string
       type: object
-    generatedAgentApiKeyType:
-      default: AGENT_API_KEY_TYPE_UNSPECIFIED
-      enum:
-      - AGENT_API_KEY_TYPE_UNSPECIFIED
-      - AGENT_API_KEY_TYPE_AGENT
-      - AGENT_API_KEY_TYPE_INTEGRATION
-      type: string
-    generatedCreateAgentApiKeyRequest:
+    generatedUser:
       properties:
-        description:
+        email:
+          type: string
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        id:
+          format: int32
+          type: integer
+        idpGroups:
+          items:
+            type: string
+          type: array
+        isServiceAccount:
+          type: boolean
+        lastLoginAt:
+          format: int64
           type: string
         name:
           type: string
-        type:
-          $ref: '#/components/schemas/generatedAgentApiKeyType'
+        pictureUrl:
+          type: string
+      type: object
+    generatedListPersonalApiKeyResponse:
+      properties:
+        keys:
+          items:
+            $ref: '#/components/schemas/generatedPersonalApiKeyInfo'
+          type: array
+      type: object
+    generatedEmpty:
+      type: object
+    generatedListAgentApiKeyResponse:
+      properties:
+        keys:
+          items:
+            $ref: '#/components/schemas/generatedAgentApiKeyInfo'
+          type: array
       type: object
   securitySchemes:
     basicAuth:

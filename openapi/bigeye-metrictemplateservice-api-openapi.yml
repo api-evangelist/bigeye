@@ -115,25 +115,65 @@ paths:
       - MetricTemplateService
 components:
   schemas:
-    generatedEmpty:
-      type: object
-    generatedGetMetricTemplateListResponse:
-      properties:
-        metricTemplates:
-          items:
-            $ref: '#/components/schemas/generatedMetricTemplate'
-          type: array
-        paginationInfo:
-          $ref: '#/components/schemas/generatedPaginationInfo'
-      type: object
-    generatedSortDirection:
-      default: SORT_DIRECTION_UNSPECIFIED
+    generatedMetricTemplateSortField:
+      default: METRIC_TEMPLATE_SORT_UNSPECIFIED
       enum:
-      - SORT_DIRECTION_UNSPECIFIED
-      - SORT_DIRECTION_ASCENDING
-      - SORT_DIRECTION_DESCENDING
-      title: Unspecified will default to ASCENDING
+      - METRIC_TEMPLATE_SORT_UNSPECIFIED
+      - METRIC_TEMPLATE_SORT_ID
+      - METRIC_TEMPLATE_SORT_NAME
+      - METRIC_TEMPLATE_SORT_SOURCE_NAME
       type: string
+    generatedGetMetricTemplateResponse:
+      properties:
+        metricTemplate:
+          $ref: '#/components/schemas/generatedMetricTemplate'
+      type: object
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedMetricTemplateParametersFieldEntry:
+      properties:
+        key:
+          type: string
+        value:
+          $ref: '#/components/schemas/generatedMetricTemplateParameterType'
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
     generatedGetMetricTemplateListRequest:
       properties:
         pageCursor:
@@ -151,25 +191,30 @@ components:
           format: int32
           type: integer
       type: object
+    generatedWarehouse:
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        warehouseVendor:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedEmpty:
+      type: object
     generatedCreateMetricTemplateRequest:
       properties:
         metricTemplate:
           $ref: '#/components/schemas/generatedMetricTemplate'
       type: object
-    generatedPaginationInfo:
+    generatedIdAndDisplayName:
       properties:
-        firstSortDistinctValues:
-          format: int64
+        displayName:
           type: string
-        nextCursor:
-          type: string
-        noNumRecords:
-          type: boolean
-        numRecords:
+        id:
           format: int32
           type: integer
-        prevCursor:
-          type: string
       type: object
     generatedMetricTemplate:
       properties:
@@ -202,83 +247,32 @@ components:
           format: byte
           type: string
       type: object
-    generatedEntityInfo:
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
+    runtimeError:
       properties:
-        createdBy:
+        code:
           format: int32
           type: integer
-        createdEpochSeconds:
-          format: int64
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
           type: string
-        updatedBy:
-          format: int32
-          type: integer
-        updatedEpochSeconds:
-          format: int64
+        message:
           type: string
       type: object
     generatedCreateMetricTemplateResponse:
       properties:
         metricTemplate:
           $ref: '#/components/schemas/generatedMetricTemplate'
-      type: object
-    generatedWarehouse:
-      properties:
-        id:
-          format: int32
-          type: integer
-        name:
-          type: string
-        warehouseVendor:
-          $ref: '#/components/schemas/generatedWarehouseType'
-      type: object
-    generatedMetricTemplateSortField:
-      default: METRIC_TEMPLATE_SORT_UNSPECIFIED
-      enum:
-      - METRIC_TEMPLATE_SORT_UNSPECIFIED
-      - METRIC_TEMPLATE_SORT_ID
-      - METRIC_TEMPLATE_SORT_NAME
-      - METRIC_TEMPLATE_SORT_SOURCE_NAME
-      type: string
-    generatedMetricTemplateParameterType:
-      default: METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED
-      enum:
-      - METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED
-      - METRIC_TEMPLATE_PARAMETER_TYPE_COLUMN_REFERENCE
-      - METRIC_TEMPLATE_PARAMETER_TYPE_NUMBER
-      - METRIC_TEMPLATE_PARAMETER_TYPE_STRING
-      type: string
-    generatedWarehouseType:
-      default: DATABASE_TYPE_UNSPECIFIED
-      enum:
-      - DATABASE_TYPE_UNSPECIFIED
-      - DATABASE_TYPE_AWS_ATHENA
-      - DATABASE_TYPE_BIGQUERY
-      - DATABASE_TYPE_DATABRICKS
-      - DATABASE_TYPE_MYSQL
-      - DATABASE_TYPE_ORACLE
-      - DATABASE_TYPE_POSTGRES
-      - DATABASE_TYPE_PRESTO
-      - DATABASE_TYPE_REDSHIFT
-      - DATABASE_TYPE_SAP_HANA
-      - DATABASE_TYPE_SNOWFLAKE
-      - DATABASE_TYPE_SQL_SERVER
-      - DATABASE_TYPE_SYNAPSE
-      - DATABASE_TYPE_ROCKSET
-      - DATABASE_TYPE_VERTICA
-      - DATABASE_TYPE_AVATICA
-      - DATABASE_TYPE_DB2
-      - DATABASE_TYPE_TERADATA
-      - DATABASE_TYPE_NETEZZA
-      - DATABASE_TYPE_SALESFORCE
-      type: string
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
-          type: string
-        id:
-          format: int32
-          type: integer
       type: object
     generatedFieldType:
       default: FIELD_TYPE_UNSPECIFIED
@@ -296,32 +290,38 @@ components:
       - FIELD_TYPE_ARRAY
       - FIELD_TYPE_STRUCT
       type: string
-    runtimeError:
+    generatedGetMetricTemplateListResponse:
       properties:
-        code:
+        metricTemplates:
+          items:
+            $ref: '#/components/schemas/generatedMetricTemplate'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
           format: int32
           type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
+        prevCursor:
           type: string
       type: object
-    generatedGetMetricTemplateResponse:
-      properties:
-        metricTemplate:
-          $ref: '#/components/schemas/generatedMetricTemplate'
-      type: object
-    generatedMetricTemplateParametersFieldEntry:
-      properties:
-        key:
-          type: string
-        value:
-          $ref: '#/components/schemas/generatedMetricTemplateParameterType'
-      type: object
+    generatedMetricTemplateParameterType:
+      default: METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED
+      enum:
+      - METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED
+      - METRIC_TEMPLATE_PARAMETER_TYPE_COLUMN_REFERENCE
+      - METRIC_TEMPLATE_PARAMETER_TYPE_NUMBER
+      - METRIC_TEMPLATE_PARAMETER_TYPE_STRING
+      type: string
   securitySchemes:
     basicAuth:
       type: http

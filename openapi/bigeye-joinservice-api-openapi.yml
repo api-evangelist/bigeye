@@ -144,6 +144,173 @@ paths:
       - JoinService
 components:
   schemas:
+    generatedSchemaChangeInfo:
+      properties:
+        initialSchemaScanAt:
+          format: int64
+          type: string
+        lastSchemaChangeAt:
+          format: int64
+          type: string
+        mostRecentSchemaScanAt:
+          format: int64
+          type: string
+      type: object
+    generatedTimeInterval:
+      properties:
+        intervalType:
+          $ref: '#/components/schemas/generatedTimeIntervalType'
+        intervalValue:
+          format: int32
+          type: integer
+      type: object
+    generatedTableColumn:
+      description: '*
+
+        Representation of a column in a table.'
+      properties:
+        canBeMetricTime:
+          type: boolean
+        dataNodeId:
+          format: int32
+          type: integer
+        extendedType:
+          type: string
+        fullType:
+          type: string
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        isKeyInJoin:
+          type: boolean
+        isMetricTime:
+          type: boolean
+        isNullable:
+          type: boolean
+        isPartitionField:
+          type: boolean
+        name:
+          type: string
+        parentColumnId:
+          format: int32
+          type: integer
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        type:
+          type: string
+      type: object
+    generatedGetJoinsResponse:
+      properties:
+        joins:
+          items:
+            $ref: '#/components/schemas/generatedJoin'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedJoinSortField:
+      default: JOIN_SORT_FIELD_UNSPECIFIED
+      enum:
+      - JOIN_SORT_FIELD_UNSPECIFIED
+      - JOIN_SORT_FIELD_LEFT_TABLE
+      - JOIN_SORT_FIELD_RIGHT_TABLE
+      - JOIN_SORT_FIELD_KEYS
+      type: string
+    generatedCreateOrUpdateJoinRequestWrapper:
+      properties:
+        joinId:
+          format: int32
+          type: integer
+        request:
+          $ref: '#/components/schemas/generatedCreateOrUpdateJoinRequest'
+      type: object
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedCreateOrUpdateJoinRequest:
+      properties:
+        keyColumns:
+          items:
+            $ref: '#/components/schemas/generatedJoinColumnIdPairing'
+          type: array
+        leftFilter:
+          $ref: '#/components/schemas/generatedJoinTableFilter'
+        leftTableId:
+          format: int32
+          type: integer
+        rightFilter:
+          $ref: '#/components/schemas/generatedJoinTableFilter'
+        rightTableId:
+          format: int32
+          type: integer
+      type: object
+    generatedJoinColumnIdPairing:
+      properties:
+        leftColumnId:
+          format: int32
+          type: integer
+        rightColumnId:
+          format: int32
+          type: integer
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedTableType:
+      default: TABLE_TYPE_UNSPECIFIED
+      enum:
+      - TABLE_TYPE_UNSPECIFIED
+      - TABLE_TYPE_TABLE
+      - TABLE_TYPE_VIEW
+      - TABLE_TYPE_VIRTUAL
+      - TABLE_TYPE_CUSTOM_RULE
+      type: string
+    generatedJoinSortOption:
+      properties:
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedJoinSortField'
+      type: object
     generatedEmpty:
       type: object
     generatedTag:
@@ -167,6 +334,86 @@ components:
           type: integer
       title: Tags
       type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedGetJoinsRequest:
+      properties:
+        columnId:
+          format: int32
+          type: integer
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        schemaId:
+          format: int32
+          type: integer
+        search:
+          type: string
+        sortOption:
+          items:
+            $ref: '#/components/schemas/generatedJoinSortOption'
+          type: array
+        sourceId:
+          format: int32
+          type: integer
+        tableId:
+          format: int32
+          type: integer
+      type: object
+    generatedCreateOrUpdateJoinResponse:
+      properties:
+        join:
+          $ref: '#/components/schemas/generatedJoin'
+      type: object
+    generatedTimeIntervalType:
+      default: UNDEFINED_TIME_INTERVAL_TYPE
+      enum:
+      - UNDEFINED_TIME_INTERVAL_TYPE
+      - HOURS_TIME_INTERVAL_TYPE
+      - MINUTES_TIME_INTERVAL_TYPE
+      - SECONDS_TIME_INTERVAL_TYPE
+      - DAYS_TIME_INTERVAL_TYPE
+      - WEEKDAYS_TIME_INTERVAL_TYPE
+      - MARKET_DAYS_TIME_INTERVAL_TYPE
+      - MONTHS_TIME_INTERVAL_TYPE
+      - WEEKS_TIME_INTERVAL_TYPE
+      - YEARS_TIME_INTERVAL_TYPE
+      type: string
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedJoinColumnPairing:
+      properties:
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        leftColumn:
+          $ref: '#/components/schemas/generatedTableColumn'
+        rightColumn:
+          $ref: '#/components/schemas/generatedTableColumn'
+      type: object
+    generatedJoinTableFilter:
+      properties:
+        rctFilter:
+          $ref: '#/components/schemas/generatedRowCreationTimeFilter'
+        whereClause:
+          type: string
+      type: object
     generatedSortDirection:
       default: SORT_DIRECTION_UNSPECIFIED
       enum:
@@ -174,14 +421,6 @@ components:
       - SORT_DIRECTION_ASCENDING
       - SORT_DIRECTION_DESCENDING
       title: Unspecified will default to ASCENDING
-      type: string
-    generatedJoinSortField:
-      default: JOIN_SORT_FIELD_UNSPECIFIED
-      enum:
-      - JOIN_SORT_FIELD_UNSPECIFIED
-      - JOIN_SORT_FIELD_LEFT_TABLE
-      - JOIN_SORT_FIELD_RIGHT_TABLE
-      - JOIN_SORT_FIELD_KEYS
       type: string
     generatedJoin:
       properties:
@@ -202,85 +441,6 @@ components:
           $ref: '#/components/schemas/generatedJoinTableFilter'
         rightTable:
           $ref: '#/components/schemas/generatedTable'
-      type: object
-    generatedSchema:
-      description: '*
-
-        Representation of a schema in a warehouse.'
-      properties:
-        dataNodeId:
-          format: int32
-          type: integer
-        databaseType:
-          $ref: '#/components/schemas/generatedWarehouseType'
-        id:
-          format: int32
-          type: integer
-        indexByTable:
-          type: boolean
-        isFavorite:
-          type: boolean
-        isVirtual:
-          type: boolean
-        latestMetricTimeValue:
-          format: int64
-          type: string
-        logicalSizeBytes:
-          format: int64
-          type: string
-        name:
-          type: string
-        numQueriesLatestPeriod:
-          format: int32
-          type: integer
-        popularityScore:
-          format: double
-          type: number
-        schemaChangeInfo:
-          $ref: '#/components/schemas/generatedSchemaChangeInfo'
-        sizeLastUpdatedAtMillis:
-          format: int64
-          type: string
-        tags:
-          items:
-            $ref: '#/components/schemas/generatedTag'
-          type: array
-        warehouseId:
-          format: int32
-          type: integer
-        warehouseName:
-          type: string
-      type: object
-    generatedTimeInterval:
-      properties:
-        intervalType:
-          $ref: '#/components/schemas/generatedTimeIntervalType'
-        intervalValue:
-          format: int32
-          type: integer
-      type: object
-    generatedTimeIntervalType:
-      default: UNDEFINED_TIME_INTERVAL_TYPE
-      enum:
-      - UNDEFINED_TIME_INTERVAL_TYPE
-      - HOURS_TIME_INTERVAL_TYPE
-      - MINUTES_TIME_INTERVAL_TYPE
-      - SECONDS_TIME_INTERVAL_TYPE
-      - DAYS_TIME_INTERVAL_TYPE
-      - WEEKDAYS_TIME_INTERVAL_TYPE
-      - MARKET_DAYS_TIME_INTERVAL_TYPE
-      - MONTHS_TIME_INTERVAL_TYPE
-      - WEEKS_TIME_INTERVAL_TYPE
-      - YEARS_TIME_INTERVAL_TYPE
-      type: string
-    generatedJoinColumnIdPairing:
-      properties:
-        leftColumnId:
-          format: int32
-          type: integer
-        rightColumnId:
-          format: int32
-          type: integer
       type: object
     generatedTable:
       description: '*
@@ -347,10 +507,67 @@ components:
         warehouseVendor:
           $ref: '#/components/schemas/generatedWarehouseType'
       type: object
-    generatedCreateOrUpdateJoinResponse:
+    runtimeError:
       properties:
-        join:
-          $ref: '#/components/schemas/generatedJoin'
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedSchema:
+      description: '*
+
+        Representation of a schema in a warehouse.'
+      properties:
+        dataNodeId:
+          format: int32
+          type: integer
+        databaseType:
+          $ref: '#/components/schemas/generatedWarehouseType'
+        id:
+          format: int32
+          type: integer
+        indexByTable:
+          type: boolean
+        isFavorite:
+          type: boolean
+        isVirtual:
+          type: boolean
+        latestMetricTimeValue:
+          format: int64
+          type: string
+        logicalSizeBytes:
+          format: int64
+          type: string
+        name:
+          type: string
+        numQueriesLatestPeriod:
+          format: int32
+          type: integer
+        popularityScore:
+          format: double
+          type: number
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        sizeLastUpdatedAtMillis:
+          format: int64
+          type: string
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        warehouseId:
+          format: int32
+          type: integer
+        warehouseName:
+          type: string
       type: object
     generatedPaginationInfo:
       properties:
@@ -367,223 +584,6 @@ components:
         prevCursor:
           type: string
       type: object
-    generatedTableColumn:
-      description: '*
-
-        Representation of a column in a table.'
-      properties:
-        canBeMetricTime:
-          type: boolean
-        dataNodeId:
-          format: int32
-          type: integer
-        extendedType:
-          type: string
-        fullType:
-          type: string
-        id:
-          format: int32
-          type: integer
-        isFavorite:
-          type: boolean
-        isKeyInJoin:
-          type: boolean
-        isMetricTime:
-          type: boolean
-        isNullable:
-          type: boolean
-        isPartitionField:
-          type: boolean
-        name:
-          type: string
-        parentColumnId:
-          format: int32
-          type: integer
-        schemaChangeInfo:
-          $ref: '#/components/schemas/generatedSchemaChangeInfo'
-        tags:
-          items:
-            $ref: '#/components/schemas/generatedTag'
-          type: array
-        type:
-          type: string
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedEntityInfo:
-      properties:
-        createdBy:
-          format: int32
-          type: integer
-        createdEpochSeconds:
-          format: int64
-          type: string
-        updatedBy:
-          format: int32
-          type: integer
-        updatedEpochSeconds:
-          format: int64
-          type: string
-      type: object
-    generatedCreateOrUpdateJoinRequestWrapper:
-      properties:
-        joinId:
-          format: int32
-          type: integer
-        request:
-          $ref: '#/components/schemas/generatedCreateOrUpdateJoinRequest'
-      type: object
-    generatedGetJoinsResponse:
-      properties:
-        joins:
-          items:
-            $ref: '#/components/schemas/generatedJoin'
-          type: array
-        paginationInfo:
-          $ref: '#/components/schemas/generatedPaginationInfo'
-      type: object
-    generatedCreateOrUpdateJoinRequest:
-      properties:
-        keyColumns:
-          items:
-            $ref: '#/components/schemas/generatedJoinColumnIdPairing'
-          type: array
-        leftFilter:
-          $ref: '#/components/schemas/generatedJoinTableFilter'
-        leftTableId:
-          format: int32
-          type: integer
-        rightFilter:
-          $ref: '#/components/schemas/generatedJoinTableFilter'
-        rightTableId:
-          format: int32
-          type: integer
-      type: object
-    generatedJoinSortOption:
-      properties:
-        sortDirection:
-          $ref: '#/components/schemas/generatedSortDirection'
-        sortField:
-          $ref: '#/components/schemas/generatedJoinSortField'
-      type: object
-    generatedJoinTableFilter:
-      properties:
-        rctFilter:
-          $ref: '#/components/schemas/generatedRowCreationTimeFilter'
-        whereClause:
-          type: string
-      type: object
-    generatedSchemaChangeInfo:
-      properties:
-        initialSchemaScanAt:
-          format: int64
-          type: string
-        lastSchemaChangeAt:
-          format: int64
-          type: string
-        mostRecentSchemaScanAt:
-          format: int64
-          type: string
-      type: object
-    generatedGetJoinsRequest:
-      properties:
-        columnId:
-          format: int32
-          type: integer
-        pageCursor:
-          type: string
-        pageSize:
-          format: int32
-          type: integer
-        schemaId:
-          format: int32
-          type: integer
-        search:
-          type: string
-        sortOption:
-          items:
-            $ref: '#/components/schemas/generatedJoinSortOption'
-          type: array
-        sourceId:
-          format: int32
-          type: integer
-        tableId:
-          format: int32
-          type: integer
-      type: object
-    generatedWarehouseType:
-      default: DATABASE_TYPE_UNSPECIFIED
-      enum:
-      - DATABASE_TYPE_UNSPECIFIED
-      - DATABASE_TYPE_AWS_ATHENA
-      - DATABASE_TYPE_BIGQUERY
-      - DATABASE_TYPE_DATABRICKS
-      - DATABASE_TYPE_MYSQL
-      - DATABASE_TYPE_ORACLE
-      - DATABASE_TYPE_POSTGRES
-      - DATABASE_TYPE_PRESTO
-      - DATABASE_TYPE_REDSHIFT
-      - DATABASE_TYPE_SAP_HANA
-      - DATABASE_TYPE_SNOWFLAKE
-      - DATABASE_TYPE_SQL_SERVER
-      - DATABASE_TYPE_SYNAPSE
-      - DATABASE_TYPE_ROCKSET
-      - DATABASE_TYPE_VERTICA
-      - DATABASE_TYPE_AVATICA
-      - DATABASE_TYPE_DB2
-      - DATABASE_TYPE_TERADATA
-      - DATABASE_TYPE_NETEZZA
-      - DATABASE_TYPE_SALESFORCE
-      type: string
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
-          type: string
-        id:
-          format: int32
-          type: integer
-      type: object
-    generatedJoinColumnPairing:
-      properties:
-        entityInfo:
-          $ref: '#/components/schemas/generatedEntityInfo'
-        id:
-          format: int32
-          type: integer
-        leftColumn:
-          $ref: '#/components/schemas/generatedTableColumn'
-        rightColumn:
-          $ref: '#/components/schemas/generatedTableColumn'
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
-    generatedTableType:
-      default: TABLE_TYPE_UNSPECIFIED
-      enum:
-      - TABLE_TYPE_UNSPECIFIED
-      - TABLE_TYPE_TABLE
-      - TABLE_TYPE_VIEW
-      - TABLE_TYPE_VIRTUAL
-      - TABLE_TYPE_CUSTOM_RULE
-      type: string
     generatedRowCreationTimeFilter:
       properties:
         lookback:

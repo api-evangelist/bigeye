@@ -38,39 +38,6 @@ paths:
       - WorkflowService
 components:
   schemas:
-    generatedWorkflowStatusResponse:
-      properties:
-        completedAt:
-          format: int64
-          type: string
-        completedOps:
-          format: int32
-          type: integer
-        startedAt:
-          format: int64
-          type: string
-        status:
-          $ref: '#/components/schemas/generatedWorkflowProcessingStatus'
-        totalOps:
-          format: int32
-          type: integer
-        workflowId:
-          format: int64
-          type: string
-        workflowType:
-          $ref: '#/components/schemas/generatedWorkflowProcessingType'
-      type: object
-    generatedWorkflowProcessingStatus:
-      default: WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
-      enum:
-      - WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
-      - WORKFLOW_PROCESSING_STATUS_QUEUED
-      - WORKFLOW_PROCESSING_STATUS_IN_PROGRESS
-      - WORKFLOW_PROCESSING_STATUS_COMPLETED
-      - WORKFLOW_PROCESSING_STATUS_PARTIAL_FAILURE
-      - WORKFLOW_PROCESSING_STATUS_FAILED
-      - WORKFLOW_PROCESSING_STATUS_TIMED_OUT
-      type: string
     generatedWorkflowProcessingType:
       default: WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
       enum:
@@ -112,6 +79,39 @@ components:
           format: byte
           type: string
       type: object
+    generatedWorkflowStatusResponse:
+      properties:
+        completedAt:
+          format: int64
+          type: string
+        completedOps:
+          format: int32
+          type: integer
+        startedAt:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedWorkflowProcessingStatus'
+        totalOps:
+          format: int32
+          type: integer
+        workflowId:
+          format: int64
+          type: string
+        workflowType:
+          $ref: '#/components/schemas/generatedWorkflowProcessingType'
+      type: object
+    generatedWorkflowProcessingStatus:
+      default: WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      enum:
+      - WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      - WORKFLOW_PROCESSING_STATUS_QUEUED
+      - WORKFLOW_PROCESSING_STATUS_IN_PROGRESS
+      - WORKFLOW_PROCESSING_STATUS_COMPLETED
+      - WORKFLOW_PROCESSING_STATUS_PARTIAL_FAILURE
+      - WORKFLOW_PROCESSING_STATUS_FAILED
+      - WORKFLOW_PROCESSING_STATUS_TIMED_OUT
+      type: string
   securitySchemes:
     basicAuth:
       type: http

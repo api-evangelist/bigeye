@@ -212,47 +212,28 @@ paths:
       - ClassifierService
 components:
   schemas:
-    generatedEmpty:
-      type: object
-    generatedSortDirection:
-      default: SORT_DIRECTION_UNSPECIFIED
+    generatedTestDetectorResponseType:
+      default: TEST_DETECTOR_RESPONSE_TYPE_UNSPECIFIED
       enum:
-      - SORT_DIRECTION_UNSPECIFIED
-      - SORT_DIRECTION_ASCENDING
-      - SORT_DIRECTION_DESCENDING
-      title: Unspecified will default to ASCENDING
+      - TEST_DETECTOR_RESPONSE_TYPE_UNSPECIFIED
+      - TEST_DETECTOR_RESPONSE_TYPE_POSITIVE
+      - TEST_DETECTOR_RESPONSE_TYPE_NEGATIVE
+      - TEST_DETECTOR_RESPONSE_TYPE_MALFORMED
+      - TEST_DETECTOR_RESPONSE_TYPE_INTERNAL_ERROR
       type: string
-    generatedDataClass:
+    generatedDetectorCombinator:
+      default: DETECTOR_COMBINATOR_UNSPECIFIED
+      enum:
+      - DETECTOR_COMBINATOR_UNSPECIFIED
+      - DETECTOR_COMBINATOR_AND
+      - DETECTOR_COMBINATOR_OR
+      type: string
+    generatedClassifierSortOption:
       properties:
-        canResetToDefault:
-          type: boolean
-        categories:
-          items:
-            $ref: '#/components/schemas/generatedDataClassCategory'
-          type: array
-        colorHex:
-          type: string
-        createdBy:
-          $ref: '#/components/schemas/generatedUser'
-        description:
-          type: string
-        entityInfo:
-          $ref: '#/components/schemas/generatedEntityInfo'
-        id:
-          format: int64
-          type: string
-        name:
-          type: string
-        numberOfClassifiers:
-          format: int32
-          type: integer
-        providedByBigeye:
-          type: boolean
-        sensitivity:
-          $ref: '#/components/schemas/generatedDataSensitivity'
-        workspaceId:
-          format: int32
-          type: integer
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedClassifierSortField'
       type: object
     generatedUser:
       properties:
@@ -278,162 +259,6 @@ components:
           type: string
         pictureUrl:
           type: string
-      type: object
-    generatedTestDetectorResponse:
-      properties:
-        error:
-          type: string
-        responseType:
-          $ref: '#/components/schemas/generatedTestDetectorResponseType'
-      type: object
-    generatedClassifierSortOption:
-      properties:
-        sortDirection:
-          $ref: '#/components/schemas/generatedSortDirection'
-        sortField:
-          $ref: '#/components/schemas/generatedClassifierSortField'
-      type: object
-    generatedDataSensitivity:
-      default: DATA_SENSITIVITY_UNSPECIFIED
-      enum:
-      - DATA_SENSITIVITY_UNSPECIFIED
-      - DATA_SENSITIVITY_PUBLIC
-      - DATA_SENSITIVITY_INTERNAL
-      - DATA_SENSITIVITY_CONFIDENTIAL
-      - DATA_SENSITIVITY_RESTRICTED
-      type: string
-    modelsgeneratedDetector:
-      properties:
-        compoundDetector:
-          $ref: '#/components/schemas/generatedCompoundDetector'
-        simpleDetector:
-          $ref: '#/components/schemas/generatedSimpleDetector'
-      type: object
-    generatedTestDetectorRequest:
-      properties:
-        detector:
-          $ref: '#/components/schemas/generatedSimpleDetector'
-        value:
-          type: string
-        workspaceId:
-          format: int32
-          type: integer
-      type: object
-    generatedPaginationInfo:
-      properties:
-        firstSortDistinctValues:
-          format: int64
-          type: string
-        nextCursor:
-          type: string
-        noNumRecords:
-          type: boolean
-        numRecords:
-          format: int32
-          type: integer
-        prevCursor:
-          type: string
-      type: object
-    generatedCreateOrUpdateClassifierRequest:
-      properties:
-        dataClassId:
-          format: int64
-          type: string
-        description:
-          type: string
-        detector:
-          $ref: '#/components/schemas/modelsgeneratedDetector'
-        name:
-          type: string
-        workspaceId:
-          format: int32
-          type: integer
-      type: object
-    generatedClassifierSortField:
-      default: CLASSIFIER_SORT_FIELD_UNSPECIFIED
-      enum:
-      - CLASSIFIER_SORT_FIELD_UNSPECIFIED
-      - CLASSIFIER_SORT_FIELD_NAME
-      - CLASSIFIER_SORT_FIELD_DATA_CLASS_NAME
-      - CLASSIFIER_SORT_FIELD_SENSITIVITY
-      - CLASSIFIER_SORT_FIELD_CREATOR
-      - CLASSIFIER_SORT_FIELD_DETECTOR_TYPE
-      - CLASSIFIER_SORT_FIELD_NUMBER_OF_SCAN_JOBS
-      - CLASSIFIER_SORT_FIELD_DESCRIPTION
-      type: string
-    generatedGetMachineLearningDetectorListRequest:
-      properties:
-        workspaceId:
-          format: int32
-          type: integer
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedEntityInfo:
-      properties:
-        createdBy:
-          format: int32
-          type: integer
-        createdEpochSeconds:
-          format: int64
-          type: string
-        updatedBy:
-          format: int32
-          type: integer
-        updatedEpochSeconds:
-          format: int64
-          type: string
-      type: object
-    generatedTestDetectorResponseType:
-      default: TEST_DETECTOR_RESPONSE_TYPE_UNSPECIFIED
-      enum:
-      - TEST_DETECTOR_RESPONSE_TYPE_UNSPECIFIED
-      - TEST_DETECTOR_RESPONSE_TYPE_POSITIVE
-      - TEST_DETECTOR_RESPONSE_TYPE_NEGATIVE
-      - TEST_DETECTOR_RESPONSE_TYPE_MALFORMED
-      - TEST_DETECTOR_RESPONSE_TYPE_INTERNAL_ERROR
-      type: string
-    generatedRegexDetector:
-      properties:
-        flagCaseInsensitive:
-          type: boolean
-        flagDotall:
-          type: boolean
-        regex:
-          type: string
-        target:
-          $ref: '#/components/schemas/generatedDetectorTarget'
-      type: object
-    generatedMachineLearningDetector:
-      properties:
-        detector:
-          $ref: '#/components/schemas/generatedsdsDetector'
-        displayName:
-          type: string
-        target:
-          $ref: '#/components/schemas/generatedDetectorTarget'
-        threshold:
-          format: double
-          type: number
-      type: object
-    generatedDataClassCategory:
-      properties:
-        description:
-          type: string
-        id:
-          format: int64
-          type: string
-        name:
-          type: string
-        workspaceId:
-          format: int32
-          type: integer
       type: object
     generatedClassifier:
       properties:
@@ -463,59 +288,55 @@ components:
           format: int32
           type: integer
       type: object
-    generatedGetClassifierListResponse:
+    generatedCreateOrUpdateClassifierRequest:
       properties:
-        classifiers:
-          items:
-            $ref: '#/components/schemas/generatedClassifier'
-          type: array
-        paginationInfo:
-          $ref: '#/components/schemas/generatedPaginationInfo'
+        dataClassId:
+          format: int64
+          type: string
+        description:
+          type: string
+        detector:
+          $ref: '#/components/schemas/modelsgeneratedDetector'
+        name:
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
       type: object
-    generatedGetMachineLearningDetectorListResponse:
+    generatedDataClassCategory:
       properties:
-        detectors:
-          items:
-            $ref: '#/components/schemas/generatedMachineLearningDetector'
-          type: array
-      type: object
-    generatedDetectorTarget:
-      default: DETECTOR_TARGET_UNSPECIFIED
-      enum:
-      - DETECTOR_TARGET_UNSPECIFIED
-      - DETECTOR_TARGET_DATA
-      - DETECTOR_TARGET_COLUMN_NAME
-      type: string
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
+        description:
           type: string
         id:
+          format: int64
+          type: string
+        name:
+          type: string
+        workspaceId:
           format: int32
           type: integer
       type: object
-    runtimeError:
+    generatedEntityInfo:
       properties:
-        code:
+        createdBy:
           format: int32
           type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
+        createdEpochSeconds:
+          format: int64
           type: string
-        message:
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
           type: string
       type: object
-    generatedCompoundDetector:
+    generatedSimpleDetector:
       properties:
-        combinator:
-          $ref: '#/components/schemas/generatedDetectorCombinator'
-        detectors:
-          items:
-            $ref: '#/components/schemas/modelsgeneratedDetector'
-          type: array
+        machineLearningDetector:
+          $ref: '#/components/schemas/generatedMachineLearningDetector'
+        regexDetector:
+          $ref: '#/components/schemas/generatedRegexDetector'
       type: object
     generatedsdsDetector:
       default: DETECTOR_UNSPECIFIED
@@ -562,6 +383,92 @@ components:
       - DETECTOR_URL
       - DETECTOR_ALWAYS_FAIL
       type: string
+    generatedEmpty:
+      type: object
+    generatedDataClass:
+      properties:
+        canResetToDefault:
+          type: boolean
+        categories:
+          items:
+            $ref: '#/components/schemas/generatedDataClassCategory'
+          type: array
+        colorHex:
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        numberOfClassifiers:
+          format: int32
+          type: integer
+        providedByBigeye:
+          type: boolean
+        sensitivity:
+          $ref: '#/components/schemas/generatedDataSensitivity'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedRegexDetector:
+      properties:
+        flagCaseInsensitive:
+          type: boolean
+        flagDotall:
+          type: boolean
+        regex:
+          type: string
+        target:
+          $ref: '#/components/schemas/generatedDetectorTarget'
+      type: object
+    generatedClassifierSortField:
+      default: CLASSIFIER_SORT_FIELD_UNSPECIFIED
+      enum:
+      - CLASSIFIER_SORT_FIELD_UNSPECIFIED
+      - CLASSIFIER_SORT_FIELD_NAME
+      - CLASSIFIER_SORT_FIELD_DATA_CLASS_NAME
+      - CLASSIFIER_SORT_FIELD_SENSITIVITY
+      - CLASSIFIER_SORT_FIELD_CREATOR
+      - CLASSIFIER_SORT_FIELD_DETECTOR_TYPE
+      - CLASSIFIER_SORT_FIELD_NUMBER_OF_SCAN_JOBS
+      - CLASSIFIER_SORT_FIELD_DESCRIPTION
+      type: string
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedTestDetectorResponse:
+      properties:
+        error:
+          type: string
+        responseType:
+          $ref: '#/components/schemas/generatedTestDetectorResponseType'
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedGetMachineLearningDetectorListRequest:
+      properties:
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
     generatedGetClassifierListRequest:
       properties:
         creatorIds:
@@ -610,19 +517,112 @@ components:
           format: int32
           type: integer
       type: object
-    generatedDetectorCombinator:
-      default: DETECTOR_COMBINATOR_UNSPECIFIED
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
       enum:
-      - DETECTOR_COMBINATOR_UNSPECIFIED
-      - DETECTOR_COMBINATOR_AND
-      - DETECTOR_COMBINATOR_OR
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
       type: string
-    generatedSimpleDetector:
+    generatedGetMachineLearningDetectorListResponse:
       properties:
-        machineLearningDetector:
-          $ref: '#/components/schemas/generatedMachineLearningDetector'
-        regexDetector:
-          $ref: '#/components/schemas/generatedRegexDetector'
+        detectors:
+          items:
+            $ref: '#/components/schemas/generatedMachineLearningDetector'
+          type: array
+      type: object
+    generatedGetClassifierListResponse:
+      properties:
+        classifiers:
+          items:
+            $ref: '#/components/schemas/generatedClassifier'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedMachineLearningDetector:
+      properties:
+        detector:
+          $ref: '#/components/schemas/generatedsdsDetector'
+        displayName:
+          type: string
+        target:
+          $ref: '#/components/schemas/generatedDetectorTarget'
+        threshold:
+          format: double
+          type: number
+      type: object
+    generatedDataSensitivity:
+      default: DATA_SENSITIVITY_UNSPECIFIED
+      enum:
+      - DATA_SENSITIVITY_UNSPECIFIED
+      - DATA_SENSITIVITY_PUBLIC
+      - DATA_SENSITIVITY_INTERNAL
+      - DATA_SENSITIVITY_CONFIDENTIAL
+      - DATA_SENSITIVITY_RESTRICTED
+      type: string
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    modelsgeneratedDetector:
+      properties:
+        compoundDetector:
+          $ref: '#/components/schemas/generatedCompoundDetector'
+        simpleDetector:
+          $ref: '#/components/schemas/generatedSimpleDetector'
+      type: object
+    generatedDetectorTarget:
+      default: DETECTOR_TARGET_UNSPECIFIED
+      enum:
+      - DETECTOR_TARGET_UNSPECIFIED
+      - DETECTOR_TARGET_DATA
+      - DETECTOR_TARGET_COLUMN_NAME
+      type: string
+    generatedCompoundDetector:
+      properties:
+        combinator:
+          $ref: '#/components/schemas/generatedDetectorCombinator'
+        detectors:
+          items:
+            $ref: '#/components/schemas/modelsgeneratedDetector'
+          type: array
+      type: object
+    generatedTestDetectorRequest:
+      properties:
+        detector:
+          $ref: '#/components/schemas/generatedSimpleDetector'
+        value:
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
       type: object
   requestBodies:
     generatedCreateOrUpdateClassifierRequest:

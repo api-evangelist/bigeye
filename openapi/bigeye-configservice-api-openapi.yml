@@ -62,7 +62,19 @@ paths:
       - ConfigService
 components:
   schemas:
-    generatedEmpty:
+    generatedUpdateConfigRequest:
+      properties:
+        advancedConfigs:
+          items:
+            $ref: '#/components/schemas/generatedConfigValue'
+          type: array
+      type: object
+    generatedGetConfigListResponse:
+      properties:
+        advancedConfigs:
+          items:
+            $ref: '#/components/schemas/generatedConfigValue'
+          type: array
       type: object
     generatedConfigValue:
       properties:
@@ -78,22 +90,6 @@ components:
         type:
           $ref: '#/components/schemas/generatedConfigValueType'
       type: object
-    generatedGetConfigListResponse:
-      properties:
-        advancedConfigs:
-          items:
-            $ref: '#/components/schemas/generatedConfigValue'
-          type: array
-      type: object
-    generatedConfigValueType:
-      default: VALUE_TYPE_UNSPECIFIED
-      enum:
-      - VALUE_TYPE_UNSPECIFIED
-      - VALUE_TYPE_STRING
-      - VALUE_TYPE_BOOL
-      - VALUE_TYPE_INTEGER
-      - VALUE_TYPE_DECIMAL
-      type: string
     runtimeError:
       properties:
         code:
@@ -108,6 +104,15 @@ components:
         message:
           type: string
       type: object
+    generatedConfigValueType:
+      default: VALUE_TYPE_UNSPECIFIED
+      enum:
+      - VALUE_TYPE_UNSPECIFIED
+      - VALUE_TYPE_STRING
+      - VALUE_TYPE_BOOL
+      - VALUE_TYPE_INTEGER
+      - VALUE_TYPE_DECIMAL
+      type: string
     protobufAny:
       properties:
         typeUrl:
@@ -116,12 +121,7 @@ components:
           format: byte
           type: string
       type: object
-    generatedUpdateConfigRequest:
-      properties:
-        advancedConfigs:
-          items:
-            $ref: '#/components/schemas/generatedConfigValue'
-          type: array
+    generatedEmpty:
       type: object
   securitySchemes:
     basicAuth:

@@ -26,7 +26,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/runtimeError'
-      summary: Get the public key the user's company Agent should use when sending messages to Bigeye
+      summary: Get the public key the user's company Agent should use when sending messages to…
       tags:
       - AgentService
   /api/v1/agent/public-key:
@@ -69,7 +69,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/runtimeError'
-      summary: Set the public key Bigeye will use to encrypt messages to the user's company Agent
+      summary: Set the public key Bigeye will use to encrypt messages to the user's company…
       tags:
       - AgentService
   /api/v1/agent/health/ping:
@@ -168,26 +168,6 @@ components:
         isValid:
           type: boolean
       type: object
-    generatedAgentHealthStatus:
-      default: AGENT_HEALTH_STATUS_UNSPECIFIED
-      enum:
-      - AGENT_HEALTH_STATUS_UNSPECIFIED
-      - AGENT_HEALTH_STATUS_HEALTHY
-      - AGENT_HEALTH_STATUS_SLOW_BUT_UP
-      - AGENT_HEALTH_STATUS_DOWN
-      - AGENT_HEALTH_STATUS_NO_DATA
-      type: string
-    generatedAgentHealthResponse:
-      properties:
-        failures:
-          items:
-            $ref: '#/components/schemas/generatedFailedUpdate'
-          type: array
-        sources:
-          items:
-            $ref: '#/components/schemas/generatedAgentHealthInfo'
-          type: array
-      type: object
     runtimeError:
       properties:
         code:
@@ -202,11 +182,31 @@ components:
         message:
           type: string
       type: object
+    generatedAgentHealthResponse:
+      properties:
+        failures:
+          items:
+            $ref: '#/components/schemas/generatedFailedUpdate'
+          type: array
+        sources:
+          items:
+            $ref: '#/components/schemas/generatedAgentHealthInfo'
+          type: array
+      type: object
     generatedPublicKeyMessage:
       properties:
         publicKey:
           type: string
       type: object
+    generatedAgentHealthStatus:
+      default: AGENT_HEALTH_STATUS_UNSPECIFIED
+      enum:
+      - AGENT_HEALTH_STATUS_UNSPECIFIED
+      - AGENT_HEALTH_STATUS_HEALTHY
+      - AGENT_HEALTH_STATUS_SLOW_BUT_UP
+      - AGENT_HEALTH_STATUS_DOWN
+      - AGENT_HEALTH_STATUS_NO_DATA
+      type: string
     protobufAny:
       properties:
         typeUrl:

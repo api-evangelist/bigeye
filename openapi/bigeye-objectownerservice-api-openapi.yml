@@ -98,37 +98,6 @@ paths:
       - ObjectOwnerService
 components:
   schemas:
-    generatedObjectOwnerResponse:
-      properties:
-        inheritedOwner:
-          $ref: '#/components/schemas/generatedIdAndDisplayName'
-        ownableId:
-          format: int32
-          type: integer
-        ownableType:
-          $ref: '#/components/schemas/generatedOwnableType'
-        owner:
-          $ref: '#/components/schemas/generatedIdAndDisplayName'
-      type: object
-    generatedSetObjectOwnerRequest:
-      properties:
-        ownableId:
-          format: int32
-          type: integer
-        ownableType:
-          $ref: '#/components/schemas/generatedOwnableType'
-        owner:
-          format: int32
-          type: integer
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
     generatedIdAndDisplayName:
       properties:
         displayName:
@@ -151,6 +120,26 @@ components:
         message:
           type: string
       type: object
+    generatedObjectOwnerResponse:
+      properties:
+        inheritedOwner:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        ownableId:
+          format: int32
+          type: integer
+        ownableType:
+          $ref: '#/components/schemas/generatedOwnableType'
+        owner:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
     generatedOwnableType:
       default: OWNABLE_TYPE_UNSPECIFIED
       enum:
@@ -167,6 +156,17 @@ components:
       - OWNABLE_TYPE_META_CENTER_REPOSITORY
       - OWNABLE_TYPE_INTEGRATION
       type: string
+    generatedSetObjectOwnerRequest:
+      properties:
+        ownableId:
+          format: int32
+          type: integer
+        ownableType:
+          $ref: '#/components/schemas/generatedOwnableType'
+        owner:
+          format: int32
+          type: integer
+      type: object
   securitySchemes:
     basicAuth:
       type: http

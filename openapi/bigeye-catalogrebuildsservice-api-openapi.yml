@@ -101,28 +101,6 @@ paths:
       - CatalogRebuildsService
 components:
   schemas:
-    generatedWorkflowV2Id:
-      properties:
-        runId:
-          type: string
-        workflowId:
-          type: string
-      type: object
-    generatedWorkflowResponse:
-      properties:
-        workflowId:
-          format: int64
-          type: string
-        workflowType:
-          $ref: '#/components/schemas/generatedWorkflowProcessingType'
-      type: object
-    generatedQueueSingleTableResponse:
-      properties:
-        statusUrl:
-          type: string
-        workflowV2Id:
-          $ref: '#/components/schemas/generatedWorkflowV2Id'
-      type: object
     generatedWorkflowProcessingType:
       default: WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
       enum:
@@ -156,14 +134,6 @@ components:
         message:
           type: string
       type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
     generatedRebuildSourceRequest:
       properties:
         priority:
@@ -180,11 +150,41 @@ components:
         tableName:
           type: string
       type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedWorkflowResponse:
+      properties:
+        workflowId:
+          format: int64
+          type: string
+        workflowType:
+          $ref: '#/components/schemas/generatedWorkflowProcessingType'
+      type: object
     generatedRebuildSchemaRequest:
       properties:
         priority:
           format: int32
           type: integer
+      type: object
+    generatedWorkflowV2Id:
+      properties:
+        runId:
+          type: string
+        workflowId:
+          type: string
+      type: object
+    generatedQueueSingleTableResponse:
+      properties:
+        statusUrl:
+          type: string
+        workflowV2Id:
+          $ref: '#/components/schemas/generatedWorkflowV2Id'
       type: object
   securitySchemes:
     basicAuth:

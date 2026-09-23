@@ -188,54 +188,14 @@ paths:
       - CollectionService
 components:
   schemas:
-    generatedSlackChannelInfo:
+    generatedCreateCollectionResponse:
       properties:
-        channelId:
-          type: string
-        channelName:
-          type: string
-        issueThreadPermalink:
-          type: string
-        threadTs:
-          type: string
-      type: object
-    generatedEmpty:
-      type: object
-    generatedTag:
-      properties:
-        colorHex:
-          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
-          type: string
-        createdAt:
-          format: int64
-          type: string
-        id:
-          format: int32
-          type: integer
-        name:
-          type: string
-        updatedAt:
-          format: int64
-          type: string
-        workspaceId:
-          format: int32
-          type: integer
-      title: Tags
-      type: object
-    generatedExternalTicketProvider:
-      default: EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
-      enum:
-      - EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
-      - EXTERNAL_TICKET_PROVIDER_JIRA
-      - EXTERNAL_TICKET_PROVIDER_SERVICENOW
-      type: string
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
+        collection:
+          $ref: '#/components/schemas/generatedCollection'
+        failedMetricEdits:
+          items:
+            $ref: '#/components/schemas/generatedFailedMetricEdit'
+          type: array
       type: object
     generatedEntityInfo:
       properties:
@@ -252,22 +212,13 @@ components:
           format: int64
           type: string
       type: object
-    generatedWebhookHeader:
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-      type: object
-    generatedCreateCollectionResponse:
-      properties:
-        collection:
-          $ref: '#/components/schemas/generatedCollection'
-        failedMetricEdits:
-          items:
-            $ref: '#/components/schemas/generatedFailedMetricEdit'
-          type: array
-      type: object
+    generatedExternalTicketProvider:
+      default: EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
+      enum:
+      - EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
+      - EXTERNAL_TICKET_PROVIDER_JIRA
+      - EXTERNAL_TICKET_PROVIDER_SERVICENOW
+      type: string
     generatedEditCollectionRequest:
       properties:
         collectionName:
@@ -290,12 +241,53 @@ components:
           format: int32
           type: integer
       type: object
-    generatedCollectionInfo:
+    generatedEmpty:
+      type: object
+    generatedEditCollectionResponse:
       properties:
-        collectionConfiguration:
+        collection:
           $ref: '#/components/schemas/generatedCollection'
-        collectionMetricStatus:
-          $ref: '#/components/schemas/generatedCollectionMetricStatus'
+        failedMetricEdits:
+          items:
+            $ref: '#/components/schemas/generatedFailedMetricEdit'
+          type: array
+      type: object
+    generatedTag:
+      properties:
+        colorHex:
+          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+          type: string
+        createdAt:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        updatedAt:
+          format: int64
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      title: Tags
+      type: object
+    generatedNotificationChannel:
+      properties:
+        email:
+          type: string
+        externalTicketInfo:
+          $ref: '#/components/schemas/generatedIssueExternalTicketInfo'
+        slackChannelInfo:
+          $ref: '#/components/schemas/generatedSlackChannelInfo'
+        webhook:
+          $ref: '#/components/schemas/generatedWebhook'
+      type: object
+    generatedGetCollectionInfoResponse:
+      properties:
+        collectionInfo:
+          $ref: '#/components/schemas/generatedCollectionInfo'
       type: object
     generatedFailedMetricEdit:
       properties:
@@ -303,6 +295,37 @@ components:
           format: int32
           type: integer
         reason:
+          type: string
+      type: object
+    generatedWebhookHeader:
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedCollectionInfo:
+      properties:
+        collectionConfiguration:
+          $ref: '#/components/schemas/generatedCollection'
+        collectionMetricStatus:
+          $ref: '#/components/schemas/generatedCollectionMetricStatus'
+      type: object
+    generatedWebhook:
+      properties:
+        webhookHeaders:
+          items:
+            $ref: '#/components/schemas/generatedWebhookHeader'
+          type: array
+        webhookUrl:
           type: string
       type: object
     generatedIssueExternalTicketInfo:
@@ -317,55 +340,33 @@ components:
           format: int32
           type: integer
       type: object
-    generatedWebhook:
+    generatedGetCollectionsResponse:
       properties:
-        webhookHeaders:
+        collections:
           items:
-            $ref: '#/components/schemas/generatedWebhookHeader'
-          type: array
-        webhookUrl:
-          type: string
-      type: object
-    generatedEditCollectionResponse:
-      properties:
-        collection:
-          $ref: '#/components/schemas/generatedCollection'
-        failedMetricEdits:
-          items:
-            $ref: '#/components/schemas/generatedFailedMetricEdit'
+            $ref: '#/components/schemas/generatedCollection'
           type: array
       type: object
-    generatedGetCollectionInfoResponse:
+    runtimeError:
       properties:
-        collectionInfo:
-          $ref: '#/components/schemas/generatedCollectionInfo'
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
       type: object
-    generatedCollectionMetricStatus:
+    generatedGetAllCollectionInfosResponse:
       properties:
-        acknowledgeIssuesCount:
-          format: int32
-          type: integer
-        alertingMetricsCount:
-          format: int32
-          type: integer
-        earliestUpdatedMetricSeconds:
-          format: int64
-          type: string
-        latestUpdatedMetricSeconds:
-          format: int64
-          type: string
-        metricsCount:
-          format: int32
-          type: integer
-        monitoringIssuesCount:
-          format: int32
-          type: integer
-        openIssuesCount:
-          format: int32
-          type: integer
-        triageIssuesCount:
-          format: int32
-          type: integer
+        collectionInfos:
+          items:
+            $ref: '#/components/schemas/generatedCollectionInfo'
+          type: array
       type: object
     generatedCollection:
       properties:
@@ -400,44 +401,43 @@ components:
             $ref: '#/components/schemas/generatedTag'
           type: array
       type: object
-    runtimeError:
+    generatedSlackChannelInfo:
       properties:
-        code:
+        channelId:
+          type: string
+        channelName:
+          type: string
+        issueThreadPermalink:
+          type: string
+        threadTs:
+          type: string
+      type: object
+    generatedCollectionMetricStatus:
+      properties:
+        acknowledgeIssuesCount:
           format: int32
           type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
+        alertingMetricsCount:
+          format: int32
+          type: integer
+        earliestUpdatedMetricSeconds:
+          format: int64
           type: string
-        message:
+        latestUpdatedMetricSeconds:
+          format: int64
           type: string
-      type: object
-    generatedGetCollectionsResponse:
-      properties:
-        collections:
-          items:
-            $ref: '#/components/schemas/generatedCollection'
-          type: array
-      type: object
-    generatedGetAllCollectionInfosResponse:
-      properties:
-        collectionInfos:
-          items:
-            $ref: '#/components/schemas/generatedCollectionInfo'
-          type: array
-      type: object
-    generatedNotificationChannel:
-      properties:
-        email:
-          type: string
-        externalTicketInfo:
-          $ref: '#/components/schemas/generatedIssueExternalTicketInfo'
-        slackChannelInfo:
-          $ref: '#/components/schemas/generatedSlackChannelInfo'
-        webhook:
-          $ref: '#/components/schemas/generatedWebhook'
+        metricsCount:
+          format: int32
+          type: integer
+        monitoringIssuesCount:
+          format: int32
+          type: integer
+        openIssuesCount:
+          format: int32
+          type: integer
+        triageIssuesCount:
+          format: int32
+          type: integer
       type: object
   requestBodies:
     generatedEditCollectionRequest:

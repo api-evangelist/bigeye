@@ -121,8 +121,6 @@ paths:
       - FavoriteService
 components:
   schemas:
-    generatedEmpty:
-      type: object
     generatedBulkFavoriteResponse:
       properties:
         failures:
@@ -130,35 +128,6 @@ components:
             $ref: '#/components/schemas/generatedFavoriteFailure'
           type: array
         successes:
-          items:
-            $ref: '#/components/schemas/generatedFavoriteItem'
-          type: array
-      type: object
-    generatedFavoriteItem:
-      properties:
-        entityId:
-          format: int32
-          type: integer
-        entityName:
-          type: string
-        entityType:
-          $ref: '#/components/schemas/generatedTaggableEntityType'
-      type: object
-    generatedFavoriteFailure:
-      properties:
-        favorite:
-          $ref: '#/components/schemas/generatedFavoriteItem'
-        reason:
-          type: string
-      type: object
-    generatedFavoriteRequest:
-      properties:
-        favorite:
-          $ref: '#/components/schemas/generatedFavoriteItem'
-      type: object
-    generatedFavoriteListResponse:
-      properties:
-        favorites:
           items:
             $ref: '#/components/schemas/generatedFavoriteItem'
           type: array
@@ -176,6 +145,33 @@ components:
           type: string
         message:
           type: string
+      type: object
+    generatedFavoriteListResponse:
+      properties:
+        favorites:
+          items:
+            $ref: '#/components/schemas/generatedFavoriteItem'
+          type: array
+      type: object
+    generatedBulkFavoriteRequest:
+      properties:
+        favorites:
+          items:
+            $ref: '#/components/schemas/generatedFavoriteItem'
+          type: array
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedFavoriteRequest:
+      properties:
+        favorite:
+          $ref: '#/components/schemas/generatedFavoriteItem'
       type: object
     generatedTaggableEntityType:
       default: TAGGABLE_ENTITY_TYPE_UNSPECIFIED
@@ -200,20 +196,24 @@ components:
       - TAGGABLE_ENTITY_TYPE_META_CENTER_REPOSITORY
       - TAGGABLE_ENTITY_TYPE_CUSTOM_REPOSITORY
       type: string
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
+    generatedEmpty:
       type: object
-    generatedBulkFavoriteRequest:
+    generatedFavoriteItem:
       properties:
-        favorites:
-          items:
-            $ref: '#/components/schemas/generatedFavoriteItem'
-          type: array
+        entityId:
+          format: int32
+          type: integer
+        entityName:
+          type: string
+        entityType:
+          $ref: '#/components/schemas/generatedTaggableEntityType'
+      type: object
+    generatedFavoriteFailure:
+      properties:
+        favorite:
+          $ref: '#/components/schemas/generatedFavoriteItem'
+        reason:
+          type: string
       type: object
   requestBodies:
     generatedFavoriteRequest:

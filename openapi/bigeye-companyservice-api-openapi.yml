@@ -44,11 +44,6 @@ paths:
       - CompanyService
 components:
   schemas:
-    generatedUpdateCompanyRequest:
-      properties:
-        name:
-          type: string
-      type: object
     runtimeError:
       properties:
         code:
@@ -61,6 +56,11 @@ components:
         error:
           type: string
         message:
+          type: string
+      type: object
+    generatedUpdateCompanyRequest:
+      properties:
+        name:
           type: string
       type: object
     generatedCompany:
