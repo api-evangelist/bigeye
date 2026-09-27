@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Metadata Workflow V2 Service API
+  title: Metadata Workflow V2Service API
   version: version not set
 servers:
 - url: https://app.bigeye.com
@@ -71,6 +71,13 @@ paths:
       - WorkflowV2Service
 components:
   schemas:
+    generatedWorkflowV2Id:
+      properties:
+        runId:
+          type: string
+        workflowId:
+          type: string
+      type: object
     runtimeError:
       properties:
         code:
@@ -119,13 +126,6 @@ components:
       - WORKFLOW_PROCESSING_STATUS_FAILED
       - WORKFLOW_PROCESSING_STATUS_TIMED_OUT
       type: string
-    generatedWorkflowV2Id:
-      properties:
-        runId:
-          type: string
-        workflowId:
-          type: string
-      type: object
   requestBodies:
     generatedWorkflowV2Id:
       content:

@@ -146,15 +146,43 @@ paths:
       tags:
       - TagService
 components:
+  requestBodies:
+    generatedBulkTagRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedBulkTagRequest'
+      required: true
+    generatedTagRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedTagRequest'
+      required: true
   schemas:
-    generatedIntegrationType:
-      default: INTEGRATION_TYPE_UNSPECIFIED
-      enum:
-      - INTEGRATION_TYPE_UNSPECIFIED
-      - INTEGRATION_TYPE_BI_TOOL
-      - INTEGRATION_TYPE_ETL_TOOL
-      - INTEGRATION_TYPE_DATABASE
-      type: string
+    generatedTagFailure:
+      properties:
+        reason:
+          type: string
+        tag:
+          $ref: '#/components/schemas/generatedTagItem'
+      type: object
+    generatedCustomIntegrationType:
+      properties:
+        description:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        iconUrl:
+          type: string
+        id:
+          format: int64
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedIntegrationType'
+      type: object
     generatedTagList:
       properties:
         entityId:
@@ -167,44 +195,18 @@ components:
             type: string
           type: array
       type: object
-    generatedTagFailure:
+    runtimeError:
       properties:
-        reason:
-          type: string
-        tag:
-          $ref: '#/components/schemas/generatedTagItem'
-      type: object
-    generatedNodeType:
-      properties:
-        customNodeType:
-          $ref: '#/components/schemas/generatedCustomNodeType'
-        dataNodeType:
-          $ref: '#/components/schemas/generatedDataNodeType'
-      type: object
-    generatedBulkTagResponse:
-      properties:
-        failures:
+        code:
+          format: int32
+          type: integer
+        details:
           items:
-            $ref: '#/components/schemas/generatedTagFailure'
+            $ref: '#/components/schemas/protobufAny'
           type: array
-        successes:
-          items:
-            $ref: '#/components/schemas/generatedTagItem'
-          type: array
-      type: object
-    generatedCatalogPath:
-      properties:
-        columnName:
+        error:
           type: string
-        pathParts:
-          items:
-            type: string
-          type: array
-        schemaName:
-          type: string
-        sourceName:
-          type: string
-        tableName:
+        message:
           type: string
       type: object
     generatedCustomNodeType:
@@ -261,48 +263,6 @@ components:
             when they lie downstream of an issue.'
           type: boolean
       type: object
-    generatedTagItem:
-      properties:
-        catalogPath:
-          $ref: '#/components/schemas/generatedCatalogPath'
-        entityId:
-          format: int32
-          type: integer
-        entityName:
-          type: string
-        entityType:
-          $ref: '#/components/schemas/generatedTaggableEntityType'
-        nodeType:
-          $ref: '#/components/schemas/generatedNodeType'
-        tag:
-          type: string
-        workspaceTag:
-          $ref: '#/components/schemas/generatedTag'
-      type: object
-    generatedEntityInfo:
-      properties:
-        createdBy:
-          format: int32
-          type: integer
-        createdEpochSeconds:
-          format: int64
-          type: string
-        updatedBy:
-          format: int32
-          type: integer
-        updatedEpochSeconds:
-          format: int64
-          type: string
-      type: object
-    generatedTagRequest:
-      properties:
-        createTagIfDoesNotExist:
-          type: boolean
-        tag:
-          $ref: '#/components/schemas/generatedTagItem'
-      type: object
-    generatedEmpty:
-      type: object
     generatedTag:
       properties:
         colorHex:
@@ -323,14 +283,6 @@ components:
           format: int32
           type: integer
       title: Tags
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
       type: object
     generatedDataNodeType:
       default: DATA_NODE_TYPE_UNSPECIFIED
@@ -411,25 +363,59 @@ components:
       - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE
       - DATA_NODE_TYPE_AI_AGENT
       type: string
-    generatedBulkTagRequest:
+    protobufAny:
       properties:
-        tags:
-          items:
-            $ref: '#/components/schemas/generatedTagItem'
-          type: array
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
       type: object
-    runtimeError:
+    generatedNodeType:
       properties:
-        code:
+        customNodeType:
+          $ref: '#/components/schemas/generatedCustomNodeType'
+        dataNodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+      type: object
+    generatedTagRequest:
+      properties:
+        createTagIfDoesNotExist:
+          type: boolean
+        tag:
+          $ref: '#/components/schemas/generatedTagItem'
+      type: object
+    generatedTagItem:
+      properties:
+        catalogPath:
+          $ref: '#/components/schemas/generatedCatalogPath'
+        entityId:
           format: int32
           type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
+        entityName:
           type: string
-        message:
+        entityType:
+          $ref: '#/components/schemas/generatedTaggableEntityType'
+        nodeType:
+          $ref: '#/components/schemas/generatedNodeType'
+        tag:
+          type: string
+        workspaceTag:
+          $ref: '#/components/schemas/generatedTag'
+      type: object
+    generatedCatalogPath:
+      properties:
+        columnName:
+          type: string
+        pathParts:
+          items:
+            type: string
+          type: array
+        schemaName:
+          type: string
+        sourceName:
+          type: string
+        tableName:
           type: string
       type: object
     generatedTaggableEntityType:
@@ -455,35 +441,49 @@ components:
       - TAGGABLE_ENTITY_TYPE_META_CENTER_REPOSITORY
       - TAGGABLE_ENTITY_TYPE_CUSTOM_REPOSITORY
       type: string
-    generatedCustomIntegrationType:
+    generatedIntegrationType:
+      default: INTEGRATION_TYPE_UNSPECIFIED
+      enum:
+      - INTEGRATION_TYPE_UNSPECIFIED
+      - INTEGRATION_TYPE_BI_TOOL
+      - INTEGRATION_TYPE_ETL_TOOL
+      - INTEGRATION_TYPE_DATABASE
+      type: string
+    generatedBulkTagRequest:
       properties:
-        description:
-          type: string
-        entityInfo:
-          $ref: '#/components/schemas/generatedEntityInfo'
-        iconUrl:
-          type: string
-        id:
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTagItem'
+          type: array
+      type: object
+    generatedBulkTagResponse:
+      properties:
+        failures:
+          items:
+            $ref: '#/components/schemas/generatedTagFailure'
+          type: array
+        successes:
+          items:
+            $ref: '#/components/schemas/generatedTagItem'
+          type: array
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
           format: int64
           type: string
-        name:
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
           type: string
-        type:
-          $ref: '#/components/schemas/generatedIntegrationType'
       type: object
-  requestBodies:
-    generatedBulkTagRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/generatedBulkTagRequest'
-      required: true
-    generatedTagRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/generatedTagRequest'
-      required: true
+    generatedEmpty:
+      type: object
   securitySchemes:
     basicAuth:
       type: http

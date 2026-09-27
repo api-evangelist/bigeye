@@ -164,15 +164,17 @@ paths:
       - RoleService
 components:
   schemas:
-    generatedRolePermission:
+    generatedCreateOrUpdateRoleRequest:
       properties:
-        actions:
+        baseRole:
+          $ref: '#/components/schemas/generatedRoleType'
+        description:
+          type: string
+        name:
+          type: string
+        rolePermissions:
           items:
-            $ref: '#/components/schemas/generatedPermissionAction'
-          type: array
-        domains:
-          items:
-            $ref: '#/components/schemas/generatedPermissionDomain'
+            $ref: '#/components/schemas/generatedRolePermission'
           type: array
       type: object
     generatedGetRoleAccessorsResponse:
@@ -186,6 +188,13 @@ components:
             $ref: '#/components/schemas/generatedUserRoleAccessor'
           type: array
       type: object
+    generatedRoleV2ListResponse:
+      properties:
+        roles:
+          items:
+            $ref: '#/components/schemas/generatedRoleV2'
+          type: array
+      type: object
     generatedIdAndDisplayName:
       properties:
         displayName:
@@ -193,6 +202,20 @@ components:
         id:
           format: int32
           type: integer
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
       type: object
     generatedUserRoleAccessor:
       properties:
@@ -213,38 +236,6 @@ components:
             $ref: '#/components/schemas/generatedIdAndDisplayName'
           type: array
       type: object
-    generatedUpdateRoleRequestWrapper:
-      properties:
-        id:
-          format: int32
-          type: integer
-        request:
-          $ref: '#/components/schemas/generatedCreateOrUpdateRoleRequest'
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
-    generatedPermissionAction:
-      default: PERMISSION_ACTION_UNSPECIFIED
-      enum:
-      - PERMISSION_ACTION_UNSPECIFIED
-      - PERMISSION_ACTION_ALL
-      - PERMISSION_ACTION_PREVIEW
-      - PERMISSION_ACTION_WRITE
-      - PERMISSION_ACTION_EXECUTE
-      - PERMISSION_ACTION_READ
-      type: string
     protobufAny:
       properties:
         typeUrl:
@@ -253,16 +244,17 @@ components:
           format: byte
           type: string
       type: object
-    generatedRoleType:
-      default: ROLE_TYPE_UNSPECIFIED
-      enum:
-      - ROLE_TYPE_UNSPECIFIED
-      - ROLE_TYPE_ADMIN
-      - ROLE_TYPE_MANAGE
-      - ROLE_TYPE_EDIT
-      - ROLE_TYPE_VIEW
-      - ROLE_TYPE_CUSTOM
-      type: string
+    generatedRolePermission:
+      properties:
+        actions:
+          items:
+            $ref: '#/components/schemas/generatedPermissionAction'
+          type: array
+        domains:
+          items:
+            $ref: '#/components/schemas/generatedPermissionDomain'
+          type: array
+      type: object
     generatedGroupRoleAccessor:
       properties:
         id:
@@ -293,7 +285,33 @@ components:
       - PERMISSION_DOMAIN_DATA_CLASS
       - PERMISSION_DOMAIN_CLASSIFIER
       type: string
-    generatedEmpty:
+    generatedRoleType:
+      default: ROLE_TYPE_UNSPECIFIED
+      enum:
+      - ROLE_TYPE_UNSPECIFIED
+      - ROLE_TYPE_ADMIN
+      - ROLE_TYPE_MANAGE
+      - ROLE_TYPE_EDIT
+      - ROLE_TYPE_VIEW
+      - ROLE_TYPE_CUSTOM
+      type: string
+    generatedPermissionAction:
+      default: PERMISSION_ACTION_UNSPECIFIED
+      enum:
+      - PERMISSION_ACTION_UNSPECIFIED
+      - PERMISSION_ACTION_ALL
+      - PERMISSION_ACTION_PREVIEW
+      - PERMISSION_ACTION_WRITE
+      - PERMISSION_ACTION_EXECUTE
+      - PERMISSION_ACTION_READ
+      type: string
+    generatedUpdateRoleRequestWrapper:
+      properties:
+        id:
+          format: int32
+          type: integer
+        request:
+          $ref: '#/components/schemas/generatedCreateOrUpdateRoleRequest'
       type: object
     generatedRoleV2:
       properties:
@@ -311,25 +329,7 @@ components:
         roleType:
           $ref: '#/components/schemas/generatedRoleType'
       type: object
-    generatedCreateOrUpdateRoleRequest:
-      properties:
-        baseRole:
-          $ref: '#/components/schemas/generatedRoleType'
-        description:
-          type: string
-        name:
-          type: string
-        rolePermissions:
-          items:
-            $ref: '#/components/schemas/generatedRolePermission'
-          type: array
-      type: object
-    generatedRoleV2ListResponse:
-      properties:
-        roles:
-          items:
-            $ref: '#/components/schemas/generatedRoleV2'
-          type: array
+    generatedEmpty:
       type: object
   securitySchemes:
     basicAuth:

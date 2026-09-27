@@ -13,17 +13,20 @@ description: 'Bigeye is an enterprise data observability and AI trust platform t
   Context Protocol gateway that exposes 56 agent tools over the same platform.'
 url: https://raw.githubusercontent.com/api-evangelist/bigeye/refs/heads/main/apis.yml
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - bigeyedata/bigeye-mcp-server
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -855,8 +858,6 @@ apis:
   humanURL: https://docs.bigeye.com/docs/bigeye-mcp-server
   baseURL: https://mcpgateway.bigeye.com/mcp
   tags:
-  - QueryService
-  tags_raw:
   - Query Service
   properties:
   - type: OpenAPI

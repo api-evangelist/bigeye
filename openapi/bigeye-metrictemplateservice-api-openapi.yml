@@ -115,6 +115,53 @@ paths:
       - MetricTemplateService
 components:
   schemas:
+    generatedCreateMetricTemplateRequest:
+      properties:
+        metricTemplate:
+          $ref: '#/components/schemas/generatedMetricTemplate'
+      type: object
+    generatedGetMetricTemplateListRequest:
+      properties:
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        search:
+          type: string
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedMetricTemplateSortField'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedMetricTemplateParametersFieldEntry:
+      properties:
+        key:
+          type: string
+        value:
+          $ref: '#/components/schemas/generatedMetricTemplateParameterType'
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedWarehouse:
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        warehouseVendor:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
     generatedMetricTemplateSortField:
       default: METRIC_TEMPLATE_SORT_UNSPECIFIED
       enum:
@@ -123,11 +170,81 @@ components:
       - METRIC_TEMPLATE_SORT_NAME
       - METRIC_TEMPLATE_SORT_SOURCE_NAME
       type: string
-    generatedGetMetricTemplateResponse:
+    generatedCreateMetricTemplateResponse:
       properties:
         metricTemplate:
           $ref: '#/components/schemas/generatedMetricTemplate'
       type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedFieldType:
+      default: FIELD_TYPE_UNSPECIFIED
+      enum:
+      - FIELD_TYPE_UNSPECIFIED
+      - FIELD_TYPE_STRING
+      - FIELD_TYPE_UUID
+      - FIELD_TYPE_BINARY
+      - FIELD_TYPE_NUMERIC
+      - FIELD_TYPE_DATE_LIKE
+      - FIELD_TYPE_TIMESTAMP_LIKE
+      - FIELD_TYPE_ANY
+      - FIELD_TYPE_BOOLEAN
+      - FIELD_TYPE_UNKNOWN
+      - FIELD_TYPE_ARRAY
+      - FIELD_TYPE_STRUCT
+      type: string
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedGetMetricTemplateListResponse:
+      properties:
+        metricTemplates:
+          items:
+            $ref: '#/components/schemas/generatedMetricTemplate'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
     generatedWarehouseType:
       default: DATABASE_TYPE_UNSPECIFIED
       enum:
@@ -152,69 +269,10 @@ components:
       - DATABASE_TYPE_NETEZZA
       - DATABASE_TYPE_SALESFORCE
       type: string
-    generatedMetricTemplateParametersFieldEntry:
-      properties:
-        key:
-          type: string
-        value:
-          $ref: '#/components/schemas/generatedMetricTemplateParameterType'
-      type: object
-    generatedEntityInfo:
-      properties:
-        createdBy:
-          format: int32
-          type: integer
-        createdEpochSeconds:
-          format: int64
-          type: string
-        updatedBy:
-          format: int32
-          type: integer
-        updatedEpochSeconds:
-          format: int64
-          type: string
-      type: object
-    generatedGetMetricTemplateListRequest:
-      properties:
-        pageCursor:
-          type: string
-        pageSize:
-          format: int32
-          type: integer
-        search:
-          type: string
-        sortDirection:
-          $ref: '#/components/schemas/generatedSortDirection'
-        sortField:
-          $ref: '#/components/schemas/generatedMetricTemplateSortField'
-        workspaceId:
-          format: int32
-          type: integer
-      type: object
-    generatedWarehouse:
-      properties:
-        id:
-          format: int32
-          type: integer
-        name:
-          type: string
-        warehouseVendor:
-          $ref: '#/components/schemas/generatedWarehouseType'
-      type: object
-    generatedEmpty:
-      type: object
-    generatedCreateMetricTemplateRequest:
+    generatedGetMetricTemplateResponse:
       properties:
         metricTemplate:
           $ref: '#/components/schemas/generatedMetricTemplate'
-      type: object
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
-          type: string
-        id:
-          format: int32
-          type: integer
       type: object
     generatedMetricTemplate:
       properties:
@@ -239,80 +297,22 @@ components:
         template:
           type: string
       type: object
-    protobufAny:
+    generatedEntityInfo:
       properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedSortDirection:
-      default: SORT_DIRECTION_UNSPECIFIED
-      enum:
-      - SORT_DIRECTION_UNSPECIFIED
-      - SORT_DIRECTION_ASCENDING
-      - SORT_DIRECTION_DESCENDING
-      title: Unspecified will default to ASCENDING
-      type: string
-    runtimeError:
-      properties:
-        code:
+        createdBy:
           format: int32
           type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
-    generatedCreateMetricTemplateResponse:
-      properties:
-        metricTemplate:
-          $ref: '#/components/schemas/generatedMetricTemplate'
-      type: object
-    generatedFieldType:
-      default: FIELD_TYPE_UNSPECIFIED
-      enum:
-      - FIELD_TYPE_UNSPECIFIED
-      - FIELD_TYPE_STRING
-      - FIELD_TYPE_UUID
-      - FIELD_TYPE_BINARY
-      - FIELD_TYPE_NUMERIC
-      - FIELD_TYPE_DATE_LIKE
-      - FIELD_TYPE_TIMESTAMP_LIKE
-      - FIELD_TYPE_ANY
-      - FIELD_TYPE_BOOLEAN
-      - FIELD_TYPE_UNKNOWN
-      - FIELD_TYPE_ARRAY
-      - FIELD_TYPE_STRUCT
-      type: string
-    generatedGetMetricTemplateListResponse:
-      properties:
-        metricTemplates:
-          items:
-            $ref: '#/components/schemas/generatedMetricTemplate'
-          type: array
-        paginationInfo:
-          $ref: '#/components/schemas/generatedPaginationInfo'
-      type: object
-    generatedPaginationInfo:
-      properties:
-        firstSortDistinctValues:
+        createdEpochSeconds:
           format: int64
           type: string
-        nextCursor:
-          type: string
-        noNumRecords:
-          type: boolean
-        numRecords:
+        updatedBy:
           format: int32
           type: integer
-        prevCursor:
+        updatedEpochSeconds:
+          format: int64
           type: string
+      type: object
+    generatedEmpty:
       type: object
     generatedMetricTemplateParameterType:
       default: METRIC_TEMPLATE_PARAMETER_TYPE_UNSPECIFIED

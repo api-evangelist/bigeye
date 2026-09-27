@@ -299,71 +299,6 @@ paths:
       - LineageService
 components:
   schemas:
-    generatedWorkflowProcessingType:
-      default: WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
-      enum:
-      - WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SOURCE
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SCHEMA
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_DATASET
-      - WORKFLOW_PROCESSING_TYPE_LINEAGE
-      - WORKFLOW_PROCESSING_TYPE_METADATA_METRICS
-      - WORKFLOW_PROCESSING_TYPE_GENERATE_POP_SCORES
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION
-      - WORKFLOW_PROCESSING_TYPE_APPLY_BIGCONFIG
-      - WORKFLOW_PROCESSING_TYPE_RUN_DELTA
-      - WORKFLOW_PROCESSING_TYPE_RUN_COMPARISON_TABLE
-      - WORKFLOW_PROCESSING_TYPE_RUN_METRIC_BATCH
-      - WORKFLOW_PROCESSING_TYPE_PLAN_BIGCONFIG
-      - WORKFLOW_PROCESSING_TYPE_METRIC_DEPLOY
-      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION_ENTITY
-      type: string
-    generatedGetDownstreamDataNodesResponse:
-      properties:
-        nodes:
-          items:
-            $ref: '#/components/schemas/generatedDataNode'
-          type: array
-      type: object
-    generatedGetDownstreamDataNodesRequest:
-      properties:
-        applicableFilters:
-          items:
-            type: string
-          type: array
-        nodeIdFilters:
-          items:
-            format: int32
-            type: integer
-          type: array
-        nodeTypeFilters:
-          items:
-            $ref: '#/components/schemas/generatedDataNodeType'
-          type: array
-      type: object
-    generatedCreateLineageRelationshipRequest:
-      properties:
-        downstreamDataNodeId:
-          format: int32
-          type: integer
-        upstreamDataNodeId:
-          format: int32
-          type: integer
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
     generatedIntegrationPartner:
       default: INTEGRATION_PARTNER_UNSPECIFIED
       enum:
@@ -390,13 +325,6 @@ components:
       - INTEGRATION_PARTNER_MATILLION
       - INTEGRATION_PARTNER_ANTHROPIC
       type: string
-    generatedDeleteLineageRelationshipsForNodeResponse:
-      properties:
-        deleted:
-          items:
-            $ref: '#/components/schemas/generatedLineageRelationship'
-          type: array
-      type: object
     generatedGetLineageRelationshipsForNodeResponse:
       properties:
         downstream:
@@ -408,35 +336,35 @@ components:
             $ref: '#/components/schemas/generatedLineageRelationship'
           type: array
       type: object
-    generatedCreateDataNodeRequest:
+    generatedWorkflowProcessingType:
+      default: WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
+      enum:
+      - WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SOURCE
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_SCHEMA
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_DATASET
+      - WORKFLOW_PROCESSING_TYPE_LINEAGE
+      - WORKFLOW_PROCESSING_TYPE_METADATA_METRICS
+      - WORKFLOW_PROCESSING_TYPE_GENERATE_POP_SCORES
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION
+      - WORKFLOW_PROCESSING_TYPE_APPLY_BIGCONFIG
+      - WORKFLOW_PROCESSING_TYPE_RUN_DELTA
+      - WORKFLOW_PROCESSING_TYPE_RUN_COMPARISON_TABLE
+      - WORKFLOW_PROCESSING_TYPE_RUN_METRIC_BATCH
+      - WORKFLOW_PROCESSING_TYPE_PLAN_BIGCONFIG
+      - WORKFLOW_PROCESSING_TYPE_METRIC_DEPLOY
+      - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION_ENTITY
+      type: string
+    generatedCreateLineageRelationshipRequest:
       properties:
-        nodeContainerEntityId:
+        downstreamDataNodeId:
           format: int32
           type: integer
-        nodeContainerName:
-          type: string
-        nodeEntityId:
-          format: int32
-          type: integer
-        nodeName:
-          type: string
-        nodeType:
-          $ref: '#/components/schemas/generatedDataNodeType'
-        rebuildGraph:
-          type: boolean
-        workspaceId:
+        upstreamDataNodeId:
           format: int32
           type: integer
       type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedDataNode:
+    generatedLineageRelationship:
       properties:
         companyId:
           format: int32
@@ -444,44 +372,19 @@ components:
         createdAt:
           format: int64
           type: string
-        customNodeTypeId:
-          format: int64
-          type: string
-        externalId:
-          type: string
+        downstream:
+          $ref: '#/components/schemas/generatedDataNode'
         id:
           format: int32
           type: integer
-        integrationId:
-          format: int32
-          type: integer
-        integrationType:
-          $ref: '#/components/schemas/generatedIntegrationPartner'
-        nodeContainerEntityId:
-          format: int32
-          type: integer
-        nodeContainerName:
-          type: string
-        nodeEntityId:
-          format: int32
-          type: integer
-        nodeName:
-          type: string
-        nodeType:
-          $ref: '#/components/schemas/generatedDataNodeType'
         updatedAt:
           format: int64
           type: string
-        warehouseType:
-          $ref: '#/components/schemas/generatedWarehouseType'
-      type: object
-    generatedWorkflowResponse:
-      properties:
-        workflowId:
-          format: int64
-          type: string
-        workflowType:
-          $ref: '#/components/schemas/generatedWorkflowProcessingType'
+        upstream:
+          $ref: '#/components/schemas/generatedDataNode'
+      title: '*
+
+        represents relationships between DataNodes'
       type: object
     generatedWarehouseType:
       default: DATABASE_TYPE_UNSPECIFIED
@@ -507,29 +410,41 @@ components:
       - DATABASE_TYPE_NETEZZA
       - DATABASE_TYPE_SALESFORCE
       type: string
-    generatedLineageRelationship:
+    generatedWorkflowResponse:
       properties:
-        companyId:
-          format: int32
-          type: integer
-        createdAt:
+        workflowId:
           format: int64
           type: string
-        downstream:
-          $ref: '#/components/schemas/generatedDataNode'
-        id:
-          format: int32
-          type: integer
-        updatedAt:
-          format: int64
-          type: string
-        upstream:
-          $ref: '#/components/schemas/generatedDataNode'
-      title: '*
-
-        represents relationships between DataNodes'
+        workflowType:
+          $ref: '#/components/schemas/generatedWorkflowProcessingType'
       type: object
-    generatedEmpty:
+    generatedDeleteLineageRelationshipsForNodeResponse:
+      properties:
+        deleted:
+          items:
+            $ref: '#/components/schemas/generatedLineageRelationship'
+          type: array
+      type: object
+    generatedGetDownstreamDataNodesResponse:
+      properties:
+        nodes:
+          items:
+            $ref: '#/components/schemas/generatedDataNode'
+          type: array
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
       type: object
     generatedDataNodeType:
       default: DATA_NODE_TYPE_UNSPECIFIED
@@ -610,6 +525,91 @@ components:
       - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE
       - DATA_NODE_TYPE_AI_AGENT
       type: string
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedDataNode:
+      properties:
+        companyId:
+          format: int32
+          type: integer
+        createdAt:
+          format: int64
+          type: string
+        customNodeTypeId:
+          format: int64
+          type: string
+        externalId:
+          type: string
+        id:
+          format: int32
+          type: integer
+        integrationId:
+          format: int32
+          type: integer
+        integrationType:
+          $ref: '#/components/schemas/generatedIntegrationPartner'
+        nodeContainerEntityId:
+          format: int32
+          type: integer
+        nodeContainerName:
+          type: string
+        nodeEntityId:
+          format: int32
+          type: integer
+        nodeName:
+          type: string
+        nodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+        updatedAt:
+          format: int64
+          type: string
+        warehouseType:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedGetDownstreamDataNodesRequest:
+      properties:
+        applicableFilters:
+          items:
+            type: string
+          type: array
+        nodeIdFilters:
+          items:
+            format: int32
+            type: integer
+          type: array
+        nodeTypeFilters:
+          items:
+            $ref: '#/components/schemas/generatedDataNodeType'
+          type: array
+      type: object
+    generatedEmpty:
+      type: object
+    generatedCreateDataNodeRequest:
+      properties:
+        nodeContainerEntityId:
+          format: int32
+          type: integer
+        nodeContainerName:
+          type: string
+        nodeEntityId:
+          format: int32
+          type: integer
+        nodeName:
+          type: string
+        nodeType:
+          $ref: '#/components/schemas/generatedDataNodeType'
+        rebuildGraph:
+          type: boolean
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
   securitySchemes:
     basicAuth:
       type: http

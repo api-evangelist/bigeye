@@ -162,21 +162,30 @@ paths:
       - UserService
 components:
   schemas:
-    generatedBulkDeleteUsersRequest:
+    generatedUpdateUserRequest:
       properties:
-        userIds:
+        groupIds:
           items:
             format: int32
             type: integer
           type: array
-      type: object
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
+        name:
           type: string
+      type: object
+    generatedFailedUpdate:
+      properties:
         id:
           format: int32
           type: integer
+        reason:
+          type: string
+      type: object
+    generatedGetUserListResponse:
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/generatedUser'
+          type: array
       type: object
     generatedUserInviteRequest:
       properties:
@@ -190,15 +199,13 @@ components:
         name:
           type: string
       type: object
-    generatedCreateServiceAccountRequest:
+    generatedIdAndDisplayName:
       properties:
-        groupIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        name:
+        displayName:
           type: string
+        id:
+          format: int32
+          type: integer
       type: object
     runtimeError:
       properties:
@@ -214,28 +221,7 @@ components:
         message:
           type: string
       type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedFailedUpdate:
-      properties:
-        id:
-          format: int32
-          type: integer
-        reason:
-          type: string
-      type: object
-    generatedCreateServiceAccountResponse:
-      properties:
-        user:
-          $ref: '#/components/schemas/generatedUser'
-      type: object
-    generatedUpdateUserRequest:
+    generatedCreateServiceAccountRequest:
       properties:
         groupIds:
           items:
@@ -245,12 +231,10 @@ components:
         name:
           type: string
       type: object
-    generatedGetUserListResponse:
+    generatedCreateServiceAccountResponse:
       properties:
-        users:
-          items:
-            $ref: '#/components/schemas/generatedUser'
-          type: array
+        user:
+          $ref: '#/components/schemas/generatedUser'
       type: object
     generatedUser:
       properties:
@@ -275,6 +259,22 @@ components:
         name:
           type: string
         pictureUrl:
+          type: string
+      type: object
+    generatedBulkDeleteUsersRequest:
+      properties:
+        userIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
           type: string
       type: object
     generatedBulkResponse:

@@ -177,54 +177,26 @@ components:
         type:
           $ref: '#/components/schemas/generatedAgentApiKeyType'
       type: object
-    generatedAgentApiKeyInfo:
+    generatedCreateAgentApiKeyResponse:
       properties:
-        createdAt:
-          format: int64
+        apiKey:
           type: string
-        description:
-          type: string
-        id:
-          format: int32
-          type: integer
-        lastUsedAt:
-          format: int64
-          type: string
-        lastUsedIp:
-          type: string
-        name:
-          type: string
-        type:
-          $ref: '#/components/schemas/generatedAgentApiKeyType'
+        info:
+          $ref: '#/components/schemas/generatedAgentApiKeyInfo'
       type: object
-    generatedAgentApiKeyType:
-      default: AGENT_API_KEY_TYPE_UNSPECIFIED
-      enum:
-      - AGENT_API_KEY_TYPE_UNSPECIFIED
-      - AGENT_API_KEY_TYPE_AGENT
-      - AGENT_API_KEY_TYPE_INTEGRATION
-      type: string
-    generatedPersonalApiKeyInfo:
+    generatedListPersonalApiKeyResponse:
       properties:
-        createdAt:
-          format: int64
-          type: string
-        createdBy:
-          $ref: '#/components/schemas/generatedUser'
-        description:
-          type: string
-        id:
-          format: int32
-          type: integer
-        lastUsedAt:
-          format: int64
-          type: string
-        lastUsedIp:
-          type: string
-        name:
-          type: string
-        owner:
-          $ref: '#/components/schemas/generatedUser'
+        keys:
+          items:
+            $ref: '#/components/schemas/generatedPersonalApiKeyInfo'
+          type: array
+      type: object
+    generatedListAgentApiKeyResponse:
+      properties:
+        keys:
+          items:
+            $ref: '#/components/schemas/generatedAgentApiKeyInfo'
+          type: array
       type: object
     generatedIdAndDisplayName:
       properties:
@@ -248,12 +220,27 @@ components:
         message:
           type: string
       type: object
-    generatedCreateAgentApiKeyResponse:
+    generatedPersonalApiKeyInfo:
       properties:
-        apiKey:
+        createdAt:
+          format: int64
           type: string
-        info:
-          $ref: '#/components/schemas/generatedAgentApiKeyInfo'
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        lastUsedAt:
+          format: int64
+          type: string
+        lastUsedIp:
+          type: string
+        name:
+          type: string
+        owner:
+          $ref: '#/components/schemas/generatedUser'
       type: object
     protobufAny:
       properties:
@@ -288,21 +275,34 @@ components:
         pictureUrl:
           type: string
       type: object
-    generatedListPersonalApiKeyResponse:
+    generatedAgentApiKeyType:
+      default: AGENT_API_KEY_TYPE_UNSPECIFIED
+      enum:
+      - AGENT_API_KEY_TYPE_UNSPECIFIED
+      - AGENT_API_KEY_TYPE_AGENT
+      - AGENT_API_KEY_TYPE_INTEGRATION
+      type: string
+    generatedAgentApiKeyInfo:
       properties:
-        keys:
-          items:
-            $ref: '#/components/schemas/generatedPersonalApiKeyInfo'
-          type: array
+        createdAt:
+          format: int64
+          type: string
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        lastUsedAt:
+          format: int64
+          type: string
+        lastUsedIp:
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedAgentApiKeyType'
       type: object
     generatedEmpty:
-      type: object
-    generatedListAgentApiKeyResponse:
-      properties:
-        keys:
-          items:
-            $ref: '#/components/schemas/generatedAgentApiKeyInfo'
-          type: array
       type: object
   securitySchemes:
     basicAuth:

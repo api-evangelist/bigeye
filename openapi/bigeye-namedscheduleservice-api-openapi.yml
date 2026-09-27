@@ -152,6 +152,36 @@ paths:
       - NamedScheduleService
 components:
   schemas:
+    generatedNamedSchedule:
+      properties:
+        cron:
+          type: string
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        timezone:
+          description: IANA timezone id (e.g. "America/New_York") used to interpret the cron. Defaults to UTC when unset.
+          type: string
+      type: object
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
     generatedIdAndDisplayName:
       properties:
         displayName:
@@ -174,28 +204,25 @@ components:
         message:
           type: string
       type: object
-    generatedEntityInfo:
+    generatedGetNamedScheduleEntitiesResponse:
       properties:
-        createdBy:
-          format: int32
-          type: integer
-        createdEpochSeconds:
-          format: int64
-          type: string
-        updatedBy:
-          format: int32
-          type: integer
-        updatedEpochSeconds:
-          format: int64
-          type: string
+        metrics:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        tableComparisons:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
       type: object
-    protobufAny:
+    generatedGetNamedSchedulesResponse:
       properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
+        namedSchedules:
+          items:
+            $ref: '#/components/schemas/generatedNamedSchedule'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
       type: object
     generatedCreateNamedScheduleRequest:
       properties:
@@ -213,31 +240,13 @@ components:
           format: int32
           type: integer
       type: object
-    generatedEmpty:
-      type: object
-    generatedNamedSchedule:
+    protobufAny:
       properties:
-        cron:
+        typeUrl:
           type: string
-        entityInfo:
-          $ref: '#/components/schemas/generatedEntityInfo'
-        id:
-          format: int32
-          type: integer
-        name:
+        value:
+          format: byte
           type: string
-        timezone:
-          description: IANA timezone id (e.g. "America/New_York") used to interpret the cron. Defaults to UTC when unset.
-          type: string
-      type: object
-    generatedGetNamedSchedulesResponse:
-      properties:
-        namedSchedules:
-          items:
-            $ref: '#/components/schemas/generatedNamedSchedule'
-          type: array
-        paginationInfo:
-          $ref: '#/components/schemas/generatedPaginationInfo'
       type: object
     generatedPaginationInfo:
       properties:
@@ -254,16 +263,7 @@ components:
         prevCursor:
           type: string
       type: object
-    generatedGetNamedScheduleEntitiesResponse:
-      properties:
-        metrics:
-          items:
-            $ref: '#/components/schemas/generatedIdAndDisplayName'
-          type: array
-        tableComparisons:
-          items:
-            $ref: '#/components/schemas/generatedIdAndDisplayName'
-          type: array
+    generatedEmpty:
       type: object
   securitySchemes:
     basicAuth:

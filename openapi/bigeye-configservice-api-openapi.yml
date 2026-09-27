@@ -62,33 +62,12 @@ paths:
       - ConfigService
 components:
   schemas:
-    generatedUpdateConfigRequest:
-      properties:
-        advancedConfigs:
-          items:
-            $ref: '#/components/schemas/generatedConfigValue'
-          type: array
-      type: object
     generatedGetConfigListResponse:
       properties:
         advancedConfigs:
           items:
             $ref: '#/components/schemas/generatedConfigValue'
           type: array
-      type: object
-    generatedConfigValue:
-      properties:
-        booleanValue:
-          type: boolean
-        key:
-          type: string
-        numberValue:
-          format: double
-          type: number
-        stringValue:
-          type: string
-        type:
-          $ref: '#/components/schemas/generatedConfigValueType'
       type: object
     runtimeError:
       properties:
@@ -104,6 +83,37 @@ components:
         message:
           type: string
       type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedUpdateConfigRequest:
+      properties:
+        advancedConfigs:
+          items:
+            $ref: '#/components/schemas/generatedConfigValue'
+          type: array
+      type: object
+    generatedEmpty:
+      type: object
+    generatedConfigValue:
+      properties:
+        booleanValue:
+          type: boolean
+        key:
+          type: string
+        numberValue:
+          format: double
+          type: number
+        stringValue:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedConfigValueType'
+      type: object
     generatedConfigValueType:
       default: VALUE_TYPE_UNSPECIFIED
       enum:
@@ -113,16 +123,6 @@ components:
       - VALUE_TYPE_INTEGER
       - VALUE_TYPE_DECIMAL
       type: string
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedEmpty:
-      type: object
   securitySchemes:
     basicAuth:
       type: http

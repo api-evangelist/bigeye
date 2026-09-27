@@ -37,13 +37,6 @@ paths:
       - DataClassCategoryService
 components:
   schemas:
-    generatedGetDataClassCategoryListResponse:
-      properties:
-        categories:
-          items:
-            $ref: '#/components/schemas/generatedDataClassCategory'
-          type: array
-      type: object
     runtimeError:
       properties:
         code:
@@ -65,6 +58,13 @@ components:
         value:
           format: byte
           type: string
+      type: object
+    generatedGetDataClassCategoryListResponse:
+      properties:
+        categories:
+          items:
+            $ref: '#/components/schemas/generatedDataClassCategory'
+          type: array
       type: object
     generatedGetDataClassCategoryListRequest:
       properties:

@@ -98,28 +98,6 @@ paths:
       - ObjectOwnerService
 components:
   schemas:
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
-          type: string
-        id:
-          format: int32
-          type: integer
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
     generatedObjectOwnerResponse:
       properties:
         inheritedOwner:
@@ -132,13 +110,16 @@ components:
         owner:
           $ref: '#/components/schemas/generatedIdAndDisplayName'
       type: object
-    protobufAny:
+    generatedSetObjectOwnerRequest:
       properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
+        ownableId:
+          format: int32
+          type: integer
+        ownableType:
+          $ref: '#/components/schemas/generatedOwnableType'
+        owner:
+          format: int32
+          type: integer
       type: object
     generatedOwnableType:
       default: OWNABLE_TYPE_UNSPECIFIED
@@ -156,16 +137,35 @@ components:
       - OWNABLE_TYPE_META_CENTER_REPOSITORY
       - OWNABLE_TYPE_INTEGRATION
       type: string
-    generatedSetObjectOwnerRequest:
+    runtimeError:
       properties:
-        ownableId:
+        code:
           format: int32
           type: integer
-        ownableType:
-          $ref: '#/components/schemas/generatedOwnableType'
-        owner:
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
           format: int32
           type: integer
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
       type: object
   securitySchemes:
     basicAuth:
