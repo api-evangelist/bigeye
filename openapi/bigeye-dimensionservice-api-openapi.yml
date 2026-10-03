@@ -188,11 +188,64 @@ paths:
       - DimensionService
 components:
   schemas:
-    generatedGetDimensionsListResponse:
+    generatedDimensionInstanceType:
+      default: DIMENSION_INSTANCE_TYPE_UNSPECIFIED
+      enum:
+      - DIMENSION_INSTANCE_TYPE_UNSPECIFIED
+      - DIMENSION_INSTANCE_TYPE_METRIC
+      - DIMENSION_INSTANCE_TYPE_DELTA
+      - DIMENSION_INSTANCE_TYPE_CUSTOM_RULE
+      - DIMENSION_INSTANCE_TYPE_JOIN_RULE
+      - DIMENSION_INSTANCE_TYPE_TEMPLATE_METRIC
+      type: string
+    generatedEntityInfo:
       properties:
-        dimensions:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedInstanceTypeWithCounts:
+      properties:
+        count:
+          format: int64
+          type: string
+        instanceType:
+          $ref: '#/components/schemas/generatedDimensionInstanceType'
+        isOverride:
+          type: boolean
+        name:
+          type: string
+      type: object
+    generatedUpsertDimensionRequestWrapper:
+      properties:
+        dimensionId:
+          format: int32
+          type: integer
+        request:
+          $ref: '#/components/schemas/generatedUpsertDimensionRequest'
+      type: object
+    generatedUpsertStatDimensionRequest:
+      properties:
+        dimensionId:
+          format: int32
+          type: integer
+        statName:
+          type: string
+      type: object
+    generatedBulkMoveDimensionRequest:
+      properties:
+        requests:
           items:
-            $ref: '#/components/schemas/generatedDimension'
+            $ref: '#/components/schemas/generatedMoveDimensionRequest'
           type: array
       type: object
     generatedMoveDimensionRequest:
@@ -210,44 +263,51 @@ components:
           format: int32
           type: integer
       type: object
-    generatedUpsertStatDimensionRequest:
+    generatedGetDimensionsListResponse:
       properties:
-        dimensionId:
+        dimensions:
+          items:
+            $ref: '#/components/schemas/generatedDimension'
+          type: array
+      type: object
+    generatedEmpty:
+      type: object
+    generatedStatDimension:
+      properties:
+        comments:
+          type: string
+        dimension:
+          $ref: '#/components/schemas/generatedDimension'
+        entityInfo:
+          $ref: '#/components/schemas/generatedEntityInfo'
+        id:
           format: int32
           type: integer
         statName:
           type: string
       type: object
-    generatedTopLevelCategory:
-      default: TOP_LEVEL_CATEGORY_UNSPECIFIED
-      enum:
-      - TOP_LEVEL_CATEGORY_UNSPECIFIED
-      - TOP_LEVEL_CATEGORY_PIPELINE_RELIABILITY
-      - TOP_LEVEL_CATEGORY_DATA_QUALITY
-      title: Dimensions
-      type: string
-    generatedInstanceTypeWithCounts:
+    protobufAny:
       properties:
-        count:
-          format: int64
+        typeUrl:
           type: string
-        instanceType:
-          $ref: '#/components/schemas/generatedDimensionInstanceType'
-        isOverride:
-          type: boolean
-        name:
+        value:
+          format: byte
           type: string
       type: object
-    generatedDimensionInstanceType:
-      default: DIMENSION_INSTANCE_TYPE_UNSPECIFIED
-      enum:
-      - DIMENSION_INSTANCE_TYPE_UNSPECIFIED
-      - DIMENSION_INSTANCE_TYPE_METRIC
-      - DIMENSION_INSTANCE_TYPE_DELTA
-      - DIMENSION_INSTANCE_TYPE_CUSTOM_RULE
-      - DIMENSION_INSTANCE_TYPE_JOIN_RULE
-      - DIMENSION_INSTANCE_TYPE_TEMPLATE_METRIC
-      type: string
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
     generatedDimension:
       properties:
         description:
@@ -266,28 +326,6 @@ components:
         topLevelCategory:
           $ref: '#/components/schemas/generatedTopLevelCategory'
       type: object
-    generatedUpsertDimensionRequestWrapper:
-      properties:
-        dimensionId:
-          format: int32
-          type: integer
-        request:
-          $ref: '#/components/schemas/generatedUpsertDimensionRequest'
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
     generatedUpsertDimensionRequest:
       properties:
         description:
@@ -300,52 +338,14 @@ components:
         topLevelCategory:
           $ref: '#/components/schemas/generatedTopLevelCategory'
       type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedStatDimension:
-      properties:
-        comments:
-          type: string
-        dimension:
-          $ref: '#/components/schemas/generatedDimension'
-        entityInfo:
-          $ref: '#/components/schemas/generatedEntityInfo'
-        id:
-          format: int32
-          type: integer
-        statName:
-          type: string
-      type: object
-    generatedEntityInfo:
-      properties:
-        createdBy:
-          format: int32
-          type: integer
-        createdEpochSeconds:
-          format: int64
-          type: string
-        updatedBy:
-          format: int32
-          type: integer
-        updatedEpochSeconds:
-          format: int64
-          type: string
-      type: object
-    generatedEmpty:
-      type: object
-    generatedBulkMoveDimensionRequest:
-      properties:
-        requests:
-          items:
-            $ref: '#/components/schemas/generatedMoveDimensionRequest'
-          type: array
-      type: object
+    generatedTopLevelCategory:
+      default: TOP_LEVEL_CATEGORY_UNSPECIFIED
+      enum:
+      - TOP_LEVEL_CATEGORY_UNSPECIFIED
+      - TOP_LEVEL_CATEGORY_PIPELINE_RELIABILITY
+      - TOP_LEVEL_CATEGORY_DATA_QUALITY
+      title: Dimensions
+      type: string
   securitySchemes:
     basicAuth:
       type: http

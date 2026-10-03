@@ -138,6 +138,17 @@ paths:
       - AgentService
 components:
   schemas:
+    generatedAgentHealthResponse:
+      properties:
+        failures:
+          items:
+            $ref: '#/components/schemas/generatedFailedUpdate'
+          type: array
+        sources:
+          items:
+            $ref: '#/components/schemas/generatedAgentHealthInfo'
+          type: array
+      type: object
     generatedAgentHealthStatus:
       default: AGENT_HEALTH_STATUS_UNSPECIFIED
       enum:
@@ -153,6 +164,19 @@ components:
           format: int32
           type: integer
         reason:
+          type: string
+      type: object
+    generatedPublicKeyMessage:
+      properties:
+        publicKey:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
           type: string
       type: object
     runtimeError:
@@ -189,30 +213,6 @@ components:
         sourceId:
           format: int32
           type: integer
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedPublicKeyMessage:
-      properties:
-        publicKey:
-          type: string
-      type: object
-    generatedAgentHealthResponse:
-      properties:
-        failures:
-          items:
-            $ref: '#/components/schemas/generatedFailedUpdate'
-          type: array
-        sources:
-          items:
-            $ref: '#/components/schemas/generatedAgentHealthInfo'
-          type: array
       type: object
     generatedSourceValidationResponse:
       properties:

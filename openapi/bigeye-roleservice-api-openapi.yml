@@ -164,6 +164,47 @@ paths:
       - RoleService
 components:
   schemas:
+    generatedPermissionDomain:
+      default: PERMISSION_DOMAIN_UNSPECIFIED
+      enum:
+      - PERMISSION_DOMAIN_UNSPECIFIED
+      - PERMISSION_DOMAIN_ALL
+      - PERMISSION_DOMAIN_TABLE
+      - PERMISSION_DOMAIN_CUSTOM_RULE
+      - PERMISSION_DOMAIN_COLLECTION
+      - PERMISSION_DOMAIN_WORKSPACE_TAG
+      - PERMISSION_DOMAIN_WORKSPACE_TAG_ENTITY
+      - PERMISSION_DOMAIN_PROFILE
+      - PERMISSION_DOMAIN_SCAN_JOB
+      - PERMISSION_DOMAIN_DATA_CLASS
+      - PERMISSION_DOMAIN_CLASSIFIER
+      type: string
+    generatedRoleV2:
+      properties:
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        rolePermissions:
+          items:
+            $ref: '#/components/schemas/generatedRolePermission'
+          type: array
+        roleType:
+          $ref: '#/components/schemas/generatedRoleType'
+      type: object
+    generatedPermissionAction:
+      default: PERMISSION_ACTION_UNSPECIFIED
+      enum:
+      - PERMISSION_ACTION_UNSPECIFIED
+      - PERMISSION_ACTION_ALL
+      - PERMISSION_ACTION_PREVIEW
+      - PERMISSION_ACTION_WRITE
+      - PERMISSION_ACTION_EXECUTE
+      - PERMISSION_ACTION_READ
+      type: string
     generatedCreateOrUpdateRoleRequest:
       properties:
         baseRole:
@@ -177,15 +218,19 @@ components:
             $ref: '#/components/schemas/generatedRolePermission'
           type: array
       type: object
-    generatedGetRoleAccessorsResponse:
+    generatedGroupRoleAccessor:
       properties:
-        groups:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        userCount:
+          format: int32
+          type: integer
+        workspaces:
           items:
-            $ref: '#/components/schemas/generatedGroupRoleAccessor'
-          type: array
-        users:
-          items:
-            $ref: '#/components/schemas/generatedUserRoleAccessor'
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
           type: array
       type: object
     generatedRoleV2ListResponse:
@@ -202,6 +247,33 @@ components:
         id:
           format: int32
           type: integer
+      type: object
+    generatedUpdateRoleRequestWrapper:
+      properties:
+        id:
+          format: int32
+          type: integer
+        request:
+          $ref: '#/components/schemas/generatedCreateOrUpdateRoleRequest'
+      type: object
+    generatedGetRoleAccessorsResponse:
+      properties:
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedGroupRoleAccessor'
+          type: array
+        users:
+          items:
+            $ref: '#/components/schemas/generatedUserRoleAccessor'
+          type: array
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
       type: object
     runtimeError:
       properties:
@@ -236,13 +308,17 @@ components:
             $ref: '#/components/schemas/generatedIdAndDisplayName'
           type: array
       type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
+    generatedRoleType:
+      default: ROLE_TYPE_UNSPECIFIED
+      enum:
+      - ROLE_TYPE_UNSPECIFIED
+      - ROLE_TYPE_ADMIN
+      - ROLE_TYPE_MANAGE
+      - ROLE_TYPE_EDIT
+      - ROLE_TYPE_VIEW
+      - ROLE_TYPE_CUSTOM
+      type: string
+    generatedEmpty:
       type: object
     generatedRolePermission:
       properties:
@@ -254,82 +330,6 @@ components:
           items:
             $ref: '#/components/schemas/generatedPermissionDomain'
           type: array
-      type: object
-    generatedGroupRoleAccessor:
-      properties:
-        id:
-          format: int32
-          type: integer
-        name:
-          type: string
-        userCount:
-          format: int32
-          type: integer
-        workspaces:
-          items:
-            $ref: '#/components/schemas/generatedIdAndDisplayName'
-          type: array
-      type: object
-    generatedPermissionDomain:
-      default: PERMISSION_DOMAIN_UNSPECIFIED
-      enum:
-      - PERMISSION_DOMAIN_UNSPECIFIED
-      - PERMISSION_DOMAIN_ALL
-      - PERMISSION_DOMAIN_TABLE
-      - PERMISSION_DOMAIN_CUSTOM_RULE
-      - PERMISSION_DOMAIN_COLLECTION
-      - PERMISSION_DOMAIN_WORKSPACE_TAG
-      - PERMISSION_DOMAIN_WORKSPACE_TAG_ENTITY
-      - PERMISSION_DOMAIN_PROFILE
-      - PERMISSION_DOMAIN_SCAN_JOB
-      - PERMISSION_DOMAIN_DATA_CLASS
-      - PERMISSION_DOMAIN_CLASSIFIER
-      type: string
-    generatedRoleType:
-      default: ROLE_TYPE_UNSPECIFIED
-      enum:
-      - ROLE_TYPE_UNSPECIFIED
-      - ROLE_TYPE_ADMIN
-      - ROLE_TYPE_MANAGE
-      - ROLE_TYPE_EDIT
-      - ROLE_TYPE_VIEW
-      - ROLE_TYPE_CUSTOM
-      type: string
-    generatedPermissionAction:
-      default: PERMISSION_ACTION_UNSPECIFIED
-      enum:
-      - PERMISSION_ACTION_UNSPECIFIED
-      - PERMISSION_ACTION_ALL
-      - PERMISSION_ACTION_PREVIEW
-      - PERMISSION_ACTION_WRITE
-      - PERMISSION_ACTION_EXECUTE
-      - PERMISSION_ACTION_READ
-      type: string
-    generatedUpdateRoleRequestWrapper:
-      properties:
-        id:
-          format: int32
-          type: integer
-        request:
-          $ref: '#/components/schemas/generatedCreateOrUpdateRoleRequest'
-      type: object
-    generatedRoleV2:
-      properties:
-        description:
-          type: string
-        id:
-          format: int32
-          type: integer
-        name:
-          type: string
-        rolePermissions:
-          items:
-            $ref: '#/components/schemas/generatedRolePermission'
-          type: array
-        roleType:
-          $ref: '#/components/schemas/generatedRoleType'
-      type: object
-    generatedEmpty:
       type: object
   securitySchemes:
     basicAuth:

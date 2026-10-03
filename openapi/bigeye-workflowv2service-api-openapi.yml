@@ -71,11 +71,45 @@ paths:
       - WorkflowV2Service
 components:
   schemas:
+    generatedWorkflowV2StatusResponse:
+      properties:
+        completedAt:
+          format: int64
+          type: string
+        error:
+          type: string
+        startedAt:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedWorkflowProcessingStatus'
+        workflowV2Id:
+          $ref: '#/components/schemas/generatedWorkflowV2Id'
+      type: object
     generatedWorkflowV2Id:
       properties:
         runId:
           type: string
         workflowId:
+          type: string
+      type: object
+    generatedWorkflowProcessingStatus:
+      default: WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      enum:
+      - WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      - WORKFLOW_PROCESSING_STATUS_QUEUED
+      - WORKFLOW_PROCESSING_STATUS_IN_PROGRESS
+      - WORKFLOW_PROCESSING_STATUS_COMPLETED
+      - WORKFLOW_PROCESSING_STATUS_PARTIAL_FAILURE
+      - WORKFLOW_PROCESSING_STATUS_FAILED
+      - WORKFLOW_PROCESSING_STATUS_TIMED_OUT
+      type: string
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
           type: string
       type: object
     runtimeError:
@@ -92,40 +126,6 @@ components:
         message:
           type: string
       type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedWorkflowV2StatusResponse:
-      properties:
-        completedAt:
-          format: int64
-          type: string
-        error:
-          type: string
-        startedAt:
-          format: int64
-          type: string
-        status:
-          $ref: '#/components/schemas/generatedWorkflowProcessingStatus'
-        workflowV2Id:
-          $ref: '#/components/schemas/generatedWorkflowV2Id'
-      type: object
-    generatedWorkflowProcessingStatus:
-      default: WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
-      enum:
-      - WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
-      - WORKFLOW_PROCESSING_STATUS_QUEUED
-      - WORKFLOW_PROCESSING_STATUS_IN_PROGRESS
-      - WORKFLOW_PROCESSING_STATUS_COMPLETED
-      - WORKFLOW_PROCESSING_STATUS_PARTIAL_FAILURE
-      - WORKFLOW_PROCESSING_STATUS_FAILED
-      - WORKFLOW_PROCESSING_STATUS_TIMED_OUT
-      type: string
   requestBodies:
     generatedWorkflowV2Id:
       content:

@@ -69,6 +69,16 @@ components:
             $ref: '#/components/schemas/generatedConfigValue'
           type: array
       type: object
+    generatedEmpty:
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
     runtimeError:
       properties:
         code:
@@ -83,23 +93,6 @@ components:
         message:
           type: string
       type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedUpdateConfigRequest:
-      properties:
-        advancedConfigs:
-          items:
-            $ref: '#/components/schemas/generatedConfigValue'
-          type: array
-      type: object
-    generatedEmpty:
-      type: object
     generatedConfigValue:
       properties:
         booleanValue:
@@ -113,6 +106,13 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/generatedConfigValueType'
+      type: object
+    generatedUpdateConfigRequest:
+      properties:
+        advancedConfigs:
+          items:
+            $ref: '#/components/schemas/generatedConfigValue'
+          type: array
       type: object
     generatedConfigValueType:
       default: VALUE_TYPE_UNSPECIFIED

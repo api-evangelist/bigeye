@@ -120,56 +120,16 @@ paths:
       tags:
       - FavoriteService
 components:
-  requestBodies:
-    generatedFavoriteRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/generatedFavoriteRequest'
-      required: true
-    generatedBulkFavoriteRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/generatedBulkFavoriteRequest'
-      required: true
   schemas:
-    generatedBulkFavoriteResponse:
+    generatedFavoriteItem:
       properties:
-        failures:
-          items:
-            $ref: '#/components/schemas/generatedFavoriteFailure'
-          type: array
-        successes:
-          items:
-            $ref: '#/components/schemas/generatedFavoriteItem'
-          type: array
-      type: object
-    generatedBulkFavoriteRequest:
-      properties:
-        favorites:
-          items:
-            $ref: '#/components/schemas/generatedFavoriteItem'
-          type: array
-      type: object
-    runtimeError:
-      properties:
-        code:
+        entityId:
           format: int32
           type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
+        entityName:
           type: string
-        message:
-          type: string
-      type: object
-    generatedFavoriteRequest:
-      properties:
-        favorite:
-          $ref: '#/components/schemas/generatedFavoriteItem'
+        entityType:
+          $ref: '#/components/schemas/generatedTaggableEntityType'
       type: object
     generatedTaggableEntityType:
       default: TAGGABLE_ENTITY_TYPE_UNSPECIFIED
@@ -194,22 +154,30 @@ components:
       - TAGGABLE_ENTITY_TYPE_META_CENTER_REPOSITORY
       - TAGGABLE_ENTITY_TYPE_CUSTOM_REPOSITORY
       type: string
-    generatedFavoriteItem:
+    generatedFavoriteFailure:
       properties:
-        entityId:
-          format: int32
-          type: integer
-        entityName:
+        favorite:
+          $ref: '#/components/schemas/generatedFavoriteItem'
+        reason:
           type: string
-        entityType:
-          $ref: '#/components/schemas/generatedTaggableEntityType'
       type: object
-    generatedFavoriteListResponse:
+    generatedBulkFavoriteResponse:
       properties:
-        favorites:
+        failures:
+          items:
+            $ref: '#/components/schemas/generatedFavoriteFailure'
+          type: array
+        successes:
           items:
             $ref: '#/components/schemas/generatedFavoriteItem'
           type: array
+      type: object
+    generatedEmpty:
+      type: object
+    generatedFavoriteRequest:
+      properties:
+        favorite:
+          $ref: '#/components/schemas/generatedFavoriteItem'
       type: object
     protobufAny:
       properties:
@@ -219,15 +187,47 @@ components:
           format: byte
           type: string
       type: object
-    generatedFavoriteFailure:
+    runtimeError:
       properties:
-        favorite:
-          $ref: '#/components/schemas/generatedFavoriteItem'
-        reason:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
           type: string
       type: object
-    generatedEmpty:
+    generatedBulkFavoriteRequest:
+      properties:
+        favorites:
+          items:
+            $ref: '#/components/schemas/generatedFavoriteItem'
+          type: array
       type: object
+    generatedFavoriteListResponse:
+      properties:
+        favorites:
+          items:
+            $ref: '#/components/schemas/generatedFavoriteItem'
+          type: array
+      type: object
+  requestBodies:
+    generatedFavoriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedFavoriteRequest'
+      required: true
+    generatedBulkFavoriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedBulkFavoriteRequest'
+      required: true
   securitySchemes:
     basicAuth:
       type: http

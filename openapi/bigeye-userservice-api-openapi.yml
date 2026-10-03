@@ -162,64 +162,22 @@ paths:
       - UserService
 components:
   schemas:
-    generatedUpdateUserRequest:
+    generatedBulkResponse:
       properties:
-        groupIds:
+        failedUpdates:
+          items:
+            $ref: '#/components/schemas/generatedFailedUpdate'
+          type: array
+        notRunIds:
           items:
             format: int32
             type: integer
           type: array
-        name:
-          type: string
-      type: object
-    generatedFailedUpdate:
-      properties:
-        id:
-          format: int32
-          type: integer
-        reason:
-          type: string
-      type: object
-    generatedGetUserListResponse:
-      properties:
-        users:
-          items:
-            $ref: '#/components/schemas/generatedUser'
-          type: array
-      type: object
-    generatedUserInviteRequest:
-      properties:
-        email:
-          type: string
-        groupIds:
+        successfulIds:
           items:
             format: int32
             type: integer
           type: array
-        name:
-          type: string
-      type: object
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
-          type: string
-        id:
-          format: int32
-          type: integer
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
       type: object
     generatedCreateServiceAccountRequest:
       properties:
@@ -235,6 +193,86 @@ components:
       properties:
         user:
           $ref: '#/components/schemas/generatedUser'
+      type: object
+    generatedUserInviteRequest:
+      properties:
+        email:
+          type: string
+        groupIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        name:
+          type: string
+      type: object
+    generatedUpdateUserRequest:
+      properties:
+        groupIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        name:
+          type: string
+      type: object
+    generatedBulkDeleteUsersRequest:
+      properties:
+        userIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedGetUserListResponse:
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/generatedUser'
+          type: array
+      type: object
+    generatedUpdateUserResponse:
+      properties:
+        user:
+          $ref: '#/components/schemas/generatedUser'
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedFailedUpdate:
+      properties:
+        id:
+          format: int32
+          type: integer
+        reason:
+          type: string
       type: object
     generatedUser:
       properties:
@@ -260,44 +298,6 @@ components:
           type: string
         pictureUrl:
           type: string
-      type: object
-    generatedBulkDeleteUsersRequest:
-      properties:
-        userIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedBulkResponse:
-      properties:
-        failedUpdates:
-          items:
-            $ref: '#/components/schemas/generatedFailedUpdate'
-          type: array
-        notRunIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        successfulIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-      type: object
-    generatedUpdateUserResponse:
-      properties:
-        user:
-          $ref: '#/components/schemas/generatedUser'
       type: object
   securitySchemes:
     basicAuth:

@@ -103,43 +103,33 @@ paths:
       - ColumnService
 components:
   schemas:
-    generatedColumnSearchResponse:
+    generatedPaginationInfo:
       properties:
-        columns:
-          items:
-            $ref: '#/components/schemas/generatedTableColumn'
-          type: array
-        schema:
-          $ref: '#/components/schemas/generatedSchema'
-        table:
-          $ref: '#/components/schemas/generatedTable'
-        warehouse:
-          $ref: '#/components/schemas/generatedWarehouse'
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
       type: object
-    generatedColumnSortField:
-      default: COLUMN_SORT_FIELD_UNSPECIFIED
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
       enum:
-      - COLUMN_SORT_FIELD_UNSPECIFIED
-      - COLUMN_SORT_FIELD_NAME
-      - COLUMN_SORT_FIELD_FAVORITE
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
       type: string
-    generatedIdAndDisplayName:
+    generatedExternalMonitor:
       properties:
-        displayName:
-          type: string
-        id:
-          format: int32
-          type: integer
-      type: object
-    generatedWarehouse:
-      properties:
-        id:
-          format: int32
-          type: integer
-        name:
-          type: string
-        warehouseVendor:
-          $ref: '#/components/schemas/generatedWarehouseType'
+        type:
+          $ref: '#/components/schemas/generatedExternalMonitorType'
       type: object
     generatedAggregationType:
       default: UNDEFINED_AGGREGATION_TYPE
@@ -152,48 +142,6 @@ components:
       - AVG_AGGREGATION_TYPE
       - SUM_AGGREGATION_TYPE
       type: string
-    generatedColumnWithTable:
-      properties:
-        column:
-          $ref: '#/components/schemas/generatedTableColumn'
-        table:
-          $ref: '#/components/schemas/generatedTable'
-      type: object
-    generatedExternalMonitorType:
-      default: EXTERNAL_MONITOR_TYPE_UNDEFINED
-      enum:
-      - EXTERNAL_MONITOR_TYPE_UNDEFINED
-      - EXTERNAL_MONITOR_TYPE_DBT_TEST
-      type: string
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
-    generatedColumnApplicableMetricTypes:
-      properties:
-        applicableMetricTypes:
-          items:
-            $ref: '#/components/schemas/generatedMetricType'
-          type: array
-        column:
-          $ref: '#/components/schemas/generatedIdAndDisplayName'
-        schema:
-          $ref: '#/components/schemas/generatedIdAndDisplayName'
-        source:
-          $ref: '#/components/schemas/generatedIdAndDisplayName'
-        table:
-          $ref: '#/components/schemas/generatedIdAndDisplayName'
-      type: object
     generatedTable:
       description: '*
 
@@ -259,78 +207,45 @@ components:
         warehouseVendor:
           $ref: '#/components/schemas/generatedWarehouseType'
       type: object
-    generatedSchemaChangeInfo:
+    generatedMetricType:
       properties:
-        initialSchemaScanAt:
-          format: int64
-          type: string
-        lastSchemaChangeAt:
-          format: int64
-          type: string
-        mostRecentSchemaScanAt:
-          format: int64
-          type: string
+        customRuleType:
+          $ref: '#/components/schemas/generatedCustomRuleType'
+        externalMonitor:
+          $ref: '#/components/schemas/generatedExternalMonitor'
+        isMetadataMetric:
+          type: boolean
+        isTableMetric:
+          type: boolean
+        predefinedMetric:
+          $ref: '#/components/schemas/generatedPredefinedMetric'
+        templateMetric:
+          $ref: '#/components/schemas/generatedTemplateMetric'
       type: object
-    generatedPredefinedMetric:
+    generatedColumnWithTable:
       properties:
-        metricName:
-          $ref: '#/components/schemas/generatedPredefinedMetricName'
+        column:
+          $ref: '#/components/schemas/generatedTableColumn'
+        table:
+          $ref: '#/components/schemas/generatedTable'
       type: object
-    generatedTemplateMetric:
+    generatedGetColumnApplicableMetricTypesResponse:
       properties:
-        aggregationType:
-          $ref: '#/components/schemas/generatedAggregationType'
-        templateId:
-          format: int32
-          type: integer
-        templateName:
-          type: string
+        metricTypes:
+          $ref: '#/components/schemas/generatedColumnApplicableMetricTypes'
       type: object
-    generatedTableColumn:
-      description: '*
-
-        Representation of a column in a table.'
+    generatedColumnSearchResponse:
       properties:
-        canBeMetricTime:
-          type: boolean
-        dataNodeId:
-          format: int32
-          type: integer
-        extendedType:
-          type: string
-        fullType:
-          type: string
-        id:
-          format: int32
-          type: integer
-        isFavorite:
-          type: boolean
-        isKeyInJoin:
-          type: boolean
-        isMetricTime:
-          type: boolean
-        isNullable:
-          type: boolean
-        isPartitionField:
-          type: boolean
-        name:
-          type: string
-        parentColumnId:
-          format: int32
-          type: integer
-        schemaChangeInfo:
-          $ref: '#/components/schemas/generatedSchemaChangeInfo'
-        tags:
+        columns:
           items:
-            $ref: '#/components/schemas/generatedTag'
+            $ref: '#/components/schemas/generatedTableColumn'
           type: array
-        type:
-          type: string
-      type: object
-    generatedExternalMonitor:
-      properties:
-        type:
-          $ref: '#/components/schemas/generatedExternalMonitorType'
+        schema:
+          $ref: '#/components/schemas/generatedSchema'
+        table:
+          $ref: '#/components/schemas/generatedTable'
+        warehouse:
+          $ref: '#/components/schemas/generatedWarehouse'
       type: object
     generatedTag:
       properties:
@@ -353,6 +268,20 @@ components:
           type: integer
       title: Tags
       type: object
+    generatedExternalMonitorType:
+      default: EXTERNAL_MONITOR_TYPE_UNDEFINED
+      enum:
+      - EXTERNAL_MONITOR_TYPE_UNDEFINED
+      - EXTERNAL_MONITOR_TYPE_DBT_TEST
+      type: string
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
     protobufAny:
       properties:
         typeUrl:
@@ -361,43 +290,37 @@ components:
           format: byte
           type: string
       type: object
-    generatedPaginationInfo:
+    runtimeError:
       properties:
-        firstSortDistinctValues:
-          format: int64
-          type: string
-        nextCursor:
-          type: string
-        noNumRecords:
-          type: boolean
-        numRecords:
+        code:
           format: int32
           type: integer
-        prevCursor:
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
           type: string
       type: object
-    generatedGetColumnApplicableMetricTypesResponse:
+    generatedPredefinedMetric:
       properties:
-        metricTypes:
-          $ref: '#/components/schemas/generatedColumnApplicableMetricTypes'
+        metricName:
+          $ref: '#/components/schemas/generatedPredefinedMetricName'
       type: object
-    generatedSortDirection:
-      default: SORT_DIRECTION_UNSPECIFIED
-      enum:
-      - SORT_DIRECTION_UNSPECIFIED
-      - SORT_DIRECTION_ASCENDING
-      - SORT_DIRECTION_DESCENDING
-      title: Unspecified will default to ASCENDING
-      type: string
-    generatedTableType:
-      default: TABLE_TYPE_UNSPECIFIED
-      enum:
-      - TABLE_TYPE_UNSPECIFIED
-      - TABLE_TYPE_TABLE
-      - TABLE_TYPE_VIEW
-      - TABLE_TYPE_VIRTUAL
-      - TABLE_TYPE_CUSTOM_RULE
-      type: string
+    generatedSchemaChangeInfo:
+      properties:
+        initialSchemaScanAt:
+          format: int64
+          type: string
+        lastSchemaChangeAt:
+          format: int64
+          type: string
+        mostRecentSchemaScanAt:
+          format: int64
+          type: string
+      type: object
     generatedWarehouseType:
       default: DATABASE_TYPE_UNSPECIFIED
       enum:
@@ -422,124 +345,6 @@ components:
       - DATABASE_TYPE_NETEZZA
       - DATABASE_TYPE_SALESFORCE
       type: string
-    generatedSchema:
-      description: '*
-
-        Representation of a schema in a warehouse.'
-      properties:
-        dataNodeId:
-          format: int32
-          type: integer
-        databaseType:
-          $ref: '#/components/schemas/generatedWarehouseType'
-        id:
-          format: int32
-          type: integer
-        indexByTable:
-          type: boolean
-        isFavorite:
-          type: boolean
-        isVirtual:
-          type: boolean
-        latestMetricTimeValue:
-          format: int64
-          type: string
-        logicalSizeBytes:
-          format: int64
-          type: string
-        name:
-          type: string
-        numQueriesLatestPeriod:
-          format: int32
-          type: integer
-        popularityScore:
-          format: double
-          type: number
-        schemaChangeInfo:
-          $ref: '#/components/schemas/generatedSchemaChangeInfo'
-        sizeLastUpdatedAtMillis:
-          format: int64
-          type: string
-        tags:
-          items:
-            $ref: '#/components/schemas/generatedTag'
-          type: array
-        warehouseId:
-          format: int32
-          type: integer
-        warehouseName:
-          type: string
-      type: object
-    generatedGetColumnListResponse:
-      properties:
-        columns:
-          items:
-            $ref: '#/components/schemas/generatedColumnWithTable'
-          type: array
-        paginationInfo:
-          $ref: '#/components/schemas/generatedPaginationInfo'
-      type: object
-    generatedMetricType:
-      properties:
-        customRuleType:
-          $ref: '#/components/schemas/generatedCustomRuleType'
-        externalMonitor:
-          $ref: '#/components/schemas/generatedExternalMonitor'
-        isMetadataMetric:
-          type: boolean
-        isTableMetric:
-          type: boolean
-        predefinedMetric:
-          $ref: '#/components/schemas/generatedPredefinedMetric'
-        templateMetric:
-          $ref: '#/components/schemas/generatedTemplateMetric'
-      type: object
-    generatedCustomRuleType:
-      default: CUSTOM_RULE_TYPE_UNSPECIFIED
-      enum:
-      - CUSTOM_RULE_TYPE_UNSPECIFIED
-      - CUSTOM_RULE_TYPE_SQL_RULE
-      - CUSTOM_RULE_TYPE_JOIN_RULE
-      type: string
-    generatedGetColumnListRequest:
-      properties:
-        columnIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        excludeDataNode:
-          type: boolean
-        pageCursor:
-          type: string
-        pageSize:
-          format: int32
-          type: integer
-        schemaIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        search:
-          type: string
-        sortDirection:
-          $ref: '#/components/schemas/generatedSortDirection'
-        sortField:
-          $ref: '#/components/schemas/generatedColumnSortField'
-        sourceIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        tableIds:
-          items:
-            format: int32
-            type: integer
-          type: array
-        workspaceId:
-          format: int32
-          type: integer
-      type: object
     generatedPredefinedMetricName:
       default: UNDEFINED_PREDEFINED_METRIC_NAME
       enum:
@@ -623,6 +428,201 @@ components:
       - PERCENT_DUPLICATES
       - HOURS_SINCE_MAX_STRING
       type: string
+    generatedColumnSortField:
+      default: COLUMN_SORT_FIELD_UNSPECIFIED
+      enum:
+      - COLUMN_SORT_FIELD_UNSPECIFIED
+      - COLUMN_SORT_FIELD_NAME
+      - COLUMN_SORT_FIELD_FAVORITE
+      type: string
+    generatedSchema:
+      description: '*
+
+        Representation of a schema in a warehouse.'
+      properties:
+        dataNodeId:
+          format: int32
+          type: integer
+        databaseType:
+          $ref: '#/components/schemas/generatedWarehouseType'
+        id:
+          format: int32
+          type: integer
+        indexByTable:
+          type: boolean
+        isFavorite:
+          type: boolean
+        isVirtual:
+          type: boolean
+        latestMetricTimeValue:
+          format: int64
+          type: string
+        logicalSizeBytes:
+          format: int64
+          type: string
+        name:
+          type: string
+        numQueriesLatestPeriod:
+          format: int32
+          type: integer
+        popularityScore:
+          format: double
+          type: number
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        sizeLastUpdatedAtMillis:
+          format: int64
+          type: string
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        warehouseId:
+          format: int32
+          type: integer
+        warehouseName:
+          type: string
+      type: object
+    generatedCustomRuleType:
+      default: CUSTOM_RULE_TYPE_UNSPECIFIED
+      enum:
+      - CUSTOM_RULE_TYPE_UNSPECIFIED
+      - CUSTOM_RULE_TYPE_SQL_RULE
+      - CUSTOM_RULE_TYPE_JOIN_RULE
+      type: string
+    generatedGetColumnListRequest:
+      properties:
+        columnIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        excludeDataNode:
+          type: boolean
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        schemaIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        search:
+          type: string
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedColumnSortField'
+        sourceIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        tableIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedTemplateMetric:
+      properties:
+        aggregationType:
+          $ref: '#/components/schemas/generatedAggregationType'
+        templateId:
+          format: int32
+          type: integer
+        templateName:
+          type: string
+      type: object
+    generatedWarehouse:
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        warehouseVendor:
+          $ref: '#/components/schemas/generatedWarehouseType'
+      type: object
+    generatedTableType:
+      default: TABLE_TYPE_UNSPECIFIED
+      enum:
+      - TABLE_TYPE_UNSPECIFIED
+      - TABLE_TYPE_TABLE
+      - TABLE_TYPE_VIEW
+      - TABLE_TYPE_VIRTUAL
+      - TABLE_TYPE_CUSTOM_RULE
+      type: string
+    generatedTableColumn:
+      description: '*
+
+        Representation of a column in a table.'
+      properties:
+        canBeMetricTime:
+          type: boolean
+        dataNodeId:
+          format: int32
+          type: integer
+        extendedType:
+          type: string
+        fullType:
+          type: string
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        isKeyInJoin:
+          type: boolean
+        isMetricTime:
+          type: boolean
+        isNullable:
+          type: boolean
+        isPartitionField:
+          type: boolean
+        name:
+          type: string
+        parentColumnId:
+          format: int32
+          type: integer
+        schemaChangeInfo:
+          $ref: '#/components/schemas/generatedSchemaChangeInfo'
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        type:
+          type: string
+      type: object
+    generatedGetColumnListResponse:
+      properties:
+        columns:
+          items:
+            $ref: '#/components/schemas/generatedColumnWithTable'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedColumnApplicableMetricTypes:
+      properties:
+        applicableMetricTypes:
+          items:
+            $ref: '#/components/schemas/generatedMetricType'
+          type: array
+        column:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        schema:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        source:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        table:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+      type: object
   securitySchemes:
     basicAuth:
       type: http

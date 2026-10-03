@@ -162,27 +162,20 @@ paths:
       - DataClassService
 components:
   schemas:
-    generatedSortDirection:
-      default: SORT_DIRECTION_UNSPECIFIED
-      enum:
-      - SORT_DIRECTION_UNSPECIFIED
-      - SORT_DIRECTION_ASCENDING
-      - SORT_DIRECTION_DESCENDING
-      title: Unspecified will default to ASCENDING
-      type: string
-    generatedCreateOrUpdateDataClassRequest:
+    generatedEntityInfo:
       properties:
-        colorHex:
-          type: string
-        description:
-          type: string
-        name:
-          type: string
-        sensitivity:
-          $ref: '#/components/schemas/generatedDataSensitivity'
-        workspaceId:
+        createdBy:
           format: int32
           type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
       type: object
     generatedPaginationInfo:
       properties:
@@ -199,42 +192,26 @@ components:
         prevCursor:
           type: string
       type: object
-    generatedEntityInfo:
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
+    generatedDataClassCategory:
       properties:
-        createdBy:
-          format: int32
-          type: integer
-        createdEpochSeconds:
-          format: int64
-          type: string
-        updatedBy:
-          format: int32
-          type: integer
-        updatedEpochSeconds:
-          format: int64
-          type: string
-      type: object
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
+        description:
           type: string
         id:
+          format: int64
+          type: string
+        name:
+          type: string
+        workspaceId:
           format: int32
           type: integer
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
       type: object
     generatedGetDataClassListRequest:
       properties:
@@ -279,6 +256,97 @@ components:
           format: int32
           type: integer
       type: object
+    generatedGetDataClassListResponse:
+      properties:
+        dataClasses:
+          items:
+            $ref: '#/components/schemas/generatedDataClass'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedEmpty:
+      type: object
+    generatedDataClassSortOption:
+      properties:
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedDataClassSortField'
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedDataSensitivity:
+      default: DATA_SENSITIVITY_UNSPECIFIED
+      enum:
+      - DATA_SENSITIVITY_UNSPECIFIED
+      - DATA_SENSITIVITY_PUBLIC
+      - DATA_SENSITIVITY_INTERNAL
+      - DATA_SENSITIVITY_CONFIDENTIAL
+      - DATA_SENSITIVITY_RESTRICTED
+      type: string
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedUser:
+      properties:
+        email:
+          type: string
+        groups:
+          items:
+            $ref: '#/components/schemas/generatedIdAndDisplayName'
+          type: array
+        id:
+          format: int32
+          type: integer
+        idpGroups:
+          items:
+            type: string
+          type: array
+        isServiceAccount:
+          type: boolean
+        lastLoginAt:
+          format: int64
+          type: string
+        name:
+          type: string
+        pictureUrl:
+          type: string
+      type: object
+    generatedDataClassSortField:
+      default: DATA_CLASS_SORT_FIELD_UNSPECIFIED
+      enum:
+      - DATA_CLASS_SORT_FIELD_UNSPECIFIED
+      - DATA_CLASS_SORT_FIELD_NAME
+      - DATA_CLASS_SORT_FIELD_SENSITIVITY
+      - DATA_CLASS_SORT_FIELD_CREATOR
+      - DATA_CLASS_SORT_FIELD_NUMBER_OF_CLASSIFIERS
+      type: string
     generatedDataClass:
       properties:
         canResetToDefault:
@@ -311,84 +379,16 @@ components:
           format: int32
           type: integer
       type: object
-    generatedUser:
+    generatedCreateOrUpdateDataClassRequest:
       properties:
-        email:
+        colorHex:
           type: string
-        groups:
-          items:
-            $ref: '#/components/schemas/generatedIdAndDisplayName'
-          type: array
-        id:
-          format: int32
-          type: integer
-        idpGroups:
-          items:
-            type: string
-          type: array
-        isServiceAccount:
-          type: boolean
-        lastLoginAt:
-          format: int64
-          type: string
-        name:
-          type: string
-        pictureUrl:
-          type: string
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    generatedDataClassSortOption:
-      properties:
-        sortDirection:
-          $ref: '#/components/schemas/generatedSortDirection'
-        sortField:
-          $ref: '#/components/schemas/generatedDataClassSortField'
-      type: object
-    generatedDataSensitivity:
-      default: DATA_SENSITIVITY_UNSPECIFIED
-      enum:
-      - DATA_SENSITIVITY_UNSPECIFIED
-      - DATA_SENSITIVITY_PUBLIC
-      - DATA_SENSITIVITY_INTERNAL
-      - DATA_SENSITIVITY_CONFIDENTIAL
-      - DATA_SENSITIVITY_RESTRICTED
-      type: string
-    generatedDataClassSortField:
-      default: DATA_CLASS_SORT_FIELD_UNSPECIFIED
-      enum:
-      - DATA_CLASS_SORT_FIELD_UNSPECIFIED
-      - DATA_CLASS_SORT_FIELD_NAME
-      - DATA_CLASS_SORT_FIELD_SENSITIVITY
-      - DATA_CLASS_SORT_FIELD_CREATOR
-      - DATA_CLASS_SORT_FIELD_NUMBER_OF_CLASSIFIERS
-      type: string
-    generatedGetDataClassListResponse:
-      properties:
-        dataClasses:
-          items:
-            $ref: '#/components/schemas/generatedDataClass'
-          type: array
-        paginationInfo:
-          $ref: '#/components/schemas/generatedPaginationInfo'
-      type: object
-    generatedEmpty:
-      type: object
-    generatedDataClassCategory:
-      properties:
         description:
           type: string
-        id:
-          format: int64
-          type: string
         name:
           type: string
+        sensitivity:
+          $ref: '#/components/schemas/generatedDataSensitivity'
         workspaceId:
           format: int32
           type: integer

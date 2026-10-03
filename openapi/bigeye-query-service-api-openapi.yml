@@ -37,40 +37,88 @@ paths:
       - Query Service
 components:
   schemas:
-    generatedCatalogEntityPathElement:
+    generatedMetricRunLabel:
+      default: METRIC_RUN_LABEL_UNSPECIFIED
+      enum:
+      - METRIC_RUN_LABEL_UNSPECIFIED
+      - METRIC_RUN_LABEL_TRUE_NEGATIVE
+      - METRIC_RUN_LABEL_FALSE_NEGATIVE
+      - METRIC_RUN_LABEL_TRUE_POSITIVE
+      - METRIC_RUN_LABEL_FALSE_POSITIVE
+      - METRIC_RUN_LABEL_UNDETERMINED
+      - METRIC_RUN_LABEL_EXPECTED
+      type: string
+    generatedCountsQueryResult:
       properties:
-        displayName:
-          type: string
-        id:
+        catalogEntity:
+          $ref: '#/components/schemas/generatedCatalogEntityPathElement'
+        classifierId:
           format: int64
           type: string
-        type:
-          $ref: '#/components/schemas/generatedDataNodeType'
-      type: object
-    generatedGetCountsRequest:
-      properties:
-        excludeZeros:
-          type: boolean
-        queries:
-          items:
-            $ref: '#/components/schemas/generatedCountsQuery'
-          type: array
-      type: object
-    generatedMonitorType:
-      default: MONITOR_TYPE_UNDEFINED
-      enum:
-      - MONITOR_TYPE_UNDEFINED
-      - MONITOR_TYPE_METRIC
-      - MONITOR_TYPE_DBT_TEST
-      - MONITOR_TYPE_CUSTOM_RULE
-      type: string
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
-          type: string
-        id:
+        columnId:
           format: int32
           type: integer
+        countsForFields:
+          items:
+            $ref: '#/components/schemas/generatedCountForField'
+          type: array
+        dataClassCategoryId:
+          format: int64
+          type: string
+        dataClassId:
+          format: int64
+          type: string
+        dimensionId:
+          format: int32
+          type: integer
+        entity:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        isRootCause:
+          type: boolean
+        issuePriority:
+          $ref: '#/components/schemas/generatedIssuePriority'
+        issueStatus:
+          $ref: '#/components/schemas/generatedIssueStatus'
+        issueType:
+          $ref: '#/components/schemas/generatedIssueType'
+        metricCategory:
+          $ref: '#/components/schemas/generatedMetricCategory'
+        metricRunLabel:
+          $ref: '#/components/schemas/generatedMetricRunLabel'
+        metricStatus:
+          $ref: '#/components/schemas/generatedMetricStatus'
+        metricType:
+          $ref: '#/components/schemas/generatedMetricType'
+        monitorType:
+          $ref: '#/components/schemas/generatedMonitorType'
+        ownerId:
+          format: int32
+          type: integer
+        scanJobId:
+          format: int64
+          type: string
+        scheduleId:
+          format: int32
+          type: integer
+        schemaId:
+          format: int32
+          type: integer
+        schemaName:
+          type: string
+        slaId:
+          format: int32
+          type: integer
+        tableId:
+          format: int32
+          type: integer
+        warehouseId:
+          format: int32
+          type: integer
+      type: object
+    generatedExternalMonitor:
+      properties:
+        type:
+          $ref: '#/components/schemas/generatedExternalMonitorType'
       type: object
     generatedAggregationType:
       default: UNDEFINED_AGGREGATION_TYPE
@@ -83,6 +131,29 @@ components:
       - AVG_AGGREGATION_TYPE
       - SUM_AGGREGATION_TYPE
       type: string
+    generatedMetricType:
+      properties:
+        customRuleType:
+          $ref: '#/components/schemas/generatedCustomRuleType'
+        externalMonitor:
+          $ref: '#/components/schemas/generatedExternalMonitor'
+        isMetadataMetric:
+          type: boolean
+        isTableMetric:
+          type: boolean
+        predefinedMetric:
+          $ref: '#/components/schemas/generatedPredefinedMetric'
+        templateMetric:
+          $ref: '#/components/schemas/generatedTemplateMetric'
+      type: object
+    generatedCountForField:
+      properties:
+        count:
+          format: int64
+          type: string
+        field:
+          $ref: '#/components/schemas/generatedAggregateField'
+      type: object
     generatedMetricStatus:
       default: METRIC_STATUS_UNSPECIFIED
       enum:
@@ -93,21 +164,21 @@ components:
       - METRIC_STATUS_NO_OBSERVED_VALUE
       - METRIC_STATUS_GROUPS_MIXED_STATUS
       type: string
+    generatedCatalogEntityPathElement:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int64
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedDataNodeType'
+      type: object
     generatedExternalMonitorType:
       default: EXTERNAL_MONITOR_TYPE_UNDEFINED
       enum:
       - EXTERNAL_MONITOR_TYPE_UNDEFINED
       - EXTERNAL_MONITOR_TYPE_DBT_TEST
-      type: string
-    generatedIssueStatus:
-      default: ISSUE_STATUS_UNSPECIFIED
-      enum:
-      - ISSUE_STATUS_UNSPECIFIED
-      - ISSUE_STATUS_NEW
-      - ISSUE_STATUS_ACKNOWLEDGED
-      - ISSUE_STATUS_CLOSED
-      - ISSUE_STATUS_MONITORING
-      - ISSUE_STATUS_MERGED
       type: string
     generatedSearchFilter:
       properties:
@@ -191,6 +262,43 @@ components:
           format: int32
           type: integer
       type: object
+    generatedCountsQuery:
+      properties:
+        fields:
+          items:
+            $ref: '#/components/schemas/generatedAggregateField'
+          type: array
+        filters:
+          items:
+            $ref: '#/components/schemas/generatedSearchFilter'
+          type: array
+        groupByEntityType:
+          $ref: '#/components/schemas/generatedGroupByEntityType'
+      type: object
+    generatedMonitorType:
+      default: MONITOR_TYPE_UNDEFINED
+      enum:
+      - MONITOR_TYPE_UNDEFINED
+      - MONITOR_TYPE_METRIC
+      - MONITOR_TYPE_DBT_TEST
+      - MONITOR_TYPE_CUSTOM_RULE
+      type: string
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
     runtimeError:
       properties:
         code:
@@ -209,174 +317,6 @@ components:
       properties:
         metricName:
           $ref: '#/components/schemas/generatedPredefinedMetricName'
-      type: object
-    generatedIssueType:
-      default: ISSUE_TYPE_UNSPECIFIED
-      enum:
-      - ISSUE_TYPE_UNSPECIFIED
-      - ISSUE_TYPE_ISSUE
-      - ISSUE_TYPE_INCIDENT
-      type: string
-    generatedAggregateField:
-      default: AGGREGATE_FIELD_UNSPECIFIED
-      enum:
-      - AGGREGATE_FIELD_UNSPECIFIED
-      - AGGREGATE_FIELD_WAREHOUSES
-      - AGGREGATE_FIELD_SCHEMAS
-      - AGGREGATE_FIELD_TABLES
-      - AGGREGATE_FIELD_COLUMNS
-      - AGGREGATE_FIELD_METRICS
-      - AGGREGATE_FIELD_METRICS_ALERTING
-      - AGGREGATE_FIELD_METRICS_FAILED
-      - AGGREGATE_FIELD_METRICS_MUTED
-      - AGGREGATE_FIELD_METRICS_HEALTHY
-      - AGGREGATE_FIELD_GROUP_METRIC_STATUS
-      - AGGREGATE_FIELD_ALERTS
-      - AGGREGATE_FIELD_ISSUES
-      - AGGREGATE_FIELD_INTEGRATIONS
-      - AGGREGATE_FIELD_BI_TOOLS
-      - AGGREGATE_FIELD_ETL_TOOLS
-      - AGGREGATE_FIELD_CUSTOM_RULES
-      - AGGREGATE_FIELD_ISSUE_TYPE
-      - AGGREGATE_FIELD_IS_ROOT_CAUSE
-      - AGGREGATE_FIELD_LINKED_METRICS
-      - AGGREGATE_FIELD_LINKED_CUSTOM_RULES
-      - AGGREGATE_FIELD_DIMENSION
-      - AGGREGATE_FIELD_CHILD_ENTITIES
-      - AGGREGATE_FIELD_SCAN_JOBS
-      - AGGREGATE_FIELD_CLASSIFIERS
-      - AGGREGATE_FIELD_DATA_CLASSES
-      - AGGREGATE_FIELD_SCAN_RUNS
-      - AGGREGATE_FIELD_SNAPSHOT_FINDINGS
-      - AGGREGATE_FIELD_AGGREGATE_FINDINGS
-      - AGGREGATE_FIELD_MONITORS
-      - AGGREGATE_FIELD_SENSITIVE_COLUMNS
-      type: string
-    generatedTemplateMetric:
-      properties:
-        aggregationType:
-          $ref: '#/components/schemas/generatedAggregationType'
-        templateId:
-          format: int32
-          type: integer
-        templateName:
-          type: string
-      type: object
-    generatedCountForField:
-      properties:
-        count:
-          format: int64
-          type: string
-        field:
-          $ref: '#/components/schemas/generatedAggregateField'
-      type: object
-    generatedCountsQueryResult:
-      properties:
-        catalogEntity:
-          $ref: '#/components/schemas/generatedCatalogEntityPathElement'
-        classifierId:
-          format: int64
-          type: string
-        columnId:
-          format: int32
-          type: integer
-        countsForFields:
-          items:
-            $ref: '#/components/schemas/generatedCountForField'
-          type: array
-        dataClassCategoryId:
-          format: int64
-          type: string
-        dataClassId:
-          format: int64
-          type: string
-        dimensionId:
-          format: int32
-          type: integer
-        entity:
-          $ref: '#/components/schemas/generatedIdAndDisplayName'
-        isRootCause:
-          type: boolean
-        issuePriority:
-          $ref: '#/components/schemas/generatedIssuePriority'
-        issueStatus:
-          $ref: '#/components/schemas/generatedIssueStatus'
-        issueType:
-          $ref: '#/components/schemas/generatedIssueType'
-        metricCategory:
-          $ref: '#/components/schemas/generatedMetricCategory'
-        metricRunLabel:
-          $ref: '#/components/schemas/generatedMetricRunLabel'
-        metricStatus:
-          $ref: '#/components/schemas/generatedMetricStatus'
-        metricType:
-          $ref: '#/components/schemas/generatedMetricType'
-        monitorType:
-          $ref: '#/components/schemas/generatedMonitorType'
-        ownerId:
-          format: int32
-          type: integer
-        scanJobId:
-          format: int64
-          type: string
-        scheduleId:
-          format: int32
-          type: integer
-        schemaId:
-          format: int32
-          type: integer
-        schemaName:
-          type: string
-        slaId:
-          format: int32
-          type: integer
-        tableId:
-          format: int32
-          type: integer
-        warehouseId:
-          format: int32
-          type: integer
-      type: object
-    generatedGroupByEntityType:
-      default: GROUP_BY_ENTITY_TYPE_UNSPECIFIED
-      enum:
-      - GROUP_BY_ENTITY_TYPE_UNSPECIFIED
-      - GROUP_BY_ENTITY_TYPE_WAREHOUSE
-      - GROUP_BY_ENTITY_TYPE_SCHEMA
-      - GROUP_BY_ENTITY_TYPE_TABLE
-      - GROUP_BY_ENTITY_TYPE_COLUMN
-      - GROUP_BY_ENTITY_TYPE_SLA
-      - GROUP_BY_ENTITY_TYPE_SCHEMA_ID
-      - GROUP_BY_ENTITY_TYPE_METRIC_RUN_LABEL
-      - GROUP_BY_ENTITY_TYPE_TABLE_ID
-      - GROUP_BY_ENTITY_TYPE_ISSUE_PRIORITY
-      - GROUP_BY_ENTITY_TYPE_ISSUE_STATUS
-      - GROUP_BY_ENTITY_TYPE_METRIC_STATUS
-      - GROUP_BY_ENTITY_TYPE_METRIC_TYPE
-      - GROUP_BY_ENTITY_TYPE_METRIC_CATEGORY
-      - GROUP_BY_ENTITY_TYPE_OWNER
-      - GROUP_BY_ENTITY_TYPE_ISSUE_TYPE
-      - GROUP_BY_ENTITY_TYPE_IS_ROOT_CAUSE
-      - GROUP_BY_ENTITY_TYPE_DIMENSION
-      - GROUP_BY_ENTITY_TYPE_MONITOR_TYPE
-      - GROUP_BY_ENTITY_TYPE_SCHEDULE
-      - GROUP_BY_ENTITY_TYPE_SCAN_JOB
-      - GROUP_BY_ENTITY_TYPE_DATA_CLASS
-      - GROUP_BY_ENTITY_TYPE_CLASSIFIER
-      - GROUP_BY_ENTITY_TYPE_DATA_CLASS_CATEGORY
-      type: string
-    generatedExternalMonitor:
-      properties:
-        type:
-          $ref: '#/components/schemas/generatedExternalMonitorType'
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
       type: object
     generatedDataNodeType:
       default: DATA_NODE_TYPE_UNSPECIFIED
@@ -465,71 +405,6 @@ components:
       - ISSUE_PRIORITY_MED
       - ISSUE_PRIORITY_HIGH
       type: string
-    generatedMetricRunLabel:
-      default: METRIC_RUN_LABEL_UNSPECIFIED
-      enum:
-      - METRIC_RUN_LABEL_UNSPECIFIED
-      - METRIC_RUN_LABEL_TRUE_NEGATIVE
-      - METRIC_RUN_LABEL_FALSE_NEGATIVE
-      - METRIC_RUN_LABEL_TRUE_POSITIVE
-      - METRIC_RUN_LABEL_FALSE_POSITIVE
-      - METRIC_RUN_LABEL_UNDETERMINED
-      - METRIC_RUN_LABEL_EXPECTED
-      type: string
-    generatedGetCountsResponse:
-      properties:
-        queryResults:
-          items:
-            $ref: '#/components/schemas/generatedCountsQueryResult'
-          type: array
-      type: object
-    generatedMetricType:
-      properties:
-        customRuleType:
-          $ref: '#/components/schemas/generatedCustomRuleType'
-        externalMonitor:
-          $ref: '#/components/schemas/generatedExternalMonitor'
-        isMetadataMetric:
-          type: boolean
-        isTableMetric:
-          type: boolean
-        predefinedMetric:
-          $ref: '#/components/schemas/generatedPredefinedMetric'
-        templateMetric:
-          $ref: '#/components/schemas/generatedTemplateMetric'
-      type: object
-    generatedCustomRuleType:
-      default: CUSTOM_RULE_TYPE_UNSPECIFIED
-      enum:
-      - CUSTOM_RULE_TYPE_UNSPECIFIED
-      - CUSTOM_RULE_TYPE_SQL_RULE
-      - CUSTOM_RULE_TYPE_JOIN_RULE
-      type: string
-    generatedMetricCategory:
-      default: METRIC_CATEGORY_UNSPECIFIED
-      enum:
-      - METRIC_CATEGORY_UNSPECIFIED
-      - METRIC_CATEGORY_PIPELINE_RELIABILITY
-      - METRIC_CATEGORY_UNIQUENESS
-      - METRIC_CATEGORY_COMPLETENESS
-      - METRIC_CATEGORY_DISTRIBUTIONS
-      - METRIC_CATEGORY_VALIDITY
-      - METRIC_CATEGORY_CUSTOM
-      title: 'Note: The enum order is also the sorting order when sorting issues by metric category'
-      type: string
-    generatedCountsQuery:
-      properties:
-        fields:
-          items:
-            $ref: '#/components/schemas/generatedAggregateField'
-          type: array
-        filters:
-          items:
-            $ref: '#/components/schemas/generatedSearchFilter'
-          type: array
-        groupByEntityType:
-          $ref: '#/components/schemas/generatedGroupByEntityType'
-      type: object
     generatedPredefinedMetricName:
       default: UNDEFINED_PREDEFINED_METRIC_NAME
       enum:
@@ -612,6 +487,131 @@ components:
       - PERCENT_DISTINCT
       - PERCENT_DUPLICATES
       - HOURS_SINCE_MAX_STRING
+      type: string
+    generatedAggregateField:
+      default: AGGREGATE_FIELD_UNSPECIFIED
+      enum:
+      - AGGREGATE_FIELD_UNSPECIFIED
+      - AGGREGATE_FIELD_WAREHOUSES
+      - AGGREGATE_FIELD_SCHEMAS
+      - AGGREGATE_FIELD_TABLES
+      - AGGREGATE_FIELD_COLUMNS
+      - AGGREGATE_FIELD_METRICS
+      - AGGREGATE_FIELD_METRICS_ALERTING
+      - AGGREGATE_FIELD_METRICS_FAILED
+      - AGGREGATE_FIELD_METRICS_MUTED
+      - AGGREGATE_FIELD_METRICS_HEALTHY
+      - AGGREGATE_FIELD_GROUP_METRIC_STATUS
+      - AGGREGATE_FIELD_ALERTS
+      - AGGREGATE_FIELD_ISSUES
+      - AGGREGATE_FIELD_INTEGRATIONS
+      - AGGREGATE_FIELD_BI_TOOLS
+      - AGGREGATE_FIELD_ETL_TOOLS
+      - AGGREGATE_FIELD_CUSTOM_RULES
+      - AGGREGATE_FIELD_ISSUE_TYPE
+      - AGGREGATE_FIELD_IS_ROOT_CAUSE
+      - AGGREGATE_FIELD_LINKED_METRICS
+      - AGGREGATE_FIELD_LINKED_CUSTOM_RULES
+      - AGGREGATE_FIELD_DIMENSION
+      - AGGREGATE_FIELD_CHILD_ENTITIES
+      - AGGREGATE_FIELD_SCAN_JOBS
+      - AGGREGATE_FIELD_CLASSIFIERS
+      - AGGREGATE_FIELD_DATA_CLASSES
+      - AGGREGATE_FIELD_SCAN_RUNS
+      - AGGREGATE_FIELD_SNAPSHOT_FINDINGS
+      - AGGREGATE_FIELD_AGGREGATE_FINDINGS
+      - AGGREGATE_FIELD_MONITORS
+      - AGGREGATE_FIELD_SENSITIVE_COLUMNS
+      type: string
+    generatedCustomRuleType:
+      default: CUSTOM_RULE_TYPE_UNSPECIFIED
+      enum:
+      - CUSTOM_RULE_TYPE_UNSPECIFIED
+      - CUSTOM_RULE_TYPE_SQL_RULE
+      - CUSTOM_RULE_TYPE_JOIN_RULE
+      type: string
+    generatedIssueStatus:
+      default: ISSUE_STATUS_UNSPECIFIED
+      enum:
+      - ISSUE_STATUS_UNSPECIFIED
+      - ISSUE_STATUS_NEW
+      - ISSUE_STATUS_ACKNOWLEDGED
+      - ISSUE_STATUS_CLOSED
+      - ISSUE_STATUS_MONITORING
+      - ISSUE_STATUS_MERGED
+      type: string
+    generatedMetricCategory:
+      default: METRIC_CATEGORY_UNSPECIFIED
+      enum:
+      - METRIC_CATEGORY_UNSPECIFIED
+      - METRIC_CATEGORY_PIPELINE_RELIABILITY
+      - METRIC_CATEGORY_UNIQUENESS
+      - METRIC_CATEGORY_COMPLETENESS
+      - METRIC_CATEGORY_DISTRIBUTIONS
+      - METRIC_CATEGORY_VALIDITY
+      - METRIC_CATEGORY_CUSTOM
+      title: 'Note: The enum order is also the sorting order when sorting issues by metric category'
+      type: string
+    generatedGetCountsRequest:
+      properties:
+        excludeZeros:
+          type: boolean
+        queries:
+          items:
+            $ref: '#/components/schemas/generatedCountsQuery'
+          type: array
+      type: object
+    generatedIssueType:
+      default: ISSUE_TYPE_UNSPECIFIED
+      enum:
+      - ISSUE_TYPE_UNSPECIFIED
+      - ISSUE_TYPE_ISSUE
+      - ISSUE_TYPE_INCIDENT
+      type: string
+    generatedTemplateMetric:
+      properties:
+        aggregationType:
+          $ref: '#/components/schemas/generatedAggregationType'
+        templateId:
+          format: int32
+          type: integer
+        templateName:
+          type: string
+      type: object
+    generatedGetCountsResponse:
+      properties:
+        queryResults:
+          items:
+            $ref: '#/components/schemas/generatedCountsQueryResult'
+          type: array
+      type: object
+    generatedGroupByEntityType:
+      default: GROUP_BY_ENTITY_TYPE_UNSPECIFIED
+      enum:
+      - GROUP_BY_ENTITY_TYPE_UNSPECIFIED
+      - GROUP_BY_ENTITY_TYPE_WAREHOUSE
+      - GROUP_BY_ENTITY_TYPE_SCHEMA
+      - GROUP_BY_ENTITY_TYPE_TABLE
+      - GROUP_BY_ENTITY_TYPE_COLUMN
+      - GROUP_BY_ENTITY_TYPE_SLA
+      - GROUP_BY_ENTITY_TYPE_SCHEMA_ID
+      - GROUP_BY_ENTITY_TYPE_METRIC_RUN_LABEL
+      - GROUP_BY_ENTITY_TYPE_TABLE_ID
+      - GROUP_BY_ENTITY_TYPE_ISSUE_PRIORITY
+      - GROUP_BY_ENTITY_TYPE_ISSUE_STATUS
+      - GROUP_BY_ENTITY_TYPE_METRIC_STATUS
+      - GROUP_BY_ENTITY_TYPE_METRIC_TYPE
+      - GROUP_BY_ENTITY_TYPE_METRIC_CATEGORY
+      - GROUP_BY_ENTITY_TYPE_OWNER
+      - GROUP_BY_ENTITY_TYPE_ISSUE_TYPE
+      - GROUP_BY_ENTITY_TYPE_IS_ROOT_CAUSE
+      - GROUP_BY_ENTITY_TYPE_DIMENSION
+      - GROUP_BY_ENTITY_TYPE_MONITOR_TYPE
+      - GROUP_BY_ENTITY_TYPE_SCHEDULE
+      - GROUP_BY_ENTITY_TYPE_SCAN_JOB
+      - GROUP_BY_ENTITY_TYPE_DATA_CLASS
+      - GROUP_BY_ENTITY_TYPE_CLASSIFIER
+      - GROUP_BY_ENTITY_TYPE_DATA_CLASS_CATEGORY
       type: string
   securitySchemes:
     basicAuth:
