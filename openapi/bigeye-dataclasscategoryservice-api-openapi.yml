@@ -50,20 +50,6 @@ components:
           format: int32
           type: integer
       type: object
-    generatedGetDataClassCategoryListRequest:
-      properties:
-        workspaceId:
-          format: int32
-          type: integer
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
     runtimeError:
       properties:
         code:
@@ -78,12 +64,26 @@ components:
         message:
           type: string
       type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
     generatedGetDataClassCategoryListResponse:
       properties:
         categories:
           items:
             $ref: '#/components/schemas/generatedDataClassCategory'
           type: array
+      type: object
+    generatedGetDataClassCategoryListRequest:
+      properties:
+        workspaceId:
+          format: int32
+          type: integer
       type: object
   securitySchemes:
     basicAuth:

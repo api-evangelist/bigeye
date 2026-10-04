@@ -83,52 +83,6 @@ paths:
       - CollectionV2Service
 components:
   schemas:
-    generatedEntityInfo:
-      properties:
-        createdBy:
-          format: int32
-          type: integer
-        createdEpochSeconds:
-          format: int64
-          type: string
-        updatedBy:
-          format: int32
-          type: integer
-        updatedEpochSeconds:
-          format: int64
-          type: string
-      type: object
-    generatedPaginationInfo:
-      properties:
-        firstSortDistinctValues:
-          format: int64
-          type: string
-        nextCursor:
-          type: string
-        noNumRecords:
-          type: boolean
-        numRecords:
-          format: int32
-          type: integer
-        prevCursor:
-          type: string
-      type: object
-    generatedNotificationChannel:
-      properties:
-        email:
-          type: string
-        externalTicketInfo:
-          $ref: '#/components/schemas/generatedIssueExternalTicketInfo'
-        slackChannelInfo:
-          $ref: '#/components/schemas/generatedSlackChannelInfo'
-        webhook:
-          $ref: '#/components/schemas/generatedWebhook'
-      type: object
-    generatedGetCollectionInfoResponse:
-      properties:
-        collectionInfo:
-          $ref: '#/components/schemas/generatedCollectionInfo'
-      type: object
     generatedTag:
       properties:
         colorHex:
@@ -150,14 +104,74 @@ components:
           type: integer
       title: Tags
       type: object
-    generatedWebhook:
+    generatedEntityInfo:
       properties:
-        webhookHeaders:
-          items:
-            $ref: '#/components/schemas/generatedWebhookHeader'
-          type: array
-        webhookUrl:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
           type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedNotificationChannel:
+      properties:
+        email:
+          type: string
+        externalTicketInfo:
+          $ref: '#/components/schemas/generatedIssueExternalTicketInfo'
+        slackChannelInfo:
+          $ref: '#/components/schemas/generatedSlackChannelInfo'
+        webhook:
+          $ref: '#/components/schemas/generatedWebhook'
+      type: object
+    generatedGetPaginatedCollectionInfosResponse:
+      properties:
+        collectionInfos:
+          items:
+            $ref: '#/components/schemas/generatedCollectionInfo'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
+    generatedGetCollectionInfoResponse:
+      properties:
+        collectionInfo:
+          $ref: '#/components/schemas/generatedCollectionInfo'
+      type: object
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    generatedGetAllCollectionInfosResponse:
+      properties:
+        collectionInfos:
+          items:
+            $ref: '#/components/schemas/generatedCollectionInfo'
+          type: array
+      type: object
+    generatedCollectionInfo:
+      properties:
+        collectionConfiguration:
+          $ref: '#/components/schemas/generatedCollection'
+        collectionMetricStatus:
+          $ref: '#/components/schemas/generatedCollectionMetricStatus'
       type: object
     generatedIssueExternalTicketInfo:
       properties:
@@ -171,52 +185,32 @@ components:
           format: int32
           type: integer
       type: object
-    generatedSlackChannelInfo:
+    generatedCollectionMetricStatus:
       properties:
-        channelId:
-          type: string
-        channelName:
-          type: string
-        issueThreadPermalink:
-          type: string
-        threadTs:
-          type: string
-      type: object
-    generatedGetAllCollectionInfosResponse:
-      properties:
-        collectionInfos:
-          items:
-            $ref: '#/components/schemas/generatedCollectionInfo'
-          type: array
-      type: object
-    generatedExternalTicketProvider:
-      default: EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
-      enum:
-      - EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
-      - EXTERNAL_TICKET_PROVIDER_JIRA
-      - EXTERNAL_TICKET_PROVIDER_SERVICENOW
-      type: string
-    runtimeError:
-      properties:
-        code:
+        acknowledgeIssuesCount:
           format: int32
           type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
+        alertingMetricsCount:
+          format: int32
+          type: integer
+        earliestUpdatedMetricSeconds:
+          format: int64
           type: string
-        message:
+        latestUpdatedMetricSeconds:
+          format: int64
           type: string
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
+        metricsCount:
+          format: int32
+          type: integer
+        monitoringIssuesCount:
+          format: int32
+          type: integer
+        openIssuesCount:
+          format: int32
+          type: integer
+        triageIssuesCount:
+          format: int32
+          type: integer
       type: object
     generatedCollection:
       properties:
@@ -251,21 +245,54 @@ components:
             $ref: '#/components/schemas/generatedTag'
           type: array
       type: object
-    generatedCollectionInfo:
+    generatedSlackChannelInfo:
       properties:
-        collectionConfiguration:
-          $ref: '#/components/schemas/generatedCollection'
-        collectionMetricStatus:
-          $ref: '#/components/schemas/generatedCollectionMetricStatus'
+        channelId:
+          type: string
+        channelName:
+          type: string
+        issueThreadPermalink:
+          type: string
+        threadTs:
+          type: string
       type: object
-    generatedGetPaginatedCollectionInfosResponse:
+    generatedExternalTicketProvider:
+      default: EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
+      enum:
+      - EXTERNAL_TICKET_PROVIDER_UNSPECIFIED
+      - EXTERNAL_TICKET_PROVIDER_JIRA
+      - EXTERNAL_TICKET_PROVIDER_SERVICENOW
+      type: string
+    runtimeError:
       properties:
-        collectionInfos:
+        code:
+          format: int32
+          type: integer
+        details:
           items:
-            $ref: '#/components/schemas/generatedCollectionInfo'
+            $ref: '#/components/schemas/protobufAny'
           type: array
-        paginationInfo:
-          $ref: '#/components/schemas/generatedPaginationInfo'
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedWebhook:
+      properties:
+        webhookHeaders:
+          items:
+            $ref: '#/components/schemas/generatedWebhookHeader'
+          type: array
+        webhookUrl:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
       type: object
     generatedWebhookHeader:
       properties:
@@ -273,33 +300,6 @@ components:
           type: string
         value:
           type: string
-      type: object
-    generatedCollectionMetricStatus:
-      properties:
-        acknowledgeIssuesCount:
-          format: int32
-          type: integer
-        alertingMetricsCount:
-          format: int32
-          type: integer
-        earliestUpdatedMetricSeconds:
-          format: int64
-          type: string
-        latestUpdatedMetricSeconds:
-          format: int64
-          type: string
-        metricsCount:
-          format: int32
-          type: integer
-        monitoringIssuesCount:
-          format: int32
-          type: integer
-        openIssuesCount:
-          format: int32
-          type: integer
-        triageIssuesCount:
-          format: int32
-          type: integer
       type: object
   securitySchemes:
     basicAuth:

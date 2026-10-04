@@ -84,29 +84,6 @@ components:
         tableName:
           type: string
       type: object
-    generatedSortDirection:
-      default: SORT_DIRECTION_UNSPECIFIED
-      enum:
-      - SORT_DIRECTION_UNSPECIFIED
-      - SORT_DIRECTION_ASCENDING
-      - SORT_DIRECTION_DESCENDING
-      title: Unspecified will default to ASCENDING
-      type: string
-    generatedPaginationInfo:
-      properties:
-        firstSortDistinctValues:
-          format: int64
-          type: string
-        nextCursor:
-          type: string
-        noNumRecords:
-          type: boolean
-        numRecords:
-          format: int32
-          type: integer
-        prevCursor:
-          type: string
-      type: object
     generatedSchemaChangeOperation:
       default: SCHEMA_CHANGE_OPERATION_UNSPECIFIED
       enum:
@@ -126,35 +103,19 @@ components:
       - CATALOG_ENTITY_TYPE_DATA_NODE_ENTITY
       - CATALOG_ENTITY_TYPE_META_CENTER_ENTITY
       type: string
-    generatedGetSchemaChangesResponse:
+    generatedPaginationInfo:
       properties:
-        paginationInfo:
-          $ref: '#/components/schemas/generatedPaginationInfo'
-        schemaChanges:
-          items:
-            $ref: '#/components/schemas/generatedSchemaChange'
-          type: array
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
+        firstSortDistinctValues:
+          format: int64
           type: string
-        value:
-          format: byte
+        nextCursor:
           type: string
-      type: object
-    runtimeError:
-      properties:
-        code:
+        noNumRecords:
+          type: boolean
+        numRecords:
           format: int32
           type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
+        prevCursor:
           type: string
       type: object
     generatedGetSchemaChangesRequest:
@@ -185,6 +146,45 @@ components:
         workspaceId:
           format: int32
           type: integer
+      type: object
+    generatedGetSchemaChangesResponse:
+      properties:
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+        schemaChanges:
+          items:
+            $ref: '#/components/schemas/generatedSchemaChange'
+          type: array
+      type: object
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
       type: object
     generatedSchemaChangeSortField:
       default: SCHEMA_CHANGE_SORT_FIELD_UNSPECIFIED

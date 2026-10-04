@@ -101,6 +101,14 @@ paths:
       - CatalogRebuildsService
 components:
   schemas:
+    generatedWorkflowResponse:
+      properties:
+        workflowId:
+          format: int64
+          type: string
+        workflowType:
+          $ref: '#/components/schemas/generatedWorkflowProcessingType'
+      type: object
     generatedQueueSingleTableResponse:
       properties:
         statusUrl:
@@ -108,11 +116,15 @@ components:
         workflowV2Id:
           $ref: '#/components/schemas/generatedWorkflowV2Id'
       type: object
-    generatedRebuildSourceRequest:
+    generatedRebuildSingleTableRequest:
       properties:
-        priority:
+        schemaName:
+          type: string
+        sourceId:
           format: int32
           type: integer
+        tableName:
+          type: string
       type: object
     generatedWorkflowV2Id:
       properties:
@@ -126,46 +138,6 @@ components:
         priority:
           format: int32
           type: integer
-      type: object
-    generatedRebuildSingleTableRequest:
-      properties:
-        schemaName:
-          type: string
-        sourceId:
-          format: int32
-          type: integer
-        tableName:
-          type: string
-      type: object
-    generatedWorkflowResponse:
-      properties:
-        workflowId:
-          format: int64
-          type: string
-        workflowType:
-          $ref: '#/components/schemas/generatedWorkflowProcessingType'
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
       type: object
     generatedWorkflowProcessingType:
       default: WORKFLOW_PROCESSING_TYPE_UNSPECIFIED
@@ -186,6 +158,34 @@ components:
       - WORKFLOW_PROCESSING_TYPE_METRIC_DEPLOY
       - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION_ENTITY
       type: string
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedRebuildSourceRequest:
+      properties:
+        priority:
+          format: int32
+          type: integer
+      type: object
   securitySchemes:
     basicAuth:
       type: http

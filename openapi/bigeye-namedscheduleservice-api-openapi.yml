@@ -152,6 +152,30 @@ paths:
       - NamedScheduleService
 components:
   schemas:
+    generatedEntityInfo:
+      properties:
+        createdBy:
+          format: int32
+          type: integer
+        createdEpochSeconds:
+          format: int64
+          type: string
+        updatedBy:
+          format: int32
+          type: integer
+        updatedEpochSeconds:
+          format: int64
+          type: string
+      type: object
+    generatedGetNamedSchedulesResponse:
+      properties:
+        namedSchedules:
+          items:
+            $ref: '#/components/schemas/generatedNamedSchedule'
+          type: array
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+      type: object
     generatedCreateNamedScheduleRequest:
       properties:
         cron:
@@ -168,21 +192,6 @@ components:
           format: int32
           type: integer
       type: object
-    generatedEntityInfo:
-      properties:
-        createdBy:
-          format: int32
-          type: integer
-        createdEpochSeconds:
-          format: int64
-          type: string
-        updatedBy:
-          format: int32
-          type: integer
-        updatedEpochSeconds:
-          format: int64
-          type: string
-      type: object
     generatedPaginationInfo:
       properties:
         firstSortDistinctValues:
@@ -198,14 +207,15 @@ components:
         prevCursor:
           type: string
       type: object
-    generatedGetNamedSchedulesResponse:
+    generatedIdAndDisplayName:
       properties:
-        namedSchedules:
-          items:
-            $ref: '#/components/schemas/generatedNamedSchedule'
-          type: array
-        paginationInfo:
-          $ref: '#/components/schemas/generatedPaginationInfo'
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedEmpty:
       type: object
     generatedGetNamedScheduleEntitiesResponse:
       properties:
@@ -217,24 +227,6 @@ components:
           items:
             $ref: '#/components/schemas/generatedIdAndDisplayName'
           type: array
-      type: object
-    generatedEmpty:
-      type: object
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
-          type: string
-        id:
-          format: int32
-          type: integer
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
       type: object
     runtimeError:
       properties:
@@ -248,6 +240,14 @@ components:
         error:
           type: string
         message:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
           type: string
       type: object
     generatedNamedSchedule:

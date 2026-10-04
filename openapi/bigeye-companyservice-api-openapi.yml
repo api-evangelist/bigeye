@@ -44,22 +44,6 @@ paths:
       - CompanyService
 components:
   schemas:
-    generatedCompany:
-      properties:
-        id:
-          format: int32
-          type: integer
-        name:
-          type: string
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
     runtimeError:
       properties:
         code:
@@ -74,8 +58,24 @@ components:
         message:
           type: string
       type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
     generatedUpdateCompanyRequest:
       properties:
+        name:
+          type: string
+      type: object
+    generatedCompany:
+      properties:
+        id:
+          format: int32
+          type: integer
         name:
           type: string
       type: object

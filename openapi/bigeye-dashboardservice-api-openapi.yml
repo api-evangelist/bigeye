@@ -94,36 +94,28 @@ components:
             type: integer
           type: array
       type: object
-    generatedDashboardDateAggregationType:
-      default: DASHBOARD_DATE_AGGREGATION_TYPE_DAY
-      enum:
-      - DASHBOARD_DATE_AGGREGATION_TYPE_DAY
-      - DASHBOARD_DATE_AGGREGATION_TYPE_WEEK
-      - DASHBOARD_DATE_AGGREGATION_TYPE_MONTH
-      type: string
-    generatedDashboardDataPoint:
+    generatedDashboardDataPointsRequest:
       properties:
-        collectedTimestamp:
-          format: int64
-          type: string
+        aggregationType:
+          $ref: '#/components/schemas/generatedDashboardDateAggregationType'
         companyId:
           format: int32
           type: integer
-        dataPointType:
-          $ref: '#/components/schemas/generatedDashboardDataPointType'
-        dataTimestamp:
+        dataPointTypes:
+          items:
+            $ref: '#/components/schemas/generatedDashboardDataPointType'
+          type: array
+        endingTimestamp:
           format: int64
-          type: string
-        key:
           type: string
         sourceIds:
           items:
             format: int32
             type: integer
           type: array
-        value:
-          format: double
-          type: number
+        startingTimestamp:
+          format: int64
+          type: string
         workspaceIds:
           items:
             format: int32
@@ -167,28 +159,6 @@ components:
       - DASHBOARD_DATA_POINT_TYPE_TOTAL_TABLES_WITHOUT_ISSUE_BY_DIMENSION
       - DASHBOARD_DATA_POINT_TYPE_NUMBER_BILLABLE_UNIQUE_TABLE_NAMES
       type: string
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
     generatedDashboardDataPointsResponse:
       properties:
         companyId:
@@ -219,17 +189,11 @@ components:
             type: integer
           type: array
       type: object
-    generatedDashboardDataPointsRequest:
+    generatedDashboardRefreshInfoRequest:
       properties:
-        aggregationType:
-          $ref: '#/components/schemas/generatedDashboardDateAggregationType'
         companyId:
           format: int32
           type: integer
-        dataPointTypes:
-          items:
-            $ref: '#/components/schemas/generatedDashboardDataPointType'
-          type: array
         endingTimestamp:
           format: int64
           type: string
@@ -247,6 +211,13 @@ components:
             type: integer
           type: array
       type: object
+    generatedDashboardDateAggregationType:
+      default: DASHBOARD_DATE_AGGREGATION_TYPE_DAY
+      enum:
+      - DASHBOARD_DATE_AGGREGATION_TYPE_DAY
+      - DASHBOARD_DATE_AGGREGATION_TYPE_WEEK
+      - DASHBOARD_DATE_AGGREGATION_TYPE_MONTH
+      type: string
     generatedDashboardRefreshInfoResponse:
       properties:
         lastUpdatedAt:
@@ -256,22 +227,51 @@ components:
           format: int64
           type: string
       type: object
-    generatedDashboardRefreshInfoRequest:
+    runtimeError:
       properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedDashboardDataPoint:
+      properties:
+        collectedTimestamp:
+          format: int64
+          type: string
         companyId:
           format: int32
           type: integer
-        endingTimestamp:
+        dataPointType:
+          $ref: '#/components/schemas/generatedDashboardDataPointType'
+        dataTimestamp:
           format: int64
+          type: string
+        key:
           type: string
         sourceIds:
           items:
             format: int32
             type: integer
           type: array
-        startingTimestamp:
-          format: int64
-          type: string
+        value:
+          format: double
+          type: number
         workspaceIds:
           items:
             format: int32

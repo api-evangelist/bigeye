@@ -62,6 +62,20 @@ paths:
       - ConfigService
 components:
   schemas:
+    generatedConfigValue:
+      properties:
+        booleanValue:
+          type: boolean
+        key:
+          type: string
+        numberValue:
+          format: double
+          type: number
+        stringValue:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedConfigValueType'
+      type: object
     generatedGetConfigListResponse:
       properties:
         advancedConfigs:
@@ -71,13 +85,12 @@ components:
       type: object
     generatedEmpty:
       type: object
-    protobufAny:
+    generatedUpdateConfigRequest:
       properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
+        advancedConfigs:
+          items:
+            $ref: '#/components/schemas/generatedConfigValue'
+          type: array
       type: object
     runtimeError:
       properties:
@@ -93,26 +106,13 @@ components:
         message:
           type: string
       type: object
-    generatedConfigValue:
+    protobufAny:
       properties:
-        booleanValue:
-          type: boolean
-        key:
+        typeUrl:
           type: string
-        numberValue:
-          format: double
-          type: number
-        stringValue:
+        value:
+          format: byte
           type: string
-        type:
-          $ref: '#/components/schemas/generatedConfigValueType'
-      type: object
-    generatedUpdateConfigRequest:
-      properties:
-        advancedConfigs:
-          items:
-            $ref: '#/components/schemas/generatedConfigValue'
-          type: array
       type: object
     generatedConfigValueType:
       default: VALUE_TYPE_UNSPECIFIED

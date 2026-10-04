@@ -207,100 +207,6 @@ paths:
       - SourceService
 components:
   schemas:
-    generatedPaginationInfo:
-      properties:
-        firstSortDistinctValues:
-          format: int64
-          type: string
-        nextCursor:
-          type: string
-        noNumRecords:
-          type: boolean
-        numRecords:
-          format: int32
-          type: integer
-        prevCursor:
-          type: string
-      type: object
-    generatedSortDirection:
-      default: SORT_DIRECTION_UNSPECIFIED
-      enum:
-      - SORT_DIRECTION_UNSPECIFIED
-      - SORT_DIRECTION_ASCENDING
-      - SORT_DIRECTION_DESCENDING
-      title: Unspecified will default to ASCENDING
-      type: string
-    generatedGetSourceListRequest:
-      properties:
-        pageCursor:
-          type: string
-        pageSize:
-          format: int32
-          type: integer
-        search:
-          type: string
-        sortDirection:
-          $ref: '#/components/schemas/generatedSortDirection'
-        sortField:
-          $ref: '#/components/schemas/generatedSourceSortField'
-        workspaceId:
-          format: int32
-          type: integer
-      type: object
-    generatedAgentHealthStatus:
-      default: AGENT_HEALTH_STATUS_UNSPECIFIED
-      enum:
-      - AGENT_HEALTH_STATUS_UNSPECIFIED
-      - AGENT_HEALTH_STATUS_HEALTHY
-      - AGENT_HEALTH_STATUS_SLOW_BUT_UP
-      - AGENT_HEALTH_STATUS_DOWN
-      - AGENT_HEALTH_STATUS_NO_DATA
-      type: string
-    generatedWorkflowStatusResponse:
-      properties:
-        completedAt:
-          format: int64
-          type: string
-        completedOps:
-          format: int32
-          type: integer
-        startedAt:
-          format: int64
-          type: string
-        status:
-          $ref: '#/components/schemas/generatedWorkflowProcessingStatus'
-        totalOps:
-          format: int32
-          type: integer
-        workflowId:
-          format: int64
-          type: string
-        workflowType:
-          $ref: '#/components/schemas/generatedWorkflowProcessingType'
-      type: object
-    generatedTimeInterval:
-      properties:
-        intervalType:
-          $ref: '#/components/schemas/generatedTimeIntervalType'
-        intervalValue:
-          format: int32
-          type: integer
-      type: object
-    generatedGetSourceResponse:
-      properties:
-        source:
-          $ref: '#/components/schemas/generatedSource'
-      type: object
-    generatedMetadataSchemaRequest:
-      properties:
-        schemaName:
-          items:
-            type: string
-          type: array
-        sourceId:
-          format: int32
-          type: integer
-      type: object
     generatedEntityInfo:
       properties:
         createdBy:
@@ -316,162 +222,13 @@ components:
           format: int64
           type: string
       type: object
-    generatedTag:
+    generatedTimeInterval:
       properties:
-        colorHex:
-          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
-          type: string
-        createdAt:
-          format: int64
-          type: string
-        id:
+        intervalType:
+          $ref: '#/components/schemas/generatedTimeIntervalType'
+        intervalValue:
           format: int32
           type: integer
-        name:
-          type: string
-        updatedAt:
-          format: int64
-          type: string
-        workspaceId:
-          format: int32
-          type: integer
-      title: Tags
-      type: object
-    generatedCreateSourceResponse:
-      properties:
-        schemaNames:
-          items:
-            type: string
-          type: array
-        source:
-          $ref: '#/components/schemas/generatedSource'
-      type: object
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
-          type: string
-        id:
-          format: int32
-          type: integer
-      type: object
-    generatedEmpty:
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
-    generatedSchemaChangeInfo:
-      properties:
-        initialSchemaScanAt:
-          format: int64
-          type: string
-        lastSchemaChangeAt:
-          format: int64
-          type: string
-        mostRecentSchemaScanAt:
-          format: int64
-          type: string
-      type: object
-    generatedWarehouseType:
-      default: DATABASE_TYPE_UNSPECIFIED
-      enum:
-      - DATABASE_TYPE_UNSPECIFIED
-      - DATABASE_TYPE_AWS_ATHENA
-      - DATABASE_TYPE_BIGQUERY
-      - DATABASE_TYPE_DATABRICKS
-      - DATABASE_TYPE_MYSQL
-      - DATABASE_TYPE_ORACLE
-      - DATABASE_TYPE_POSTGRES
-      - DATABASE_TYPE_PRESTO
-      - DATABASE_TYPE_REDSHIFT
-      - DATABASE_TYPE_SAP_HANA
-      - DATABASE_TYPE_SNOWFLAKE
-      - DATABASE_TYPE_SQL_SERVER
-      - DATABASE_TYPE_SYNAPSE
-      - DATABASE_TYPE_ROCKSET
-      - DATABASE_TYPE_VERTICA
-      - DATABASE_TYPE_AVATICA
-      - DATABASE_TYPE_DB2
-      - DATABASE_TYPE_TERADATA
-      - DATABASE_TYPE_NETEZZA
-      - DATABASE_TYPE_SALESFORCE
-      type: string
-    generatedSourceSortField:
-      default: SOURCE_SORT_FIELD_UNSPECIFIED
-      enum:
-      - SOURCE_SORT_FIELD_UNSPECIFIED
-      - SOURCE_SORT_FIELD_NAME
-      - SOURCE_SORT_FIELD_FAVORITE
-      type: string
-    generatedSourceValidationResponse:
-      properties:
-        errors:
-          items:
-            type: string
-          type: array
-        isValid:
-          type: boolean
-      type: object
-    generatedSourceMetadataOverrides:
-      properties:
-        accessHistoryTableName:
-          type: string
-        aiObservabilityEventsTableName:
-          type: string
-        copyHistoryTableName:
-          type: string
-        dynamicTableRefreshHistoryTableName:
-          type: string
-        queryHistoryTableName:
-          type: string
-        tablesTableName:
-          type: string
-      type: object
-    generatedWorkflowProcessingStatus:
-      default: WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
-      enum:
-      - WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
-      - WORKFLOW_PROCESSING_STATUS_QUEUED
-      - WORKFLOW_PROCESSING_STATUS_IN_PROGRESS
-      - WORKFLOW_PROCESSING_STATUS_COMPLETED
-      - WORKFLOW_PROCESSING_STATUS_PARTIAL_FAILURE
-      - WORKFLOW_PROCESSING_STATUS_FAILED
-      - WORKFLOW_PROCESSING_STATUS_TIMED_OUT
-      type: string
-    generatedGetSourceListResponse:
-      properties:
-        paginationInfo:
-          $ref: '#/components/schemas/generatedPaginationInfo'
-        sources:
-          items:
-            $ref: '#/components/schemas/generatedSource'
-          type: array
-      type: object
-    generatedWorkflowResponse:
-      properties:
-        workflowId:
-          format: int64
-          type: string
-        workflowType:
-          $ref: '#/components/schemas/generatedWorkflowProcessingType'
       type: object
     generatedMetricSchedule:
       properties:
@@ -499,6 +256,14 @@ components:
       - WORKFLOW_PROCESSING_TYPE_METRIC_DEPLOY
       - WORKFLOW_PROCESSING_TYPE_CATALOG_INDEX_INTEGRATION_ENTITY
       type: string
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
     generatedNamedSchedule:
       properties:
         cron:
@@ -514,30 +279,6 @@ components:
           description: IANA timezone id (e.g. "America/New_York") used to interpret the cron. Defaults to UTC when unset.
           type: string
       type: object
-    generatedTimeIntervalType:
-      default: UNDEFINED_TIME_INTERVAL_TYPE
-      enum:
-      - UNDEFINED_TIME_INTERVAL_TYPE
-      - HOURS_TIME_INTERVAL_TYPE
-      - MINUTES_TIME_INTERVAL_TYPE
-      - SECONDS_TIME_INTERVAL_TYPE
-      - DAYS_TIME_INTERVAL_TYPE
-      - WEEKDAYS_TIME_INTERVAL_TYPE
-      - MARKET_DAYS_TIME_INTERVAL_TYPE
-      - MONTHS_TIME_INTERVAL_TYPE
-      - WEEKS_TIME_INTERVAL_TYPE
-      - YEARS_TIME_INTERVAL_TYPE
-      type: string
-    generatedAuthType:
-      default: AUTH_TYPE_UNSPECIFIED
-      enum:
-      - AUTH_TYPE_UNSPECIFIED
-      - AUTH_TYPE_PAT
-      - AUTH_TYPE_OAUTH2_M2M
-      - AUTH_TYPE_KEYPAIR
-      - AUTH_TYPE_ACTIVE_DIR
-      - AUTH_TYPE_USER_PASSWORD
-      type: string
     generatedSource:
       properties:
         agentHealthStatus:
@@ -617,6 +358,75 @@ components:
         usesAgent:
           type: boolean
       type: object
+    generatedMetadataSchemaRequest:
+      properties:
+        schemaName:
+          items:
+            type: string
+          type: array
+        sourceId:
+          format: int32
+          type: integer
+      type: object
+    generatedWorkflowProcessingStatus:
+      default: WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      enum:
+      - WORKFLOW_PROCESSING_STATUS_UNSPECIFIED
+      - WORKFLOW_PROCESSING_STATUS_QUEUED
+      - WORKFLOW_PROCESSING_STATUS_IN_PROGRESS
+      - WORKFLOW_PROCESSING_STATUS_COMPLETED
+      - WORKFLOW_PROCESSING_STATUS_PARTIAL_FAILURE
+      - WORKFLOW_PROCESSING_STATUS_FAILED
+      - WORKFLOW_PROCESSING_STATUS_TIMED_OUT
+      type: string
+    generatedAgentHealthStatus:
+      default: AGENT_HEALTH_STATUS_UNSPECIFIED
+      enum:
+      - AGENT_HEALTH_STATUS_UNSPECIFIED
+      - AGENT_HEALTH_STATUS_HEALTHY
+      - AGENT_HEALTH_STATUS_SLOW_BUT_UP
+      - AGENT_HEALTH_STATUS_DOWN
+      - AGENT_HEALTH_STATUS_NO_DATA
+      type: string
+    generatedPaginationInfo:
+      properties:
+        firstSortDistinctValues:
+          format: int64
+          type: string
+        nextCursor:
+          type: string
+        noNumRecords:
+          type: boolean
+        numRecords:
+          format: int32
+          type: integer
+        prevCursor:
+          type: string
+      type: object
+    generatedWorkflowStatusResponse:
+      properties:
+        completedAt:
+          format: int64
+          type: string
+        completedOps:
+          format: int32
+          type: integer
+        startedAt:
+          format: int64
+          type: string
+        status:
+          $ref: '#/components/schemas/generatedWorkflowProcessingStatus'
+        totalOps:
+          format: int32
+          type: integer
+        workflowId:
+          format: int64
+          type: string
+        workflowType:
+          $ref: '#/components/schemas/generatedWorkflowProcessingType'
+      type: object
+    generatedEmpty:
+      type: object
     generatedCreateSourceRequest:
       properties:
         alationSourceId:
@@ -674,6 +484,196 @@ components:
         workspaceId:
           format: int32
           type: integer
+      type: object
+    generatedSortDirection:
+      default: SORT_DIRECTION_UNSPECIFIED
+      enum:
+      - SORT_DIRECTION_UNSPECIFIED
+      - SORT_DIRECTION_ASCENDING
+      - SORT_DIRECTION_DESCENDING
+      title: Unspecified will default to ASCENDING
+      type: string
+    generatedGetSourceListRequest:
+      properties:
+        pageCursor:
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        search:
+          type: string
+        sortDirection:
+          $ref: '#/components/schemas/generatedSortDirection'
+        sortField:
+          $ref: '#/components/schemas/generatedSourceSortField'
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    generatedSourceSortField:
+      default: SOURCE_SORT_FIELD_UNSPECIFIED
+      enum:
+      - SOURCE_SORT_FIELD_UNSPECIFIED
+      - SOURCE_SORT_FIELD_NAME
+      - SOURCE_SORT_FIELD_FAVORITE
+      type: string
+    generatedCreateSourceResponse:
+      properties:
+        schemaNames:
+          items:
+            type: string
+          type: array
+        source:
+          $ref: '#/components/schemas/generatedSource'
+      type: object
+    generatedAuthType:
+      default: AUTH_TYPE_UNSPECIFIED
+      enum:
+      - AUTH_TYPE_UNSPECIFIED
+      - AUTH_TYPE_PAT
+      - AUTH_TYPE_OAUTH2_M2M
+      - AUTH_TYPE_KEYPAIR
+      - AUTH_TYPE_ACTIVE_DIR
+      - AUTH_TYPE_USER_PASSWORD
+      type: string
+    generatedTimeIntervalType:
+      default: UNDEFINED_TIME_INTERVAL_TYPE
+      enum:
+      - UNDEFINED_TIME_INTERVAL_TYPE
+      - HOURS_TIME_INTERVAL_TYPE
+      - MINUTES_TIME_INTERVAL_TYPE
+      - SECONDS_TIME_INTERVAL_TYPE
+      - DAYS_TIME_INTERVAL_TYPE
+      - WEEKDAYS_TIME_INTERVAL_TYPE
+      - MARKET_DAYS_TIME_INTERVAL_TYPE
+      - MONTHS_TIME_INTERVAL_TYPE
+      - WEEKS_TIME_INTERVAL_TYPE
+      - YEARS_TIME_INTERVAL_TYPE
+      type: string
+    generatedSourceMetadataOverrides:
+      properties:
+        accessHistoryTableName:
+          type: string
+        aiObservabilityEventsTableName:
+          type: string
+        copyHistoryTableName:
+          type: string
+        dynamicTableRefreshHistoryTableName:
+          type: string
+        queryHistoryTableName:
+          type: string
+        tablesTableName:
+          type: string
+      type: object
+    generatedWorkflowResponse:
+      properties:
+        workflowId:
+          format: int64
+          type: string
+        workflowType:
+          $ref: '#/components/schemas/generatedWorkflowProcessingType'
+      type: object
+    generatedSourceValidationResponse:
+      properties:
+        errors:
+          items:
+            type: string
+          type: array
+        isValid:
+          type: boolean
+      type: object
+    generatedTag:
+      properties:
+        colorHex:
+          title: 'color_hex includes a # prefix (e.g. “#181818” is correct, “181818” is incorrect)'
+          type: string
+        createdAt:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        updatedAt:
+          format: int64
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      title: Tags
+      type: object
+    generatedGetSourceListResponse:
+      properties:
+        paginationInfo:
+          $ref: '#/components/schemas/generatedPaginationInfo'
+        sources:
+          items:
+            $ref: '#/components/schemas/generatedSource'
+          type: array
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedWarehouseType:
+      default: DATABASE_TYPE_UNSPECIFIED
+      enum:
+      - DATABASE_TYPE_UNSPECIFIED
+      - DATABASE_TYPE_AWS_ATHENA
+      - DATABASE_TYPE_BIGQUERY
+      - DATABASE_TYPE_DATABRICKS
+      - DATABASE_TYPE_MYSQL
+      - DATABASE_TYPE_ORACLE
+      - DATABASE_TYPE_POSTGRES
+      - DATABASE_TYPE_PRESTO
+      - DATABASE_TYPE_REDSHIFT
+      - DATABASE_TYPE_SAP_HANA
+      - DATABASE_TYPE_SNOWFLAKE
+      - DATABASE_TYPE_SQL_SERVER
+      - DATABASE_TYPE_SYNAPSE
+      - DATABASE_TYPE_ROCKSET
+      - DATABASE_TYPE_VERTICA
+      - DATABASE_TYPE_AVATICA
+      - DATABASE_TYPE_DB2
+      - DATABASE_TYPE_TERADATA
+      - DATABASE_TYPE_NETEZZA
+      - DATABASE_TYPE_SALESFORCE
+      type: string
+    generatedSchemaChangeInfo:
+      properties:
+        initialSchemaScanAt:
+          format: int64
+          type: string
+        lastSchemaChangeAt:
+          format: int64
+          type: string
+        mostRecentSchemaScanAt:
+          format: int64
+          type: string
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedGetSourceResponse:
+      properties:
+        source:
+          $ref: '#/components/schemas/generatedSource'
       type: object
   requestBodies:
     generatedCreateSourceRequest:

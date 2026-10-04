@@ -168,103 +168,6 @@ paths:
       - Api Key Service
 components:
   schemas:
-    generatedAgentApiKeyInfo:
-      properties:
-        createdAt:
-          format: int64
-          type: string
-        description:
-          type: string
-        id:
-          format: int32
-          type: integer
-        lastUsedAt:
-          format: int64
-          type: string
-        lastUsedIp:
-          type: string
-        name:
-          type: string
-        type:
-          $ref: '#/components/schemas/generatedAgentApiKeyType'
-      type: object
-    generatedListAgentApiKeyResponse:
-      properties:
-        keys:
-          items:
-            $ref: '#/components/schemas/generatedAgentApiKeyInfo'
-          type: array
-      type: object
-    generatedListPersonalApiKeyResponse:
-      properties:
-        keys:
-          items:
-            $ref: '#/components/schemas/generatedPersonalApiKeyInfo'
-          type: array
-      type: object
-    generatedPersonalApiKeyInfo:
-      properties:
-        createdAt:
-          format: int64
-          type: string
-        createdBy:
-          $ref: '#/components/schemas/generatedUser'
-        description:
-          type: string
-        id:
-          format: int32
-          type: integer
-        lastUsedAt:
-          format: int64
-          type: string
-        lastUsedIp:
-          type: string
-        name:
-          type: string
-        owner:
-          $ref: '#/components/schemas/generatedUser'
-      type: object
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
-          type: string
-        id:
-          format: int32
-          type: integer
-      type: object
-    generatedCreateAgentApiKeyRequest:
-      properties:
-        description:
-          type: string
-        name:
-          type: string
-        type:
-          $ref: '#/components/schemas/generatedAgentApiKeyType'
-      type: object
-    generatedEmpty:
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
     generatedUser:
       properties:
         email:
@@ -290,12 +193,78 @@ components:
         pictureUrl:
           type: string
       type: object
+    generatedListPersonalApiKeyResponse:
+      properties:
+        keys:
+          items:
+            $ref: '#/components/schemas/generatedPersonalApiKeyInfo'
+          type: array
+      type: object
+    generatedAgentApiKeyInfo:
+      properties:
+        createdAt:
+          format: int64
+          type: string
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        lastUsedAt:
+          format: int64
+          type: string
+        lastUsedIp:
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedAgentApiKeyType'
+      type: object
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedEmpty:
+      type: object
+    generatedPersonalApiKeyInfo:
+      properties:
+        createdAt:
+          format: int64
+          type: string
+        createdBy:
+          $ref: '#/components/schemas/generatedUser'
+        description:
+          type: string
+        id:
+          format: int32
+          type: integer
+        lastUsedAt:
+          format: int64
+          type: string
+        lastUsedIp:
+          type: string
+        name:
+          type: string
+        owner:
+          $ref: '#/components/schemas/generatedUser'
+      type: object
     generatedCreateAgentApiKeyResponse:
       properties:
         apiKey:
           type: string
         info:
           $ref: '#/components/schemas/generatedAgentApiKeyInfo'
+      type: object
+    generatedListAgentApiKeyResponse:
+      properties:
+        keys:
+          items:
+            $ref: '#/components/schemas/generatedAgentApiKeyInfo'
+          type: array
       type: object
     generatedAgentApiKeyType:
       default: AGENT_API_KEY_TYPE_UNSPECIFIED
@@ -304,6 +273,37 @@ components:
       - AGENT_API_KEY_TYPE_AGENT
       - AGENT_API_KEY_TYPE_INTEGRATION
       type: string
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedCreateAgentApiKeyRequest:
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedAgentApiKeyType'
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
   securitySchemes:
     basicAuth:
       type: http

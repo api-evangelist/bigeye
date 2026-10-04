@@ -258,14 +258,165 @@ paths:
       tags:
       - IntegrationService
 components:
-  requestBodies:
-    generatedCreateOrUpdateIntegrationRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/generatedCreateOrUpdateIntegrationRequest'
-      required: true
   schemas:
+    generatedMetaCenterRepository:
+      properties:
+        copyDisabled:
+          type: boolean
+        id:
+          format: int32
+          type: integer
+        integrationEntityId:
+          type: string
+        integrationPartner:
+          $ref: '#/components/schemas/generatedIntegrationPartner'
+        matchingSourceIds:
+          description: 'Warehouse (source) ids whose objects this repository''s synced objects are
+
+            matched against when resolving lineage. Empty means object resolution falls
+
+            back to workspace-wide matching.'
+          items:
+            format: int32
+            type: integer
+          type: array
+        name:
+          type: string
+        type:
+          type: string
+      type: object
+    generatedIntegrationType:
+      default: INTEGRATION_TYPE_UNSPECIFIED
+      enum:
+      - INTEGRATION_TYPE_UNSPECIFIED
+      - INTEGRATION_TYPE_BI_TOOL
+      - INTEGRATION_TYPE_ETL_TOOL
+      - INTEGRATION_TYPE_DATABASE
+      type: string
+    generatedGetDbtJobResponse:
+      properties:
+        dbtJob:
+          $ref: '#/components/schemas/generatedDbtJob'
+      type: object
+    generatedDbtProject:
+      properties:
+        accountId:
+          format: int32
+          type: integer
+        companyId:
+          format: int32
+          type: integer
+        createdAt:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        integrationEntityId:
+          type: string
+        integrationId:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        jobCount:
+          format: int32
+          type: integer
+        name:
+          type: string
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        updatedAt:
+          format: int64
+          type: string
+        url:
+          type: string
+        workspaceId:
+          format: int32
+          type: integer
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
+      type: object
+    generatedIntegrationsResponse:
+      properties:
+        integrations:
+          items:
+            $ref: '#/components/schemas/generatedIntegration'
+          type: array
+      type: object
+    generatedDbtJobRunStatus:
+      default: DBT_JOB_RUN_STATUS_UNSPECIFIED
+      enum:
+      - DBT_JOB_RUN_STATUS_UNSPECIFIED
+      - DBT_JOB_RUN_STATUS_SUCCESS
+      - DBT_JOB_RUN_STATUS_ERROR
+      - DBT_JOB_RUN_STATUS_QUEUED
+      - DBT_JOB_RUN_STATUS_STARTING
+      - DBT_JOB_RUN_STATUS_RUNNING
+      - DBT_JOB_RUN_STATUS_CANCELLED
+      type: string
+    generatedEmpty:
+      type: object
+    generatedIntegrationPartner:
+      default: INTEGRATION_PARTNER_UNSPECIFIED
+      enum:
+      - INTEGRATION_PARTNER_UNSPECIFIED
+      - INTEGRATION_PARTNER_TABLEAU
+      - INTEGRATION_PARTNER_DBT_CLOUD
+      - INTEGRATION_PARTNER_METACENTER
+      - INTEGRATION_PARTNER_DBT_CORE
+      - INTEGRATION_PARTNER_POWERBI
+      - INTEGRATION_PARTNER_POWERCENTER
+      - INTEGRATION_PARTNER_SSIS
+      - INTEGRATION_PARTNER_COGNOS
+      - INTEGRATION_PARTNER_SAP_BUSINESS_OBJECTS
+      - INTEGRATION_PARTNER_FDS
+      - INTEGRATION_PARTNER_QLIK_REPLICATE
+      - INTEGRATION_PARTNER_LOOKER
+      - INTEGRATION_PARTNER_CDM
+      - INTEGRATION_PARTNER_SNAPLOGIC
+      - INTEGRATION_PARTNER_DATASTAGE
+      - INTEGRATION_PARTNER_SSRS
+      - INTEGRATION_PARTNER_QLIK_SENSE
+      - INTEGRATION_PARTNER_STRATEGY
+      - INTEGRATION_PARTNER_ADF
+      - INTEGRATION_PARTNER_MATILLION
+      - INTEGRATION_PARTNER_ANTHROPIC
+      type: string
+    generatedDbtJob:
+      properties:
+        dbtJobExtId:
+          format: int64
+          type: string
+        id:
+          format: int32
+          type: integer
+        isFavorite:
+          type: boolean
+        mostRecentJobRuns:
+          items:
+            $ref: '#/components/schemas/generatedDbtJobRun'
+          type: array
+        name:
+          type: string
+        projectId:
+          format: int32
+          type: integer
+        tags:
+          items:
+            $ref: '#/components/schemas/generatedTag'
+          type: array
+        url:
+          type: string
+      type: object
     generatedIntegration:
       properties:
         apiBaseUri:
@@ -326,11 +477,6 @@ components:
           format: int32
           type: integer
       type: object
-    generatedDbtJobRunResponse:
-      properties:
-        dbtJobRun:
-          $ref: '#/components/schemas/generatedDbtJobRun'
-      type: object
     generatedTag:
       properties:
         colorHex:
@@ -352,146 +498,10 @@ components:
           type: integer
       title: Tags
       type: object
-    generatedIntegrationPartner:
-      default: INTEGRATION_PARTNER_UNSPECIFIED
-      enum:
-      - INTEGRATION_PARTNER_UNSPECIFIED
-      - INTEGRATION_PARTNER_TABLEAU
-      - INTEGRATION_PARTNER_DBT_CLOUD
-      - INTEGRATION_PARTNER_METACENTER
-      - INTEGRATION_PARTNER_DBT_CORE
-      - INTEGRATION_PARTNER_POWERBI
-      - INTEGRATION_PARTNER_POWERCENTER
-      - INTEGRATION_PARTNER_SSIS
-      - INTEGRATION_PARTNER_COGNOS
-      - INTEGRATION_PARTNER_SAP_BUSINESS_OBJECTS
-      - INTEGRATION_PARTNER_FDS
-      - INTEGRATION_PARTNER_QLIK_REPLICATE
-      - INTEGRATION_PARTNER_LOOKER
-      - INTEGRATION_PARTNER_CDM
-      - INTEGRATION_PARTNER_SNAPLOGIC
-      - INTEGRATION_PARTNER_DATASTAGE
-      - INTEGRATION_PARTNER_SSRS
-      - INTEGRATION_PARTNER_QLIK_SENSE
-      - INTEGRATION_PARTNER_STRATEGY
-      - INTEGRATION_PARTNER_ADF
-      - INTEGRATION_PARTNER_MATILLION
-      - INTEGRATION_PARTNER_ANTHROPIC
-      type: string
-    generatedMetaCenterRepository:
+    generatedDbtJobRunResponse:
       properties:
-        copyDisabled:
-          type: boolean
-        id:
-          format: int32
-          type: integer
-        integrationEntityId:
-          type: string
-        integrationPartner:
-          $ref: '#/components/schemas/generatedIntegrationPartner'
-        matchingSourceIds:
-          description: 'Warehouse (source) ids whose objects this repository''s synced objects are
-
-            matched against when resolving lineage. Empty means object resolution falls
-
-            back to workspace-wide matching.'
-          items:
-            format: int32
-            type: integer
-          type: array
-        name:
-          type: string
-        type:
-          type: string
-      type: object
-    generatedGetDbtJobsResponse:
-      properties:
-        dbtJobs:
-          items:
-            $ref: '#/components/schemas/generatedDbtJob'
-          type: array
-      type: object
-    generatedEmpty:
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
-    generatedIntegrationType:
-      default: INTEGRATION_TYPE_UNSPECIFIED
-      enum:
-      - INTEGRATION_TYPE_UNSPECIFIED
-      - INTEGRATION_TYPE_BI_TOOL
-      - INTEGRATION_TYPE_ETL_TOOL
-      - INTEGRATION_TYPE_DATABASE
-      type: string
-    generatedDbtJobRunStatus:
-      default: DBT_JOB_RUN_STATUS_UNSPECIFIED
-      enum:
-      - DBT_JOB_RUN_STATUS_UNSPECIFIED
-      - DBT_JOB_RUN_STATUS_SUCCESS
-      - DBT_JOB_RUN_STATUS_ERROR
-      - DBT_JOB_RUN_STATUS_QUEUED
-      - DBT_JOB_RUN_STATUS_STARTING
-      - DBT_JOB_RUN_STATUS_RUNNING
-      - DBT_JOB_RUN_STATUS_CANCELLED
-      type: string
-    generatedDbtProject:
-      properties:
-        accountId:
-          format: int32
-          type: integer
-        companyId:
-          format: int32
-          type: integer
-        createdAt:
-          format: int64
-          type: string
-        id:
-          format: int32
-          type: integer
-        integrationEntityId:
-          type: string
-        integrationId:
-          format: int32
-          type: integer
-        isFavorite:
-          type: boolean
-        jobCount:
-          format: int32
-          type: integer
-        name:
-          type: string
-        tags:
-          items:
-            $ref: '#/components/schemas/generatedTag'
-          type: array
-        updatedAt:
-          format: int64
-          type: string
-        url:
-          type: string
-        workspaceId:
-          format: int32
-          type: integer
+        dbtJobRun:
+          $ref: '#/components/schemas/generatedDbtJobRun'
       type: object
     generatedCreateOrUpdateIntegrationRequest:
       properties:
@@ -521,6 +531,27 @@ components:
         workspaceId:
           format: int32
           type: integer
+      type: object
+    generatedGetDbtJobsResponse:
+      properties:
+        dbtJobs:
+          items:
+            $ref: '#/components/schemas/generatedDbtJob'
+          type: array
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
       type: object
     generatedGetIntegrationEntitiesResponse:
       properties:
@@ -559,44 +590,13 @@ components:
         url:
           type: string
       type: object
-    generatedIntegrationsResponse:
-      properties:
-        integrations:
-          items:
-            $ref: '#/components/schemas/generatedIntegration'
-          type: array
-      type: object
-    generatedGetDbtJobResponse:
-      properties:
-        dbtJob:
-          $ref: '#/components/schemas/generatedDbtJob'
-      type: object
-    generatedDbtJob:
-      properties:
-        dbtJobExtId:
-          format: int64
-          type: string
-        id:
-          format: int32
-          type: integer
-        isFavorite:
-          type: boolean
-        mostRecentJobRuns:
-          items:
-            $ref: '#/components/schemas/generatedDbtJobRun'
-          type: array
-        name:
-          type: string
-        projectId:
-          format: int32
-          type: integer
-        tags:
-          items:
-            $ref: '#/components/schemas/generatedTag'
-          type: array
-        url:
-          type: string
-      type: object
+  requestBodies:
+    generatedCreateOrUpdateIntegrationRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedCreateOrUpdateIntegrationRequest'
+      required: true
   securitySchemes:
     basicAuth:
       type: http

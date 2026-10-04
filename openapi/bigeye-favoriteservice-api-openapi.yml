@@ -121,15 +121,21 @@ paths:
       - FavoriteService
 components:
   schemas:
-    generatedFavoriteItem:
+    generatedFavoriteRequest:
       properties:
-        entityId:
-          format: int32
-          type: integer
-        entityName:
-          type: string
-        entityType:
-          $ref: '#/components/schemas/generatedTaggableEntityType'
+        favorite:
+          $ref: '#/components/schemas/generatedFavoriteItem'
+      type: object
+    generatedBulkFavoriteResponse:
+      properties:
+        failures:
+          items:
+            $ref: '#/components/schemas/generatedFavoriteFailure'
+          type: array
+        successes:
+          items:
+            $ref: '#/components/schemas/generatedFavoriteItem'
+          type: array
       type: object
     generatedTaggableEntityType:
       default: TAGGABLE_ENTITY_TYPE_UNSPECIFIED
@@ -154,6 +160,8 @@ components:
       - TAGGABLE_ENTITY_TYPE_META_CENTER_REPOSITORY
       - TAGGABLE_ENTITY_TYPE_CUSTOM_REPOSITORY
       type: string
+    generatedEmpty:
+      type: object
     generatedFavoriteFailure:
       properties:
         favorite:
@@ -161,31 +169,29 @@ components:
         reason:
           type: string
       type: object
-    generatedBulkFavoriteResponse:
+    generatedFavoriteItem:
       properties:
-        failures:
-          items:
-            $ref: '#/components/schemas/generatedFavoriteFailure'
-          type: array
-        successes:
+        entityId:
+          format: int32
+          type: integer
+        entityName:
+          type: string
+        entityType:
+          $ref: '#/components/schemas/generatedTaggableEntityType'
+      type: object
+    generatedFavoriteListResponse:
+      properties:
+        favorites:
           items:
             $ref: '#/components/schemas/generatedFavoriteItem'
           type: array
       type: object
-    generatedEmpty:
-      type: object
-    generatedFavoriteRequest:
+    generatedBulkFavoriteRequest:
       properties:
-        favorite:
-          $ref: '#/components/schemas/generatedFavoriteItem'
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
+        favorites:
+          items:
+            $ref: '#/components/schemas/generatedFavoriteItem'
+          type: array
       type: object
     runtimeError:
       properties:
@@ -201,32 +207,26 @@ components:
         message:
           type: string
       type: object
-    generatedBulkFavoriteRequest:
+    protobufAny:
       properties:
-        favorites:
-          items:
-            $ref: '#/components/schemas/generatedFavoriteItem'
-          type: array
-      type: object
-    generatedFavoriteListResponse:
-      properties:
-        favorites:
-          items:
-            $ref: '#/components/schemas/generatedFavoriteItem'
-          type: array
+        typeUrl:
+          type: string
+        value:
+          format: byte
+          type: string
       type: object
   requestBodies:
-    generatedFavoriteRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/generatedFavoriteRequest'
-      required: true
     generatedBulkFavoriteRequest:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/generatedBulkFavoriteRequest'
+      required: true
+    generatedFavoriteRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/generatedFavoriteRequest'
       required: true
   securitySchemes:
     basicAuth:

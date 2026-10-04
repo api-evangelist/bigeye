@@ -37,99 +37,155 @@ paths:
       - Query Service
 components:
   schemas:
-    generatedMetricRunLabel:
-      default: METRIC_RUN_LABEL_UNSPECIFIED
+    generatedPredefinedMetricName:
+      default: UNDEFINED_PREDEFINED_METRIC_NAME
       enum:
-      - METRIC_RUN_LABEL_UNSPECIFIED
-      - METRIC_RUN_LABEL_TRUE_NEGATIVE
-      - METRIC_RUN_LABEL_FALSE_NEGATIVE
-      - METRIC_RUN_LABEL_TRUE_POSITIVE
-      - METRIC_RUN_LABEL_FALSE_POSITIVE
-      - METRIC_RUN_LABEL_UNDETERMINED
-      - METRIC_RUN_LABEL_EXPECTED
+      - UNDEFINED_PREDEFINED_METRIC_NAME
+      - PERCENT_NULL
+      - COUNT_NULL
+      - PERCENT_EMPTY_STRING
+      - COUNT_EMPTY_STRING
+      - PERCENT_UNIQUE
+      - PERCENT_VALUE_IN_LIST
+      - AVERAGE
+      - MIN
+      - MAX
+      - SUM
+      - COUNT_ROWS
+      - COUNT_DISTINCT
+      - HOURS_SINCE_MAX_DATE
+      - HOURS_SINCE_MAX_TIMESTAMP
+      - COUNT_TRUE
+      - PERCENT_TRUE
+      - COUNT_FALSE
+      - PERCENT_FALSE
+      - COUNT_USA_PHONE
+      - PERCENT_USA_PHONE
+      - COUNT_USA_ZIP_CODE
+      - PERCENT_USA_ZIP_CODE
+      - PERCENT_UUID
+      - COUNT_TIMESTAMP_STRING
+      - PERCENT_TIMESTAMP_STRING
+      - COUNT_DUPLICATES
+      - COUNT_USA_STATE_CODE
+      - PERCENT_USA_STATE_CODE
+      - VARIANCE
+      - SKEW
+      - KURTOSIS
+      - GEOMETRIC_MEAN
+      - HARMONIC_MEAN
+      - COUNT_UUID
+      - COUNT_CUSIP
+      - PERCENT_CUSIP
+      - COUNT_SEDOL
+      - PERCENT_SEDOL
+      - COUNT_ISIN
+      - PERCENT_ISIN
+      - COUNT_LEI
+      - PERCENT_LEI
+      - COUNT_FIGI
+      - PERCENT_FIGI
+      - COUNT_PERM_ID
+      - PERCENT_PERM_ID
+      - COUNT_NAN
+      - PERCENT_NAN
+      - COUNT_LONGITUDE
+      - PERCENT_LONGITUDE
+      - COUNT_LATITUDE
+      - PERCENT_LATITUDE
+      - COUNT_NOT_IN_FUTURE
+      - PERCENT_NOT_IN_FUTURE
+      - COUNT_DATE_NOT_IN_FUTURE
+      - PERCENT_DATE_NOT_IN_FUTURE
+      - MEDIAN
+      - PERCENTILE
+      - COUNT_NOT_NULL
+      - STRING_LENGTH_AVERAGE
+      - STRING_LENGTH_MIN
+      - STRING_LENGTH_MAX
+      - COUNT_SSN
+      - PERCENT_SSN
+      - COUNT_EMAIL
+      - PERCENT_EMAIL
+      - ROWS_INSERTED
+      - HOURS_SINCE_LAST_LOAD
+      - COUNT_READ_QUERIES
+      - PERCENT_NOT_NULL
+      - FRESHNESS
+      - VOLUME
+      - FRESHNESS_DATA
+      - VOLUME_DATA
+      - COUNT_VALUE_IN_LIST
+      - PERCENT_DISTINCT
+      - PERCENT_DUPLICATES
+      - HOURS_SINCE_MAX_STRING
       type: string
-    generatedCountsQueryResult:
+    generatedGetCountsResponse:
       properties:
-        catalogEntity:
-          $ref: '#/components/schemas/generatedCatalogEntityPathElement'
-        classifierId:
-          format: int64
-          type: string
-        columnId:
-          format: int32
-          type: integer
-        countsForFields:
+        queryResults:
           items:
-            $ref: '#/components/schemas/generatedCountForField'
+            $ref: '#/components/schemas/generatedCountsQueryResult'
           type: array
-        dataClassCategoryId:
-          format: int64
+      type: object
+    protobufAny:
+      properties:
+        typeUrl:
           type: string
-        dataClassId:
-          format: int64
+        value:
+          format: byte
           type: string
-        dimensionId:
-          format: int32
-          type: integer
-        entity:
-          $ref: '#/components/schemas/generatedIdAndDisplayName'
-        isRootCause:
-          type: boolean
-        issuePriority:
-          $ref: '#/components/schemas/generatedIssuePriority'
-        issueStatus:
-          $ref: '#/components/schemas/generatedIssueStatus'
-        issueType:
-          $ref: '#/components/schemas/generatedIssueType'
-        metricCategory:
-          $ref: '#/components/schemas/generatedMetricCategory'
-        metricRunLabel:
-          $ref: '#/components/schemas/generatedMetricRunLabel'
-        metricStatus:
-          $ref: '#/components/schemas/generatedMetricStatus'
-        metricType:
-          $ref: '#/components/schemas/generatedMetricType'
-        monitorType:
-          $ref: '#/components/schemas/generatedMonitorType'
-        ownerId:
-          format: int32
-          type: integer
-        scanJobId:
-          format: int64
-          type: string
-        scheduleId:
-          format: int32
-          type: integer
-        schemaId:
-          format: int32
-          type: integer
-        schemaName:
-          type: string
-        slaId:
-          format: int32
-          type: integer
-        tableId:
-          format: int32
-          type: integer
-        warehouseId:
-          format: int32
-          type: integer
       type: object
     generatedExternalMonitor:
       properties:
         type:
           $ref: '#/components/schemas/generatedExternalMonitorType'
       type: object
-    generatedAggregationType:
-      default: UNDEFINED_AGGREGATION_TYPE
+    generatedAggregateField:
+      default: AGGREGATE_FIELD_UNSPECIFIED
       enum:
-      - UNDEFINED_AGGREGATION_TYPE
-      - COUNT_AGGREGATION_TYPE
-      - PERCENT_AGGREGATION_TYPE
-      - MIN_AGGREGATION_TYPE
-      - MAX_AGGREGATION_TYPE
-      - AVG_AGGREGATION_TYPE
-      - SUM_AGGREGATION_TYPE
+      - AGGREGATE_FIELD_UNSPECIFIED
+      - AGGREGATE_FIELD_WAREHOUSES
+      - AGGREGATE_FIELD_SCHEMAS
+      - AGGREGATE_FIELD_TABLES
+      - AGGREGATE_FIELD_COLUMNS
+      - AGGREGATE_FIELD_METRICS
+      - AGGREGATE_FIELD_METRICS_ALERTING
+      - AGGREGATE_FIELD_METRICS_FAILED
+      - AGGREGATE_FIELD_METRICS_MUTED
+      - AGGREGATE_FIELD_METRICS_HEALTHY
+      - AGGREGATE_FIELD_GROUP_METRIC_STATUS
+      - AGGREGATE_FIELD_ALERTS
+      - AGGREGATE_FIELD_ISSUES
+      - AGGREGATE_FIELD_INTEGRATIONS
+      - AGGREGATE_FIELD_BI_TOOLS
+      - AGGREGATE_FIELD_ETL_TOOLS
+      - AGGREGATE_FIELD_CUSTOM_RULES
+      - AGGREGATE_FIELD_ISSUE_TYPE
+      - AGGREGATE_FIELD_IS_ROOT_CAUSE
+      - AGGREGATE_FIELD_LINKED_METRICS
+      - AGGREGATE_FIELD_LINKED_CUSTOM_RULES
+      - AGGREGATE_FIELD_DIMENSION
+      - AGGREGATE_FIELD_CHILD_ENTITIES
+      - AGGREGATE_FIELD_SCAN_JOBS
+      - AGGREGATE_FIELD_CLASSIFIERS
+      - AGGREGATE_FIELD_DATA_CLASSES
+      - AGGREGATE_FIELD_SCAN_RUNS
+      - AGGREGATE_FIELD_SNAPSHOT_FINDINGS
+      - AGGREGATE_FIELD_AGGREGATE_FINDINGS
+      - AGGREGATE_FIELD_MONITORS
+      - AGGREGATE_FIELD_SENSITIVE_COLUMNS
+      type: string
+    generatedMetricCategory:
+      default: METRIC_CATEGORY_UNSPECIFIED
+      enum:
+      - METRIC_CATEGORY_UNSPECIFIED
+      - METRIC_CATEGORY_PIPELINE_RELIABILITY
+      - METRIC_CATEGORY_UNIQUENESS
+      - METRIC_CATEGORY_COMPLETENESS
+      - METRIC_CATEGORY_DISTRIBUTIONS
+      - METRIC_CATEGORY_VALIDITY
+      - METRIC_CATEGORY_CUSTOM
+      title: 'Note: The enum order is also the sorting order when sorting issues by metric category'
       type: string
     generatedMetricType:
       properties:
@@ -146,40 +202,15 @@ components:
         templateMetric:
           $ref: '#/components/schemas/generatedTemplateMetric'
       type: object
-    generatedCountForField:
+    generatedGetCountsRequest:
       properties:
-        count:
-          format: int64
-          type: string
-        field:
-          $ref: '#/components/schemas/generatedAggregateField'
+        excludeZeros:
+          type: boolean
+        queries:
+          items:
+            $ref: '#/components/schemas/generatedCountsQuery'
+          type: array
       type: object
-    generatedMetricStatus:
-      default: METRIC_STATUS_UNSPECIFIED
-      enum:
-      - METRIC_STATUS_UNSPECIFIED
-      - METRIC_STATUS_ALERTING
-      - METRIC_STATUS_FAILED
-      - METRIC_STATUS_HEALTHY
-      - METRIC_STATUS_NO_OBSERVED_VALUE
-      - METRIC_STATUS_GROUPS_MIXED_STATUS
-      type: string
-    generatedCatalogEntityPathElement:
-      properties:
-        displayName:
-          type: string
-        id:
-          format: int64
-          type: string
-        type:
-          $ref: '#/components/schemas/generatedDataNodeType'
-      type: object
-    generatedExternalMonitorType:
-      default: EXTERNAL_MONITOR_TYPE_UNDEFINED
-      enum:
-      - EXTERNAL_MONITOR_TYPE_UNDEFINED
-      - EXTERNAL_MONITOR_TYPE_DBT_TEST
-      type: string
     generatedSearchFilter:
       properties:
         catalogEntity:
@@ -262,6 +293,40 @@ components:
           format: int32
           type: integer
       type: object
+    generatedPredefinedMetric:
+      properties:
+        metricName:
+          $ref: '#/components/schemas/generatedPredefinedMetricName'
+      type: object
+    generatedIssueStatus:
+      default: ISSUE_STATUS_UNSPECIFIED
+      enum:
+      - ISSUE_STATUS_UNSPECIFIED
+      - ISSUE_STATUS_NEW
+      - ISSUE_STATUS_ACKNOWLEDGED
+      - ISSUE_STATUS_CLOSED
+      - ISSUE_STATUS_MONITORING
+      - ISSUE_STATUS_MERGED
+      type: string
+    generatedCountForField:
+      properties:
+        count:
+          format: int64
+          type: string
+        field:
+          $ref: '#/components/schemas/generatedAggregateField'
+      type: object
+    generatedMetricRunLabel:
+      default: METRIC_RUN_LABEL_UNSPECIFIED
+      enum:
+      - METRIC_RUN_LABEL_UNSPECIFIED
+      - METRIC_RUN_LABEL_TRUE_NEGATIVE
+      - METRIC_RUN_LABEL_FALSE_NEGATIVE
+      - METRIC_RUN_LABEL_TRUE_POSITIVE
+      - METRIC_RUN_LABEL_FALSE_POSITIVE
+      - METRIC_RUN_LABEL_UNDETERMINED
+      - METRIC_RUN_LABEL_EXPECTED
+      type: string
     generatedCountsQuery:
       properties:
         fields:
@@ -283,41 +348,12 @@ components:
       - MONITOR_TYPE_DBT_TEST
       - MONITOR_TYPE_CUSTOM_RULE
       type: string
-    generatedIdAndDisplayName:
-      properties:
-        displayName:
-          type: string
-        id:
-          format: int32
-          type: integer
-      type: object
-    protobufAny:
-      properties:
-        typeUrl:
-          type: string
-        value:
-          format: byte
-          type: string
-      type: object
-    runtimeError:
-      properties:
-        code:
-          format: int32
-          type: integer
-        details:
-          items:
-            $ref: '#/components/schemas/protobufAny'
-          type: array
-        error:
-          type: string
-        message:
-          type: string
-      type: object
-    generatedPredefinedMetric:
-      properties:
-        metricName:
-          $ref: '#/components/schemas/generatedPredefinedMetricName'
-      type: object
+    generatedExternalMonitorType:
+      default: EXTERNAL_MONITOR_TYPE_UNDEFINED
+      enum:
+      - EXTERNAL_MONITOR_TYPE_UNDEFINED
+      - EXTERNAL_MONITOR_TYPE_DBT_TEST
+      type: string
     generatedDataNodeType:
       default: DATA_NODE_TYPE_UNSPECIFIED
       description: " - DATA_NODE_TYPE_MC_STRATEGY_FOLDER: STRATEGY Formerly known as MicroStrategy\n - DATA_NODE_TYPE_AI_AGENT_SNOWFLAKE_INTELLIGENCE: AI_AGENT prefix: AI agents surfaced on the lineage graph.\nDeprecated: use the platform-agnostic DATA_NODE_TYPE_AI_AGENT instead."
@@ -405,186 +441,16 @@ components:
       - ISSUE_PRIORITY_MED
       - ISSUE_PRIORITY_HIGH
       type: string
-    generatedPredefinedMetricName:
-      default: UNDEFINED_PREDEFINED_METRIC_NAME
+    generatedMetricStatus:
+      default: METRIC_STATUS_UNSPECIFIED
       enum:
-      - UNDEFINED_PREDEFINED_METRIC_NAME
-      - PERCENT_NULL
-      - COUNT_NULL
-      - PERCENT_EMPTY_STRING
-      - COUNT_EMPTY_STRING
-      - PERCENT_UNIQUE
-      - PERCENT_VALUE_IN_LIST
-      - AVERAGE
-      - MIN
-      - MAX
-      - SUM
-      - COUNT_ROWS
-      - COUNT_DISTINCT
-      - HOURS_SINCE_MAX_DATE
-      - HOURS_SINCE_MAX_TIMESTAMP
-      - COUNT_TRUE
-      - PERCENT_TRUE
-      - COUNT_FALSE
-      - PERCENT_FALSE
-      - COUNT_USA_PHONE
-      - PERCENT_USA_PHONE
-      - COUNT_USA_ZIP_CODE
-      - PERCENT_USA_ZIP_CODE
-      - PERCENT_UUID
-      - COUNT_TIMESTAMP_STRING
-      - PERCENT_TIMESTAMP_STRING
-      - COUNT_DUPLICATES
-      - COUNT_USA_STATE_CODE
-      - PERCENT_USA_STATE_CODE
-      - VARIANCE
-      - SKEW
-      - KURTOSIS
-      - GEOMETRIC_MEAN
-      - HARMONIC_MEAN
-      - COUNT_UUID
-      - COUNT_CUSIP
-      - PERCENT_CUSIP
-      - COUNT_SEDOL
-      - PERCENT_SEDOL
-      - COUNT_ISIN
-      - PERCENT_ISIN
-      - COUNT_LEI
-      - PERCENT_LEI
-      - COUNT_FIGI
-      - PERCENT_FIGI
-      - COUNT_PERM_ID
-      - PERCENT_PERM_ID
-      - COUNT_NAN
-      - PERCENT_NAN
-      - COUNT_LONGITUDE
-      - PERCENT_LONGITUDE
-      - COUNT_LATITUDE
-      - PERCENT_LATITUDE
-      - COUNT_NOT_IN_FUTURE
-      - PERCENT_NOT_IN_FUTURE
-      - COUNT_DATE_NOT_IN_FUTURE
-      - PERCENT_DATE_NOT_IN_FUTURE
-      - MEDIAN
-      - PERCENTILE
-      - COUNT_NOT_NULL
-      - STRING_LENGTH_AVERAGE
-      - STRING_LENGTH_MIN
-      - STRING_LENGTH_MAX
-      - COUNT_SSN
-      - PERCENT_SSN
-      - COUNT_EMAIL
-      - PERCENT_EMAIL
-      - ROWS_INSERTED
-      - HOURS_SINCE_LAST_LOAD
-      - COUNT_READ_QUERIES
-      - PERCENT_NOT_NULL
-      - FRESHNESS
-      - VOLUME
-      - FRESHNESS_DATA
-      - VOLUME_DATA
-      - COUNT_VALUE_IN_LIST
-      - PERCENT_DISTINCT
-      - PERCENT_DUPLICATES
-      - HOURS_SINCE_MAX_STRING
+      - METRIC_STATUS_UNSPECIFIED
+      - METRIC_STATUS_ALERTING
+      - METRIC_STATUS_FAILED
+      - METRIC_STATUS_HEALTHY
+      - METRIC_STATUS_NO_OBSERVED_VALUE
+      - METRIC_STATUS_GROUPS_MIXED_STATUS
       type: string
-    generatedAggregateField:
-      default: AGGREGATE_FIELD_UNSPECIFIED
-      enum:
-      - AGGREGATE_FIELD_UNSPECIFIED
-      - AGGREGATE_FIELD_WAREHOUSES
-      - AGGREGATE_FIELD_SCHEMAS
-      - AGGREGATE_FIELD_TABLES
-      - AGGREGATE_FIELD_COLUMNS
-      - AGGREGATE_FIELD_METRICS
-      - AGGREGATE_FIELD_METRICS_ALERTING
-      - AGGREGATE_FIELD_METRICS_FAILED
-      - AGGREGATE_FIELD_METRICS_MUTED
-      - AGGREGATE_FIELD_METRICS_HEALTHY
-      - AGGREGATE_FIELD_GROUP_METRIC_STATUS
-      - AGGREGATE_FIELD_ALERTS
-      - AGGREGATE_FIELD_ISSUES
-      - AGGREGATE_FIELD_INTEGRATIONS
-      - AGGREGATE_FIELD_BI_TOOLS
-      - AGGREGATE_FIELD_ETL_TOOLS
-      - AGGREGATE_FIELD_CUSTOM_RULES
-      - AGGREGATE_FIELD_ISSUE_TYPE
-      - AGGREGATE_FIELD_IS_ROOT_CAUSE
-      - AGGREGATE_FIELD_LINKED_METRICS
-      - AGGREGATE_FIELD_LINKED_CUSTOM_RULES
-      - AGGREGATE_FIELD_DIMENSION
-      - AGGREGATE_FIELD_CHILD_ENTITIES
-      - AGGREGATE_FIELD_SCAN_JOBS
-      - AGGREGATE_FIELD_CLASSIFIERS
-      - AGGREGATE_FIELD_DATA_CLASSES
-      - AGGREGATE_FIELD_SCAN_RUNS
-      - AGGREGATE_FIELD_SNAPSHOT_FINDINGS
-      - AGGREGATE_FIELD_AGGREGATE_FINDINGS
-      - AGGREGATE_FIELD_MONITORS
-      - AGGREGATE_FIELD_SENSITIVE_COLUMNS
-      type: string
-    generatedCustomRuleType:
-      default: CUSTOM_RULE_TYPE_UNSPECIFIED
-      enum:
-      - CUSTOM_RULE_TYPE_UNSPECIFIED
-      - CUSTOM_RULE_TYPE_SQL_RULE
-      - CUSTOM_RULE_TYPE_JOIN_RULE
-      type: string
-    generatedIssueStatus:
-      default: ISSUE_STATUS_UNSPECIFIED
-      enum:
-      - ISSUE_STATUS_UNSPECIFIED
-      - ISSUE_STATUS_NEW
-      - ISSUE_STATUS_ACKNOWLEDGED
-      - ISSUE_STATUS_CLOSED
-      - ISSUE_STATUS_MONITORING
-      - ISSUE_STATUS_MERGED
-      type: string
-    generatedMetricCategory:
-      default: METRIC_CATEGORY_UNSPECIFIED
-      enum:
-      - METRIC_CATEGORY_UNSPECIFIED
-      - METRIC_CATEGORY_PIPELINE_RELIABILITY
-      - METRIC_CATEGORY_UNIQUENESS
-      - METRIC_CATEGORY_COMPLETENESS
-      - METRIC_CATEGORY_DISTRIBUTIONS
-      - METRIC_CATEGORY_VALIDITY
-      - METRIC_CATEGORY_CUSTOM
-      title: 'Note: The enum order is also the sorting order when sorting issues by metric category'
-      type: string
-    generatedGetCountsRequest:
-      properties:
-        excludeZeros:
-          type: boolean
-        queries:
-          items:
-            $ref: '#/components/schemas/generatedCountsQuery'
-          type: array
-      type: object
-    generatedIssueType:
-      default: ISSUE_TYPE_UNSPECIFIED
-      enum:
-      - ISSUE_TYPE_UNSPECIFIED
-      - ISSUE_TYPE_ISSUE
-      - ISSUE_TYPE_INCIDENT
-      type: string
-    generatedTemplateMetric:
-      properties:
-        aggregationType:
-          $ref: '#/components/schemas/generatedAggregationType'
-        templateId:
-          format: int32
-          type: integer
-        templateName:
-          type: string
-      type: object
-    generatedGetCountsResponse:
-      properties:
-        queryResults:
-          items:
-            $ref: '#/components/schemas/generatedCountsQueryResult'
-          type: array
-      type: object
     generatedGroupByEntityType:
       default: GROUP_BY_ENTITY_TYPE_UNSPECIFIED
       enum:
@@ -612,6 +478,140 @@ components:
       - GROUP_BY_ENTITY_TYPE_DATA_CLASS
       - GROUP_BY_ENTITY_TYPE_CLASSIFIER
       - GROUP_BY_ENTITY_TYPE_DATA_CLASS_CATEGORY
+      type: string
+    generatedCatalogEntityPathElement:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int64
+          type: string
+        type:
+          $ref: '#/components/schemas/generatedDataNodeType'
+      type: object
+    generatedAggregationType:
+      default: UNDEFINED_AGGREGATION_TYPE
+      enum:
+      - UNDEFINED_AGGREGATION_TYPE
+      - COUNT_AGGREGATION_TYPE
+      - PERCENT_AGGREGATION_TYPE
+      - MIN_AGGREGATION_TYPE
+      - MAX_AGGREGATION_TYPE
+      - AVG_AGGREGATION_TYPE
+      - SUM_AGGREGATION_TYPE
+      type: string
+    generatedCountsQueryResult:
+      properties:
+        catalogEntity:
+          $ref: '#/components/schemas/generatedCatalogEntityPathElement'
+        classifierId:
+          format: int64
+          type: string
+        columnId:
+          format: int32
+          type: integer
+        countsForFields:
+          items:
+            $ref: '#/components/schemas/generatedCountForField'
+          type: array
+        dataClassCategoryId:
+          format: int64
+          type: string
+        dataClassId:
+          format: int64
+          type: string
+        dimensionId:
+          format: int32
+          type: integer
+        entity:
+          $ref: '#/components/schemas/generatedIdAndDisplayName'
+        isRootCause:
+          type: boolean
+        issuePriority:
+          $ref: '#/components/schemas/generatedIssuePriority'
+        issueStatus:
+          $ref: '#/components/schemas/generatedIssueStatus'
+        issueType:
+          $ref: '#/components/schemas/generatedIssueType'
+        metricCategory:
+          $ref: '#/components/schemas/generatedMetricCategory'
+        metricRunLabel:
+          $ref: '#/components/schemas/generatedMetricRunLabel'
+        metricStatus:
+          $ref: '#/components/schemas/generatedMetricStatus'
+        metricType:
+          $ref: '#/components/schemas/generatedMetricType'
+        monitorType:
+          $ref: '#/components/schemas/generatedMonitorType'
+        ownerId:
+          format: int32
+          type: integer
+        scanJobId:
+          format: int64
+          type: string
+        scheduleId:
+          format: int32
+          type: integer
+        schemaId:
+          format: int32
+          type: integer
+        schemaName:
+          type: string
+        slaId:
+          format: int32
+          type: integer
+        tableId:
+          format: int32
+          type: integer
+        warehouseId:
+          format: int32
+          type: integer
+      type: object
+    generatedIssueType:
+      default: ISSUE_TYPE_UNSPECIFIED
+      enum:
+      - ISSUE_TYPE_UNSPECIFIED
+      - ISSUE_TYPE_ISSUE
+      - ISSUE_TYPE_INCIDENT
+      type: string
+    generatedIdAndDisplayName:
+      properties:
+        displayName:
+          type: string
+        id:
+          format: int32
+          type: integer
+      type: object
+    generatedTemplateMetric:
+      properties:
+        aggregationType:
+          $ref: '#/components/schemas/generatedAggregationType'
+        templateId:
+          format: int32
+          type: integer
+        templateName:
+          type: string
+      type: object
+    runtimeError:
+      properties:
+        code:
+          format: int32
+          type: integer
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+        error:
+          type: string
+        message:
+          type: string
+      type: object
+    generatedCustomRuleType:
+      default: CUSTOM_RULE_TYPE_UNSPECIFIED
+      enum:
+      - CUSTOM_RULE_TYPE_UNSPECIFIED
+      - CUSTOM_RULE_TYPE_SQL_RULE
+      - CUSTOM_RULE_TYPE_JOIN_RULE
       type: string
   securitySchemes:
     basicAuth:
