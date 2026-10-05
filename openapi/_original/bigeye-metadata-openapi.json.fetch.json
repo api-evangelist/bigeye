@@ -1,0 +1,12 @@
+{
+ "url": "https://docs.bigeye.com/openapi/metadata.json",
+ "requested_url": "https://docs.bigeye.com/openapi/metadata.json",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 216227,
+ "sha256": "b2a744030947e919de767e13d7a5e71cea1f19c91951acbc6141f0cc859d999f",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.993), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
