@@ -1,19 +1,40 @@
-generated: '2026-08-02'
+generated: '2026-09-23'
 method: generated
-source: openapi/bigeye-metadata-openapi.json, openapi/bigeye-observability-openapi.json, openapi/bigeye-sensitivity-openapi.json
+source: openapi/bigeye-agentservice-api-openapi.yml, openapi/bigeye-api-key-service-api-openapi.yml,
+  openapi/bigeye-catalogrebuildsservice-api-openapi.yml, openapi/bigeye-classifierservice-api-openapi.yml,
+  openapi/bigeye-collectionservice-api-openapi.yml, openapi/bigeye-collectionv2service-api-openapi.yml,
+  openapi/bigeye-columnservice-api-openapi.yml, openapi/bigeye-companyservice-api-openapi.yml,
+  openapi/bigeye-comparisontableservice-api-openapi.yml, openapi/bigeye-configservice-api-openapi.yml,
+  openapi/bigeye-customruleservice-api-openapi.yml, openapi/bigeye-dashboardservice-api-openapi.yml,
+  openapi/bigeye-dataclasscategoryservice-api-openapi.yml, openapi/bigeye-dataclassservice-api-openapi.yml,
+  openapi/bigeye-deltaservice-api-openapi.yml, openapi/bigeye-dimensionservice-api-openapi.yml,
+  openapi/bigeye-favoriteservice-api-openapi.yml, openapi/bigeye-groupservice-api-openapi.yml,
+  openapi/bigeye-integrationservice-api-openapi.yml, openapi/bigeye-issueservice-api-openapi.yml,
+  openapi/bigeye-joinservice-api-openapi.yml, openapi/bigeye-lineageservice-api-openapi.yml,
+  openapi/bigeye-lineagev2service-api-openapi.yml, openapi/bigeye-metricobservedcolumnservice-api-openapi.yml,
+  openapi/bigeye-metricservice-api-openapi.yml, openapi/bigeye-metrictemplateservice-api-openapi.yml,
+  openapi/bigeye-namedscheduleservice-api-openapi.yml, openapi/bigeye-objectownerservice-api-openapi.yml,
+  openapi/bigeye-query-service-api-openapi.yml, openapi/bigeye-roleservice-api-openapi.yml,
+  openapi/bigeye-scanjobservice-api-openapi.yml, openapi/bigeye-scanrunservice-api-openapi.yml,
+  openapi/bigeye-schemachangeservice-api-openapi.yml, openapi/bigeye-schemaservice-api-openapi.yml,
+  openapi/bigeye-search-service-api-openapi.yml, openapi/bigeye-serviceaccountapikeyservice-api-openapi.yml,
+  openapi/bigeye-sourceservice-api-openapi.yml, openapi/bigeye-tableservice-api-openapi.yml,
+  openapi/bigeye-tagservice-api-openapi.yml, openapi/bigeye-userservice-api-openapi.yml, openapi/bigeye-virtualtableservice-api-openapi.yml,
+  openapi/bigeye-workflowservice-api-openapi.yml, openapi/bigeye-workflowv2service-api-openapi.yml,
+  openapi/bigeye-workspaceservice-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 263
   by_action_class:
-    connected: 105
-    acting: 158
+    connected: 130
+    acting: 133
   by_consequence:
-    read: 105
-    write: 147
-    physical: 6
+    read: 130
+    write: 123
     safety-critical: 5
+    physical: 5
   human_in_the_loop_required: 5
 operations:
 - path: /api/v1/agent/public-key/bigeye
@@ -150,22 +171,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/personal-api-keys
-  method: post
-  operationId: ServiceAccountApiKeyService_CreateServiceAccountApiKey
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /api/v1/agent-api-keys/verify
   method: get
   operationId: ApiKeyService_VerifyAgentApiKey
@@ -234,6 +239,240 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /api/v1/sds/classifier
+  method: post
+  operationId: ClassifierService_CreateClassifier
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/classifier/fetch
+  method: post
+  operationId: ClassifierService_FetchClassifiers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/classifier/{id}
+  method: delete
+  operationId: ClassifierService_DeleteClassifier
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/classifier/{id}
+  method: get
+  operationId: ClassifierService_GetClassifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/sds/classifier/{id}
+  method: put
+  operationId: ClassifierService_UpdateClassifier
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/classifier/machine-learning-detectors
+  method: post
+  operationId: ClassifierService_GetMachineLearningDetectors
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/sds/classifier/{id}/reset
+  method: put
+  operationId: ClassifierService_ResetClassifier
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/sds/classifier/test-detector
+  method: post
+  operationId: ClassifierService_TestDetector
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/collections/{collectionId}
+  method: delete
+  operationId: CollectionService_DeleteCollection
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/collections/{collectionId}
+  method: get
+  operationId: CollectionService_GetCollection
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/collections/{collectionId}
+  method: put
+  operationId: CollectionService_EditCollection
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/collections/info/{collectionId}
+  method: get
+  operationId: CollectionService_GetCollectionInfo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/collections/info
+  method: get
+  operationId: CollectionService_GetCollectionInfos
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/collections
+  method: get
+  operationId: CollectionService_GetCollections
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/collections
+  method: post
+  operationId: CollectionService_CreateCollection
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/collections/info/fetch
+  method: post
+  operationId: CollectionV2Service_FetchCollectionInfosV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/collections/info/{collectionId}
+  method: get
+  operationId: CollectionV2Service_GetCollectionInfoV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/collections/info
+  method: get
+  operationId: CollectionV2Service_GetCollectionInfosV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/columns/{columnId}/applicable-metric-types
   method: get
   operationId: ColumnService_GetColumnApplicableMetricTypes
@@ -248,18 +487,12 @@ operations:
   method: post
   operationId: ColumnService_GetColumns
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/columns
   method: get
   operationId: ColumnService_GetSpecifiedColumns
@@ -286,9 +519,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/v1/configs/fetch
+- path: /api/v1/metrics/comparisons/tables
   method: post
-  operationId: ConfigService_GetConfigs
+  operationId: ComparisonTableService_CreateComparisonTable
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -302,9 +535,193 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /api/v1/metrics/comparisons/tables/{comparisonTableId}
+  method: delete
+  operationId: ComparisonTableService_DeleteComparisonTable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metrics/comparisons/tables/{comparisonTableId}
+  method: get
+  operationId: ComparisonTableService_GetComparisonTable
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/comparisons/tables/info
+  method: post
+  operationId: ComparisonTableService_GetComparisonTableInfos
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/tables/{tableId}/delta-applicable-metric-types
+  method: get
+  operationId: ComparisonTableService_GetDeltaApplicableMetricTypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/comparisons/metrics/{comparisonMetricId}/groups/info
+  method: get
+  operationId: ComparisonTableService_GetTableComparisonMetricGroupInfo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/comparisons/tables/run/{comparisonTableId}
+  method: get
+  operationId: ComparisonTableService_RunComparisonTable
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/configs/fetch
+  method: post
+  operationId: ConfigService_GetConfigs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/configs
   method: put
   operationId: ConfigService_UpdateConfigs
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/custom-rules
+  method: post
+  operationId: CustomRuleService_CreateCustomRule
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/custom-rules/{customRuleId}
+  method: delete
+  operationId: CustomRuleService_DeleteCustomRule
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/custom-rules/{customRuleId}
+  method: get
+  operationId: CustomRuleService_GetCustomRule
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/custom-rules/{customRuleId}/revisions
+  method: get
+  operationId: CustomRuleService_GetCustomRuleRevisions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/custom-rules/fetch
+  method: post
+  operationId: CustomRuleService_GetCustomRules
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/custom-rules/collection/{collectionId}
+  method: get
+  operationId: CustomRuleService_GetCustomRulesForCollection
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/custom-rules/warehouse/{warehouseId}
+  method: get
+  operationId: CustomRuleService_GetCustomRulesForWarehouse
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/custom-rules/run/{customRuleId}
+  method: get
+  operationId: CustomRuleService_RunCustomRule
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/custom-rules/{id}
+  method: put
+  operationId: CustomRuleService_UpdateCustomRule
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -337,6 +754,300 @@ operations:
 - path: /api/v1/dashboard/calculate-data-points-request
   method: post
   operationId: DashboardService_GetDashboardDataSeries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/sds/data-class-category/fetch
+  method: post
+  operationId: DataClassCategoryService_FetchDataClassCategories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/sds/data-class
+  method: post
+  operationId: DataClassService_CreateDataClass
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/data-class/fetch
+  method: post
+  operationId: DataClassService_FetchDataClasses
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/data-class/{id}
+  method: delete
+  operationId: DataClassService_DeleteDataClass
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/data-class/{id}
+  method: get
+  operationId: DataClassService_GetDataClass
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/sds/data-class/{id}
+  method: put
+  operationId: DataClassService_UpdateDataClass
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/data-class/{id}/reset
+  method: put
+  operationId: DataClassService_ResetDataClass
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/deltas/bulk
+  method: put
+  operationId: DeltaService_BulkOperationDeltas
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/deltas
+  method: post
+  operationId: DeltaService_CreateDelta
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/deltas
+  method: put
+  operationId: DeltaService_EditDelta
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/deltas/fetch
+  method: post
+  operationId: DeltaService_FetchDeltas
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/deltas/{deltaId}
+  method: delete
+  operationId: DeltaService_DeleteDelta
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/deltas/{deltaId}
+  method: get
+  operationId: DeltaService_GetDelta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/deltas/run/{deltaId}
+  method: get
+  operationId: DeltaService_RunDelta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/dimensions/bulk
+  method: post
+  operationId: DimensionService_BulkUpdateDimensions
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/dimensions/{dimensionId}
+  method: delete
+  operationId: DimensionService_DeleteDimension
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/dimensions/{dimensionId}
+  method: put
+  operationId: DimensionService_UpdateDimension
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/dimension/{dimensionId}
+  method: get
+  operationId: DimensionService_GetDimension
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/dimensions
+  method: get
+  operationId: DimensionService_GetDimensions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/dimensions
+  method: post
+  operationId: DimensionService_CreateDimension
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/dimensions/assign-statistic
+  method: post
+  operationId: DimensionService_SetStatDimension
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -642,6 +1353,152 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /api/v1/issues/batch
+  method: put
+  operationId: IssueService_BatchUpdateIssues
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/issues/bulk
+  method: put
+  operationId: IssueService_BulkUpdateIssues
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/issues/{issueId}
+  method: get
+  operationId: IssueService_GetIssue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/issues/{issueId}
+  method: put
+  operationId: IssueService_UpdateIssue
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/issues/fetch
+  method: post
+  operationId: IssueService_GetIssues
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/issues/tables/fetch
+  method: post
+  operationId: IssueService_GetTableIssues
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/joins
+  method: post
+  operationId: JoinService_CreateJoin
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/joins/{joinId}
+  method: delete
+  operationId: JoinService_DeleteJoin
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/joins/{joinId}
+  method: get
+  operationId: JoinService_GetJoin
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/joins/{joinId}
+  method: put
+  operationId: JoinService_UpdateJoin
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/joins/fetch
+  method: post
+  operationId: JoinService_GetJoins
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/lineage/nodes
   method: post
   operationId: LineageService_CreateDataNode
@@ -706,18 +1563,12 @@ operations:
   method: post
   operationId: LineageService_GetDownstreamDataNodes
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/lineage/relationships/{lineageRelationshipId}
   method: delete
   operationId: LineageService_DeleteLineageRelationship
@@ -932,6 +1783,438 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+- path: /api/v1/metric-observed-column/metric/{metricId}/backfill
+  method: post
+  operationId: MetricObservedColumnService_BackfillMetricObservedColumns
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metric-observed-column
+  method: post
+  operationId: MetricObservedColumnService_CreateMetricObservedColumn
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metric-observed-column/delete
+  method: post
+  operationId: MetricObservedColumnService_DeleteMetricObservedColumn
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metric-observed-column/bulk-list
+  method: post
+  operationId: MetricObservedColumnService_GetMetricObservedColumnsBulk
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metric-observed-column/column/{columnId}
+  method: get
+  operationId: MetricObservedColumnService_GetMetricObservedColumnsForColumn
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metric-observed-column/metric/{metricId}
+  method: get
+  operationId: MetricObservedColumnService_GetMetricObservedColumnsForMetric
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metric-observed-column/metric/{metricId}/suggested
+  method: get
+  operationId: MetricObservedColumnService_GetSuggestedColumnsForMetric
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/batch
+  method: put
+  operationId: MetricService_BatchEditMetrics
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metrics/bulk
+  method: put
+  operationId: MetricService_BulkUpdateMetrics
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metrics/comparisons/bulk
+  method: put
+  operationId: MetricService_BulkUpdatesDeltas
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metrics/{metricId}/debug/preview
+  method: get
+  operationId: MetricService_GetDebugPreview
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/{metricId}/debug/queries
+  method: get
+  operationId: MetricService_GetDebugQueries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/metadata-metric-names
+  method: get
+  operationId: MetricService_GetMetadataMetricNames
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/{metricId}
+  method: delete
+  operationId: MetricService_DeleteMetric
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metrics/{metricId}
+  method: get
+  operationId: MetricService_GetMetricConfiguration
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/info/{metricId}
+  method: get
+  operationId: MetricService_GetMetricInfo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/info
+  method: get
+  operationId: MetricService_GetMetricInfoBatch
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/info
+  method: post
+  operationId: MetricService_GetMetricInfoBatchPost
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/runs
+  method: post
+  operationId: MetricService_GetMetricRuns
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/count
+  method: get
+  operationId: MetricService_GetMetricsCount
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/{metricId}/revisions
+  method: get
+  operationId: MetricService_GetRevisions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/scorecard
+  method: post
+  operationId: MetricService_GetScorecard
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/table-level-metric-names
+  method: get
+  operationId: MetricService_GetTableLevelMetricNames
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/run/{metricId}
+  method: get
+  operationId: MetricService_RunMetric
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/run/batch
+  method: post
+  operationId: MetricService_RunMetricBatch
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metrics/run/batch/queue
+  method: post
+  operationId: MetricService_RunMetricBatchQueue
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metrics/backfill
+  method: get
+  operationId: MetricService_SearchMetricBackfill
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics/backfill
+  method: post
+  operationId: MetricService_BackfillMetric
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metrics
+  method: get
+  operationId: MetricService_SearchMetricConfiguration
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metrics
+  method: post
+  operationId: MetricService_CreateMetric
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metrics/validation
+  method: get
+  operationId: MetricService_ValidateMetric
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metric-templates
+  method: post
+  operationId: MetricTemplateService_CreateMetricTemplate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metric-templates/{metricTemplateId}
+  method: delete
+  operationId: MetricTemplateService_DeleteMetricTemplate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/metric-templates/{metricTemplateId}
+  method: get
+  operationId: MetricTemplateService_GetMetricTemplate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/metric-templates/fetch
+  method: post
+  operationId: MetricTemplateService_GetMetricTemplates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/schedules/{scheduleId}
   method: delete
   operationId: NamedScheduleService_DeleteNamedSchedule
@@ -1030,18 +2313,12 @@ operations:
   method: post
   operationId: QueryService_GetCountsBatchPost
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/roles
   method: get
   operationId: RoleService_GetAllRoles
@@ -1120,6 +2397,232 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /api/v1/sds/scan-job/{id}/cancel
+  method: post
+  operationId: ScanJobService_CancelScanJob
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/scan-job
+  method: post
+  operationId: ScanJobService_CreateScanJob
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/scan-job/fetch
+  method: post
+  operationId: ScanJobService_FetchScanJobs
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/scan-job/findings/aggregate
+  method: post
+  operationId: ScanJobService_GetAggregateFindings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/sds/scan-job/{id}
+  method: delete
+  operationId: ScanJobService_DeleteScanJob
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/scan-job/{id}
+  method: get
+  operationId: ScanJobService_GetScanJob
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/sds/scan-job/{id}
+  method: put
+  operationId: ScanJobService_UpdateScanJob
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/scan-job/{id}/status
+  method: get
+  operationId: ScanJobService_GetScanJobStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/sds/scan-job/findings/snapshot
+  method: post
+  operationId: ScanJobService_GetSnapshotFindings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/sds/scan-job/reset-scan
+  method: put
+  operationId: ScanJobService_ResetScan
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/sds/scan-job/{id}/retry
+  method: put
+  operationId: ScanJobService_RetryScanJob
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/scan-job/{id}/run
+  method: post
+  operationId: ScanJobService_RunScanJob
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/scan-job/{id}/partition-columns
+  method: put
+  operationId: ScanJobService_SetPartitionColumns
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/scan-job/{id}/terminate
+  method: post
+  operationId: ScanJobService_TerminateScanJob
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v1/sds/scan-run/fetch
+  method: post
+  operationId: ScanRunService_FetchScanRuns
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sds/scan-run/{id}
+  method: get
+  operationId: ScanRunService_GetScanRun
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/schema-changes/fetch
   method: post
   operationId: SchemaChangeService_GetSchemaChanges
@@ -1212,18 +2715,12 @@ operations:
   method: post
   operationId: SchemaService_GetSchemas
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/schemas
   method: get
   operationId: SchemaService_SearchSchemas
@@ -1237,6 +2734,16 @@ operations:
 - path: /api/v1/search
   method: post
   operationId: SearchService_Search
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/personal-api-keys
+  method: post
+  operationId: ServiceAccountApiKeyService_CreateServiceAccountApiKey
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1352,18 +2859,12 @@ operations:
   method: post
   operationId: SourceService_GetSources
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/sources/metadata-schemas
   method: post
   operationId: SourceService_SetMetadataSchemas
@@ -1470,18 +2971,12 @@ operations:
   method: post
   operationId: TableService_GetTables
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/tables
   method: get
   operationId: TableService_SearchTables
@@ -1822,18 +3317,12 @@ operations:
   method: post
   operationId: VirtualTableService_GetVirtualTables
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/virtual-tables/queue
   method: post
   operationId: VirtualTableService_QueueCreateVirtualTable
@@ -1986,1623 +3475,3 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/v1/collections/{collectionId}
-  method: delete
-  operationId: CollectionService_DeleteCollection
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/collections/{collectionId}
-  method: get
-  operationId: CollectionService_GetCollection
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/collections/{collectionId}
-  method: put
-  operationId: CollectionService_EditCollection
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/collections/info/{collectionId}
-  method: get
-  operationId: CollectionService_GetCollectionInfo
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/collections/info
-  method: get
-  operationId: CollectionService_GetCollectionInfos
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/collections
-  method: get
-  operationId: CollectionService_GetCollections
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/collections
-  method: post
-  operationId: CollectionService_CreateCollection
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v2/collections/info/fetch
-  method: post
-  operationId: CollectionV2Service_FetchCollectionInfosV2
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v2/collections/info/{collectionId}
-  method: get
-  operationId: CollectionV2Service_GetCollectionInfoV2
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v2/collections/info
-  method: get
-  operationId: CollectionV2Service_GetCollectionInfosV2
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/comparisons/tables
-  method: post
-  operationId: ComparisonTableService_CreateComparisonTable
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics/comparisons/tables/{comparisonTableId}
-  method: delete
-  operationId: ComparisonTableService_DeleteComparisonTable
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics/comparisons/tables/{comparisonTableId}
-  method: get
-  operationId: ComparisonTableService_GetComparisonTable
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/comparisons/tables/info
-  method: post
-  operationId: ComparisonTableService_GetComparisonTableInfos
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/tables/{tableId}/delta-applicable-metric-types
-  method: get
-  operationId: ComparisonTableService_GetDeltaApplicableMetricTypes
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/comparisons/metrics/{comparisonMetricId}/groups/info
-  method: get
-  operationId: ComparisonTableService_GetTableComparisonMetricGroupInfo
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/comparisons/tables/run/{comparisonTableId}
-  method: get
-  operationId: ComparisonTableService_RunComparisonTable
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/custom-rules
-  method: post
-  operationId: CustomRuleService_CreateCustomRule
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/custom-rules/{customRuleId}
-  method: delete
-  operationId: CustomRuleService_DeleteCustomRule
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/custom-rules/{customRuleId}
-  method: get
-  operationId: CustomRuleService_GetCustomRule
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/custom-rules/{customRuleId}/revisions
-  method: get
-  operationId: CustomRuleService_GetCustomRuleRevisions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/custom-rules/fetch
-  method: post
-  operationId: CustomRuleService_GetCustomRules
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/custom-rules/collection/{collectionId}
-  method: get
-  operationId: CustomRuleService_GetCustomRulesForCollection
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/custom-rules/warehouse/{warehouseId}
-  method: get
-  operationId: CustomRuleService_GetCustomRulesForWarehouse
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/custom-rules/run/{customRuleId}
-  method: get
-  operationId: CustomRuleService_RunCustomRule
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/custom-rules/{id}
-  method: put
-  operationId: CustomRuleService_UpdateCustomRule
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/deltas/bulk
-  method: put
-  operationId: DeltaService_BulkOperationDeltas
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/deltas
-  method: post
-  operationId: DeltaService_CreateDelta
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/deltas
-  method: put
-  operationId: DeltaService_EditDelta
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/deltas/fetch
-  method: post
-  operationId: DeltaService_FetchDeltas
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/deltas/{deltaId}
-  method: delete
-  operationId: DeltaService_DeleteDelta
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/deltas/{deltaId}
-  method: get
-  operationId: DeltaService_GetDelta
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/deltas/run/{deltaId}
-  method: get
-  operationId: DeltaService_RunDelta
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/dimensions/bulk
-  method: post
-  operationId: DimensionService_BulkUpdateDimensions
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/dimensions/{dimensionId}
-  method: delete
-  operationId: DimensionService_DeleteDimension
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/dimensions/{dimensionId}
-  method: put
-  operationId: DimensionService_UpdateDimension
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/dimension/{dimensionId}
-  method: get
-  operationId: DimensionService_GetDimension
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/dimensions
-  method: get
-  operationId: DimensionService_GetDimensions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/dimensions
-  method: post
-  operationId: DimensionService_CreateDimension
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/dimensions/assign-statistic
-  method: post
-  operationId: DimensionService_SetStatDimension
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/issues/batch
-  method: put
-  operationId: IssueService_BatchUpdateIssues
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/issues/bulk
-  method: put
-  operationId: IssueService_BulkUpdateIssues
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/issues/{issueId}
-  method: get
-  operationId: IssueService_GetIssue
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/issues/{issueId}
-  method: put
-  operationId: IssueService_UpdateIssue
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/issues/fetch
-  method: post
-  operationId: IssueService_GetIssues
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/issues/tables/fetch
-  method: post
-  operationId: IssueService_GetTableIssues
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/joins
-  method: post
-  operationId: JoinService_CreateJoin
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/joins/{joinId}
-  method: delete
-  operationId: JoinService_DeleteJoin
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/joins/{joinId}
-  method: get
-  operationId: JoinService_GetJoin
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/joins/{joinId}
-  method: put
-  operationId: JoinService_UpdateJoin
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/joins/fetch
-  method: post
-  operationId: JoinService_GetJoins
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metric-observed-column/metric/{metricId}/backfill
-  method: post
-  operationId: MetricObservedColumnService_BackfillMetricObservedColumns
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metric-observed-column
-  method: post
-  operationId: MetricObservedColumnService_CreateMetricObservedColumn
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metric-observed-column/delete
-  method: post
-  operationId: MetricObservedColumnService_DeleteMetricObservedColumn
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metric-observed-column/bulk-list
-  method: post
-  operationId: MetricObservedColumnService_GetMetricObservedColumnsBulk
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metric-observed-column/column/{columnId}
-  method: get
-  operationId: MetricObservedColumnService_GetMetricObservedColumnsForColumn
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metric-observed-column/metric/{metricId}
-  method: get
-  operationId: MetricObservedColumnService_GetMetricObservedColumnsForMetric
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metric-observed-column/metric/{metricId}/suggested
-  method: get
-  operationId: MetricObservedColumnService_GetSuggestedColumnsForMetric
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/batch
-  method: put
-  operationId: MetricService_BatchEditMetrics
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics/bulk
-  method: put
-  operationId: MetricService_BulkUpdateMetrics
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics/comparisons/bulk
-  method: put
-  operationId: MetricService_BulkUpdatesDeltas
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics/{metricId}/debug/preview
-  method: get
-  operationId: MetricService_GetDebugPreview
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/{metricId}/debug/queries
-  method: get
-  operationId: MetricService_GetDebugQueries
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/metadata-metric-names
-  method: get
-  operationId: MetricService_GetMetadataMetricNames
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/{metricId}
-  method: delete
-  operationId: MetricService_DeleteMetric
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics/{metricId}
-  method: get
-  operationId: MetricService_GetMetricConfiguration
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/info/{metricId}
-  method: get
-  operationId: MetricService_GetMetricInfo
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/info
-  method: get
-  operationId: MetricService_GetMetricInfoBatch
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/info
-  method: post
-  operationId: MetricService_GetMetricInfoBatchPost
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics/runs
-  method: post
-  operationId: MetricService_GetMetricRuns
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics/count
-  method: get
-  operationId: MetricService_GetMetricsCount
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/{metricId}/revisions
-  method: get
-  operationId: MetricService_GetRevisions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/scorecard
-  method: post
-  operationId: MetricService_GetScorecard
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics/table-level-metric-names
-  method: get
-  operationId: MetricService_GetTableLevelMetricNames
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/run/{metricId}
-  method: get
-  operationId: MetricService_RunMetric
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/run/batch
-  method: post
-  operationId: MetricService_RunMetricBatch
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics/run/batch/queue
-  method: post
-  operationId: MetricService_RunMetricBatchQueue
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics/backfill
-  method: get
-  operationId: MetricService_SearchMetricBackfill
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics/backfill
-  method: post
-  operationId: MetricService_BackfillMetric
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics
-  method: get
-  operationId: MetricService_SearchMetricConfiguration
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metrics
-  method: post
-  operationId: MetricService_CreateMetric
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metrics/validation
-  method: get
-  operationId: MetricService_ValidateMetric
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metric-templates
-  method: post
-  operationId: MetricTemplateService_CreateMetricTemplate
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metric-templates/{metricTemplateId}
-  method: delete
-  operationId: MetricTemplateService_DeleteMetricTemplate
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/metric-templates/{metricTemplateId}
-  method: get
-  operationId: MetricTemplateService_GetMetricTemplate
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/metric-templates/fetch
-  method: post
-  operationId: MetricTemplateService_GetMetricTemplates
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/classifier
-  method: post
-  operationId: ClassifierService_CreateClassifier
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/classifier/fetch
-  method: post
-  operationId: ClassifierService_FetchClassifiers
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/classifier/{id}
-  method: delete
-  operationId: ClassifierService_DeleteClassifier
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/classifier/{id}
-  method: get
-  operationId: ClassifierService_GetClassifier
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/sds/classifier/{id}
-  method: put
-  operationId: ClassifierService_UpdateClassifier
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/classifier/machine-learning-detectors
-  method: post
-  operationId: ClassifierService_GetMachineLearningDetectors
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/classifier/{id}/reset
-  method: put
-  operationId: ClassifierService_ResetClassifier
-  x-agentic-access:
-    action-class: acting
-    consequence: safety-critical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 120
-      exchange: true
-      purpose-required: true
-      proof-of-possession: true
-    escalation:
-      human-in-the-loop: required
-    audit: required
-- path: /api/v1/sds/classifier/test-detector
-  method: post
-  operationId: ClassifierService_TestDetector
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/data-class-category/fetch
-  method: post
-  operationId: DataClassCategoryService_FetchDataClassCategories
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/data-class
-  method: post
-  operationId: DataClassService_CreateDataClass
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/data-class/fetch
-  method: post
-  operationId: DataClassService_FetchDataClasses
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/data-class/{id}
-  method: delete
-  operationId: DataClassService_DeleteDataClass
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/data-class/{id}
-  method: get
-  operationId: DataClassService_GetDataClass
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/sds/data-class/{id}
-  method: put
-  operationId: DataClassService_UpdateDataClass
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/data-class/{id}/reset
-  method: put
-  operationId: DataClassService_ResetDataClass
-  x-agentic-access:
-    action-class: acting
-    consequence: safety-critical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 120
-      exchange: true
-      purpose-required: true
-      proof-of-possession: true
-    escalation:
-      human-in-the-loop: required
-    audit: required
-- path: /api/v1/sds/scan-job/{id}/cancel
-  method: post
-  operationId: ScanJobService_CancelScanJob
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/scan-job
-  method: post
-  operationId: ScanJobService_CreateScanJob
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/scan-job/fetch
-  method: post
-  operationId: ScanJobService_FetchScanJobs
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/scan-job/findings/aggregate
-  method: post
-  operationId: ScanJobService_GetAggregateFindings
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/scan-job/{id}
-  method: delete
-  operationId: ScanJobService_DeleteScanJob
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/scan-job/{id}
-  method: get
-  operationId: ScanJobService_GetScanJob
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/sds/scan-job/{id}
-  method: put
-  operationId: ScanJobService_UpdateScanJob
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/scan-job/{id}/status
-  method: get
-  operationId: ScanJobService_GetScanJobStatus
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/sds/scan-job/findings/snapshot
-  method: post
-  operationId: ScanJobService_GetSnapshotFindings
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/scan-job/reset-scan
-  method: put
-  operationId: ScanJobService_ResetScan
-  x-agentic-access:
-    action-class: acting
-    consequence: safety-critical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 120
-      exchange: true
-      purpose-required: true
-      proof-of-possession: true
-    escalation:
-      human-in-the-loop: required
-    audit: required
-- path: /api/v1/sds/scan-job/{id}/retry
-  method: put
-  operationId: ScanJobService_RetryScanJob
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/scan-job/{id}/run
-  method: post
-  operationId: ScanJobService_RunScanJob
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/scan-job/{id}/partition-columns
-  method: put
-  operationId: ScanJobService_SetPartitionColumns
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/scan-job/{id}/terminate
-  method: post
-  operationId: ScanJobService_TerminateScanJob
-  x-agentic-access:
-    action-class: acting
-    consequence: safety-critical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 120
-      exchange: true
-      purpose-required: true
-      proof-of-possession: true
-    escalation:
-      human-in-the-loop: required
-    audit: required
-- path: /api/v1/sds/scan-run/fetch
-  method: post
-  operationId: ScanRunService_FetchScanRuns
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/sds/scan-run/{id}
-  method: get
-  operationId: ScanRunService_GetScanRun
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
