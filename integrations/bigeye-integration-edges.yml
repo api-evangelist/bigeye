@@ -1,0 +1,22 @@
+generated: '2026-10-13'
+method: searched
+checked:
+- https://aws.amazon.com/marketplace/
+marketplace_apps: []
+edges:
+- partner_name: AWS Marketplace
+  partner: amazon-web-services
+  partner_match: aggregator
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=f689f325-7836-41cf-b4e0-83a3dd93d4ef
+  listing_count: 2
+  apps:
+  - Bigeye
+  - Bigeye
+  seller_name: Bigeye
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
