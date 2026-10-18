@@ -2,6 +2,7 @@ generated: '2026-10-13'
 method: searched
 checked:
 - https://aws.amazon.com/marketplace/
+- slack/integrations/slack-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -20,3 +21,22 @@ edges:
   seller_name: Bigeye
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A01F0JK3UBB-bigeye
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - Bigeye
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
+source:
+- slack/integrations/slack-integration-edges.yml
