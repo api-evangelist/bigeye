@@ -3,18 +3,25 @@ method: searched
 checked:
 - https://api.nuget.org/v3
 - https://aws.amazon.com/marketplace/
-- https://cdn.winget.microsoft.com/cache
 - https://crates.io/api/v1
-- https://formulae.brew.sh/api/cask.json
-- https://formulae.brew.sh/api/formula.json
-- https://github.com/ScoopInstaller/Extras
-- https://github.com/ScoopInstaller/Main
 - https://proxy.golang.org
 - https://pypi.org/pypi
 - https://registry.npmjs.org
 - https://repo1.maven.org/maven2
 - https://rubygems.org/api/v1
 - slack/integrations/slack-integration-edges.yml
+- https://cdn.winget.microsoft.com/cache
+- https://formulae.brew.sh/api/cask.json
+- https://formulae.brew.sh/api/formula.json
+- https://github.com/ScoopInstaller/Extras
+- https://github.com/ScoopInstaller/Main
+- https://a16z.com/portfolio/
+- https://www.battery.com/company/
+- https://www.battery.com/wp-admin/admin-ajax.php
+- https://www.indexventures.com/companies/
+- https://www.sequoiacap.com/our-companies/
+- https://www.sequoiacap.com/sitemap.xml
+- atlassian/integrations/atlassian-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -33,23 +40,6 @@ edges:
   seller_name: Bigeye
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
-- partner_name: Slack (own)
-  partner: slack
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://slack.com/marketplace/A01F0JK3UBB-bigeye
-  mirror_of: slack/integrations/slack-integration-edges.yml
-  apps:
-  - Bigeye
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Slack app
 - partner_name: PyPI
   partner: pypi
   partner_match: register
@@ -128,5 +118,65 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-official-clis.py
   first_seen: '2026-10-20'
+- partner_name: Sequoia Capital
+  partner: sequoia-capital
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://sequoiacap.com/companies/bigeye
+  category: vc portfolio participation
+  contract_reference:
+    register: Sequoia Capital companies (sequoiacap.com/companies/<slug>, from the site's sitemap.xml)
+    standard: null
+    spec_file: null
+    role: vc-portfolio-company
+    registered_name: Bigeye
+    register_id: https://sequoiacap.com/companies/bigeye
+    register_country: null
+    register_website: https://www.bigeye.com/
+    matched_domain: bigeye.com
+    matched_by: domain
+    signal_note: 'participation only: the venture firm''s own published portfolio lists the company (investment);
+      an ownership and participation record, not conformance or certification'
+    detected_by: sweep-vc-portfolios.py
+    detected: '2026-10-21'
+  detected_by: sweep-vc-portfolios.py
+  first_seen: '2026-10-21'
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A01F0JK3UBB-bigeye
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - Bigeye
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
+- partner_name: Atlassian (own)
+  partner: atlassian
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.atlassian.com/vendors/1225121/bigeye
+  mirror_of: atlassian/integrations/atlassian-integration-edges.yml
+  apps:
+  - Bigeye Issues Integration
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: Custom fields
 source:
 - slack/integrations/slack-integration-edges.yml
